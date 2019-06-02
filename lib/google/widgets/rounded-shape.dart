@@ -18,32 +18,26 @@ class RoundedShape extends StatelessWidget {
   Widget _constructBody(BuildContext context) {
     //Begin...
     final _width = dimensions.width(context);
-    // final radius = BorderRadius.all(Radius.circular(22.0));
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 18.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.black26, width: 0.5),
-          // borderRadius: BorderRadius.all(Radius.circular(5.0)),
+          color: Colors.white.withOpacity(0.9),
+          borderRadius: BorderRadius.circular(25.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              offset: Offset(0.0, 0.5),
+              blurRadius: 5.0,
+              spreadRadius: 0.3,
+            )
+          ],
         ),
         width: dimensions.adjustWidth(googleSearchPercent, _width),
         child: _customTextField(context),
       ),
     );
-
-    // return Material(
-    //   shape: RoundedRectangleBorder(borderRadius: radius),
-    //   color: Colors.black.withOpacity(0.05),
-    //   child: InkWell(
-    //     // borderRadius: radius,
-    //     splashColor: Colors.transparent,
-    //     child: Container(
-    //       child: _customTextField(context),
-    //       width: dimensions.adjustWidth(googleSearchPercent, _width),
-    //     ),
-    //   ),
-    // );
   }
 
   //Constructs the search text widget...
@@ -56,6 +50,7 @@ class RoundedShape extends StatelessWidget {
         border: InputBorder.none,
         contentPadding:
             const EdgeInsets.symmetric(horizontal: 12.0, vertical: 13.0),
+        prefixIcon: const Icon(Icons.search, color: Colors.orange, size: 18.0),
       ),
       maxLines: 1,
     );
