@@ -2,6 +2,8 @@
 
 # Welcome !
 
+Hosted URL : https://fir-signin-4477d.firebaseapp.com/#/
+
 - This screenshot is the end result of this source code....:)
 
 ![google clone](https://github.com/AseemWangoo/experiments_with_web/blob/develop/Google_Clone.png)
