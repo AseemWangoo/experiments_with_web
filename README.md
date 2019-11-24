@@ -2,14 +2,32 @@
 
 # Welcome !
 
+Hosted URL : https://fir-signin-4477d.firebaseapp.com/#/
+
 - This screenshot is the end result of this source code....:)
 
 ![google clone](https://github.com/AseemWangoo/experiments_with_web/blob/develop/Google_Clone.png)
 
 This is an attempt to clone the Google UI.....
 
-# Last Status : 
-Converting the search bar into a rounded one, as per Google UI...
+# Begin
 
-# Stack
-- Flutter
+![](https://github.com/AseemWangoo/flutter_programs/blob/master/d.gif)
+
+#### Featured In :star:
+[![Flutter VN](https://img.shields.io/badge/FlutterVN-%234-blue)](https://medium.com/fluttervn/fluttervn-newsletter-4-a5e60843c228) 
+[![Flutter VN](https://img.shields.io/badge/FlutterVN-%232-blue)](https://medium.com/fluttervn/fluttervn-newsletter-2-f254f85498cb) 
+[![Flutter Weekly](https://img.shields.io/badge/Flutter%20Weekly-%2370-blue)](https://newsletry.com/Home/Flutter%20Weekly/18c72df7-d922-4731-4095-08d711e548a3) 
+[![Meetup FlutterSG](https://img.shields.io/badge/Meetup-FlutterSG-red)](https://www.meetup.com/Singapore-Flutter-Meetup/events/past/)
+[![Flutter Weekly](https://img.shields.io/badge/Flutter%20Weekly-%2361-blue)](https://us17.campaign-archive.com/?u=c8d8d18b6e2c6316ddc1d48a0&id=484c61521d) 
+[![Flutter Weekly](https://img.shields.io/badge/Flutter%20Weekly-%233-blue)](https://flutterweekly.news/issue-3/) 
+[![Flutter Resources](https://img.shields.io/badge/FlutterX-Resources-blue)](https://flutterx.com/?q=aseemwangoo) 
+
+## ‍👨‍💻 ‍Published Works...
+<a href="https://medium.com/@aseemwangoo"><img src="https://img.icons8.com/ios-filled/50/000000/medium-monogram.png" width="60"></a>
+<a href="https://twitter.com/aseemwangoo"><img src="https://img.icons8.com/color/50/000000/twitter-circled.png" width="60"></a>
+<a href="https://www.linkedin.com/in/aseemwangoo"><img src="https://img.icons8.com/color/48/000000/linkedin-circled.png" width="60"></a>
+<a href="https://www.youtube.com/user/aseemwangoo"><img src="https://img.icons8.com/color/48/000000/youtube-play.png" width="60"></a>
+<a href="https://flatteredwithflutter.com/"><img src="https://img.icons8.com/ultraviolet/40/000000/domain.png" width="60"></a>
+
+Have fun learning. :+1:
