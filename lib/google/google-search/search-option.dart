@@ -4,7 +4,8 @@ import 'package:experiments_with_web/google/helpers/dimensions.dart'
 import 'package:experiments_with_web/google/widgets/custom-button.dart';
 import 'package:experiments_with_web/google/widgets/option-name.dart';
 import 'package:experiments_with_web/google/widgets/rounded-shape.dart';
-import 'package:flutter_web/material.dart';
+
+import 'package:flutter/material.dart';
 
 class GoogleSearch extends StatelessWidget {
   ///Crux of the screen (Google search)....
