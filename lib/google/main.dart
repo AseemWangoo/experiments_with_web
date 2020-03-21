@@ -2,7 +2,8 @@ import 'package:experiments_with_web/google/bottom-bar/footer.dart';
 import 'package:experiments_with_web/google/google-search/search-option.dart';
 import 'package:experiments_with_web/google/helpers/constants.dart';
 import 'package:experiments_with_web/google/top-bar/menu-options.dart';
-import 'package:flutter_web/material.dart';
+
+import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 

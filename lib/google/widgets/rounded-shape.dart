@@ -1,7 +1,8 @@
 import 'package:experiments_with_web/google/helpers/constants.dart';
-import 'package:flutter_web/material.dart';
 import 'package:experiments_with_web/google/helpers/dimensions.dart'
     as dimensions;
+
+import 'package:flutter/material.dart';
 
 class RoundedShape extends StatelessWidget {
   ///Creates the rounded shape widget..
