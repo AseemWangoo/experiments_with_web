@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/bg_widget.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/option_name.dart';
 
@@ -9,33 +10,24 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //
+    final _nav = Navigator.of(context);
 
     return Scaffold(
       body: SafeArea(
         child: BgWidget(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    OptionButton(
-                      buttonText: 'Flipping',
-                      onTap: () {},
-                    ),
-                    OptionButton(
-                      buttonText: 'Inking',
-                      onTap: () {},
-                    ),
-                    OptionButton(
-                      buttonText: 'LiquidCards',
-                      onTap: () {},
-                    ),
-                  ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                OptionButton(
+                  buttonText: ApplevelConstants.option1,
+                  onTap: () => _nav.pushNamed(ApplevelConstants.sampleRoute),
                 ),
-              ),
+                OptionButton(
+                  buttonText: ApplevelConstants.option2,
+                  onTap: () => _nav.pushNamed(ApplevelConstants.googleRoute),
+                ),
+              ],
             ),
           ],
         ),
