@@ -1,3 +1,7 @@
+import 'package:experiments_with_web/app_level/constants/constants.dart';
+import 'package:experiments_with_web/google/google.dart';
+import 'package:experiments_with_web/sample/sample.dart';
+
 import 'package:flutter/material.dart';
 
 class Router {
@@ -5,17 +9,29 @@ class Router {
     switch (settings.name) {
       //
 
-      // case ApplevelConstants.homeRoute:
-      //   return _NoAnimationMaterialPageRoute<dynamic>(
-      //     builder: (_) => const Home(),
-      //     name: ApplevelConstants.homeRoute,
-      //   );
+      case ApplevelConstants.homeRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const Placeholder(),
+          name: ApplevelConstants.homeRoute,
+        );
 
-      // default:
-      //   return _NoAnimationMaterialPageRoute<dynamic>(
-      //     builder: (_) => const Home(),
-      //     name: ApplevelConstants.homeRoute,
-      //   );
+      case ApplevelConstants.googleRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const GoogleCloneScreen(),
+          name: ApplevelConstants.googleRoute,
+        );
+
+      case ApplevelConstants.sampleRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const SamplePage(),
+          name: ApplevelConstants.sampleRoute,
+        );
+
+      default:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const Placeholder(),
+          name: ApplevelConstants.homeRoute,
+        );
     }
   }
 }

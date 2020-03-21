@@ -1,26 +1,34 @@
-import 'package:experiments_with_web/normal/main.dart' as normal;
-import 'package:experiments_with_web/google/main.dart' as google;
+import 'package:experiments_with_web/app_level/constants/constants.dart';
+import 'package:experiments_with_web/app_level/routes/router.dart';
 
-import 'package:flutter/widgets.dart' show WidgetsFlutterBinding;
+import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  const flavor = WorkToShow.google;
 
-  switch (flavor) {
-
-    //Clone of Google....
-    case WorkToShow.google:
-      google.main();
-      return;
-
-    case WorkToShow.normal:
-      normal.main();
-      return;
-  }
+  runApp(const MyApp());
 }
 
-enum WorkToShow {
-  google,
-  normal,
+class MyApp extends StatefulWidget {
+  const MyApp({Key key}) : super(key: key);
+
+  @override
+  MyAppState createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    //
+
+    return MaterialApp(
+      initialRoute: ApplevelConstants.homeRoute,
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: Router.generateRoute,
+      onUnknownRoute: (settings) => MaterialPageRoute<dynamic>(
+        builder: (context) => UndefinedView(name: settings.name),
+      ),
+      title: ApplevelConstants.titleOnTab,
+    );
+  }
 }
