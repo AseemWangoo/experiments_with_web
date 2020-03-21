@@ -22,3 +22,7 @@ doc/api/
 *.js.map
 
 .DS_Store
+.firebaserc
+firebase.json
+.firebase
+notes.txt
