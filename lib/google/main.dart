@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: const MyHomePage(),
       theme: ThemeData(
         fontFamily: fontArial,
         primaryColor: Colors.black,
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  const MyHomePage({Key key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //Creates the base....
 
     return Column(
-      children: [
+      children: const <Widget>[
         Flexible(
           flex: 1,
           child: GoogleMenuOptions(),

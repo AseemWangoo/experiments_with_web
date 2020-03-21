@@ -1,13 +1,11 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:experiments_with_web/normal/main.dart' as normal;
 import 'package:experiments_with_web/google/main.dart' as google;
 
-main() async {
-  final flavor = WorkToShow.google;
-  print("\n\n===== Running: $flavor =====\n\n");
+import 'package:flutter/widgets.dart' show WidgetsFlutterBinding;
+
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  const flavor = WorkToShow.google;
 
   switch (flavor) {
 

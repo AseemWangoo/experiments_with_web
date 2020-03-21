@@ -29,7 +29,7 @@ class RoundedShape extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
-              offset: Offset(0.0, 0.5),
+              offset: const Offset(0.0, 0.5),
               blurRadius: 5.0,
               spreadRadius: 0.3,
             )

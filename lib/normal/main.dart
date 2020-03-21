@@ -15,13 +15,13 @@ class MyApp extends StatelessWidget {
         primaryColorDark: Colors.black,
       ),
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  const MyHomePage({Key key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sample App'),
+        title: const Text('Sample App'),
       ),
       body: Center(
         child: Column(
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incCounter() {
     Timer.periodic(
-      Duration(seconds: 1),
+      const Duration(seconds: 1),
       (timer) => setState(() => _counter = timer.tick),
     );
   }

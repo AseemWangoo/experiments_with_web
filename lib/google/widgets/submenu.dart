@@ -24,7 +24,7 @@ class SubMenuOption extends StatelessWidget {
   //Main widget...
   Widget _constructBody(BuildContext context) {
     //Begin...
-    final radius = BorderRadius.all(Radius.circular(1.0));
+    const radius = BorderRadius.all(Radius.circular(1.0));
 
     return Material(
       color: Colors.blue,
