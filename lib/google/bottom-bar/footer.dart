@@ -1,7 +1,8 @@
 import 'package:experiments_with_web/google/helpers/constants.dart';
 import 'package:experiments_with_web/google/widgets/option-name.dart';
 import 'package:experiments_with_web/google/widgets/text.dart';
-import 'package:flutter_web/material.dart';
+
+import 'package:flutter/material.dart';
 
 class FooterOptions extends StatelessWidget {
   ///Creates the footer of the screen....

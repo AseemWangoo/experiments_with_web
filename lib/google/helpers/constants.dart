@@ -5,7 +5,7 @@ const fontMontserrat = 'Montserrat';
 
 const topOptions = ['Gmail', 'Images'];
 
-const googleLogo = 'images/googlelogo.png';
+const googleLogo = 'assets/images/googlelogo.png';
 
 const googleLogoPercent = 0.10;
 
