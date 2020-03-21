@@ -10,6 +10,15 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  # DEPENDENCY INJECTION
+  get_it: ^3.1.0
+
+  # ANIMATION
+  flare_flutter: ^2.0.1
+
+  # STATE-MANAGEMENT
+  provider: ^4.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

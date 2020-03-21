@@ -1,10 +1,15 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/routes/router.dart';
+import 'package:experiments_with_web/locator.dart';
 
 import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // INIT DEP INJECTION..
+  /// ¯_(ツ)_/¯
+  setupLocator();
 
   runApp(const MyApp());
 }

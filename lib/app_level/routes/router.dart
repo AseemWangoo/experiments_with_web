@@ -1,4 +1,5 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
+import 'package:experiments_with_web/app_level/home.dart';
 import 'package:experiments_with_web/google/google.dart';
 import 'package:experiments_with_web/sample/sample.dart';
 
@@ -11,7 +12,7 @@ class Router {
 
       case ApplevelConstants.homeRoute:
         return _NoAnimationMaterialPageRoute<dynamic>(
-          builder: (_) => const Placeholder(),
+          builder: (_) => const Home(),
           name: ApplevelConstants.homeRoute,
         );
 
@@ -29,7 +30,7 @@ class Router {
 
       default:
         return _NoAnimationMaterialPageRoute<dynamic>(
-          builder: (_) => const Placeholder(),
+          builder: (_) => const Home(),
           name: ApplevelConstants.homeRoute,
         );
     }
