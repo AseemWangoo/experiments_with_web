@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'dart:ui' as ui;
 
+import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/generic_dialog.dart';
 import 'package:experiments_with_web/iframe/widgets/bottom_sheet.dart';
@@ -72,7 +73,8 @@ class _IframeScreenState extends State<IframeScreen> {
                   child: TextField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Url please !!',
+                      hintText:
+                          'Url please !! (Make sure the url is embed one)',
                       labelText: 'Enter url',
                     ),
                     controller: _textController,
@@ -85,13 +87,14 @@ class _IframeScreenState extends State<IframeScreen> {
                       final _valid = _isValidURL(_textController.text);
                       if (!_valid) {
                         _showDialog;
+                        _textController.text = '';
                       } else {
                         setState(
                             () => _iframeElement.src = _textController.text);
                       }
                     },
                     child: Text('Go', style: TextStyle(color: Colors.white)),
-                  ),
+                  ).showCursorOnHover,
                 )
               ],
             )
