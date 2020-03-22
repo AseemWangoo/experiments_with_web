@@ -27,6 +27,10 @@ class Home extends StatelessWidget {
                   buttonText: ApplevelConstants.option2,
                   onTap: () => _nav.pushNamed(ApplevelConstants.googleRoute),
                 ),
+                OptionButton(
+                  buttonText: ApplevelConstants.option3,
+                  onTap: () => _nav.pushNamed(ApplevelConstants.iframeRoute),
+                ),
               ],
             ),
           ],

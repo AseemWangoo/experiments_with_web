@@ -1,6 +1,7 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/home.dart';
 import 'package:experiments_with_web/google/google.dart';
+import 'package:experiments_with_web/iframe/iframe.dart';
 import 'package:experiments_with_web/sample/sample.dart';
 
 import 'package:flutter/material.dart';
@@ -26,6 +27,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const SamplePage(),
           name: ApplevelConstants.sampleRoute,
+        );
+
+      case ApplevelConstants.iframeRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const IframeScreen(),
+          name: ApplevelConstants.iframeRoute,
         );
 
       default:
