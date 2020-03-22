@@ -2,6 +2,7 @@ import 'dart:html';
 import 'dart:ui' as ui;
 
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/generic_dialog.dart';
 import 'package:experiments_with_web/iframe/widgets/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
@@ -81,7 +82,13 @@ class _IframeScreenState extends State<IframeScreen> {
                   child: FlatButton(
                     color: Colors.grey[800],
                     onPressed: () {
-                      print(_textController.text);
+                      final _valid = _isValidURL(_textController.text);
+                      if (!_valid) {
+                        _showDialog;
+                      } else {
+                        setState(
+                            () => _iframeElement.src = _textController.text);
+                      }
                     },
                     child: Text('Go', style: TextStyle(color: Colors.white)),
                   ),
@@ -98,5 +105,18 @@ class _IframeScreenState extends State<IframeScreen> {
   void dispose() {
     _textController.dispose();
     super.dispose();
+  }
+
+  bool _isValidURL(String text) {
+    return Uri.parse(text).isAbsolute;
+  }
+
+  Future<void> get _showDialog async {
+    await showDialog<dynamic>(
+      context: context,
+      builder: (context) => const GenericDialog(
+        children: <Widget>[Text('Wrong URL')],
+      ),
+    );
   }
 }
