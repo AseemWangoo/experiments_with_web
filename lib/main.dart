@@ -1,5 +1,6 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/routes/router.dart';
+import 'package:experiments_with_web/app_level/styles/themes.dart';
 import 'package:experiments_with_web/locator.dart';
 
 import 'package:flutter/material.dart';
@@ -34,6 +35,8 @@ class MyAppState extends State<MyApp> {
         builder: (context) => UndefinedView(name: settings.name),
       ),
       title: ApplevelConstants.titleOnTab,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
     );
   }
 }
