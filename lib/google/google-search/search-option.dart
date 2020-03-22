@@ -35,7 +35,7 @@ class GoogleSearch extends StatelessWidget {
                 height: dimensions.adjustHeight(googleLogoPercent, _height),
               ),
             ),
-            Flexible(child: RoundedShape()),
+            const Flexible(child: RoundedShape()),
             Flexible(child: _customSearchButtons(context)),
             Flexible(child: _customLanguageOptions(context)),
           ],

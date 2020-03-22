@@ -1,28 +1,42 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+import 'package:experiments_with_web/app_level/constants/constants.dart';
+import 'package:experiments_with_web/app_level/routes/router.dart';
+import 'package:experiments_with_web/app_level/styles/themes.dart';
+import 'package:experiments_with_web/locator.dart';
 
-import 'package:experiments_with_web/normal/main.dart' as normal;
-import 'package:experiments_with_web/google/main.dart' as google;
+import 'package:flutter/material.dart';
 
-main() async {
-  final flavor = WorkToShow.google;
-  print("\n\n===== Running: $flavor =====\n\n");
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
 
-  switch (flavor) {
+  // INIT DEP INJECTION..
+  /// ¯_(ツ)_/¯
+  setupLocator();
 
-    //Clone of Google....
-    case WorkToShow.google:
-      google.main();
-      return;
-
-    case WorkToShow.normal:
-      normal.main();
-      return;
-  }
+  runApp(const MyApp());
 }
 
-enum WorkToShow {
-  google,
-  normal,
+class MyApp extends StatefulWidget {
+  const MyApp({Key key}) : super(key: key);
+
+  @override
+  MyAppState createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    //
+
+    return MaterialApp(
+      initialRoute: ApplevelConstants.homeRoute,
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: Router.generateRoute,
+      onUnknownRoute: (settings) => MaterialPageRoute<dynamic>(
+        builder: (context) => UndefinedView(name: settings.name),
+      ),
+      title: ApplevelConstants.titleOnTab,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+    );
+  }
 }
