@@ -4,15 +4,17 @@
 
 Hosted URL : https://fir-signin-4477d.firebaseapp.com/#/
 
-- This screenshot is the end result of this source code....:)
-
-![google clone](https://github.com/AseemWangoo/experiments_with_web/blob/develop/Google_Clone.png)
-
-This is an attempt to clone the Google UI.....
-
 # Begin
 
 ![](https://github.com/AseemWangoo/flutter_programs/blob/master/d.gif)
+
+## ‍🗣 Speaker at...
+
+* [GDG Devfest Singapore 2019](https://events.withgoogle.com/devfest-singapore-2019/speakers/#content)
+[![GDG-SG 2019](https://img.shields.io/badge/GDG--SG-2019-red)](https://events.withgoogle.com/devfest-singapore-2019/speakers/#content) 
+
+* [Meetup FlutterSG 2019](https://www.meetup.com/Singapore-Flutter-Meetup/events/past/)
+[![Meetup FlutterSG](https://img.shields.io/badge/Meetup-FlutterSG-red)](https://www.meetup.com/Singapore-Flutter-Meetup/events/past/)
 
 ## ‍🗣 Speaker at...
 
