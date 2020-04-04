@@ -1,8 +1,10 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
+import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/column_spacer.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/row_spacer.dart';
+import 'package:experiments_with_web/parallax/utilities/constants.dart';
 
 import 'package:flutter/material.dart';
 
@@ -18,12 +20,29 @@ class InfoRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 56.0),
       child: RowSpacer(
-        crossAxisAlignment: CrossAxisAlignment.center,
         spacerWidget: const SizedBox(width: 50.0),
         children: <Widget>[
-          _InternalColumn(assetName: WebAssets.covidIsolation.assetName),
-          _InternalColumn(assetName: WebAssets.covidEssentials.assetName),
-          _InternalColumn(assetName: WebAssets.covidFinancials.assetName),
+          Expanded(
+            child: _InternalColumn(
+              assetName: WebAssets.covidIsolation.assetName,
+              title: ParallaxConstants.selfIsolation,
+              subtitle: ParallaxConstants.stayHomeDesc,
+            ),
+          ),
+          Expanded(
+            child: _InternalColumn(
+              assetName: WebAssets.covidEssentials.assetName,
+              title: ParallaxConstants.essentials,
+              subtitle: ParallaxConstants.essentialsDesc,
+            ),
+          ),
+          Expanded(
+            child: _InternalColumn(
+              assetName: WebAssets.covidFinancials.assetName,
+              title: ParallaxConstants.finance,
+              subtitle: ParallaxConstants.financeDesc,
+            ),
+          ),
         ],
       ),
     );
@@ -31,11 +50,17 @@ class InfoRow extends StatelessWidget {
 }
 
 class _InternalColumn extends StatelessWidget {
-  const _InternalColumn({Key key, @required this.assetName})
-      : assert(assetName != null),
+  const _InternalColumn({
+    Key key,
+    @required this.assetName,
+    this.title = 'Title here',
+    this.subtitle = 'Subtitle here',
+  })  : assert(assetName != null),
         super(key: key);
 
   final String assetName;
+  final String title;
+  final String subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -50,19 +75,36 @@ class _InternalColumn extends StatelessWidget {
       255 / ApplevelConstants.stdHeight,
     );
 
-    return ColumnSpacer(
-      spacerWidget: const SizedBox(height: 16.0),
-      children: <Widget>[
-        Container(
-          color: Colors.white,
-          child: Image.asset(assetName),
-          width: _width,
-          height: _height,
-          padding: const EdgeInsets.all(40.0),
-        ),
-        Text('B'),
-        Text('C'),
-      ],
+    final _textHeight = InfoRow._screenQueries.customHeightPercent(
+      context,
+      32 / ApplevelConstants.stdHeight,
+    );
+
+    return SizedBox(
+      width: _width,
+      child: ColumnSpacer(
+        spacerWidget: const SizedBox(height: 16.0),
+        children: <Widget>[
+          Container(
+            color: Colors.white,
+            child: Image.asset(assetName),
+            height: _height,
+            width: _width,
+            padding: const EdgeInsets.all(40.0),
+          ),
+          Text(
+            title,
+            style: Theme.of(context).textTheme.headline5.bold,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              subtitle,
+              style: Theme.of(context).textTheme.subtitle1.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

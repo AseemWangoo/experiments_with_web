@@ -50,6 +50,23 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
                 height: _imgHeight,
               ),
             ),
+            // Positioned(
+            //   top: _imgHeight * 0.8 - 1 * _currOffset,
+            //   left: 0,
+            //   right: 0,
+            //   height: _imgHeight * 0.2,
+            //   child: Container(
+            //     width: double.infinity,
+            //     decoration: BoxDecoration(
+            //       gradient: LinearGradient(
+            //         begin: Alignment.topCenter,
+            //         end: Alignment.bottomCenter,
+            //         stops: [0, 1],
+            //         colors: [Colors.black.withOpacity(0), Colors.black],
+            //       ),
+            //     ),
+            //   ),
+            // ),
             ListView(
               cacheExtent: 100.0,
               addAutomaticKeepAlives: false,

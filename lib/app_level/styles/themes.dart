@@ -17,6 +17,7 @@ class AppTheme {
     textTheme: const TextTheme(
       bodyText2: TextStyle(color: Colors.black),
     ),
+    fontFamily: 'Montserrat',
   );
 
   static final darkTheme = ThemeData(
@@ -28,5 +29,6 @@ class AppTheme {
     textTheme: const TextTheme(
       bodyText2: TextStyle(color: Colors.black),
     ),
+    fontFamily: 'Montserrat',
   );
 }
