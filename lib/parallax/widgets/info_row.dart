@@ -15,13 +15,17 @@ class InfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     //
 
-    return RowSpacer(
-      spacerWidget: const SizedBox(width: 96.0),
-      children: <Widget>[
-        _InternalColumn(assetName: WebAssets.covidIsolation.assetName),
-        _InternalColumn(assetName: WebAssets.covidEssentials.assetName),
-        _InternalColumn(assetName: WebAssets.covidFinancials.assetName),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 56.0),
+      child: RowSpacer(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        spacerWidget: const SizedBox(width: 50.0),
+        children: <Widget>[
+          _InternalColumn(assetName: WebAssets.covidIsolation.assetName),
+          _InternalColumn(assetName: WebAssets.covidEssentials.assetName),
+          _InternalColumn(assetName: WebAssets.covidFinancials.assetName),
+        ],
+      ),
     );
   }
 }
