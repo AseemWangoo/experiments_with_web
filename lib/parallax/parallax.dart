@@ -20,6 +20,8 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
   double get _imgHeight => ParallaxScreen._screenQueries.height(context);
   double get _imageWidth => ParallaxScreen._screenQueries.width(context);
 
+  double _currOffset = 0.0;
+
   @override
   void initState() {
     super.initState();
@@ -34,16 +36,21 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
       showAppBar: false,
       child: Stack(
         children: <Widget>[
-          Image.asset(
-            WebAssets.socialDistance.assetName,
-            fit: BoxFit.fitWidth,
-            width: _imageWidth,
-            height: _imgHeight,
+          Positioned(
+            top: -0.25 * _currOffset, // -ve as we want to scroll upwards
+            child: Image.asset(
+              WebAssets.socialDistance.assetName,
+              fit: BoxFit.fitWidth,
+              width: _imageWidth,
+              height: _imgHeight,
+            ),
           ),
           ListView(
+            cacheExtent: 100.0,
+            addAutomaticKeepAlives: false,
             controller: _scrollController,
             children: <Widget>[
-              SizedBox(height: _imgHeight), // IMP..
+              SizedBox(height: _imgHeight), // IMP STEP 1..
               InfoRow(),
             ],
           ),
@@ -54,11 +61,19 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
 
   @override
   void dispose() {
-    _scrollController.dispose();
+    _scrollController?.dispose();
     super.dispose();
   }
 
   void _scrollEventListener() {
-    print('${_scrollController.offset}');
+    setState(() {
+      if (_scrollController.hasClients) {
+        _currOffset = _scrollController.offset;
+      }
+    });
+    print('CURR OFFSET >>>> $_currOffset');
+    // print('${_scrollController.hasClients}');
+    // print('${_scrollController.position.maxScrollExtent}');
+    // print('${_scrollController.position.outOfRange}');
   }
 }
