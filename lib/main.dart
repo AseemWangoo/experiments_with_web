@@ -35,8 +35,8 @@ class MyAppState extends State<MyApp> {
         builder: (context) => UndefinedView(name: settings.name),
       ),
       title: ApplevelConstants.titleOnTab,
-      theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
+      theme: AppTheme.lightTheme,
     );
   }
 }

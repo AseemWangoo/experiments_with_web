@@ -20,7 +20,7 @@ class AppTheme {
   );
 
   static final darkTheme = ThemeData(
-    scaffoldBackgroundColor: _darkPrimaryColor,
+    // scaffoldBackgroundColor: _darkPrimaryColor,
     appBarTheme: const AppBarTheme(
       color: _darkPrimaryAppBarColor,
       iconTheme: IconThemeData(color: _darkPrimaryColor),
