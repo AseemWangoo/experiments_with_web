@@ -22,10 +22,13 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
 
   double _currOffset = 0.0;
 
+  void get _refresh => setState(() {});
+
   @override
   void initState() {
+    _scrollController = ScrollController();
     super.initState();
-    _scrollController = ScrollController()..addListener(_scrollEventListener);
+    // _scrollController = ScrollController()..addListener(_scrollEventListener);
   }
 
   @override
@@ -34,27 +37,30 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
 
     return CustomScaffold(
       showAppBar: false,
-      child: Stack(
-        children: <Widget>[
-          Positioned(
-            top: -0.25 * _currOffset, // -ve as we want to scroll upwards
-            child: Image.asset(
-              WebAssets.socialDistance.assetName,
-              fit: BoxFit.fitWidth,
-              width: _imageWidth,
-              height: _imgHeight,
+      child: NotificationListener<ScrollNotification>(
+        onNotification: _handleScrollNotification,
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              top: -0.25 * _currOffset, // -ve as we want to scroll upwards
+              child: Image.asset(
+                WebAssets.socialDistance.assetName,
+                fit: BoxFit.fitWidth,
+                width: _imageWidth,
+                height: _imgHeight,
+              ),
             ),
-          ),
-          ListView(
-            cacheExtent: 100.0,
-            addAutomaticKeepAlives: false,
-            controller: _scrollController,
-            children: <Widget>[
-              SizedBox(height: _imgHeight), // IMP STEP 1..
-              InfoRow(),
-            ],
-          ),
-        ],
+            ListView(
+              cacheExtent: 100.0,
+              addAutomaticKeepAlives: false,
+              controller: _scrollController,
+              children: <Widget>[
+                SizedBox(height: _imgHeight), // IMP STEP 1..
+                InfoRow(),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -65,15 +71,25 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
     super.dispose();
   }
 
-  void _scrollEventListener() {
-    setState(() {
-      if (_scrollController.hasClients) {
-        _currOffset = _scrollController.offset;
-      }
-    });
-    print('CURR OFFSET >>>> $_currOffset');
-    // print('${_scrollController.hasClients}');
-    // print('${_scrollController.position.maxScrollExtent}');
-    // print('${_scrollController.position.outOfRange}');
+  // void _scrollEventListener() {
+  //   setState(() {
+  //     if (_scrollController.hasClients) {
+  //       _currOffset = _scrollController.offset;
+  //     }
+  //   });
+  //   print('CURR OFFSET >>>> $_currOffset');
+  //   // print('${_scrollController.hasClients}');
+  //   // print('${_scrollController.position.maxScrollExtent}');
+  //   // print('${_scrollController.position.outOfRange}');
+  // }
+
+  bool _handleScrollNotification(ScrollNotification notification) {
+    if (notification is ScrollUpdateNotification) {
+      // print('>>>>>Scroll ${notification.scrollDelta}');
+      _currOffset = notification.metrics.pixels;
+    }
+
+    _refresh;
+    return false;
   }
 }
