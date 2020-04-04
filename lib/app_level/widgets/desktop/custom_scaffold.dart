@@ -6,17 +6,21 @@ class CustomScaffold extends StatelessWidget {
     Key key,
     this.titleText = 'Your Title',
     this.child,
+    this.showAppBar = true,
   }) : super(key: key);
 
   final String titleText;
   final Widget child;
+  final bool showAppBar;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(titleText, style: const TextStyle().c(Colors.black)),
-      ),
+      appBar: showAppBar
+          ? AppBar(
+              title: Text(titleText, style: const TextStyle().c(Colors.black)),
+            )
+          : null,
       body: child ?? const Center(child: Text('Hi there')),
     );
   }
