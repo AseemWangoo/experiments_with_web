@@ -1,4 +1,5 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
+import 'package:experiments_with_web/app_level/extensions/color_extension.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/parallax/utilities/constants.dart';
@@ -94,23 +95,30 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
                     ),
                   ],
                 ),
+                const SizedBox(
+                  height: 40.0,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(color: Colors.white),
+                  ),
+                ),
                 InfoRow(
-                  sectionText: ParallaxConstants.whatUKnow,
+                  bgColor: HexColor.fromHex('#f5f5f3'),
+                  sectionText: ParallaxConstants.united,
                   covidList: <COVIDDataModel>[
                     COVIDDataModel(
-                      title: ParallaxConstants.selfIsolation,
+                      title: ParallaxConstants.beKind,
+                      subtitle: ParallaxConstants.beKindDesc,
+                      assetName: WebAssets.covidHeart.assetName,
+                    ),
+                    COVIDDataModel(
+                      title: ParallaxConstants.stayHome,
                       subtitle: ParallaxConstants.stayHomeDesc,
-                      assetName: WebAssets.covidIsolation.assetName,
+                      assetName: WebAssets.covidHome.assetName,
                     ),
                     COVIDDataModel(
-                      title: ParallaxConstants.essentials,
-                      subtitle: ParallaxConstants.essentialsDesc,
-                      assetName: WebAssets.covidEssentials.assetName,
-                    ),
-                    COVIDDataModel(
-                      title: ParallaxConstants.finance,
-                      subtitle: ParallaxConstants.financeDesc,
-                      assetName: WebAssets.covidFinancials.assetName,
+                      title: ParallaxConstants.washHands,
+                      subtitle: ParallaxConstants.washHandsDesc,
+                      assetName: WebAssets.covidWashHands.assetName,
                     ),
                   ],
                 ),
