@@ -5,6 +5,7 @@ import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/column_spacer.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/row_spacer.dart';
 import 'package:experiments_with_web/parallax/utilities/constants.dart';
+import 'package:experiments_with_web/parallax/utilities/model.dart';
 
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,13 @@ class InfoRow extends StatelessWidget {
   const InfoRow({
     Key key,
     this.sectionText = 'Section text here',
-  }) : super(key: key);
+    @required this.covidList,
+  })  : assert(covidList.length == 3),
+        super(key: key);
 
   final String sectionText;
+
+  final List<COVIDDataModel> covidList;
 
   static final _screenQueries = ScreenQueries.instance;
 
@@ -39,23 +44,23 @@ class InfoRow extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: _InternalColumn(
-                    assetName: WebAssets.covidIsolation.assetName,
-                    title: ParallaxConstants.selfIsolation,
-                    subtitle: ParallaxConstants.stayHomeDesc,
+                    assetName: covidList.first.assetName,
+                    title: covidList.first.title,
+                    subtitle: covidList.first.subtitle,
                   ),
                 ),
                 Expanded(
                   child: _InternalColumn(
-                    assetName: WebAssets.covidEssentials.assetName,
-                    title: ParallaxConstants.essentials,
-                    subtitle: ParallaxConstants.essentialsDesc,
+                    assetName: covidList[1].assetName,
+                    title: covidList[1].title,
+                    subtitle: covidList[1].subtitle,
                   ),
                 ),
                 Expanded(
                   child: _InternalColumn(
-                    assetName: WebAssets.covidFinancials.assetName,
-                    title: ParallaxConstants.finance,
-                    subtitle: ParallaxConstants.financeDesc,
+                    assetName: covidList.last.assetName,
+                    title: covidList.last.title,
+                    subtitle: covidList.last.subtitle,
                   ),
                 ),
               ],

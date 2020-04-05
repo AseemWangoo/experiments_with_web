@@ -2,6 +2,7 @@ import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/parallax/utilities/constants.dart';
+import 'package:experiments_with_web/parallax/utilities/model.dart';
 import 'package:experiments_with_web/parallax/widgets/info_row.dart';
 
 import 'package:flutter/material.dart';
@@ -75,6 +76,43 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
                 SizedBox(height: _imgHeight), // IMP STEP 1..
                 InfoRow(
                   sectionText: ParallaxConstants.whatUKnow,
+                  covidList: <COVIDDataModel>[
+                    COVIDDataModel(
+                      title: ParallaxConstants.selfIsolation,
+                      subtitle: ParallaxConstants.stayHomeDesc,
+                      assetName: WebAssets.covidIsolation.assetName,
+                    ),
+                    COVIDDataModel(
+                      title: ParallaxConstants.essentials,
+                      subtitle: ParallaxConstants.essentialsDesc,
+                      assetName: WebAssets.covidEssentials.assetName,
+                    ),
+                    COVIDDataModel(
+                      title: ParallaxConstants.finance,
+                      subtitle: ParallaxConstants.financeDesc,
+                      assetName: WebAssets.covidFinancials.assetName,
+                    ),
+                  ],
+                ),
+                InfoRow(
+                  sectionText: ParallaxConstants.whatUKnow,
+                  covidList: <COVIDDataModel>[
+                    COVIDDataModel(
+                      title: ParallaxConstants.selfIsolation,
+                      subtitle: ParallaxConstants.stayHomeDesc,
+                      assetName: WebAssets.covidIsolation.assetName,
+                    ),
+                    COVIDDataModel(
+                      title: ParallaxConstants.essentials,
+                      subtitle: ParallaxConstants.essentialsDesc,
+                      assetName: WebAssets.covidEssentials.assetName,
+                    ),
+                    COVIDDataModel(
+                      title: ParallaxConstants.finance,
+                      subtitle: ParallaxConstants.financeDesc,
+                      assetName: WebAssets.covidFinancials.assetName,
+                    ),
+                  ],
                 ),
               ],
             ),
