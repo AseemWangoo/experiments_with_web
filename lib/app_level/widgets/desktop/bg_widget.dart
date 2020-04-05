@@ -1,4 +1,8 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
+import 'package:experiments_with_web/app_level/constants/constants.dart';
+import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
+import 'package:experiments_with_web/app_level/services/linker_service.dart';
+import 'package:experiments_with_web/locator.dart';
 
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
@@ -36,16 +40,23 @@ class _CustomText extends StatelessWidget {
 
   final String data;
 
+  static final _linkService = locator<LinkerService>();
+
   @override
   Widget build(BuildContext context) {
     //
 
-    return Text(
-      data,
-      style: TextStyle(
-        color: Colors.white,
-        fontSize: 24.0,
-      ),
+    return GestureDetector(
+      onTap: () {
+        _linkService.openLink(BrandLinks.website);
+      },
+      child: Text(
+        data,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 24.0,
+        ),
+      ).showCursorOnHover,
     );
   }
 }

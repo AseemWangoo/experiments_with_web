@@ -26,3 +26,9 @@ class WHOLinks {
   static const String message =
       'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public';
 }
+
+class BrandLinks {
+  BrandLinks._();
+
+  static const String website = 'http://flatteredwithflutter.com/';
+}
