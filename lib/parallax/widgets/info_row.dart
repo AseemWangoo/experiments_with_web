@@ -109,7 +109,10 @@ class _InternalColumn extends StatelessWidget {
         spacerWidget: const SizedBox(height: 16.0),
         children: <Widget>[
           Container(
-            color: Colors.white,
+            decoration: BoxDecoration(
+              boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 20.0)],
+              color: Colors.white,
+            ),
             child: Image.asset(assetName),
             height: _height,
             width: _width,
