@@ -1,4 +1,5 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
+import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/bg_widget.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/option_name.dart';
 
@@ -22,15 +23,19 @@ class Home extends StatelessWidget {
                 OptionButton(
                   buttonText: ApplevelConstants.option1,
                   onTap: () => _nav.pushNamed(ApplevelConstants.sampleRoute),
-                ),
+                ).showCursorOnHover,
                 OptionButton(
                   buttonText: ApplevelConstants.option2,
                   onTap: () => _nav.pushNamed(ApplevelConstants.googleRoute),
-                ),
+                ).showCursorOnHover,
                 OptionButton(
                   buttonText: ApplevelConstants.option3,
                   onTap: () => _nav.pushNamed(ApplevelConstants.iframeRoute),
-                ),
+                ).showCursorOnHover,
+                OptionButton(
+                  buttonText: ApplevelConstants.option4,
+                  onTap: () => _nav.pushNamed(ApplevelConstants.parallaxRoute),
+                ).showCursorOnHover,
               ],
             ),
           ],

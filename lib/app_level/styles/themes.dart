@@ -17,10 +17,11 @@ class AppTheme {
     textTheme: const TextTheme(
       bodyText2: TextStyle(color: Colors.black),
     ),
+    fontFamily: 'Montserrat',
   );
 
   static final darkTheme = ThemeData(
-    scaffoldBackgroundColor: _darkPrimaryColor,
+    // scaffoldBackgroundColor: _darkPrimaryColor,
     appBarTheme: const AppBarTheme(
       color: _darkPrimaryAppBarColor,
       iconTheme: IconThemeData(color: _darkPrimaryColor),
@@ -28,5 +29,6 @@ class AppTheme {
     textTheme: const TextTheme(
       bodyText2: TextStyle(color: Colors.black),
     ),
+    fontFamily: 'Montserrat',
   );
 }
