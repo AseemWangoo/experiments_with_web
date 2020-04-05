@@ -63,8 +63,7 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
               left: 0.0,
               right: 0.0,
               height: _imgHeight * 0.2,
-              child: Container(
-                width: double.infinity,
+              child: DecoratedBox(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
@@ -73,6 +72,7 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
                     colors: [Colors.indigo.withOpacity(0), Colors.indigo],
                   ),
                 ),
+                child: SizedBox(width: double.infinity),
               ),
             ),
             ListView(
