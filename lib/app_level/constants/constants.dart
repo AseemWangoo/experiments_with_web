@@ -19,3 +19,10 @@ class ApplevelConstants {
   static const String option3 = 'Iframe';
   static const String option4 = 'Parallax';
 }
+
+class WHOLinks {
+  WHOLinks._();
+
+  static const String message =
+      'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public';
+}

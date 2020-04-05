@@ -1,7 +1,11 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
+import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/color_extension.dart';
+import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_button.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
+import 'package:experiments_with_web/locator.dart';
 import 'package:experiments_with_web/parallax/utilities/constants.dart';
 import 'package:experiments_with_web/parallax/utilities/model.dart';
 import 'package:experiments_with_web/parallax/widgets/info_row.dart';
@@ -12,6 +16,7 @@ class ParallaxScreen extends StatefulWidget {
   const ParallaxScreen({Key key}) : super(key: key);
 
   static final _screenQueries = ScreenQueries.instance;
+  static final _linkService = locator<LinkerService>();
 
   @override
   _ParallaxScreenState createState() => _ParallaxScreenState();
@@ -52,23 +57,24 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
                 height: _imgHeight,
               ),
             ),
-            // Positioned(
-            //   top: _imgHeight * 0.8 - 1 * _currOffset,
-            //   left: 0,
-            //   right: 0,
-            //   height: _imgHeight * 0.2,
-            //   child: Container(
-            //     width: double.infinity,
-            //     decoration: BoxDecoration(
-            //       gradient: LinearGradient(
-            //         begin: Alignment.topCenter,
-            //         end: Alignment.bottomCenter,
-            //         stops: [0, 1],
-            //         colors: [Colors.black.withOpacity(0), Colors.black],
-            //       ),
-            //     ),
-            //   ),
-            // ),
+            Positioned(
+              top: _imgHeight * 0.8 -
+                  _currOffset, // IMP otherwise goes on top...
+              left: 0.0,
+              right: 0.0,
+              height: _imgHeight * 0.2,
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: const <double>[0, 1],
+                    colors: [Colors.indigo.withOpacity(0), Colors.indigo],
+                  ),
+                ),
+              ),
+            ),
             ListView(
               cacheExtent: 100.0,
               addAutomaticKeepAlives: false,
@@ -121,6 +127,13 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
                       assetName: WebAssets.covidWashHands.assetName,
                     ),
                   ],
+                ),
+                CustomButton(
+                  bgColor: Colors.black,
+                  onTap: () {
+                    ParallaxScreen._linkService.openLink(WHOLinks.message);
+                  },
+                  name: 'View All',
                 ),
               ],
             ),
