@@ -9,7 +9,12 @@ import 'package:experiments_with_web/parallax/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 class InfoRow extends StatelessWidget {
-  const InfoRow({Key key}) : super(key: key);
+  const InfoRow({
+    Key key,
+    this.sectionText = 'Section text here',
+  }) : super(key: key);
+
+  final String sectionText;
 
   static final _screenQueries = ScreenQueries.instance;
 
@@ -17,33 +22,46 @@ class InfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     //
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 56.0),
-      child: RowSpacer(
-        spacerWidget: const SizedBox(width: 50.0),
-        children: <Widget>[
-          Expanded(
-            child: _InternalColumn(
-              assetName: WebAssets.covidIsolation.assetName,
-              title: ParallaxConstants.selfIsolation,
-              subtitle: ParallaxConstants.stayHomeDesc,
+    return DecoratedBox(
+      decoration: BoxDecoration(color: Colors.white),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 56.0),
+        child: ColumnSpacer(
+          spacerWidget: const SizedBox(height: 20.0),
+          children: <Widget>[
+            Text(
+              sectionText,
+              textAlign: TextAlign.start,
+              style: Theme.of(context).textTheme.headline3.bold.c(Colors.black),
             ),
-          ),
-          Expanded(
-            child: _InternalColumn(
-              assetName: WebAssets.covidEssentials.assetName,
-              title: ParallaxConstants.essentials,
-              subtitle: ParallaxConstants.essentialsDesc,
+            RowSpacer(
+              spacerWidget: const SizedBox(width: 50.0),
+              children: <Widget>[
+                Expanded(
+                  child: _InternalColumn(
+                    assetName: WebAssets.covidIsolation.assetName,
+                    title: ParallaxConstants.selfIsolation,
+                    subtitle: ParallaxConstants.stayHomeDesc,
+                  ),
+                ),
+                Expanded(
+                  child: _InternalColumn(
+                    assetName: WebAssets.covidEssentials.assetName,
+                    title: ParallaxConstants.essentials,
+                    subtitle: ParallaxConstants.essentialsDesc,
+                  ),
+                ),
+                Expanded(
+                  child: _InternalColumn(
+                    assetName: WebAssets.covidFinancials.assetName,
+                    title: ParallaxConstants.finance,
+                    subtitle: ParallaxConstants.financeDesc,
+                  ),
+                ),
+              ],
             ),
-          ),
-          Expanded(
-            child: _InternalColumn(
-              assetName: WebAssets.covidFinancials.assetName,
-              title: ParallaxConstants.finance,
-              subtitle: ParallaxConstants.financeDesc,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -101,6 +119,7 @@ class _InternalColumn extends StatelessWidget {
             child: Text(
               subtitle,
               style: Theme.of(context).textTheme.subtitle1.bold,
+              textAlign: TextAlign.center,
             ),
           ),
         ],

@@ -1,6 +1,8 @@
 class ParallaxConstants {
   ParallaxConstants._();
 
+  static const String whatUKnow = 'What you need to know';
+
   static const String selfIsolation = 'Self-isolation';
 
   static const String stayHomeDesc =

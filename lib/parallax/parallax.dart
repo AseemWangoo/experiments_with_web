@@ -1,6 +1,7 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
+import 'package:experiments_with_web/parallax/utilities/constants.dart';
 import 'package:experiments_with_web/parallax/widgets/info_row.dart';
 
 import 'package:flutter/material.dart';
@@ -28,7 +29,6 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
   void initState() {
     _scrollController = ScrollController();
     super.initState();
-    // _scrollController = ScrollController()..addListener(_scrollEventListener);
   }
 
   @override
@@ -73,7 +73,9 @@ class _ParallaxScreenState extends State<ParallaxScreen> {
               controller: _scrollController,
               children: <Widget>[
                 SizedBox(height: _imgHeight), // IMP STEP 1..
-                InfoRow(),
+                InfoRow(
+                  sectionText: ParallaxConstants.whatUKnow,
+                ),
               ],
             ),
           ],
