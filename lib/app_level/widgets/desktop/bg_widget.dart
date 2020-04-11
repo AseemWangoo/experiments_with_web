@@ -2,6 +2,7 @@ import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
+import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/locator.dart';
 
 import 'package:flare_flutter/flare_actor.dart';
@@ -26,7 +27,7 @@ class BgWidget extends StatelessWidget {
           animation: 'Untitled',
         ),
         const Positioned(
-          bottom: 40.0,
+          bottom: 0.0,
           child: _CustomText(data: 'Flattered with Flutter'),
         ),
         ...children,
@@ -41,22 +42,34 @@ class _CustomText extends StatelessWidget {
   final String data;
 
   static final _linkService = locator<LinkerService>();
+  static final _screenQueries = ScreenQueries.instance;
 
   @override
   Widget build(BuildContext context) {
     //
 
-    return GestureDetector(
-      onTap: () {
-        _linkService.openLink(BrandLinks.website);
-      },
-      child: Text(
-        data,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 24.0,
-        ),
-      ).showCursorOnHover,
+    final _height = _screenQueries.customHeightPercent(
+      context,
+      80.0 / ApplevelConstants.stdHeight,
+    );
+
+    return Container(
+      alignment: AlignmentDirectional.center,
+      height: _height,
+      width: _screenQueries.width(context),
+      color: Colors.black54,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          GestureDetector(
+            onTap: () => _linkService.openLink(BrandLinks.website),
+            child: Text(
+              data,
+              style: TextStyle(color: Colors.white, fontSize: 24.0),
+            ).showCursorOnHover,
+          ),
+        ],
+      ),
     );
   }
 }
