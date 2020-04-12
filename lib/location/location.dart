@@ -38,7 +38,7 @@ class LocationScreen extends StatelessWidget {
               child: const Text('Print in Console'),
             ),
             OutlineButton(
-              onPressed: () => alert('Hello from JS'),
+              onPressed: () => alert('Hello!! from JS'),
               child: const Text('Alert in Flutter Web'),
             ),
           ],
