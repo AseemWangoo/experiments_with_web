@@ -2,6 +2,7 @@ import 'dart:html';
 import 'dart:js' as js;
 
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
+import 'package:experiments_with_web/location/utilities/alert.dart';
 import 'package:experiments_with_web/location/utilities/stringify.dart';
 
 import 'package:flutter/material.dart';
@@ -35,6 +36,10 @@ class LocationScreen extends StatelessWidget {
                 );
               },
               child: const Text('Print in Console'),
+            ),
+            OutlineButton(
+              onPressed: () => alert('Hello from JS'),
+              child: const Text('Alert in Flutter Web'),
             ),
           ],
         ),
