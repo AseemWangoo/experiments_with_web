@@ -1,3 +1,5 @@
+// ignore_for_file: missing_return
+
 import 'dart:html';
 import 'dart:js' as js;
 
