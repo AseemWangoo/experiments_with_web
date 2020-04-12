@@ -3,9 +3,11 @@ import 'dart:js' as js;
 
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/location/utilities/alert.dart';
+import 'package:experiments_with_web/location/utilities/loc.dart';
 import 'package:experiments_with_web/location/utilities/stringify.dart';
 
 import 'package:flutter/material.dart';
+import 'package:js/js.dart';
 
 class LocationScreen extends StatelessWidget {
   const LocationScreen({Key key}) : super(key: key);
@@ -45,10 +47,28 @@ class LocationScreen extends StatelessWidget {
               onPressed: () => detectUserLocation(),
               child: const Text('Location in Flutter Web'),
             ),
+            OutlineButton(
+              onPressed: () {
+                getCurrentPosition(allowInterop((pos) {
+                  success(pos);
+                }));
+              },
+              child: const Text('Mozilla GeoLocationAPI'),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  dynamic success(GeolocationPosition pos) {
+    try {
+      print('HELLLO');
+      print(pos.coords.latitude);
+      print(pos.coords.longitude);
+    } catch (exc) {
+      print('ERROR WHILE FETCHING LOCATION : ${exc.toString()}');
+    }
   }
 }
 
