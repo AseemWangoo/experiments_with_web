@@ -6,7 +6,9 @@ function detectUserLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
     } else {
-        status.textContent = 'Geolocation is not supported by your browser';
+        status.textContent = text;
+        let text = 'Geolocation is not supported by your browser';
+        console.log(text);
     }
 }
 
@@ -19,5 +21,8 @@ function success(position) {
 }
 
 function error() {
-    status.textContent = 'Unable to get your location';
+    let text = 'User rejected the location request';
+    status.textContent = text;
+    console.log(text);
+    alert(text);
 }

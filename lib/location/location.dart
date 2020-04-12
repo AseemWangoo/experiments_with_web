@@ -41,6 +41,10 @@ class LocationScreen extends StatelessWidget {
               onPressed: () => alert('Hello!! from JS'),
               child: const Text('Alert in Flutter Web'),
             ),
+            OutlineButton(
+              onPressed: () => detectUserLocation(),
+              child: const Text('Location in Flutter Web'),
+            ),
           ],
         ),
       ),
