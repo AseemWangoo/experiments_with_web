@@ -10,6 +10,3 @@ import 'package:js/js.dart';
 // Retrieves the device's current location
 @JS('getCurrentPosition')
 external void getCurrentPosition();
-
-@JS('JSON.stringify')
-external String stringify(dynamic obj);
