@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:js' as js;
 
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/location/utilities/stringify.dart';
@@ -23,8 +24,22 @@ class LocationScreen extends StatelessWidget {
               onPressed: () {
                 final _res = stringify(_obj);
                 window.console.log(_res);
+
+                js.context['console'].callMethod(
+                  'log',
+                  <String>['still in the same page', '\n', 'asas'],
+                );
               },
               child: const Text('Call JS Stringify'),
+            ),
+            OutlineButton(
+              onPressed: () {
+                js.context['console'].callMethod(
+                  'log',
+                  <String>['I am', '\n', 'CONSOLEDDD'],
+                );
+              },
+              child: const Text('Print in Console'),
             ),
           ],
         ),
