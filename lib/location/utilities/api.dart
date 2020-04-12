@@ -10,12 +10,16 @@ const _url = 'https://geolocation-db.com/json/';
 class LocationAPI {
   LocationAPI();
 
-  void fetchData() async {
+  Future<String> fetchData() async {
+    String _city = '';
     final resp = await http.get(_url);
 
     if (resp.statusCode == 200) {
       final _data = LocationModel.fromJson(json.decode(resp.body));
-      print(_data.city);
+
+      _city = _data.city;
     }
+
+    return _city;
   }
 }

@@ -22,6 +22,7 @@ class LocationScreen extends StatefulWidget {
 class _LocationScreenState extends State<LocationScreen> {
   double _latitude = 0.0;
   double _longitude = 0.0;
+  String _city = '';
 
   @override
   Widget build(BuildContext context) {
@@ -73,10 +74,12 @@ class _LocationScreenState extends State<LocationScreen> {
             Text('LONG : $_longitude'),
             OutlineButton(
               onPressed: () async {
-                LocationAPI().fetchData();
+                final _val = await LocationAPI().fetchData();
+                setState(() => _city = _val);
               },
               child: const Text('Location from API'),
             ),
+            Text('CITY : $_city'),
           ],
         ),
       ),
