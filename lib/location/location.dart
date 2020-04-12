@@ -24,11 +24,6 @@ class LocationScreen extends StatelessWidget {
               onPressed: () {
                 final _res = stringify(_obj);
                 window.console.log(_res);
-
-                js.context['console'].callMethod(
-                  'log',
-                  <String>['still in the same page', '\n', 'asas'],
-                );
               },
               child: const Text('Call JS Stringify'),
             ),
