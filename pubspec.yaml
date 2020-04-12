@@ -19,6 +19,9 @@ dependencies:
   # STATE-MANAGEMENT
   provider: ^4.0.2
 
+  # JS
+  js: ^0.6.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
