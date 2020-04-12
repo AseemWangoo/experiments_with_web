@@ -12,12 +12,14 @@ class ApplevelConstants {
   static const String googleRoute = '/google-clone';
   static const String iframeRoute = '/iframe';
   static const String parallaxRoute = '/parallax';
+  static const String locationRoute = '/location';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
   static const String option2 = 'Google';
   static const String option3 = 'Iframe';
   static const String option4 = 'Parallax';
+  static const String option5 = 'Location';
 }
 
 class WHOLinks {

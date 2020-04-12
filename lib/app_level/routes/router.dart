@@ -2,6 +2,7 @@ import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/home.dart';
 import 'package:experiments_with_web/google/google.dart';
 import 'package:experiments_with_web/iframe/iframe.dart';
+import 'package:experiments_with_web/location/location.dart';
 import 'package:experiments_with_web/parallax/parallax.dart';
 import 'package:experiments_with_web/sample/sample.dart';
 
@@ -40,6 +41,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const ParallaxScreen(),
           name: ApplevelConstants.parallaxRoute,
+        );
+
+      case ApplevelConstants.locationRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const LocationScreen(),
+          name: ApplevelConstants.locationRoute,
         );
 
       default:

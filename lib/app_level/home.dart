@@ -36,6 +36,10 @@ class Home extends StatelessWidget {
                   buttonText: ApplevelConstants.option4,
                   onTap: () => _nav.pushNamed(ApplevelConstants.parallaxRoute),
                 ).showCursorOnHover,
+                OptionButton(
+                  buttonText: ApplevelConstants.option5,
+                  onTap: () => _nav.pushNamed(ApplevelConstants.locationRoute),
+                ).showCursorOnHover,
               ],
             ),
           ],
