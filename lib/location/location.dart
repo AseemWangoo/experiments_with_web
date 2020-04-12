@@ -3,6 +3,7 @@ import 'dart:js' as js;
 
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/location/utilities/alert.dart';
+import 'package:experiments_with_web/location/utilities/api.dart';
 import 'package:experiments_with_web/location/utilities/loc.dart';
 import 'package:experiments_with_web/location/utilities/stringify.dart';
 
@@ -66,10 +67,16 @@ class _LocationScreenState extends State<LocationScreen> {
                   });
                 }));
               },
-              child: const Text('Mozilla GeoLocationAPI'),
+              child: const Text('Mozilla GeoLocation'),
             ),
             Text('LAT : $_latitude'),
             Text('LONG : $_longitude'),
+            OutlineButton(
+              onPressed: () async {
+                LocationAPI().fetchData();
+              },
+              child: const Text('Location from API'),
+            ),
           ],
         ),
       ),
