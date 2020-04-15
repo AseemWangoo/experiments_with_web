@@ -34,7 +34,7 @@ class SubMenuOption extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
           child: Text(
             optionName,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
         ),
         highlightColor: Colors.transparent,
