@@ -36,8 +36,10 @@ class _MLScreenState extends State<MLScreen> {
             Text('Predicted Value $_predictedValue'),
             OutlineButton(
               onPressed: () async {
-                final _val = imageClassifier('img');
-                print('Dart ');
+                final _val = await jsutil
+                    .promiseToFuture<Object>(imageClassifier('img'));
+
+                print('Dart $_val');
               },
               child: const Text('Image Classifier'),
             ),

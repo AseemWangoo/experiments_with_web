@@ -31,4 +31,5 @@ async function classifyImage() {
     });
 
     console.log('O/P', result);
+    return result;
 }
