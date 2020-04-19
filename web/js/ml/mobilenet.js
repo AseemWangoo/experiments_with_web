@@ -10,7 +10,6 @@ async function classifyImage() {
     // CLASSIFY THE IMAGE
     let predictions = await model.classify(img);
     console.log('Pred >>>', predictions);
-    console.log('Length >>>', predictions.length);
 
     // Get the logits.
     const logits = model.infer(img);
@@ -23,14 +22,15 @@ async function classifyImage() {
     embedding.print(true);
 
     // EXTRACTION OF DATA...
-
     predictions.forEach(function(item, index) {
-        console.log(item, index);
-
-        for (let key in item) {
-            console.log(key, item[key]);
-        }
+        // console.log(item);
+        // for (let key in item) {
+        //     console.log(key, item[key]);
+        // }
+        result.push(item);
     });
+
+    console.log('O/P', result);
 }
 
 classifyImage();
