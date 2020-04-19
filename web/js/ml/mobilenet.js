@@ -1,13 +1,13 @@
 async function classifyImage() {
     const img = document.getElementById('img');
 
-    mobilenet.load().then(model => {
-        // Classify the image.
-        model.classify(img).then(predictions => {
-            console.log('Pred', predictions);
-            console.log('Length', predictions.length);
-        });
-    });
+    // LOAD MOBILENET MODEL
+    const model = await mobilenet.load();
+
+    // CLASSIFY THE IMAGE
+    let predictions = await model.classify(img);
+    console.log('Pred >>>', predictions);
+    console.log('Length >>>', predictions.length);
 }
 
 classifyImage();
