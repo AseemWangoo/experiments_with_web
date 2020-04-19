@@ -20,9 +20,10 @@ async function learnLinear() {
     var predictions = model.predict(tf.tensor2d([20], [1, 1]));
 
     let result = predictions.dataSync();
-    console.log('Type', result[0]); //number
+    console.log('Res', result[0]); //number
 
-    alert(result[0]);
+    // alert(result[0]);
+    return result[0];
     // document.getElementById('ml_output').innerText = result;
 }
 

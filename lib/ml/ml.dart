@@ -1,3 +1,5 @@
+import 'package:js/js_util.dart' as jsutil;
+
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/ml/utilities/linear_ml.dart';
 
@@ -16,7 +18,12 @@ class MLScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             OutlineButton(
-              onPressed: () => linearModel('text'),
+              onPressed: () async {
+                final _val =
+                    await jsutil.promiseToFuture<num>(linearModel('text'));
+
+                print('From Dart $_val');
+              },
               child: const Text('Linear Model'),
             ),
           ],
