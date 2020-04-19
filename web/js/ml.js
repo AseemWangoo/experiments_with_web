@@ -17,8 +17,12 @@ async function learnLinear() {
     await model.fit(xs, ys, { epochs: 250 });
 
     // PREDICT THE VALUE NOW...
-    let result = model.predict(tf.tensor2d([20], [1, 1]));
-    console.log('RESULET', result);
+    var predictions = model.predict(tf.tensor2d([20], [1, 1]));
+
+    let result = predictions.dataSync();
+    console.log('Type', result[0]); //number
+
+    alert(result[0]);
     // document.getElementById('ml_output').innerText = result;
 }
 
