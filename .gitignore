@@ -26,3 +26,4 @@ doc/api/
 firebase.json
 .firebase
 notes.txt
+.DS_Store
