@@ -34,6 +34,13 @@ class _MLScreenState extends State<MLScreen> {
               child: const Text('Linear Model'),
             ),
             Text('Predicted Value $_predictedValue'),
+            OutlineButton(
+              onPressed: () async {
+                final _val = imageClassifier('img');
+                print('Dart ');
+              },
+              child: const Text('Image Classifier'),
+            ),
           ],
         ),
       ),

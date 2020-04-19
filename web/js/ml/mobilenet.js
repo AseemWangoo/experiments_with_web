@@ -32,5 +32,3 @@ async function classifyImage() {
 
     console.log('O/P', result);
 }
-
-classifyImage();
