@@ -285,7 +285,7 @@ async function trainModel(xTrain, yTrain, xTest, yTest) {
         validationData: [xTest, yTest],
         callbacks: {
             onEpochEnd: async(epoch, logs) => {
-                console.log("Epoch :" + epoch + " Logs :" + logs.loss);
+                // console.log("Epoch :" + epoch + " Logs :" + logs.loss);
 
                 await tf.nextFrame();
             },
