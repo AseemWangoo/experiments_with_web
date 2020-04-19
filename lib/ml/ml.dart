@@ -27,8 +27,7 @@ class _MLScreenState extends State<MLScreen> {
           children: <Widget>[
             OutlineButton(
               onPressed: () async {
-                final _val =
-                    await jsutil.promiseToFuture<num>(linearModel('text'));
+                final _val = await jsutil.promiseToFuture<num>(linearModel(12));
 
                 setState(() => _predictedValue = _val);
               },

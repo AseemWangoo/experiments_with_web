@@ -1,4 +1,4 @@
-async function learnLinear() {
+async function learnLinear(input) {
     // INIT MODEL
     const model = tf.sequential();
     model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
@@ -17,7 +17,7 @@ async function learnLinear() {
     await model.fit(xs, ys, { epochs: 250 });
 
     // PREDICT THE VALUE NOW...
-    var predictions = model.predict(tf.tensor2d([20], [1, 1]));
+    var predictions = model.predict(tf.tensor2d([input], [1, 1]));
 
     let result = predictions.dataSync();
     console.log('Res', result[0]); //number
