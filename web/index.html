@@ -37,18 +37,7 @@
     <script src="js/custom.js"></script>
     <script src="js/ml/ml.js"></script>
     <!-- <script src="js/ml/iris/data.js"></script> -->
-
-    <script>
-        const img = document.getElementById('img');
-
-        mobilenet.load().then(model => {
-            // Classify the image.
-            model.classify(img).then(predictions => {
-                console.log('Pred', predictions);
-                console.log('Length', predictions.length);
-            });
-        });
-    </script>
+    <script src="js/ml/mobilenet.js"></script>
 
     <script defer src="main.dart.js?version=5" type="application/javascript"></script>
 </body>
