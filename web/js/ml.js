@@ -18,7 +18,8 @@ async function learnLinear() {
 
     // PREDICT THE VALUE NOW...
     let result = model.predict(tf.tensor2d([20], [1, 1]));
-    document.getElementById('ml_output').innerText = result;
+    console.log('RESULET', result);
+    // document.getElementById('ml_output').innerText = result;
 }
 
-learnLinear();
+// learnLinear();

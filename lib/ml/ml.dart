@@ -1,4 +1,5 @@
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
+import 'package:experiments_with_web/ml/utilities/linear_ml.dart';
 
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,18 @@ class MLScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //
 
-    return const CustomScaffold();
+    return CustomScaffold(
+      titleText: 'ML on Web',
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            OutlineButton(
+              onPressed: () => linearModel('text'),
+              child: const Text('Linear Model'),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
