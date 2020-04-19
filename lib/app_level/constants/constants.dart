@@ -36,3 +36,16 @@ class BrandLinks {
 
   static const String website = 'http://flatteredwithflutter.com/';
 }
+
+class OptionAndRoutes {
+  OptionAndRoutes._();
+
+  static const Map<String, String> optionRoutes = {
+    ApplevelConstants.option1: ApplevelConstants.sampleRoute,
+    ApplevelConstants.option2: ApplevelConstants.googleRoute,
+    ApplevelConstants.option3: ApplevelConstants.iframeRoute,
+    ApplevelConstants.option4: ApplevelConstants.parallaxRoute,
+    ApplevelConstants.option5: ApplevelConstants.locationRoute,
+    ApplevelConstants.option6: ApplevelConstants.mlRoute,
+  };
+}
