@@ -7,4 +7,18 @@ import 'package:js/js.dart';
 external num linearModel(int number);
 
 @JS('classifyImage')
-external Object imageClassifier(dynamic img);
+@anonymous
+external List<Object> imageClassifier(dynamic img);
+
+class ImageResults {
+  String className;
+  num probability;
+
+  Map<String, dynamic> toMap() {
+    final _map = <String, dynamic>{
+      'className': className,
+      'probability': probability,
+    };
+    return _map;
+  }
+}
