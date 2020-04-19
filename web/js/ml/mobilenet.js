@@ -1,6 +1,9 @@
 async function classifyImage() {
     const img = document.getElementById('img');
 
+    // RESULT TO PASS
+    let result = [];
+
     // LOAD MOBILENET MODEL
     const model = await mobilenet.load();
 
@@ -18,6 +21,16 @@ async function classifyImage() {
     const embedding = model.infer(img, true);
     console.log('Embedding');
     embedding.print(true);
+
+    // EXTRACTION OF DATA...
+
+    predictions.forEach(function(item, index) {
+        console.log(item, index);
+
+        for (let key in item) {
+            console.log(key, item[key]);
+        }
+    });
 }
 
 classifyImage();
