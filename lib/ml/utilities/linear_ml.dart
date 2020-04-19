@@ -7,7 +7,6 @@ import 'package:js/js.dart';
 external num linearModel(int number);
 
 @JS('classifyImage')
-@anonymous
 external List<Object> imageClassifier(dynamic img);
 
 class ImageResults {
