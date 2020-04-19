@@ -250,6 +250,8 @@ async function doIris() {
     const prediction = model.predict(input);
 
     // alert(prediction);
+    const predictionWithArgMax = model.predict(input).argMax(-1).dataSync();
+    alert(predictionWithArgMax);
 }
 
 async function trainModel(xTrain, yTrain, xTest, yTest) {
