@@ -17,8 +17,10 @@ class Home extends StatelessWidget {
       body: SafeArea(
         child: BgWidget(
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Wrap(
+              alignment: WrapAlignment.end,
+              spacing: 40.0,
+              runSpacing: 20.0,
               children: [
                 OptionButton(
                   buttonText: ApplevelConstants.option1,
@@ -39,6 +41,10 @@ class Home extends StatelessWidget {
                 OptionButton(
                   buttonText: ApplevelConstants.option5,
                   onTap: () => _nav.pushNamed(ApplevelConstants.locationRoute),
+                ).showCursorOnHover,
+                OptionButton(
+                  buttonText: ApplevelConstants.option6,
+                  onTap: () => _nav.pushNamed(ApplevelConstants.mlRoute),
                 ).showCursorOnHover,
               ],
             ),

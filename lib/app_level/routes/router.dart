@@ -3,6 +3,7 @@ import 'package:experiments_with_web/app_level/home.dart';
 import 'package:experiments_with_web/google/google.dart';
 import 'package:experiments_with_web/iframe/iframe.dart';
 import 'package:experiments_with_web/location/location.dart';
+import 'package:experiments_with_web/ml/ml.dart';
 import 'package:experiments_with_web/parallax/parallax.dart';
 import 'package:experiments_with_web/sample/sample.dart';
 
@@ -47,6 +48,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const LocationScreen(),
           name: ApplevelConstants.locationRoute,
+        );
+
+      case ApplevelConstants.mlRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const MLScreen(),
+          name: ApplevelConstants.mlRoute,
         );
 
       default:
