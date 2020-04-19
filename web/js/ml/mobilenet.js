@@ -8,6 +8,16 @@ async function classifyImage() {
     let predictions = await model.classify(img);
     console.log('Pred >>>', predictions);
     console.log('Length >>>', predictions.length);
+
+    // Get the logits.
+    const logits = model.infer(img);
+    console.log('Logits');
+    logits.print(true);
+
+    // Get the embedding.
+    const embedding = model.infer(img, true);
+    console.log('Embedding');
+    embedding.print(true);
 }
 
 classifyImage();
