@@ -43,11 +43,14 @@ class _MLScreenState extends State<MLScreen> {
                 print(objectKeys(_val.first));
                 print(objectValues(_val.first));
                 print(entries(_val.first));
-                print(jsutil.hasProperty(_val.first, 'className'));
-                print(jsutil.getProperty(_val.first, 'className'));
-                print(jsutil.jsify(_val));
+                print(jsonObject(stringify(_val.last)).className);
+                print(jsonObject(stringify(_val.last)).probability);
 
-                print('Dart $_val');
+                // print(jsutil.hasProperty(_val.first, 'className'));
+                // print(jsutil.getProperty(_val.first, 'className'));
+                // print(jsutil.jsify(_val));
+
+                // print('Dart $_val');
 
                 // final _temp = (_val.first as ImageResults).toMap();
                 // print('Dart ${_temp}');

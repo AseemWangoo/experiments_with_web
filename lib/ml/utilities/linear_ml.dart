@@ -21,9 +21,19 @@ external List<String> objectValues(Object obj);
 @JS('Object.entries')
 external List<String> entries(Object obj);
 
+@JS('JSON.parse')
+external ImageResults jsonObject(String str);
+
+@JS()
+@anonymous
 class ImageResults {
-  String className;
-  num probability;
+  external factory ImageResults({
+    String className,
+    num probability,
+  });
+
+  external String get className;
+  external num get probability;
 
   Map<String, dynamic> toMap() {
     final _map = <String, dynamic>{
