@@ -12,6 +12,15 @@ external List<Object> imageClassifier(dynamic img);
 @JS('JSON.stringify')
 external String stringify(Object obj);
 
+@JS('Object.keys')
+external List<String> objectKeys(Object obj);
+
+@JS('Object.values')
+external List<String> objectValues(Object obj);
+
+@JS('Object.entries')
+external List<String> entries(Object obj);
+
 class ImageResults {
   String className;
   num probability;
