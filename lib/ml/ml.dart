@@ -1,3 +1,5 @@
+import 'dart:html' as html;
+
 import 'package:experiments_with_web/app_level/services/img_picker_service.dart';
 import 'package:experiments_with_web/locator.dart';
 
@@ -44,6 +46,8 @@ class _MLScreenState extends State<MLScreen> {
               onPressed: () async {
                 final _file = await _imgService.imgPicker();
                 print(_file.name);
+                print(html.querySelector('#img').attributes['src']);
+                // html.querySelector('#img').attributes['src'] = _file.name;
               },
               child: const Text('Pick Image'),
             ),
