@@ -14,6 +14,7 @@ class MLScreen extends StatefulWidget {
 
 class _MLScreenState extends State<MLScreen> {
   num _predictedValue = 0.0;
+  List<ImageResults> _listOfMap = <ImageResults>[];
 
   @override
   Widget build(BuildContext context) {
@@ -39,19 +40,14 @@ class _MLScreenState extends State<MLScreen> {
                 final _val = await jsutil
                     .promiseToFuture<List<Object>>(imageClassifier('img'));
 
-                final _listOfMap = <ImageResults>[];
-
-                for (final item in _val) {
-                  final _jsString = stringify(item);
-                  _listOfMap.add(jsonObject(_jsString));
-                }
-
-                for (final _item in _listOfMap) {
-                  print('Hello ${_item.className} ${_item.probability}');
-                }
+                setState(() => _listOfMap = listOfImageResults(_val));
               },
               child: const Text('Image Classifier'),
             ),
+            for (final _item in _listOfMap) ...[
+              Text('ClassName : ${_item.className}'),
+              Text('Probability : ${_item.probability}\n'),
+            ]
           ],
         ),
       ),

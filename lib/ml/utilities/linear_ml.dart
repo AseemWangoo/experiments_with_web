@@ -43,3 +43,14 @@ class ImageResults {
     return _map;
   }
 }
+
+List<ImageResults> listOfImageResults(List<Object> _val) {
+  final _listOfMap = <ImageResults>[];
+
+  for (final item in _val) {
+    final _jsString = stringify(item);
+    _listOfMap.add(jsonObject(_jsString));
+  }
+
+  return _listOfMap;
+}
