@@ -1,3 +1,6 @@
+import 'package:experiments_with_web/app_level/services/img_picker_service.dart';
+import 'package:experiments_with_web/locator.dart';
+
 import 'package:js/js_util.dart' as jsutil;
 
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
@@ -15,6 +18,8 @@ class MLScreen extends StatefulWidget {
 class _MLScreenState extends State<MLScreen> {
   num _predictedValue = 0.0;
   List<ImageResults> _listOfMap = <ImageResults>[];
+
+  static final _imgService = locator<ImgPickerService>();
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +40,13 @@ class _MLScreenState extends State<MLScreen> {
               child: const Text('Linear Model'),
             ),
             Text('Predicted Value $_predictedValue'),
+            OutlineButton(
+              onPressed: () async {
+                final _file = await _imgService.imgPicker();
+                print(_file.name);
+              },
+              child: const Text('Pick Image'),
+            ),
             OutlineButton(
               onPressed: () async {
                 final _val = await jsutil
