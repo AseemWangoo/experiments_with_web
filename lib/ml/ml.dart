@@ -39,6 +39,8 @@ class _MLScreenState extends State<MLScreen> {
                 final _val = await jsutil
                     .promiseToFuture<List<Object>>(imageClassifier('img'));
 
+                print('Length >>> ${_val.length}');
+                print(stringify(_val.first));
                 print(jsutil.hasProperty(_val.first, 'className'));
                 print(jsutil.getProperty(_val.first, 'className'));
                 print(jsutil.jsify(_val));
