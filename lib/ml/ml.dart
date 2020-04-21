@@ -39,21 +39,16 @@ class _MLScreenState extends State<MLScreen> {
                 final _val = await jsutil
                     .promiseToFuture<List<Object>>(imageClassifier('img'));
 
-                print(stringify(_val.first));
-                print(objectKeys(_val.first));
-                print(objectValues(_val.first));
-                print(entries(_val.first));
-                print(jsonObject(stringify(_val.last)).className);
-                print(jsonObject(stringify(_val.last)).probability);
+                final _listOfMap = <ImageResults>[];
 
-                // print(jsutil.hasProperty(_val.first, 'className'));
-                // print(jsutil.getProperty(_val.first, 'className'));
-                // print(jsutil.jsify(_val));
+                for (final item in _val) {
+                  final _jsString = stringify(item);
+                  _listOfMap.add(jsonObject(_jsString));
+                }
 
-                // print('Dart $_val');
-
-                // final _temp = (_val.first as ImageResults).toMap();
-                // print('Dart ${_temp}');
+                for (final _item in _listOfMap) {
+                  print('Hello ${_item.className} ${_item.probability}');
+                }
               },
               child: const Text('Image Classifier'),
             ),
