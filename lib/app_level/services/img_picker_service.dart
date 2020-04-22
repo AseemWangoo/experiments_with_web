@@ -22,4 +22,35 @@ class ImgPickerService {
 
     return _data;
   }
+
+  void imgTestPicker() {
+    //
+    final InputElement input = document.createElement('input');
+
+    input
+      ..type = 'file'
+      ..multiple = true
+      ..accept = 'image/*';
+
+    input.onChange.listen((e) {
+      final List<File> files = input.files;
+      for (final file in files) {
+        final reader = FileReader();
+        reader.onLoad.listen((e2) {
+          //
+
+          final fileContent = reader.result;
+          // print(fileContent);
+          //
+        });
+        // reader.readAsText(file);
+        reader.readAsDataUrl(file);
+        // querySelector('#img').attributes['src'] = reader.result;
+        print(reader.result);
+        print(file.type);
+        // or '.readAsDataUrl' for using as img src, for example
+      }
+    });
+    input.click();
+  }
 }

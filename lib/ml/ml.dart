@@ -71,6 +71,12 @@ class _MLScreenState extends State<MLScreen> {
             ),
             OutlineButton(
               onPressed: () async {
+                _imgService.imgTestPicker();
+              },
+              child: const Text('Test Image'),
+            ),
+            OutlineButton(
+              onPressed: () async {
                 final _val = await jsutil
                     .promiseToFuture<List<Object>>(imageClassifier('img'));
 
