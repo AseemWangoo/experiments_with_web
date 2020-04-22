@@ -1,5 +1,4 @@
 // ignore_for_file: invalid_assignment
-import 'dart:html' as html;
 
 import 'package:experiments_with_web/app_level/services/img_picker_service.dart';
 import 'package:experiments_with_web/locator.dart';
@@ -55,7 +54,7 @@ class _MLScreenState extends State<MLScreen> {
               duration: const Duration(milliseconds: 300),
               switchInCurve: Curves.easeIn,
               child: SizedBox(
-                    width: 200,
+                    width: 200.0,
                     child: pickedImage,
                   ) ??
                   Container(),
