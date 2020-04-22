@@ -1,3 +1,4 @@
+// ignore_for_file: invalid_assignment
 import 'dart:html' as html;
 
 import 'package:experiments_with_web/app_level/services/img_picker_service.dart';
@@ -20,6 +21,7 @@ class MLScreen extends StatefulWidget {
 class _MLScreenState extends State<MLScreen> {
   num _predictedValue = 0.0;
   List<ImageResults> _listOfMap = <ImageResults>[];
+  Image pickedImage;
 
   static final _imgService = locator<ImgPickerService>();
 
@@ -50,6 +52,22 @@ class _MLScreenState extends State<MLScreen> {
                 // html.querySelector('#img').attributes['src'] = _file.name;
               },
               child: const Text('Pick Image'),
+            ),
+            OutlineButton(
+              onPressed: () async {
+                pickedImage = await _imgService.imgWidget();
+                setState(() {});
+              },
+              child: const Text('Show Image'),
+            ),
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              switchInCurve: Curves.easeIn,
+              child: SizedBox(
+                    width: 200,
+                    child: pickedImage,
+                  ) ??
+                  Container(),
             ),
             OutlineButton(
               onPressed: () async {

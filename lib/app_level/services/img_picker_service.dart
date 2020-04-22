@@ -1,4 +1,4 @@
-// ignore_for_file: invalid_assignment
+// ignore_for_file: invalid_assignment,implicit_dynamic_variable
 
 import 'dart:html';
 
@@ -10,6 +10,14 @@ class ImgPickerService {
   Future<File> imgPicker() async {
     final File _data = await ImagePickerWeb.getImage(
       outputType: ImageType.file,
+    );
+
+    return _data;
+  }
+
+  dynamic imgWidget() async {
+    final _data = await ImagePickerWeb.getImage(
+      outputType: ImageType.widget,
     );
 
     return _data;
