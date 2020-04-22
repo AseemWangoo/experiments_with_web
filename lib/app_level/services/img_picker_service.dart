@@ -27,11 +27,10 @@ class ImgPickerService {
   void imgTestPicker() {
     //
     final InputElement input = document.createElement('input');
-    List<int> _selectedFile = [];
 
     input
       ..type = 'file'
-      ..multiple = true
+      ..multiple = false
       ..accept = 'image/*';
 
     input.onChange.listen((e) {
@@ -43,10 +42,7 @@ class ImgPickerService {
         reader.onLoadEnd.listen((event) {
           //
           final fileContent = reader.result;
-          _selectedFile =
-              Base64Decoder().convert(fileContent.toString().split(',').last);
-
-          querySelector('#img').attributes['src'] = reader.result;
+          querySelector('#img').attributes['src'] = fileContent;
         });
 
         // reader.onLoad.listen((e2) {
@@ -58,9 +54,7 @@ class ImgPickerService {
         // });
         // reader.readAsText(file);
         reader.readAsDataUrl(file);
-        print('1. ${reader.result}');
         print('2. ${file.type}');
-        print('3. $_selectedFile');
       }
     });
     input.click();
