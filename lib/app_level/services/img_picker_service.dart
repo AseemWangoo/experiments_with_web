@@ -1,5 +1,6 @@
 // ignore_for_file: invalid_assignment,implicit_dynamic_variable
 
+import 'dart:convert';
 import 'dart:html';
 
 import 'package:image_picker_web/image_picker_web.dart';
@@ -26,6 +27,7 @@ class ImgPickerService {
   void imgTestPicker() {
     //
     final InputElement input = document.createElement('input');
+    List<int> _selectedFile = [];
 
     input
       ..type = 'file'
@@ -34,21 +36,31 @@ class ImgPickerService {
 
     input.onChange.listen((e) {
       final List<File> files = input.files;
+
       for (final file in files) {
         final reader = FileReader();
-        reader.onLoad.listen((e2) {
-          //
 
-          final fileContent = reader.result;
-          // print(fileContent);
+        reader.onLoadEnd.listen((event) {
           //
+          final fileContent = reader.result;
+          _selectedFile =
+              Base64Decoder().convert(fileContent.toString().split(',').last);
+
+          querySelector('#img').attributes['src'] = reader.result;
         });
+
+        // reader.onLoad.listen((e2) {
+        //   //
+
+        //   final fileContent = reader.result;
+        //   // print(fileContent);
+        //   //
+        // });
         // reader.readAsText(file);
         reader.readAsDataUrl(file);
-        // querySelector('#img').attributes['src'] = reader.result;
-        print(reader.result);
-        print(file.type);
-        // or '.readAsDataUrl' for using as img src, for example
+        print('1. ${reader.result}');
+        print('2. ${file.type}');
+        print('3. $_selectedFile');
       }
     });
     input.click();
