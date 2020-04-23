@@ -36,47 +36,50 @@ class _MLScreenState extends State<MLScreen> {
     return CustomScaffold(
       titleText: 'ML on Web',
       child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            OutlineButton(
-              onPressed: () async {
-                final _val = await jsutil.promiseToFuture<num>(linearModel(12));
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              OutlineButton(
+                onPressed: () async {
+                  final _val =
+                      await jsutil.promiseToFuture<num>(linearModel(12));
 
-                setState(() => _predictedValue = _val);
-              },
-              child: const Text('Linear Model'),
-            ),
-            Text('Predicted Value $_predictedValue'),
-            if (imageData != null) ...[
-              SizedBox(
-                width: 300.0,
-                child: Image.memory(imageData),
-              )
+                  setState(() => _predictedValue = _val);
+                },
+                child: const Text('Linear Model'),
+              ),
+              Text('Predicted Value $_predictedValue'),
+              OutlineButton(
+                onPressed: () async {
+                  _imgData = await _imgService.imgPicker();
+
+                  imageData = base64.decode(_imgData['image'] as String);
+                  setState(() {});
+                },
+                child: const Text('Select Image'),
+              ),
+              if (imageData != null) ...[
+                SizedBox(
+                  width: 300.0,
+                  child: Image.memory(imageData),
+                )
+              ],
+              OutlineButton(
+                onPressed: () async {
+                  final _val = await jsutil
+                      .promiseToFuture<List<Object>>(imageClassifier());
+
+                  setState(() => _listOfMap = listOfImageResults(_val));
+                },
+                child: const Text('Feature Extraction'),
+              ),
+              for (final _item in _listOfMap) ...[
+                Text('ClassName : ${_item.className}'),
+                Text('Probability : ${_item.probability}\n'),
+              ]
             ],
-            OutlineButton(
-              onPressed: () async {
-                _imgData = await _imgService.imgPicker();
-
-                imageData = base64.decode(_imgData['image'] as String);
-                setState(() {});
-              },
-              child: const Text('Select Image'),
-            ),
-            OutlineButton(
-              onPressed: () async {
-                final _val = await jsutil
-                    .promiseToFuture<List<Object>>(imageClassifier());
-
-                setState(() => _listOfMap = listOfImageResults(_val));
-              },
-              child: const Text('Feature Extraction'),
-            ),
-            for (final _item in _listOfMap) ...[
-              Text('ClassName : ${_item.className}'),
-              Text('Probability : ${_item.probability}\n'),
-            ]
-          ],
+          ),
         ),
       ),
     );
