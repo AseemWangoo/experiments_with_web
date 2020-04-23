@@ -2,18 +2,8 @@
 
 import 'dart:html';
 
-import 'package:image_picker_web/image_picker_web.dart';
-
 class ImgPickerService {
   ImgPickerService();
-
-  dynamic imgWidget() async {
-    final _data = await ImagePickerWeb.getImage(
-      outputType: ImageType.widget,
-    );
-
-    return _data;
-  }
 
   Future<Map<String, dynamic>> imgPicker() async {
     //
