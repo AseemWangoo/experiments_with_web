@@ -48,22 +48,12 @@ class _MLScreenState extends State<MLScreen> {
               child: const Text('Linear Model'),
             ),
             Text('Predicted Value $_predictedValue'),
-            OutlineButton(
-              onPressed: () async {
-                pickedImage = await _imgService.imgWidget();
-                setState(() {});
-              },
-              child: const Text('Show Image'),
-            ),
-            AnimatedSwitcher(
-              duration: const Duration(milliseconds: 300),
-              switchInCurve: Curves.easeIn,
-              child: SizedBox(
-                    width: 200.0,
-                    child: pickedImage,
-                  ) ??
-                  Container(),
-            ),
+            if (imageData != null) ...[
+              SizedBox(
+                width: 300.0,
+                child: Image.memory(imageData),
+              )
+            ],
             OutlineButton(
               onPressed: () async {
                 _imgData = await _imgService.imgPicker();
