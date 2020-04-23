@@ -68,11 +68,11 @@ class _MLScreenState extends State<MLScreen> {
             OutlineButton(
               onPressed: () async {
                 final _val = await jsutil
-                    .promiseToFuture<List<Object>>(imageClassifier('img'));
+                    .promiseToFuture<List<Object>>(imageClassifier());
 
                 setState(() => _listOfMap = listOfImageResults(_val));
               },
-              child: const Text('Image Classifier'),
+              child: const Text('Extract Details from Image'),
             ),
             for (final _item in _listOfMap) ...[
               Text('ClassName : ${_item.className}'),
