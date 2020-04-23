@@ -15,7 +15,7 @@ class ImgPickerService {
     return _data;
   }
 
-  void imgPicker() {
+  Future<void> imgPicker() async {
     //
     final InputElement input = document.createElement('input');
 
@@ -24,30 +24,19 @@ class ImgPickerService {
       ..multiple = false
       ..accept = 'image/*';
 
-    input.onChange.listen((e) {
-      final List<File> files = input.files;
-
-      for (final file in files) {
-        final reader = FileReader();
-
-        reader.onLoadEnd.listen((event) {
-          //
-          final fileContent = reader.result;
-          querySelector('#img').attributes['src'] = fileContent;
-        });
-
-        // reader.onLoad.listen((e2) {
-        //   //
-
-        //   final fileContent = reader.result;
-        //   // print(fileContent);
-        //   //
-        // });
-        // reader.readAsText(file);
-        reader.readAsDataUrl(file);
-        print('2. ${file.type}');
-      }
-    });
     input.click();
+    await input.onChange.first;
+
+    if (input.files.isEmpty) {
+      return null;
+    } else {
+      final reader = FileReader();
+      reader.readAsDataUrl(input.files.first);
+
+      await reader.onLoadEnd.first;
+      final imgContent = reader.result;
+
+      querySelector('#img').attributes['src'] = imgContent;
+    }
   }
 }
