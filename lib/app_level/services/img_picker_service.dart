@@ -15,7 +15,7 @@ class ImgPickerService {
     return _data;
   }
 
-  void imgTestPicker() {
+  void imgPicker() {
     //
     final InputElement input = document.createElement('input');
 

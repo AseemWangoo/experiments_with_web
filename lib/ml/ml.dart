@@ -61,9 +61,9 @@ class _MLScreenState extends State<MLScreen> {
             ),
             OutlineButton(
               onPressed: () async {
-                _imgService.imgTestPicker();
+                _imgService.imgPicker();
               },
-              child: const Text('Test Image'),
+              child: const Text('Select Image'),
             ),
             OutlineButton(
               onPressed: () async {
@@ -72,7 +72,7 @@ class _MLScreenState extends State<MLScreen> {
 
                 setState(() => _listOfMap = listOfImageResults(_val));
               },
-              child: const Text('Extract Details from Image'),
+              child: const Text('Feature Extraction'),
             ),
             for (final _item in _listOfMap) ...[
               Text('ClassName : ${_item.className}'),
