@@ -15,8 +15,9 @@ class ImgPickerService {
     return _data;
   }
 
-  Future<void> imgPicker() async {
+  Future<Map<String, dynamic>> imgPicker() async {
     //
+    final _data = <String, dynamic>{};
     final InputElement input = document.createElement('input');
 
     input
@@ -27,16 +28,23 @@ class ImgPickerService {
     input.click();
     await input.onChange.first;
 
-    if (input.files.isEmpty) {
-      return null;
-    } else {
+    if (input.files.isNotEmpty) {
       final reader = FileReader();
       reader.readAsDataUrl(input.files.first);
 
       await reader.onLoadEnd.first;
-      final imgContent = reader.result;
+      querySelector('#img').attributes['src'] = reader.result;
 
-      querySelector('#img').attributes['src'] = imgContent;
+      final imgContent = reader.result as String;
+
+      final _img = imgContent.replaceFirst(
+        RegExp(r'data:image/[^;]+;base64,'),
+        '',
+      );
+
+      _data['image'] = _img;
     }
+
+    return _data;
   }
 }

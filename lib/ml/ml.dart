@@ -1,5 +1,8 @@
 // ignore_for_file: invalid_assignment
 
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:experiments_with_web/app_level/services/img_picker_service.dart';
 import 'package:experiments_with_web/locator.dart';
 
@@ -21,6 +24,8 @@ class _MLScreenState extends State<MLScreen> {
   num _predictedValue = 0.0;
   List<ImageResults> _listOfMap = <ImageResults>[];
   Image pickedImage;
+  Map<String, dynamic> _imgData = <String, dynamic>{};
+  Uint8List imageData;
 
   static final _imgService = locator<ImgPickerService>();
 
@@ -61,7 +66,10 @@ class _MLScreenState extends State<MLScreen> {
             ),
             OutlineButton(
               onPressed: () async {
-                _imgService.imgPicker();
+                _imgData = await _imgService.imgPicker();
+
+                imageData = base64.decode(_imgData['image'] as String);
+                setState(() {});
               },
               child: const Text('Select Image'),
             ),
