@@ -40,6 +40,7 @@ class _MLScreenState extends State<MLScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              const Text('Formula (2x - 1)'),
               OutlineButton(
                 onPressed: () async {
                   final _val =
@@ -47,7 +48,7 @@ class _MLScreenState extends State<MLScreen> {
 
                   setState(() => _predictedValue = _val);
                 },
-                child: const Text('Linear Model'),
+                child: const Text('Linear Model x=12'),
               ),
               Text('Predicted Value $_predictedValue'),
               OutlineButton(
