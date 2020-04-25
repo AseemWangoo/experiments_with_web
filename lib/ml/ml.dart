@@ -55,6 +55,11 @@ class _MLScreenState extends State<MLScreen> {
                   _imgData = await _imgService.imgPicker();
 
                   imageData = base64.decode(_imgData['image'] as String);
+
+                  if (_listOfMap.isNotEmpty) {
+                    _listOfMap.clear();
+                  }
+
                   setState(() {});
                 },
                 child: const Text('Select Image'),
