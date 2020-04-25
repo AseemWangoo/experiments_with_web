@@ -13,6 +13,7 @@ class ApplevelConstants {
   static const String iframeRoute = '/iframe';
   static const String parallaxRoute = '/parallax';
   static const String locationRoute = '/location';
+  static const String mlRoute = '/ml';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -20,6 +21,7 @@ class ApplevelConstants {
   static const String option3 = 'Iframe';
   static const String option4 = 'Parallax';
   static const String option5 = 'Location';
+  static const String option6 = 'ML';
 }
 
 class WHOLinks {
@@ -33,4 +35,17 @@ class BrandLinks {
   BrandLinks._();
 
   static const String website = 'http://flatteredwithflutter.com/';
+}
+
+class OptionAndRoutes {
+  OptionAndRoutes._();
+
+  static const Map<String, String> optionRoutes = {
+    ApplevelConstants.option1: ApplevelConstants.sampleRoute,
+    ApplevelConstants.option2: ApplevelConstants.googleRoute,
+    ApplevelConstants.option3: ApplevelConstants.iframeRoute,
+    ApplevelConstants.option4: ApplevelConstants.parallaxRoute,
+    ApplevelConstants.option5: ApplevelConstants.locationRoute,
+    ApplevelConstants.option6: ApplevelConstants.mlRoute,
+  };
 }

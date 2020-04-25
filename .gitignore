@@ -26,3 +26,7 @@ doc/api/
 firebase.json
 .firebase
 notes.txt
+.DS_Store
+.flutter-plugins-dependencies
+.flutter-plugins
+lib/generated_plugin_registrant.dart

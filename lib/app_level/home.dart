@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget {
   const Home({Key key}) : super(key: key);
 
+  static final _optionAndRoute = OptionAndRoutes.optionRoutes.entries;
+
   @override
   Widget build(BuildContext context) {
     //
@@ -17,29 +19,18 @@ class Home extends StatelessWidget {
       body: SafeArea(
         child: BgWidget(
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Wrap(
+              alignment: WrapAlignment.end,
+              spacing: 40.0,
+              runSpacing: 20.0,
               children: [
-                OptionButton(
-                  buttonText: ApplevelConstants.option1,
-                  onTap: () => _nav.pushNamed(ApplevelConstants.sampleRoute),
-                ).showCursorOnHover,
-                OptionButton(
-                  buttonText: ApplevelConstants.option2,
-                  onTap: () => _nav.pushNamed(ApplevelConstants.googleRoute),
-                ).showCursorOnHover,
-                OptionButton(
-                  buttonText: ApplevelConstants.option3,
-                  onTap: () => _nav.pushNamed(ApplevelConstants.iframeRoute),
-                ).showCursorOnHover,
-                OptionButton(
-                  buttonText: ApplevelConstants.option4,
-                  onTap: () => _nav.pushNamed(ApplevelConstants.parallaxRoute),
-                ).showCursorOnHover,
-                OptionButton(
-                  buttonText: ApplevelConstants.option5,
-                  onTap: () => _nav.pushNamed(ApplevelConstants.locationRoute),
-                ).showCursorOnHover,
+                for (MapEntry<String, String> _optionRoute
+                    in _optionAndRoute) ...[
+                  OptionButton(
+                    buttonText: _optionRoute.key,
+                    onTap: () => _nav.pushNamed(_optionRoute.value),
+                  ).showCursorOnHover
+                ]
               ],
             ),
           ],

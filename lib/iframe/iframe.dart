@@ -52,7 +52,7 @@ class _IframeScreenState extends State<IframeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Iframe', style: TextStyle(color: Colors.black)),
+        title: const Text('Iframe', style: TextStyle(color: Colors.black)),
       ),
       body: Center(
         child: SizedBox(
