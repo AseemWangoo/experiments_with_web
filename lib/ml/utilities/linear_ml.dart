@@ -35,13 +35,13 @@ class ImageResults {
   external String get className;
   external num get probability;
 
-  Map<String, dynamic> toMap() {
-    final _map = <String, dynamic>{
-      'className': className,
-      'probability': probability,
-    };
-    return _map;
-  }
+  // Map<String, dynamic> toMap() {
+  //   final _map = <String, dynamic>{
+  //     'className': className,
+  //     'probability': probability,
+  //   };
+  //   return _map;
+  // }
 }
 
 List<ImageResults> listOfImageResults(List<Object> _val) {
