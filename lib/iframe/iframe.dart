@@ -93,7 +93,10 @@ class _IframeScreenState extends State<IframeScreen> {
                             () => _iframeElement.src = _textController.text);
                       }
                     },
-                    child: Text('Go', style: TextStyle(color: Colors.white)),
+                    child: const Text(
+                      'Go',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ).showCursorOnHover,
                 )
               ],
