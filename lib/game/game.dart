@@ -1,5 +1,6 @@
 // ignore_for_file: implicit_dynamic_return
 
+import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:flame/flame.dart';
 
@@ -28,10 +29,14 @@ class BoxGame extends Game with TapDetector {
   }
 
   Size screenSize;
-  bool _hasWon = false;
   double tileSize;
 
+  // ADD VIRUS
+  List<Virus> _virusCmpnt;
+
   Future<void> get initialize async {
+    _virusCmpnt = <Virus>[];
+
     final _size = await Flame.util.initialDimensions();
     resize(_size);
   }
@@ -48,21 +53,6 @@ class BoxGame extends Game with TapDetector {
 
     final _bgPaint = Paint()..color = const Color(0xFF576574);
     canvas.drawRect(_bgRect, _bgPaint);
-
-    final _screenCenterX = screenSize.width / 2;
-    final _screenCenterY = screenSize.height / 2;
-
-    final _boxRect = Rect.fromLTWH(
-      _screenCenterX - GameUtils.boxLeftPos,
-      _screenCenterY - GameUtils.boxRightPos,
-      GameUtils.boxWidth,
-      GameUtils.boxHeight,
-    );
-
-    final _boxPaint = Paint();
-    _winningCondition(_boxPaint);
-
-    canvas.drawRect(_boxRect, _boxPaint);
   }
 
   @override
@@ -94,47 +84,7 @@ class BoxGame extends Game with TapDetector {
   void onTapDown(TapDownDetails details) {
     final _touchPointX = details.globalPosition.dx;
     final _touchPointY = details.globalPosition.dy;
-
-    final _screenCenterX = screenSize.width / 2;
-    final _screenCenterY = screenSize.height / 2;
-
-    final _touchedWidth = _isWithinWidth(_touchPointX, _screenCenterX);
-    final _touchedHeight = _isWithinHeight(_touchPointY, _screenCenterY);
-
-    if (_touchedWidth && _touchedHeight) {
-      _hasWon = true;
-    }
-
     print('TAP DOWN X >>> $_touchPointX Y >>>> $_touchPointY');
     super.onTapDown(details);
-  }
-
-  void _winningCondition(Paint boxPaint) {
-    if (_hasWon) {
-      boxPaint.color = Colors.green;
-    } else {
-      boxPaint.color = Colors.black;
-    }
-  }
-
-  bool _isWithinWidth(double dx, double width) {
-    bool _touched = false;
-    const _boxWidth = GameUtils.boxWidth;
-
-    if (dx >= width - _boxWidth && dx <= width + _boxWidth) {
-      _touched = true;
-    }
-    return _touched;
-  }
-
-  bool _isWithinHeight(double dy, double height) {
-    bool _touched = false;
-    const _boxHeight = GameUtils.boxHeight;
-
-    if (dy >= height - _boxHeight && dy <= height + _boxHeight) {
-      _touched = true;
-    }
-
-    return _touched;
   }
 }
