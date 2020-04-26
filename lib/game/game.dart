@@ -53,10 +53,20 @@ class BoxGame extends Game with TapDetector {
 
     final _bgPaint = Paint()..color = const Color(0xFF576574);
     canvas.drawRect(_bgRect, _bgPaint);
+
+    // LOOP THROUGH VIRUS
+    for (final _virus in _virusCmpnt) {
+      _virus.render(canvas);
+    }
   }
 
   @override
-  void update(double t) {}
+  void update(double t) {
+    // LOOP THROUGH VIRUS
+    for (final _virus in _virusCmpnt) {
+      _virus.update(t);
+    }
+  }
 
   @override
   void resize(Size size) {
