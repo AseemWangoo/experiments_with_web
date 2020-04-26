@@ -7,9 +7,9 @@ class Virus {
   Virus({
     @required this.boxGame,
     double left,
-    double y,
+    double top,
   }) {
-    virusRect = Rect.fromLTWH(left, y, boxGame.tileSize, boxGame.tileSize);
+    virusRect = Rect.fromLTWH(left, top, boxGame.tileSize, boxGame.tileSize);
     virusPaint = Paint()..color = const Color(0xff6ab04c);
   }
 
