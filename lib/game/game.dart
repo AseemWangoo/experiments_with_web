@@ -1,4 +1,5 @@
 import 'package:experiments_with_web/game/utilities/constants.dart';
+
 import 'package:flame/game/game.dart';
 import 'package:flame/gestures.dart';
 
@@ -19,7 +20,7 @@ class _GameScreenState extends State<GameScreen> {
 }
 
 class BoxGame extends Game with TapDetector {
-  Size _screenSize;
+  Size screenSize;
   bool _hasWon = false;
   double _tileSize;
 
@@ -29,15 +30,15 @@ class BoxGame extends Game with TapDetector {
     final _bgRect = Rect.fromLTWH(
       0.0,
       0.0,
-      _screenSize.width,
-      _screenSize.height,
+      screenSize.width,
+      screenSize.height,
     );
 
     final _bgPaint = Paint()..color = const Color(0xFF576574);
     canvas.drawRect(_bgRect, _bgPaint);
 
-    final _screenCenterX = _screenSize.width / 2;
-    final _screenCenterY = _screenSize.height / 2;
+    final _screenCenterX = screenSize.width / 2;
+    final _screenCenterY = screenSize.height / 2;
 
     final _boxRect = Rect.fromLTWH(
       _screenCenterX - GameUtils.boxLeftPos,
@@ -57,8 +58,8 @@ class BoxGame extends Game with TapDetector {
 
   @override
   void resize(Size size) {
-    _screenSize = size;
-    _tileSize = _screenSize.width / GameUtils.screenElementSize;
+    screenSize = size;
+    _tileSize = screenSize.width / GameUtils.screenElementSize;
     super.resize(size);
   }
 
@@ -82,8 +83,8 @@ class BoxGame extends Game with TapDetector {
     final _touchPointX = details.globalPosition.dx;
     final _touchPointY = details.globalPosition.dy;
 
-    final _screenCenterX = _screenSize.width / 2;
-    final _screenCenterY = _screenSize.height / 2;
+    final _screenCenterX = screenSize.width / 2;
+    final _screenCenterY = screenSize.height / 2;
 
     final _touchedWidth = _isWithinWidth(_touchPointX, _screenCenterX);
     final _touchedHeight = _isWithinHeight(_touchPointY, _screenCenterY);
