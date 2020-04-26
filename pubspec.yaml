@@ -25,6 +25,9 @@ dependencies:
   # HTTP REQUEST
   http: ^0.12.0+4
 
+  # GAMING
+  flame: ^0.19.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
