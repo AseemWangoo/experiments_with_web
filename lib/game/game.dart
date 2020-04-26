@@ -12,14 +12,14 @@ import 'package:flutter/material.dart';
 
 class GameScreen extends StatelessWidget {
   const GameScreen({Key key}) : super(key: key);
-  static final _game = BoxGame();
+  static final _game = GameTime();
 
   @override
   Widget build(BuildContext context) => _game.widget;
 }
 
-class BoxGame extends Game with TapDetector {
-  BoxGame() {
+class GameTime extends Game with TapDetector {
+  GameTime() {
     initialize;
   }
 

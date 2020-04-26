@@ -13,7 +13,7 @@ class Virus {
     virusPaint = Paint()..color = const Color(0xff6ab04c);
   }
 
-  final BoxGame boxGame;
+  final GameTime boxGame;
 
   // COMPONENT VARIABLES
   Rect virusRect;
