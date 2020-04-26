@@ -1,4 +1,7 @@
+// ignore_for_file: implicit_dynamic_return
+
 import 'package:experiments_with_web/game/utilities/constants.dart';
+import 'package:flame/flame.dart';
 
 import 'package:flame/game/game.dart';
 import 'package:flame/gestures.dart';
@@ -20,9 +23,18 @@ class _GameScreenState extends State<GameScreen> {
 }
 
 class BoxGame extends Game with TapDetector {
+  BoxGame() {
+    initialize;
+  }
+
   Size screenSize;
   bool _hasWon = false;
-  double _tileSize;
+  double tileSize;
+
+  Future<void> get initialize async {
+    final _size = await Flame.util.initialDimensions();
+    resize(_size);
+  }
 
   @override
   void render(Canvas canvas) {
@@ -59,7 +71,7 @@ class BoxGame extends Game with TapDetector {
   @override
   void resize(Size size) {
     screenSize = size;
-    _tileSize = screenSize.width / GameUtils.screenElementSize;
+    tileSize = screenSize.width / GameUtils.screenElementSize;
     super.resize(size);
   }
 
