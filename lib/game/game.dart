@@ -27,10 +27,10 @@ class GameTime extends Game with TapDetector {
   double tileSize;
 
   // ADD VIRUS
-  List<Virus> _virusCmpnt;
+  List<Virus> virusCmpnt;
 
   Future<void> get initialize async {
-    _virusCmpnt = <Virus>[];
+    virusCmpnt = <Virus>[];
 
     final _size = await Flame.util.initialDimensions();
     resize(_size);
@@ -52,7 +52,7 @@ class GameTime extends Game with TapDetector {
     canvas.drawRect(_bgRect, _bgPaint);
 
     // LOOP THROUGH VIRUS
-    for (final _virus in _virusCmpnt) {
+    for (final _virus in virusCmpnt) {
       _virus.render(canvas);
     }
   }
@@ -60,9 +60,11 @@ class GameTime extends Game with TapDetector {
   @override
   void update(double t) {
     // LOOP THROUGH VIRUS
-    for (final _virus in _virusCmpnt) {
+    for (final _virus in virusCmpnt) {
       _virus.update(t);
     }
+
+    virusCmpnt.removeWhere((_virus) => _virus.isVirusOffScreen);
   }
 
   @override
@@ -92,7 +94,7 @@ class GameTime extends Game with TapDetector {
     final _touchPointOffset = details.globalPosition;
     print('TAP DOWN OFFSET >>> $_touchPointOffset');
 
-    for (final _virus in _virusCmpnt) {
+    for (final _virus in virusCmpnt) {
       if (_virus.virusRect.contains(_touchPointOffset)) {
         //
         _virus.onTapDown();
@@ -109,6 +111,6 @@ class GameTime extends Game with TapDetector {
 
     final _virusElement = Virus(gameTime: this, left: _left, top: _top);
 
-    _virusCmpnt.add(_virusElement);
+    virusCmpnt.add(_virusElement);
   }
 }

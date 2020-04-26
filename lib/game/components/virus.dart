@@ -19,6 +19,7 @@ class Virus {
   Rect virusRect;
   Paint virusPaint;
   bool isVirusDead = false;
+  bool isVirusOffScreen = false;
 
   void render(Canvas canvas) {
     canvas.drawRect(virusRect, virusPaint);
@@ -29,6 +30,10 @@ class Virus {
       final _translateY = gameTime.tileSize * 12 * t;
 
       virusRect = virusRect.translate(0, _translateY);
+
+      if (virusRect.top > gameTime.screenSize.height) {
+        isVirusOffScreen = true;
+      }
     }
   }
 
