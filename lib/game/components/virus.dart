@@ -24,4 +24,10 @@ class Virus {
   }
 
   void update(double t) {}
+
+  // Virus onTapDown..
+  // Change color if virus is tapped...
+  void onTapDown() {
+    virusPaint.color = const Color(0xffff4757);
+  }
 }

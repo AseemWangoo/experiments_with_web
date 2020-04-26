@@ -89,9 +89,16 @@ class BoxGame extends Game with TapDetector {
   // We only need to worry about writing the actual update and render processes, rest taken care by Flame.
   @override
   void onTapDown(TapDownDetails details) {
-    final _touchPointX = details.globalPosition.dx;
-    final _touchPointY = details.globalPosition.dy;
-    print('TAP DOWN X >>> $_touchPointX Y >>>> $_touchPointY');
+    final _touchPointOffset = details.globalPosition;
+    print('TAP DOWN OFFSET >>> $_touchPointOffset');
+
+    for (final _virus in _virusCmpnt) {
+      if (_virus.virusRect.contains(_touchPointOffset)) {
+        //
+        _virus.onTapDown();
+      }
+    }
+
     super.onTapDown(details);
   }
 
