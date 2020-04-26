@@ -18,16 +18,24 @@ class Virus {
   // COMPONENT VARIABLES
   Rect virusRect;
   Paint virusPaint;
+  bool isVirusDead = false;
 
   void render(Canvas canvas) {
     canvas.drawRect(virusRect, virusPaint);
   }
 
-  void update(double t) {}
+  void update(double t) {
+    if (isVirusDead) {
+      final _translateY = boxGame.tileSize * 12 * t;
+
+      virusRect = virusRect.translate(0, _translateY);
+    }
+  }
 
   // Virus onTapDown..
   // Change color if virus is tapped...
   void onTapDown() {
+    isVirusDead = true;
     virusPaint.color = const Color(0xffff4757);
   }
 }
