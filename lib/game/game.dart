@@ -35,7 +35,7 @@ class GameTime extends Game with TapDetector {
     final _size = await Flame.util.initialDimensions();
     resize(_size);
 
-    _createVirus();
+    createVirus();
   }
 
   @override
@@ -102,12 +102,12 @@ class GameTime extends Game with TapDetector {
     super.onTapDown(details);
   }
 
-  void _createVirus() {
+  void createVirus() {
     final _rndDouble = GameHelpers.randomize();
     final _left = _rndDouble * (screenSize.width - tileSize);
     final _top = _rndDouble * (screenSize.height - tileSize);
 
-    final _virusElement = Virus(boxGame: this, left: _left, top: _top);
+    final _virusElement = Virus(gameTime: this, left: _left, top: _top);
 
     _virusCmpnt.add(_virusElement);
   }

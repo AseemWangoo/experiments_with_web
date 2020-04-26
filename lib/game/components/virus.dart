@@ -5,15 +5,15 @@ import 'package:experiments_with_web/game/game.dart';
 
 class Virus {
   Virus({
-    @required this.boxGame,
+    @required this.gameTime,
     double left,
     double top,
   }) {
-    virusRect = Rect.fromLTWH(left, top, boxGame.tileSize, boxGame.tileSize);
+    virusRect = Rect.fromLTWH(left, top, gameTime.tileSize, gameTime.tileSize);
     virusPaint = Paint()..color = const Color(0xff6ab04c);
   }
 
-  final GameTime boxGame;
+  final GameTime gameTime;
 
   // COMPONENT VARIABLES
   Rect virusRect;
@@ -26,7 +26,7 @@ class Virus {
 
   void update(double t) {
     if (isVirusDead) {
-      final _translateY = boxGame.tileSize * 12 * t;
+      final _translateY = gameTime.tileSize * 12 * t;
 
       virusRect = virusRect.translate(0, _translateY);
     }
@@ -37,5 +37,8 @@ class Virus {
   void onTapDown() {
     isVirusDead = true;
     virusPaint.color = const Color(0xffff4757);
+
+    // ADDS THE VIRUS AGAIN..
+    gameTime.createVirus();
   }
 }
