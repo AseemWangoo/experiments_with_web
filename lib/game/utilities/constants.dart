@@ -6,4 +6,6 @@ class GameUtils {
 
   static const double boxLeftPos = 75.0;
   static const double boxRightPos = 75.0;
+
+  static const int screenElementSize = 9;
 }

@@ -12,15 +12,16 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  final _game = _BoxGame();
+  final _game = BoxGame();
 
   @override
   Widget build(BuildContext context) => _game.widget;
 }
 
-class _BoxGame extends Game with TapDetector {
+class BoxGame extends Game with TapDetector {
   Size _screenSize;
   bool _hasWon = false;
+  double _tileSize;
 
   @override
   void render(Canvas canvas) {
@@ -32,7 +33,7 @@ class _BoxGame extends Game with TapDetector {
       _screenSize.height,
     );
 
-    final _bgPaint = Paint()..color = Colors.indigo;
+    final _bgPaint = Paint()..color = const Color(0xFF576574);
     canvas.drawRect(_bgRect, _bgPaint);
 
     final _screenCenterX = _screenSize.width / 2;
@@ -57,6 +58,7 @@ class _BoxGame extends Game with TapDetector {
   @override
   void resize(Size size) {
     _screenSize = size;
+    _tileSize = _screenSize.width / GameUtils.screenElementSize;
     super.resize(size);
   }
 
@@ -104,7 +106,7 @@ class _BoxGame extends Game with TapDetector {
 
   bool _isWithinWidth(double dx, double width) {
     bool _touched = false;
-    final _boxWidth = GameUtils.boxWidth;
+    const _boxWidth = GameUtils.boxWidth;
 
     if (dx >= width - _boxWidth && dx <= width + _boxWidth) {
       _touched = true;
@@ -114,7 +116,7 @@ class _BoxGame extends Game with TapDetector {
 
   bool _isWithinHeight(double dy, double height) {
     bool _touched = false;
-    final _boxHeight = GameUtils.boxHeight;
+    const _boxHeight = GameUtils.boxHeight;
 
     if (dy >= height - _boxHeight && dy <= height + _boxHeight) {
       _touched = true;
