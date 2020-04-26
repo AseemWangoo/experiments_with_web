@@ -74,11 +74,23 @@ class _BoxGame extends Game with TapDetector {
     super.onTapUp(details);
   }
 
+  // We only need to worry about writing the actual update and render processes, rest taken care by Flame.
   @override
   void onTapDown(TapDownDetails details) {
-    print(
-      'TAP DOWN X >>> ${details.globalPosition.dx} Y >>>> ${details.globalPosition.dy}',
-    );
+    final _touchPointX = details.globalPosition.dx;
+    final _touchPointY = details.globalPosition.dy;
+
+    final _screenCenterX = _screenSize.width / 2;
+    final _screenCenterY = _screenSize.height / 2;
+
+    final _touchedWidth = _isWithinWidth(_touchPointX, _screenCenterX);
+    final _touchedHeight = _isWithinHeight(_touchPointY, _screenCenterY);
+
+    if (_touchedWidth && _touchedHeight) {
+      _hasWon = true;
+    }
+
+    print('TAP DOWN X >>> $_touchPointX Y >>>> $_touchPointY');
     super.onTapDown(details);
   }
 
@@ -88,5 +100,26 @@ class _BoxGame extends Game with TapDetector {
     } else {
       boxPaint.color = Colors.black;
     }
+  }
+
+  bool _isWithinWidth(double dx, double width) {
+    bool _touched = false;
+    final _boxWidth = GameUtils.boxWidth;
+
+    if (dx >= width - _boxWidth && dx <= width + _boxWidth) {
+      _touched = true;
+    }
+    return _touched;
+  }
+
+  bool _isWithinHeight(double dy, double height) {
+    bool _touched = false;
+    final _boxHeight = GameUtils.boxHeight;
+
+    if (dy >= height - _boxHeight && dy <= height + _boxHeight) {
+      _touched = true;
+    }
+
+    return _touched;
   }
 }
