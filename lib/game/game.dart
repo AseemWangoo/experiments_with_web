@@ -1,4 +1,5 @@
 import 'package:flame/game/game.dart';
+import 'package:flame/gestures.dart';
 
 import 'package:flutter/material.dart';
 
@@ -16,11 +17,12 @@ class _GameScreenState extends State<GameScreen> {
   Widget build(BuildContext context) => _game.widget;
 }
 
-class _BoxGame extends Game {
+class _BoxGame extends Game with TapDetector {
   Size _screenSize;
 
   @override
   void render(Canvas canvas) {
+    // DRAW A FULL SCREEN BOX
     final _bgRect = Rect.fromLTWH(
       0.0,
       0.0,
@@ -29,8 +31,20 @@ class _BoxGame extends Game {
     );
 
     final _bgPaint = Paint()..color = Colors.deepOrange;
-
     canvas.drawRect(_bgRect, _bgPaint);
+
+    final _screenCenterX = _screenSize.width / 2;
+    final _screenCenterY = _screenSize.height / 2;
+
+    final _boxRect = Rect.fromLTWH(
+      _screenCenterX - 75.0,
+      _screenCenterY - 75.0,
+      150.0,
+      150.0,
+    );
+
+    final _boxPaint = Paint()..color = Colors.blue;
+    canvas.drawRect(_boxRect, _boxPaint);
   }
 
   @override
@@ -40,5 +54,27 @@ class _BoxGame extends Game {
   void resize(Size size) {
     _screenSize = size;
     super.resize(size);
+  }
+
+  @override
+  void onTap() {
+    print('I WAS TAPPED');
+    super.onTap();
+  }
+
+  @override
+  void onTapUp(TapUpDetails details) {
+    print(
+      'TAP UP X >>> ${details.globalPosition.dx} Y >>>> ${details.globalPosition.dy}',
+    );
+    super.onTapUp(details);
+  }
+
+  @override
+  void onTapDown(TapDownDetails details) {
+    print(
+      'TAP DOWN X >>> ${details.globalPosition.dx} Y >>>> ${details.globalPosition.dy}',
+    );
+    super.onTapDown(details);
   }
 }
