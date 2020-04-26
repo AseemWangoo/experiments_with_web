@@ -97,9 +97,15 @@ class BoxGame extends Game with TapDetector {
 
   void _createVirus() {
     final _rndDouble = GameHelpers.randomize();
-    final _x = _rndDouble * (screenSize.width - tileSize);
+    final _left = _rndDouble * (screenSize.width - tileSize);
     final _y = _rndDouble * (screenSize.height - tileSize);
 
-    _virusCmpnt.add(Virus(this, _x, _y));
+    final _virusElement = Virus(
+      boxGame: this,
+      left: _left,
+      y: _y,
+    );
+
+    _virusCmpnt.add(_virusElement);
   }
 }
