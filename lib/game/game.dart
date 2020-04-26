@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:flame/game/game.dart';
 import 'package:flame/gestures.dart';
 
@@ -19,6 +20,7 @@ class _GameScreenState extends State<GameScreen> {
 
 class _BoxGame extends Game with TapDetector {
   Size _screenSize;
+  bool _hasWon = false;
 
   @override
   void render(Canvas canvas) {
@@ -30,20 +32,22 @@ class _BoxGame extends Game with TapDetector {
       _screenSize.height,
     );
 
-    final _bgPaint = Paint()..color = Colors.deepOrange;
+    final _bgPaint = Paint()..color = Colors.indigo;
     canvas.drawRect(_bgRect, _bgPaint);
 
     final _screenCenterX = _screenSize.width / 2;
     final _screenCenterY = _screenSize.height / 2;
 
     final _boxRect = Rect.fromLTWH(
-      _screenCenterX - 75.0,
-      _screenCenterY - 75.0,
-      150.0,
-      150.0,
+      _screenCenterX - GameUtils.boxLeftPos,
+      _screenCenterY - GameUtils.boxRightPos,
+      GameUtils.boxWidth,
+      GameUtils.boxHeight,
     );
 
-    final _boxPaint = Paint()..color = Colors.blue;
+    final _boxPaint = Paint();
+    _winningCondition(_boxPaint);
+
     canvas.drawRect(_boxRect, _boxPaint);
   }
 
@@ -76,5 +80,13 @@ class _BoxGame extends Game with TapDetector {
       'TAP DOWN X >>> ${details.globalPosition.dx} Y >>>> ${details.globalPosition.dy}',
     );
     super.onTapDown(details);
+  }
+
+  void _winningCondition(Paint boxPaint) {
+    if (_hasWon) {
+      boxPaint.color = Colors.green;
+    } else {
+      boxPaint.color = Colors.black;
+    }
   }
 }
