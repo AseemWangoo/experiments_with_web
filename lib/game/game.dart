@@ -3,22 +3,16 @@
 import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:experiments_with_web/game/utilities/helpers.dart';
-import 'package:flame/flame.dart';
 
+import 'package:flame/flame.dart';
 import 'package:flame/game/game.dart';
 import 'package:flame/gestures.dart';
 
 import 'package:flutter/material.dart';
 
-class GameScreen extends StatefulWidget {
+class GameScreen extends StatelessWidget {
   const GameScreen({Key key}) : super(key: key);
-
-  @override
-  _GameScreenState createState() => _GameScreenState();
-}
-
-class _GameScreenState extends State<GameScreen> {
-  final _game = BoxGame();
+  static final _game = BoxGame();
 
   @override
   Widget build(BuildContext context) => _game.widget;
