@@ -2,6 +2,7 @@
 
 import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
+import 'package:experiments_with_web/game/utilities/helpers.dart';
 import 'package:flame/flame.dart';
 
 import 'package:flame/game/game.dart';
@@ -39,6 +40,8 @@ class BoxGame extends Game with TapDetector {
 
     final _size = await Flame.util.initialDimensions();
     resize(_size);
+
+    _createVirus();
   }
 
   @override
@@ -96,5 +99,13 @@ class BoxGame extends Game with TapDetector {
     final _touchPointY = details.globalPosition.dy;
     print('TAP DOWN X >>> $_touchPointX Y >>>> $_touchPointY');
     super.onTapDown(details);
+  }
+
+  void _createVirus() {
+    final _rndDouble = GameHelpers.randomize();
+    final _x = _rndDouble * (screenSize.width - tileSize);
+    final _y = _rndDouble * (screenSize.height - tileSize);
+
+    _virusCmpnt.add(Virus(this, _x, _y));
   }
 }
