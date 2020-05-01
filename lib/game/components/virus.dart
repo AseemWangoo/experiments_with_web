@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flame/sprite.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:experiments_with_web/game/game.dart';
@@ -10,19 +11,26 @@ class Virus {
     double top,
   }) {
     virusRect = Rect.fromLTWH(left, top, gameTime.tileSize, gameTime.tileSize);
-    virusPaint = Paint()..color = const Color(0xff6ab04c);
   }
 
   final GameTime gameTime;
 
   // COMPONENT VARIABLES
   Rect virusRect;
-  Paint virusPaint;
   bool isVirusDead = false;
   bool isVirusOffScreen = false;
+  List<Sprite> movingVirusSprite;
+  Sprite deadVirusSprite;
+  double flyingSpriteIndex = 0;
 
-  void render(Canvas canvas) {
-    canvas.drawRect(virusRect, virusPaint);
+  void render(Canvas c) {
+    final _inflatedRect = virusRect.inflate(2.0);
+
+    if (isVirusDead) {
+      deadVirusSprite.renderRect(c, _inflatedRect);
+    } else {
+      movingVirusSprite[flyingSpriteIndex.toInt()].renderRect(c, _inflatedRect);
+    }
   }
 
   void update(double t) {
@@ -41,7 +49,6 @@ class Virus {
   // Change color if virus is tapped...
   void onTapDown() {
     isVirusDead = true;
-    virusPaint.color = const Color(0xffff4757);
 
     // ADDS THE VIRUS AGAIN..
     gameTime.createVirus();
