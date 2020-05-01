@@ -1,5 +1,6 @@
 // ignore_for_file: implicit_dynamic_return
 
+import 'package:experiments_with_web/game/components/background.dart';
 import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:experiments_with_web/game/utilities/helpers.dart';
@@ -36,6 +37,7 @@ class GameTime extends Game with TapDetector {
 
   Size screenSize;
   double tileSize;
+  Background background;
 
   // ADD VIRUS
   List<Virus> virusCmpnt;
@@ -46,6 +48,7 @@ class GameTime extends Game with TapDetector {
     final _size = await Flame.util.initialDimensions();
     resize(_size);
 
+    background = Background(gameTime: this);
     createVirus();
   }
 
