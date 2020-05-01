@@ -41,6 +41,8 @@ flutter:
     - assets/images/virus/enemy.png
     - assets/images/virus/virus_fly_up.png
     - assets/images/virus/virus_fly_down.png
+    - assets/images/virus/dragon_fly_up.png
+    - assets/images/virus/dragon_fly_down.png
 
   fonts:
     - family: arial

@@ -1,6 +1,7 @@
 // ignore_for_file: implicit_dynamic_return
 
 import 'package:experiments_with_web/game/components/background.dart';
+import 'package:experiments_with_web/game/components/moving_dragon_virus.dart';
 import 'package:experiments_with_web/game/components/moving_virus.dart';
 import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
@@ -116,8 +117,14 @@ class GameTime extends Game with TapDetector {
     final _left = _rndDouble * (screenSize.width - tileSize);
     final _top = _rndDouble * (screenSize.height - tileSize);
 
-    final _virusElement = MovingVirus(this, _left, _top);
-
-    virusCmpnt.add(_virusElement);
+    final _rndNumber = GameHelpers.randomNumber(2);
+    switch (_rndNumber) {
+      case 0:
+        virusCmpnt.add(MovingVirus(this, _left, _top));
+        break;
+      case 1:
+        virusCmpnt.add(MovingDragonVirus(this, _left, _top));
+        break;
+    }
   }
 }

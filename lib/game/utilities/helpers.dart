@@ -10,6 +10,11 @@ class GameHelpers {
     final _rnd = Random();
     return _rnd.nextDouble();
   }
+
+  static int randomNumber(int maxSize) {
+    final _rnd = Random();
+    return _rnd.nextInt(maxSize);
+  }
 }
 
 class AssetsLoader {
