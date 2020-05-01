@@ -24,7 +24,7 @@ class Virus {
   double movingSpriteIndex = 0;
 
   void render(Canvas c) {
-    final _inflatedRect = virusRect.inflate(2.0);
+    final _inflatedRect = virusRect.inflate(14.0);
 
     if (isVirusDead) {
       deadVirusSprite.renderRect(c, _inflatedRect);
