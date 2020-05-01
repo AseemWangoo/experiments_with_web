@@ -37,7 +37,8 @@ flutter:
 
   assets:
     - assets/animations/
-    - assets/images/
+    - assets/images/bg/room.png
+    - assets/images/virus/enemy.png
 
   fonts:
     - family: arial
