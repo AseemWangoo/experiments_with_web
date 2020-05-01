@@ -55,15 +55,16 @@ class GameTime extends Game with TapDetector {
   @override
   void render(Canvas canvas) {
     // DRAW A FULL SCREEN BOX
-    final _bgRect = Rect.fromLTWH(
-      0.0,
-      0.0,
-      screenSize.width,
-      screenSize.height,
-    );
+    // final _bgRect = Rect.fromLTWH(
+    //   0.0,
+    //   0.0,
+    //   screenSize.width,
+    //   screenSize.height,
+    // );
 
-    final _bgPaint = Paint()..color = const Color(0xFF576574);
-    canvas.drawRect(_bgRect, _bgPaint);
+    // final _bgPaint = Paint()..color = const Color(0xFF576574);
+    // canvas.drawRect(_bgRect, _bgPaint);
+    background.render(canvas);
 
     // LOOP THROUGH VIRUS
     for (final _virus in virusCmpnt) {
