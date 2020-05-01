@@ -10,12 +10,23 @@ import 'package:flame/gestures.dart';
 
 import 'package:flutter/material.dart';
 
-class GameScreen extends StatelessWidget {
+class GameScreen extends StatefulWidget {
   const GameScreen({Key key}) : super(key: key);
   static final _game = GameTime();
 
   @override
-  Widget build(BuildContext context) => _game.widget;
+  _GameScreenState createState() => _GameScreenState();
+}
+
+class _GameScreenState extends State<GameScreen> {
+  @override
+  void initState() {
+    super.initState();
+    AssetsLoader.loadImages();
+  }
+
+  @override
+  Widget build(BuildContext context) => GameScreen._game.widget;
 }
 
 class GameTime extends Game with TapDetector {
