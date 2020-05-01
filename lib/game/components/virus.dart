@@ -21,7 +21,7 @@ class Virus {
   bool isVirusOffScreen = false;
   List<Sprite> movingVirusSprite;
   Sprite deadVirusSprite;
-  double flyingSpriteIndex = 0;
+  double movingSpriteIndex = 0;
 
   void render(Canvas c) {
     final _inflatedRect = virusRect.inflate(2.0);
@@ -29,7 +29,7 @@ class Virus {
     if (isVirusDead) {
       deadVirusSprite.renderRect(c, _inflatedRect);
     } else {
-      movingVirusSprite[flyingSpriteIndex.toInt()].renderRect(c, _inflatedRect);
+      movingVirusSprite[movingSpriteIndex.toInt()].renderRect(c, _inflatedRect);
     }
   }
 

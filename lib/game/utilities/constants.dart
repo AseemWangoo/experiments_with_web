@@ -4,11 +4,14 @@ class GameUtils {
   static const int screenElementSize = 27;
 
   static const List<String> images = [
-    'bg/room.png',
-    'virus/enemy.png',
-    'virus/virus_fly_up.png',
-    'virus/virus_fly_down.png',
+    roomImage,
+    virusDead,
+    virusUp,
+    virusDown,
   ];
 
   static const String roomImage = 'bg/room.png';
+  static const String virusUp = 'virus/virus_fly_up.png';
+  static const String virusDown = 'virus/virus_fly_down.png';
+  static const String virusDead = 'virus/enemy.png';
 }
