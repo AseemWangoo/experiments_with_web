@@ -1,7 +1,7 @@
 class GameUtils {
   GameUtils._();
 
-  static const int screenElementSize = 9;
+  static const int screenElementSize = 27;
 
   static const List<String> images = [
     'bg/room.png',

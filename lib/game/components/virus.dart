@@ -27,7 +27,7 @@ class Virus {
 
   void update(double t) {
     if (isVirusDead) {
-      final _translateY = gameTime.tileSize * 12 * t;
+      final _translateY = gameTime.tileSize * 18 * t;
 
       virusRect = virusRect.translate(0, _translateY);
 
