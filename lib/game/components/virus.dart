@@ -81,13 +81,14 @@ class Virus {
   }
 
   void get setupVirusLocation {
-    final _rndDouble = GameHelpers.randomize();
+    final _rndDouble1 = GameHelpers.randomize();
+    final _rndDouble2 = GameHelpers.randomize();
 
-    final _x = _rndDouble *
+    final _x = _rndDouble1 *
         (gameTime.screenSize.width -
             (gameTime.tileSize * GameUtils.maxVirusSize));
 
-    final _y = _rndDouble *
+    final _y = _rndDouble2 *
         (gameTime.screenSize.height -
             (gameTime.tileSize * GameUtils.maxVirusSize));
 
