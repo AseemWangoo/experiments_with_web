@@ -8,6 +8,7 @@ import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:experiments_with_web/game/utilities/helpers.dart';
 import 'package:experiments_with_web/game/views/home_view.dart';
+import 'package:experiments_with_web/game/views/lost_view.dart';
 
 import 'package:flame/flame.dart';
 import 'package:flame/game/game.dart';
@@ -49,6 +50,7 @@ class GameTime extends Game with TapDetector {
   // ADD VIEW
   GameView activeView = GameView.home;
   HomeView homeView;
+  LostView lostView;
   GameStartButton startButton;
 
   Future<void> get initialize async {
@@ -61,6 +63,7 @@ class GameTime extends Game with TapDetector {
     startButton = GameStartButton(gameTime: this);
 
     homeView = HomeView(gameTime: this);
+    lostView = LostView(gameTime: this);
     createVirus();
   }
 
@@ -77,6 +80,10 @@ class GameTime extends Game with TapDetector {
     // ADD VIEWS
     if (activeView == GameView.home) {
       homeView.render(canvas);
+    }
+
+    if (activeView == GameView.lost) {
+      lostView.render(canvas);
     }
 
     if (activeView == GameView.home || activeView == GameView.lost) {
