@@ -43,6 +43,11 @@ flutter:
     - assets/images/virus/virus_fly_down.png
     - assets/images/virus/dragon_fly_up.png
     - assets/images/virus/dragon_fly_down.png
+    - assets/images/ui/defeat_btn.png
+    - assets/images/ui/game_name.png
+    - assets/images/ui/play_btn.png
+    - assets/images/ui/restart_btn.png
+    - assets/images/ui/win_btn.png
 
   fonts:
     - family: arial

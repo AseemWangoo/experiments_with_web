@@ -10,6 +10,11 @@ class GameUtils {
     virusDown,
     dragonVirusUp,
     dragonVirusDown,
+    defeatBtn,
+    gameName,
+    playBtn,
+    restartBtn,
+    winBtn,
   ];
 
   static const String roomImage = 'bg/room.png';
@@ -20,6 +25,12 @@ class GameUtils {
 
   static const String dragonVirusUp = 'virus/dragon_fly_up.png';
   static const String dragonVirusDown = 'virus/dragon_fly_down.png';
+
+  static const String defeatBtn = 'ui/defeat_btn.png';
+  static const String gameName = 'ui/game_name.png';
+  static const String playBtn = 'ui/play_btn.png';
+  static const String restartBtn = 'ui/restart_btn.png';
+  static const String winBtn = 'ui/win_btn.png';
 
   static const double maxVirusSize = 2.2;
 }
