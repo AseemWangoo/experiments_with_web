@@ -48,6 +48,7 @@ flutter:
     - assets/images/ui/play_btn.png
     - assets/images/ui/restart_btn.png
     - assets/images/ui/win_btn.png
+    - assets/images/ui/instruction_game.png
 
   fonts:
     - family: arial
