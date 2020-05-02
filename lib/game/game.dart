@@ -57,7 +57,7 @@ class GameTime extends Game with TapDetector {
   @override
   void render(Canvas canvas) {
     // RENDER BACKGROUND
-    // background.render(canvas);
+    background.render(canvas);
 
     // LOOP THROUGH VIRUS
     for (final _virus in virusCmpnt) {

@@ -9,7 +9,8 @@ class Background {
     @required this.gameTime,
   }) {
     bgSprite = Sprite(GameUtils.roomImage);
-    // FULL SCREEN RECTANGLE
+    // FULL SCREEN RECTANGLE.
+    //TODO: REVISIT THIS
     bgRect = Rect.fromLTWH(
       0.0,
       0.0,
