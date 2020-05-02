@@ -1,6 +1,7 @@
 // ignore_for_file: implicit_dynamic_return
 
 import 'package:experiments_with_web/game/components/background.dart';
+import 'package:experiments_with_web/game/components/display_score.dart';
 import 'package:experiments_with_web/game/components/game_instruction.dart';
 import 'package:experiments_with_web/game/components/game_start.dart';
 import 'package:experiments_with_web/game/components/moving_dragon_virus.dart';
@@ -55,6 +56,7 @@ class GameTime extends Game with TapDetector {
   HomeView homeView;
   LostView lostView;
   InstView instView;
+  DisplayScore scoreDisplay;
 
   // ADD BUTTONS
   GameStartButton startButton;
@@ -63,8 +65,12 @@ class GameTime extends Game with TapDetector {
   // CONTROLLERS
   VirusSpawner virusSpawner;
 
+  // SCORE
+  int score;
+
   Future<void> get initialize async {
     virusCmpnt = <Virus>[];
+    score = 0;
 
     final _size = await Flame.util.initialDimensions();
     resize(_size);
@@ -72,6 +78,7 @@ class GameTime extends Game with TapDetector {
     background = Background(gameTime: this);
     startButton = GameStartButton(gameTime: this);
     instButton = GameInstructionButton(gameTime: this);
+    scoreDisplay = DisplayScore(gameTime: this);
 
     // CONTROLLERS
     virusSpawner = VirusSpawner(gameTime: this);
@@ -86,6 +93,11 @@ class GameTime extends Game with TapDetector {
   void render(Canvas canvas) {
     // RENDER BACKGROUND
     background.render(canvas);
+
+    // DISPLAY SCORE
+    if (activeView == GameView.playing) {
+      scoreDisplay.render(canvas);
+    }
 
     // LOOP THROUGH VIRUS
     for (final _virus in virusCmpnt) {
@@ -121,6 +133,11 @@ class GameTime extends Game with TapDetector {
     }
 
     virusCmpnt.removeWhere((_virus) => _virus.isVirusOffScreen);
+
+    // DISPLAY SCORE
+    if (activeView == GameView.playing) {
+      scoreDisplay.update(t);
+    }
   }
 
   @override

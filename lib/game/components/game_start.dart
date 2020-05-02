@@ -31,6 +31,9 @@ class GameStartButton {
   void update(double t) {}
 
   void onTapDown() {
+    // RESET SCORE BEFORE GAME STARTS
+    gameTime.score = 0;
+
     gameTime.activeView = GameView.playing;
     gameTime.virusSpawner.start();
   }
