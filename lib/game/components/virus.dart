@@ -75,9 +75,6 @@ class Virus {
   // Change color if virus is tapped...
   void onTapDown() {
     isVirusDead = true;
-
-    // ADDS THE VIRUS AGAIN..
-    gameTime.createVirus();
   }
 
   void get setupVirusLocation {

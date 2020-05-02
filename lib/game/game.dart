@@ -5,6 +5,7 @@ import 'package:experiments_with_web/game/components/game_start.dart';
 import 'package:experiments_with_web/game/components/moving_dragon_virus.dart';
 import 'package:experiments_with_web/game/components/moving_virus.dart';
 import 'package:experiments_with_web/game/components/virus.dart';
+import 'package:experiments_with_web/game/controllers/virus_spawner.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:experiments_with_web/game/utilities/helpers.dart';
 import 'package:experiments_with_web/game/views/home_view.dart';
@@ -53,6 +54,9 @@ class GameTime extends Game with TapDetector {
   LostView lostView;
   GameStartButton startButton;
 
+  // CONTROLLERS
+  VirusSpawner virusSpawner;
+
   Future<void> get initialize async {
     virusCmpnt = <Virus>[];
 
@@ -62,9 +66,12 @@ class GameTime extends Game with TapDetector {
     background = Background(gameTime: this);
     startButton = GameStartButton(gameTime: this);
 
+    // CONTROLLERS
+    virusSpawner = VirusSpawner(gameTime: this);
+
+    // VIEWS
     homeView = HomeView(gameTime: this);
     lostView = LostView(gameTime: this);
-    createVirus();
   }
 
   @override
@@ -93,6 +100,8 @@ class GameTime extends Game with TapDetector {
 
   @override
   void update(double t) {
+    virusSpawner.update(t);
+
     // LOOP THROUGH VIRUS
     for (final _virus in virusCmpnt) {
       _virus.update(t);

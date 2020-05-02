@@ -32,5 +32,6 @@ class GameStartButton {
 
   void onTapDown() {
     gameTime.activeView = GameView.playing;
+    gameTime.virusSpawner.start();
   }
 }
