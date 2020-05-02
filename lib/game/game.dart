@@ -1,6 +1,7 @@
 // ignore_for_file: implicit_dynamic_return
 
 import 'package:experiments_with_web/game/components/background.dart';
+import 'package:experiments_with_web/game/components/game_instruction.dart';
 import 'package:experiments_with_web/game/components/game_start.dart';
 import 'package:experiments_with_web/game/components/moving_dragon_virus.dart';
 import 'package:experiments_with_web/game/components/moving_virus.dart';
@@ -53,6 +54,7 @@ class GameTime extends Game with TapDetector {
   HomeView homeView;
   LostView lostView;
   GameStartButton startButton;
+  GameInstructionButton instButton;
 
   // CONTROLLERS
   VirusSpawner virusSpawner;
@@ -65,6 +67,7 @@ class GameTime extends Game with TapDetector {
 
     background = Background(gameTime: this);
     startButton = GameStartButton(gameTime: this);
+    instButton = GameInstructionButton(gameTime: this);
 
     // CONTROLLERS
     virusSpawner = VirusSpawner(gameTime: this);
@@ -95,12 +98,13 @@ class GameTime extends Game with TapDetector {
 
     if (activeView == GameView.home || activeView == GameView.lost) {
       startButton.render(canvas);
+      instButton.render(canvas);
     }
   }
 
   @override
   void update(double t) {
-    virusSpawner.update(t);
+    virusSpawner?.update(t);
 
     // LOOP THROUGH VIRUS
     for (final _virus in virusCmpnt) {
@@ -143,6 +147,14 @@ class GameTime extends Game with TapDetector {
     if (!_isHandled && startButton.startRect.contains(_touchPointOffset)) {
       if (activeView == GameView.home || activeView == GameView.lost) {
         startButton.onTapDown();
+        _isHandled = true;
+      }
+    }
+
+    // FOR THE HELP BUTTON
+    if (!_isHandled && instButton.instRect.contains(_touchPointOffset)) {
+      if (activeView == GameView.home || activeView == GameView.lost) {
+        instButton.onTapDown();
         _isHandled = true;
       }
     }

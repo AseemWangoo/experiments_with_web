@@ -2,6 +2,7 @@ enum GameView {
   home,
   playing,
   lost,
+  howToPlay,
 }
 
 class GameUtils {
@@ -22,7 +23,7 @@ class GameUtils {
     restartBtn,
     winBtn,
     instructions,
-    helpBtn,
+    instBtn,
   ];
 
   static const String roomImage = 'bg/room.png';
@@ -39,7 +40,7 @@ class GameUtils {
   static const String playBtn = 'ui/play_btn.png';
   static const String restartBtn = 'ui/restart_btn.png';
   static const String winBtn = 'ui/win_btn.png';
-  static const String helpBtn = 'ui/help_btn.png';
+  static const String instBtn = 'ui/help_btn.png';
 
   static const String instructions = 'ui/instruction_game.png';
 
