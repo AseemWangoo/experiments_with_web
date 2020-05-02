@@ -11,9 +11,9 @@ class InstView {
   }) {
     titleInstRect = Rect.fromLTWH(
         gameTime.screenSize.width / 6,
-        gameTime.screenSize.height / 4,
+        gameTime.screenSize.height / 10,
         gameTime.screenSize.width / 1.5,
-        gameTime.screenSize.height / 6);
+        gameTime.screenSize.height / 1.2);
 
     titleInstSprite = Sprite(GameUtils.instructions);
   }
