@@ -42,6 +42,11 @@ class Virus {
       if (virusRect.top > gameTime.screenSize.height) {
         isVirusOffScreen = true;
       }
+    } else {
+      movingSpriteIndex += 10 * t;
+      if (movingSpriteIndex >= 2) {
+        movingSpriteIndex -= 2;
+      }
     }
   }
 
