@@ -11,7 +11,7 @@ class DisplayScore {
       ..textDirection = TextDirection.ltr;
 
     textStyle = TextStyle(
-      color: Colors.white,
+      color: Colors.deepOrange,
       fontSize: 90.0,
       shadows: const <Shadow>[
         Shadow(

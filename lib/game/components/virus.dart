@@ -74,7 +74,13 @@ class Virus {
   // Virus onTapDown..
   // Change color if virus is tapped...
   void onTapDown() {
-    isVirusDead = true;
+    if (!isVirusDead) {
+      isVirusDead = true;
+
+      if (gameTime.activeView == GameView.playing) {
+        gameTime.score += 1;
+      }
+    }
   }
 
   void get setupVirusLocation {
