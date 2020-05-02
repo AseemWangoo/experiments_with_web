@@ -10,10 +10,10 @@ class GameStartButton {
     @required this.gameTime,
   }) {
     startRect = Rect.fromLTWH(
-        gameTime.screenSize.width / 6,
-        gameTime.screenSize.height / 4,
-        gameTime.screenSize.width / 1.5,
-        gameTime.screenSize.height / 6);
+        gameTime.screenSize.width / 3,
+        gameTime.screenSize.height / 2.2,
+        gameTime.screenSize.width / 2.5,
+        gameTime.screenSize.height / 12);
 
     startSprite = Sprite(GameUtils.playBtn);
   }
