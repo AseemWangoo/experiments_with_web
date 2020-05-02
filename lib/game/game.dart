@@ -10,6 +10,7 @@ import 'package:experiments_with_web/game/controllers/virus_spawner.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:experiments_with_web/game/utilities/helpers.dart';
 import 'package:experiments_with_web/game/views/home_view.dart';
+import 'package:experiments_with_web/game/views/inst_view.dart';
 import 'package:experiments_with_web/game/views/lost_view.dart';
 
 import 'package:flame/flame.dart';
@@ -53,6 +54,9 @@ class GameTime extends Game with TapDetector {
   GameView activeView = GameView.home;
   HomeView homeView;
   LostView lostView;
+  InstView instView;
+
+  // ADD BUTTONS
   GameStartButton startButton;
   GameInstructionButton instButton;
 
@@ -75,6 +79,7 @@ class GameTime extends Game with TapDetector {
     // VIEWS
     homeView = HomeView(gameTime: this);
     lostView = LostView(gameTime: this);
+    instView = InstView(gameTime: this);
   }
 
   @override
@@ -99,6 +104,10 @@ class GameTime extends Game with TapDetector {
     if (activeView == GameView.home || activeView == GameView.lost) {
       startButton.render(canvas);
       instButton.render(canvas);
+    }
+
+    if (activeView == GameView.howToPlay) {
+      instView.render(canvas);
     }
   }
 
@@ -142,6 +151,14 @@ class GameTime extends Game with TapDetector {
     print('TAP DOWN OFFSET >>> $_touchPointOffset');
     // FOR START BUTTON TAP...
     bool _isHandled = false;
+
+    // FOR INST IMAGE
+    if (!_isHandled) {
+      if (activeView == GameView.howToPlay) {
+        activeView = GameView.home;
+        _isHandled = true;
+      }
+    }
 
     // FOR START BUTTON
     if (!_isHandled && startButton.startRect.contains(_touchPointOffset)) {
