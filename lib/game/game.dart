@@ -1,6 +1,7 @@
 // ignore_for_file: implicit_dynamic_return
 
 import 'package:experiments_with_web/game/components/background.dart';
+import 'package:experiments_with_web/game/components/game_start.dart';
 import 'package:experiments_with_web/game/components/moving_dragon_virus.dart';
 import 'package:experiments_with_web/game/components/moving_virus.dart';
 import 'package:experiments_with_web/game/components/virus.dart';
@@ -48,6 +49,7 @@ class GameTime extends Game with TapDetector {
   // ADD VIEW
   GameView activeView = GameView.home;
   HomeView homeView;
+  GameStartButton startButton;
 
   Future<void> get initialize async {
     virusCmpnt = <Virus>[];
@@ -56,6 +58,8 @@ class GameTime extends Game with TapDetector {
     resize(_size);
 
     background = Background(gameTime: this);
+    startButton = GameStartButton(gameTime: this);
+
     homeView = HomeView(gameTime: this);
     createVirus();
   }
@@ -73,6 +77,10 @@ class GameTime extends Game with TapDetector {
     // ADD VIEWS
     if (activeView == GameView.home) {
       homeView.render(canvas);
+    }
+
+    if (activeView == GameView.home || activeView == GameView.lost) {
+      startButton.render(canvas);
     }
   }
 
