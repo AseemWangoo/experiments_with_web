@@ -30,5 +30,7 @@ class GameStartButton {
 
   void update(double t) {}
 
-  void onTapDown() {}
+  void onTapDown() {
+    gameTime.activeView = GameView.playing;
+  }
 }
