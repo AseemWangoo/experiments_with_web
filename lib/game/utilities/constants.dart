@@ -1,3 +1,9 @@
+enum GameView {
+  home,
+  playing,
+  lost,
+}
+
 class GameUtils {
   GameUtils._();
 

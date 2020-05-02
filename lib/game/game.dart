@@ -6,6 +6,7 @@ import 'package:experiments_with_web/game/components/moving_virus.dart';
 import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:experiments_with_web/game/utilities/helpers.dart';
+import 'package:experiments_with_web/game/views/home_view.dart';
 
 import 'package:flame/flame.dart';
 import 'package:flame/game/game.dart';
@@ -44,6 +45,10 @@ class GameTime extends Game with TapDetector {
   // ADD VIRUS
   List<Virus> virusCmpnt;
 
+  // ADD VIEW
+  GameView activeView = GameView.home;
+  HomeView homeView;
+
   Future<void> get initialize async {
     virusCmpnt = <Virus>[];
 
@@ -51,6 +56,7 @@ class GameTime extends Game with TapDetector {
     resize(_size);
 
     background = Background(gameTime: this);
+    homeView = HomeView(gameTime: this);
     createVirus();
   }
 
@@ -62,6 +68,11 @@ class GameTime extends Game with TapDetector {
     // LOOP THROUGH VIRUS
     for (final _virus in virusCmpnt) {
       _virus.render(canvas);
+    }
+
+    // ADD VIEWS
+    if (activeView == GameView.home) {
+      homeView.render(canvas);
     }
   }
 
