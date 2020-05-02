@@ -120,6 +120,7 @@ class GameTime extends Game with TapDetector {
   void onTapDown(TapDownDetails details) {
     final _touchPointOffset = details.globalPosition;
     print('TAP DOWN OFFSET >>> $_touchPointOffset');
+    // FOR START BUTTON TAP...
     bool _isHandled = false;
 
     // FOR START BUTTON
@@ -132,10 +133,19 @@ class GameTime extends Game with TapDetector {
 
     // FOR THE START BUTTON
     if (!_isHandled) {
+      // IS VIRUS HIT
+      bool _isVirusHit = false;
+
       for (final _virus in virusCmpnt) {
         if (_virus.virusRect.contains(_touchPointOffset)) {
           _virus.onTapDown();
           _isHandled = true;
+          _isVirusHit = true;
+        }
+
+        // LOSING CRITERIA
+        if (activeView == GameView.playing && !_isVirusHit) {
+          activeView = GameView.lost;
         }
       }
     }
