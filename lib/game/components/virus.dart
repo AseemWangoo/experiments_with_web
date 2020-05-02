@@ -17,6 +17,8 @@ class Virus {
 
   final GameTime gameTime;
 
+  double get virusSpeed => gameTime.tileSize * 2;
+
   // COMPONENT VARIABLES
   Rect virusRect;
   bool isVirusDead = false;
@@ -24,7 +26,6 @@ class Virus {
   List<Sprite> movingVirusSprite;
   Sprite deadVirusSprite;
   double movingSpriteIndex = 0;
-  double get virusSpeed => gameTime.tileSize * 3;
   Offset targetVirusLocation;
 
   void render(Canvas c) {

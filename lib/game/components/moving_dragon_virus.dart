@@ -24,4 +24,7 @@ class MovingDragonVirus extends Virus {
 
     deadVirusSprite = Sprite(GameUtils.virusDead);
   }
+
+  @override
+  double get virusSpeed => gameTime.tileSize * 5;
 }
