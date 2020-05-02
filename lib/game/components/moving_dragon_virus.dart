@@ -1,6 +1,9 @@
+import 'dart:ui' show Rect;
+
 import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/game.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
+
 import 'package:flame/sprite.dart';
 
 class MovingDragonVirus extends Virus {
@@ -8,7 +11,13 @@ class MovingDragonVirus extends Virus {
     GameTime gameTime,
     double left,
     double top,
-  ) : super(gameTime: gameTime, left: left, top: top) {
+  ) : super(gameTime: gameTime) {
+    virusRect = Rect.fromLTWH(
+        left,
+        top,
+        gameTime.tileSize * GameUtils.maxVirusSize,
+        gameTime.tileSize * GameUtils.maxVirusSize);
+
     movingVirusSprite = <Sprite>[];
     movingVirusSprite.add(Sprite(GameUtils.dragonVirusUp));
     movingVirusSprite.add(Sprite(GameUtils.dragonVirusDown));

@@ -1,5 +1,7 @@
 import 'dart:ui';
+
 import 'package:flame/sprite.dart';
+
 import 'package:flutter/foundation.dart';
 
 import 'package:experiments_with_web/game/game.dart';
@@ -7,11 +9,7 @@ import 'package:experiments_with_web/game/game.dart';
 class Virus {
   Virus({
     @required this.gameTime,
-    double left,
-    double top,
-  }) {
-    virusRect = Rect.fromLTWH(left, top, gameTime.tileSize, gameTime.tileSize);
-  }
+  });
 
   final GameTime gameTime;
 
@@ -43,6 +41,7 @@ class Virus {
         isVirusOffScreen = true;
       }
     } else {
+      // FLYING LOGIC
       movingSpriteIndex += 10 * t;
       if (movingSpriteIndex >= 2) {
         movingSpriteIndex -= 2;

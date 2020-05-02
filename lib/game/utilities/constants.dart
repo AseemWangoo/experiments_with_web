@@ -20,4 +20,6 @@ class GameUtils {
 
   static const String dragonVirusUp = 'virus/dragon_fly_up.png';
   static const String dragonVirusDown = 'virus/dragon_fly_down.png';
+
+  static const double maxVirusSize = 2.2;
 }

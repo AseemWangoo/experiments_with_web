@@ -114,8 +114,10 @@ class GameTime extends Game with TapDetector {
 
   void createVirus() {
     final _rndDouble = GameHelpers.randomize();
-    final _left = _rndDouble * (screenSize.width - tileSize);
-    final _top = _rndDouble * (screenSize.height - tileSize);
+    final _left =
+        _rndDouble * (screenSize.width - (tileSize * GameUtils.maxVirusSize));
+    final _top =
+        _rndDouble * (screenSize.height - (tileSize * GameUtils.maxVirusSize));
 
     final _rndNumber = GameHelpers.randomNumber(2);
     switch (_rndNumber) {
