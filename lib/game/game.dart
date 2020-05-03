@@ -301,7 +301,6 @@ class GameTime extends Game with TapDetector {
 
   void stopMusic() {
     playBGM.stop();
-    playBGM.dispose();
     playBGM.release();
   }
 }
