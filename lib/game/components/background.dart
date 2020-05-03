@@ -10,7 +10,6 @@ class Background {
   }) {
     bgSprite = Sprite(GameUtils.roomImage);
     // FULL SCREEN RECTANGLE.
-    // TODO(aseem): REVISIT THIS
     bgRect = Rect.fromLTWH(
       0.0,
       0.0,

@@ -37,6 +37,7 @@ flutter:
 
   assets:
     - assets/animations/
+    - assets/images/
     - assets/images/bg/room.png
     - assets/images/virus/enemy.png
     - assets/images/virus/virus_fly_up.png
