@@ -53,7 +53,8 @@ flutter:
     - assets/images/ui/chat.png
     - assets/images/ui/no_sound.png
     - assets/images/ui/sound.png
-    - assets/audio/sfx/hit.mp3
+    - assets/audio/sfx/hit1.mp3
+    - assets/audio/sfx/hit2.mp3
     - assets/audio/sfx/laugh.mp3
 
   fonts:
