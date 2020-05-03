@@ -89,7 +89,7 @@ class Virus {
   // Virus onTapDown..
   void onTapDown() {
     if (!isVirusDead) {
-      // PLAY SOUND
+      // PLAY HIT SOUND
       final _number = (Random().nextInt(2) + 1).toString();
       Flame.audio.play('sfx/hit' + _number + '.mp3');
 

@@ -218,6 +218,9 @@ class GameTime extends Game with TapDetector {
 
         // LOSING CRITERIA
         if (activeView == GameView.playing && !_isVirusHit) {
+          // PLAY LAUGH SOUND
+          Flame.audio.play(GameUtils.laughSound);
+
           activeView = GameView.lost;
         }
       }
