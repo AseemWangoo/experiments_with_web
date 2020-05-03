@@ -92,7 +92,23 @@ class Virus {
 
       if (gameTime.activeView == GameView.playing) {
         gameTime.score += 1;
+
+        // UPDATE HIGH SCORE
+        _updateScore(gameTime.score);
       }
+    }
+  }
+
+  Future<void> _updateScore(int score) async {
+    //
+    final _service = gameTime.storageService;
+    final _scoreStorage = await _service.fetchValue(GameUtils.scoreKey) ?? '0';
+
+    final _scoreInt = int.parse(_scoreStorage);
+
+    if (score > _scoreInt) {
+      _service.saveKeyValue(GameUtils.scoreKey, score.toString());
+      gameTime.highScoreDisplay.updateHighScore;
     }
   }
 

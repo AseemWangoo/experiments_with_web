@@ -7,7 +7,7 @@ class LocalStorageService {
     final _localStorage = html.window.localStorage;
 
     if (_localStorage.containsKey(key)) {
-      _localStorage.update(key, (value) => value);
+      _localStorage['$key'] = value;
     } else {
       _localStorage.putIfAbsent(key, () => value);
     }
