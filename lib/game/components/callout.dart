@@ -16,8 +16,9 @@ class CallOut {
       ..textDirection = TextDirection.ltr;
 
     cTextStyle = TextStyle(
-      color: Colors.black,
-      fontSize: 15,
+      color: Colors.deepOrange,
+      fontWeight: FontWeight.bold,
+      fontSize: 18.0,
     );
 
     calloutSprite = Sprite(GameUtils.chat);
