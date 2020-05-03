@@ -1,6 +1,8 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:experiments_with_web/game/components/callout.dart';
+import 'package:flame/flame.dart';
 import 'package:flame/sprite.dart';
 
 import 'package:flutter/foundation.dart';
@@ -85,9 +87,12 @@ class Virus {
   }
 
   // Virus onTapDown..
-  // Change color if virus is tapped...
   void onTapDown() {
     if (!isVirusDead) {
+      // PLAY SOUND
+      final _number = (Random().nextInt(2) + 1).toString();
+      Flame.audio.play('sfx/hit' + _number + '.mp3');
+
       isVirusDead = true;
 
       if (gameTime.activeView == GameView.playing) {
