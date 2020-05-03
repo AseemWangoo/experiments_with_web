@@ -55,9 +55,16 @@ class GameUtils {
 
   static const String scoreKey = 'high_score';
 
-  static const List<String> sounds = [hitSound1, hitSound2, laughSound];
+  static const List<String> sounds = [
+    hitSound1,
+    hitSound2,
+    laughSound,
+    bgMusic,
+  ];
 
   static const String hitSound1 = 'sfx/hit1.mp3';
   static const String hitSound2 = 'sfx/hit2.mp3';
   static const String laughSound = 'sfx/laugh.mp3';
+
+  static const String bgMusic = 'bgm/bg_music.mp3';
 }
