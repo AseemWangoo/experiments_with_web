@@ -45,16 +45,16 @@ class CallOut {
       value = value - 0.5 * t;
 
       if (value <= 0) {
-        virus.gameTime.activeView = GameView.lost;
+        // virus.gameTime.activeView = GameView.lost;
       }
     }
 
     // CREATE THE CALLOUT RECT
     callOutRect = Rect.fromLTWH(
-      virus.virusRect.left,
-      virus.virusRect.top,
-      virus.gameTime.tileSize,
-      virus.gameTime.tileSize,
+      virus.virusRect.left - (virus.gameTime.tileSize * 0.05),
+      virus.virusRect.top - (virus.gameTime.tileSize * 0.85),
+      virus.gameTime.tileSize * 0.75,
+      virus.gameTime.tileSize * 0.75,
     );
 
     // SHOW THE CALLOUT VALUE
