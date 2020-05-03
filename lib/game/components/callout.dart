@@ -43,10 +43,10 @@ class CallOut {
   void update(double t) {
     // IF VALUE BECOMES LESS OR EQUAL TO ZERO, YOU LOSE
     if (virus.gameTime.activeView == GameView.playing) {
-      value = value - 0.5 * t;
+      value = (value - 0.5 * t) + (value / 8) - (value / 7);
 
       if (value <= 0) {
-        // virus.gameTime.activeView = GameView.lost;
+        virus.gameTime.activeView = GameView.lost;
       }
     }
 
