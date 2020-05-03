@@ -1,6 +1,8 @@
 import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
 
+import 'package:flame/flame.dart';
+
 import 'package:flame/sprite.dart';
 
 import 'package:flutter/material.dart';
@@ -46,6 +48,8 @@ class CallOut {
       value = (value - 0.5 * t) + (value / 8) - (value / 7);
 
       if (value <= 0) {
+        // PLAY LAUGH SOUND
+        Flame.audio.play(GameUtils.laughSound);
         virus.gameTime.activeView = GameView.lost;
       }
     }
