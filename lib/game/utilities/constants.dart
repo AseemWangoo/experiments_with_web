@@ -27,6 +27,8 @@ class GameUtils {
     chat,
     noSound,
     enableSound,
+    sfxEnableSound,
+    sfxDisableSound,
   ];
 
   static const String roomImage = 'bg/room.png';
@@ -50,6 +52,8 @@ class GameUtils {
   static const String chat = 'ui/chat.png';
   static const String noSound = 'ui/no_sound.png';
   static const String enableSound = 'ui/sound.png';
+  static const String sfxEnableSound = 'ui/sfx_sounds.png';
+  static const String sfxDisableSound = 'ui/no_sfx_sound.png';
 
   static const double maxVirusSize = 2.2;
 
