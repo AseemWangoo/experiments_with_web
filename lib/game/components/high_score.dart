@@ -19,7 +19,7 @@ class HighScore {
 
     textStyle = TextStyle(
       color: Colors.deepOrange,
-      fontSize: 30.0,
+      fontSize: 40.0,
       shadows: List.generate(4, (index) => _shadow),
     );
 
