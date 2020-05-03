@@ -1,5 +1,6 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/home.dart';
+import 'package:experiments_with_web/game/game.dart';
 import 'package:experiments_with_web/google/google.dart';
 import 'package:experiments_with_web/iframe/iframe.dart';
 import 'package:experiments_with_web/location/location.dart';
@@ -54,6 +55,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const MLScreen(),
           name: ApplevelConstants.mlRoute,
+        );
+
+      case ApplevelConstants.gameRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const GameScreen(),
+          name: ApplevelConstants.gameRoute,
         );
 
       default:

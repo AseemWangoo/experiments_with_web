@@ -25,4 +25,8 @@ class WebAssets {
   static const covidKind = AssetImage('assets/images/covid19_heart.png');
   static const covidHome = AssetImage('assets/images/covid19_stayhome.png');
   static const covidWashHands = AssetImage('assets/images/covid19_hands.png');
+
+  /* Game Time */
+  static const enemy = AssetImage('assets/images/virus/enemy.png');
+  static const gameBg = AssetImage('assets/images/bg/room.png');
 }

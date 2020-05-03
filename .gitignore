@@ -30,3 +30,4 @@ notes.txt
 .flutter-plugins-dependencies
 .flutter-plugins
 lib/generated_plugin_registrant.dart
+.DS_Store

@@ -14,6 +14,7 @@ class ApplevelConstants {
   static const String parallaxRoute = '/parallax';
   static const String locationRoute = '/location';
   static const String mlRoute = '/ml';
+  static const String gameRoute = '/game';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -22,6 +23,7 @@ class ApplevelConstants {
   static const String option4 = 'Parallax';
   static const String option5 = 'Location';
   static const String option6 = 'ML';
+  static const String option7 = 'Game Time';
 }
 
 class WHOLinks {
@@ -47,5 +49,6 @@ class OptionAndRoutes {
     ApplevelConstants.option4: ApplevelConstants.parallaxRoute,
     ApplevelConstants.option5: ApplevelConstants.locationRoute,
     ApplevelConstants.option6: ApplevelConstants.mlRoute,
+    ApplevelConstants.option7: ApplevelConstants.gameRoute,
   };
 }

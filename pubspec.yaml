@@ -25,6 +25,9 @@ dependencies:
   # HTTP REQUEST
   http: ^0.12.0+4
 
+  # GAMING
+  flame: ^0.19.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -35,6 +38,28 @@ flutter:
   assets:
     - assets/animations/
     - assets/images/
+    - assets/images/bg/room.png
+    - assets/images/virus/enemy.png
+    - assets/images/virus/virus_fly_up.png
+    - assets/images/virus/virus_fly_down.png
+    - assets/images/virus/dragon_fly_up.png
+    - assets/images/virus/dragon_fly_down.png
+    - assets/images/ui/defeat_btn.png
+    - assets/images/ui/game_name.png
+    - assets/images/ui/play_btn.png
+    - assets/images/ui/restart_btn.png
+    - assets/images/ui/sfx_sounds.png
+    - assets/images/ui/no_sfx_sound.png
+    - assets/images/ui/win_btn.png
+    - assets/images/ui/instruction_game.png
+    - assets/images/ui/help_btn.png
+    - assets/images/ui/chat.png
+    - assets/images/ui/no_sound.png
+    - assets/images/ui/sound.png
+    - assets/audio/bgm/bg_music.mp3
+    - assets/audio/sfx/hit1.mp3
+    - assets/audio/sfx/hit2.mp3
+    - assets/audio/sfx/laugh.mp3
 
   fonts:
     - family: arial
