@@ -50,6 +50,8 @@ class CallOut {
       if (value <= 0) {
         // PLAY LAUGH SOUND
         Flame.audio.play(GameUtils.laughSound);
+        virus.gameTime.resetBGMusic();
+
         virus.gameTime.activeView = GameView.lost;
       }
     }

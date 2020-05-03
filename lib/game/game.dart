@@ -17,6 +17,8 @@ import 'package:experiments_with_web/game/views/inst_view.dart';
 import 'package:experiments_with_web/game/views/lost_view.dart';
 import 'package:experiments_with_web/locator.dart';
 
+import 'package:audioplayers/audioplayers.dart';
+
 import 'package:flame/flame.dart';
 import 'package:flame/game/game.dart';
 import 'package:flame/gestures.dart';
@@ -40,6 +42,12 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   Widget build(BuildContext context) => GameScreen._game.widget;
+
+  @override
+  void dispose() {
+    GameScreen._game?.stopMusic();
+    super.dispose();
+  }
 }
 
 class GameTime extends Game with TapDetector {
@@ -75,6 +83,9 @@ class GameTime extends Game with TapDetector {
   final storageService = locator<LocalStorageService>();
   HighScore highScoreDisplay;
 
+  // SOUNDS
+  AudioPlayer playBGM;
+
   Future<void> get initialize async {
     virusCmpnt = <Virus>[];
     score = 0;
@@ -87,6 +98,11 @@ class GameTime extends Game with TapDetector {
     instButton = GameInstructionButton(gameTime: this);
     scoreDisplay = DisplayScore(gameTime: this);
     highScoreDisplay = HighScore(gameTime: this);
+
+    // AUDIO PLAYERS
+    playBGM = await Flame.audio.loopLongAudio(GameUtils.bgMusic, volume: 0.25);
+    playBGM.pause();
+    playBGMusic();
 
     // CONTROLLERS
     virusSpawner = VirusSpawner(gameTime: this);
@@ -220,6 +236,7 @@ class GameTime extends Game with TapDetector {
         if (activeView == GameView.playing && !_isVirusHit) {
           // PLAY LAUGH SOUND
           Flame.audio.play(GameUtils.laughSound);
+          resetBGMusic();
 
           activeView = GameView.lost;
         }
@@ -245,5 +262,20 @@ class GameTime extends Game with TapDetector {
         virusCmpnt.add(MovingDragonVirus(this, _left, _top));
         break;
     }
+  }
+
+  void playBGMusic() {
+    playBGM.resume();
+  }
+
+  void resetBGMusic() {
+    playBGM.seek(Duration.zero);
+    playBGM.resume();
+  }
+
+  void stopMusic() {
+    playBGM.stop();
+    playBGM.dispose();
+    playBGM.release();
   }
 }
