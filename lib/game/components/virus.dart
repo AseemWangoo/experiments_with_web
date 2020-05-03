@@ -91,7 +91,9 @@ class Virus {
     if (!isVirusDead) {
       // PLAY HIT SOUND
       final _number = (Random().nextInt(2) + 1).toString();
-      Flame.audio.play('sfx/hit' + _number + '.mp3');
+      if (gameTime.sfxMusicOption.isEnabled) {
+        Flame.audio.play('sfx/hit' + _number + '.mp3');
+      }
 
       isVirusDead = true;
 

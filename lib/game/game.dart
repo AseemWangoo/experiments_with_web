@@ -9,6 +9,7 @@ import 'package:experiments_with_web/game/components/high_score.dart';
 import 'package:experiments_with_web/game/components/moving_dragon_virus.dart';
 import 'package:experiments_with_web/game/components/moving_virus.dart';
 import 'package:experiments_with_web/game/components/music_options.dart';
+import 'package:experiments_with_web/game/components/sfx_options.dart';
 import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/controllers/virus_spawner.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
@@ -87,6 +88,7 @@ class GameTime extends Game with TapDetector {
   // SOUNDS
   AudioPlayer playBGM;
   MusicButton bgMusicOption;
+  SFXButton sfxMusicOption;
 
   Future<void> get initialize async {
     virusCmpnt = <Virus>[];
@@ -116,6 +118,7 @@ class GameTime extends Game with TapDetector {
 
     // BG MUSIC OPTIONS
     bgMusicOption = MusicButton(gameTime: this);
+    sfxMusicOption = SFXButton(gameTime: this);
   }
 
   @override
@@ -152,6 +155,7 @@ class GameTime extends Game with TapDetector {
 
     // RENDER MUSIC OPTION
     bgMusicOption.render(canvas);
+    sfxMusicOption.render(canvas);
 
     if (activeView == GameView.howToPlay) {
       instView.render(canvas);
@@ -218,6 +222,12 @@ class GameTime extends Game with TapDetector {
       _isHandled = true;
     }
 
+    // SFX MUSIC OPTION
+    if (!_isHandled && sfxMusicOption.sfxRect.contains(_touchPointOffset)) {
+      sfxMusicOption.onTapDown();
+      _isHandled = true;
+    }
+
     // FOR START BUTTON
     if (!_isHandled && startButton.startRect.contains(_touchPointOffset)) {
       if (activeView == GameView.home || activeView == GameView.lost) {
@@ -249,7 +259,9 @@ class GameTime extends Game with TapDetector {
         // LOSING CRITERIA
         if (activeView == GameView.playing && !_isVirusHit) {
           // PLAY LAUGH SOUND
-          Flame.audio.play(GameUtils.laughSound);
+          if (sfxMusicOption.isEnabled) {
+            Flame.audio.play(GameUtils.laughSound);
+          }
           resetBGMusic();
 
           activeView = GameView.lost;
