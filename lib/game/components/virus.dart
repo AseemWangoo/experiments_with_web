@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:experiments_with_web/game/components/callout.dart';
 import 'package:flame/sprite.dart';
 
 import 'package:flutter/foundation.dart';
@@ -12,6 +13,7 @@ class Virus {
   Virus({
     @required this.gameTime,
   }) {
+    callout = CallOut(virus: this);
     setupVirusLocation;
   }
 
@@ -28,6 +30,9 @@ class Virus {
   double movingSpriteIndex = 0;
   Offset targetVirusLocation;
 
+  // TIMER
+  CallOut callout;
+
   void render(Canvas c) {
     final _inflatedRect = virusRect.inflate(14.0);
 
@@ -35,6 +40,11 @@ class Virus {
       deadVirusSprite.renderRect(c, _inflatedRect);
     } else {
       movingVirusSprite[movingSpriteIndex.toInt()].renderRect(c, _inflatedRect);
+
+      // RENDER CALLOUT
+      if (gameTime.activeView == GameView.playing) {
+        callout.render(c);
+      }
     }
   }
 
@@ -68,6 +78,9 @@ class Virus {
         virusRect = virusRect.shift(_targetOffset);
         setupVirusLocation;
       }
+
+      // TIMER LOGIC
+      callout.update(t);
     }
   }
 
