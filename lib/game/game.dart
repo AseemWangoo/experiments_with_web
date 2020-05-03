@@ -8,6 +8,7 @@ import 'package:experiments_with_web/game/components/game_start.dart';
 import 'package:experiments_with_web/game/components/high_score.dart';
 import 'package:experiments_with_web/game/components/moving_dragon_virus.dart';
 import 'package:experiments_with_web/game/components/moving_virus.dart';
+import 'package:experiments_with_web/game/components/music_options.dart';
 import 'package:experiments_with_web/game/components/virus.dart';
 import 'package:experiments_with_web/game/controllers/virus_spawner.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
@@ -85,6 +86,7 @@ class GameTime extends Game with TapDetector {
 
   // SOUNDS
   AudioPlayer playBGM;
+  MusicButton bgMusicOption;
 
   Future<void> get initialize async {
     virusCmpnt = <Virus>[];
@@ -111,6 +113,9 @@ class GameTime extends Game with TapDetector {
     homeView = HomeView(gameTime: this);
     lostView = LostView(gameTime: this);
     instView = InstView(gameTime: this);
+
+    // BG MUSIC OPTIONS
+    bgMusicOption = MusicButton(gameTime: this);
   }
 
   @override
@@ -144,6 +149,9 @@ class GameTime extends Game with TapDetector {
       startButton.render(canvas);
       instButton.render(canvas);
     }
+
+    // RENDER MUSIC OPTION
+    bgMusicOption.render(canvas);
 
     if (activeView == GameView.howToPlay) {
       instView.render(canvas);
@@ -202,6 +210,12 @@ class GameTime extends Game with TapDetector {
         activeView = GameView.home;
         _isHandled = true;
       }
+    }
+
+    // BG MUSIC OPTION
+    if (!_isHandled && bgMusicOption.musicRect.contains(_touchPointOffset)) {
+      bgMusicOption.onTapDown();
+      _isHandled = true;
     }
 
     // FOR START BUTTON
