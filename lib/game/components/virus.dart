@@ -62,7 +62,7 @@ class Virus {
     } else {
       // FLYING LOGIC
       movingSpriteIndex += 10 * t;
-      if (movingSpriteIndex >= 2) {
+      while (movingSpriteIndex >= 2) {
         movingSpriteIndex -= 2;
       }
 
