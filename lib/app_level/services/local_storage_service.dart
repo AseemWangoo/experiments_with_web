@@ -23,6 +23,7 @@ class LocalStorageService {
     _localStorage.remove(key);
   }
 
+  // Null means doesn't exist
   Future<String> fetchValue(String key) async {
     final _localStorage = html.window.localStorage;
     return _localStorage['$key'];

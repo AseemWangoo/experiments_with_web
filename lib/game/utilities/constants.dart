@@ -52,4 +52,6 @@ class GameUtils {
   static const String enableSound = 'ui/sound.png';
 
   static const double maxVirusSize = 2.2;
+
+  static const String scoreKey = 'high_score';
 }

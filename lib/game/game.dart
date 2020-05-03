@@ -1,9 +1,11 @@
 // ignore_for_file: implicit_dynamic_return
 
+import 'package:experiments_with_web/app_level/services/local_storage_service.dart';
 import 'package:experiments_with_web/game/components/background.dart';
 import 'package:experiments_with_web/game/components/display_score.dart';
 import 'package:experiments_with_web/game/components/game_instruction.dart';
 import 'package:experiments_with_web/game/components/game_start.dart';
+import 'package:experiments_with_web/game/components/high_score.dart';
 import 'package:experiments_with_web/game/components/moving_dragon_virus.dart';
 import 'package:experiments_with_web/game/components/moving_virus.dart';
 import 'package:experiments_with_web/game/components/virus.dart';
@@ -13,6 +15,7 @@ import 'package:experiments_with_web/game/utilities/helpers.dart';
 import 'package:experiments_with_web/game/views/home_view.dart';
 import 'package:experiments_with_web/game/views/inst_view.dart';
 import 'package:experiments_with_web/game/views/lost_view.dart';
+import 'package:experiments_with_web/locator.dart';
 
 import 'package:flame/flame.dart';
 import 'package:flame/game/game.dart';
@@ -68,6 +71,10 @@ class GameTime extends Game with TapDetector {
   // SCORE
   int score;
 
+  // STORAGE
+  final storageService = locator<LocalStorageService>();
+  HighScore highScoreDisplay;
+
   Future<void> get initialize async {
     virusCmpnt = <Virus>[];
     score = 0;
@@ -79,6 +86,7 @@ class GameTime extends Game with TapDetector {
     startButton = GameStartButton(gameTime: this);
     instButton = GameInstructionButton(gameTime: this);
     scoreDisplay = DisplayScore(gameTime: this);
+    highScoreDisplay = HighScore(gameTime: this);
 
     // CONTROLLERS
     virusSpawner = VirusSpawner(gameTime: this);
@@ -93,6 +101,9 @@ class GameTime extends Game with TapDetector {
   void render(Canvas canvas) {
     // RENDER BACKGROUND
     background.render(canvas);
+
+    // SHOW HIGH SCORE
+    highScoreDisplay.render(canvas);
 
     // DISPLAY SCORE
     if (activeView == GameView.playing) {

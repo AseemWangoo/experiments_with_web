@@ -1,0 +1,53 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run -d chrome
+
+## exception
+
+WipError: WipError 6: {code: -32000, message: Cannot find context with specified id}
+
+```
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel beta, v1.17.0-3.3.pre, on Mac OS X 10.15.2 19C57, locale en-SG)
+    • Flutter version 1.17.0-3.3.pre at /Users/aseemwangoo/flutter
+    • Framework revision 0da1ab0922 (4 days ago), 2020-04-28 11:02:34 -0700
+    • Engine revision 376ad6a64b
+    • Dart version 2.8.0
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 28.0.3)
+    • Android SDK at /Users/aseemwangoo/Library/Android/sdk
+    • Platform android-29, build-tools 28.0.3
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_212-release-1586-b4-5784211)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS (Xcode 11.3)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 11.3, Build version 11C29
+    • CocoaPods version 1.9.1
+
+[✓] Chrome - develop for the web
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Android Studio (version 3.6)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin version 33.1.1
+    • Dart plugin version 182.5215
+    • Java version OpenJDK Runtime Environment (build 1.8.0_212-release-1586-b4-5784211)
+
+[✓] VS Code (version 1.44.2)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 3.10.0
+
+[✓] Connected device (2 available)
+    • Chrome     • chrome     • web-javascript • Google Chrome 81.0.4044.129
+    • Web Server • web-server • web-javascript • Flutter Tools
+
+• No issues found!
+```
