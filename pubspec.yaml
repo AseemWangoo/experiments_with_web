@@ -50,6 +50,9 @@ flutter:
     - assets/images/ui/win_btn.png
     - assets/images/ui/instruction_game.png
     - assets/images/ui/help_btn.png
+    - assets/images/ui/chat.png
+    - assets/images/ui/no_sound.png
+    - assets/images/ui/sound.png
 
   fonts:
     - family: arial

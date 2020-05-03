@@ -24,6 +24,9 @@ class GameUtils {
     winBtn,
     instructions,
     instBtn,
+    chat,
+    noSound,
+    enableSound,
   ];
 
   static const String roomImage = 'bg/room.png';
@@ -43,6 +46,10 @@ class GameUtils {
   static const String instBtn = 'ui/help_btn.png';
 
   static const String instructions = 'ui/instruction_game.png';
+
+  static const String chat = 'ui/chat.png';
+  static const String noSound = 'ui/no_sound.png';
+  static const String enableSound = 'ui/sound.png';
 
   static const double maxVirusSize = 2.2;
 }
