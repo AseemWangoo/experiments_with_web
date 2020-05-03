@@ -36,7 +36,7 @@ class Virus {
   CallOut callout;
 
   void render(Canvas c) {
-    final _inflatedRect = virusRect.inflate(14.0);
+    final _inflatedRect = virusRect.inflate(virusRect.width / 2);
 
     if (isVirusDead) {
       deadVirusSprite.renderRect(c, _inflatedRect);

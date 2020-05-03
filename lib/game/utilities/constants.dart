@@ -55,7 +55,7 @@ class GameUtils {
   static const String sfxEnableSound = 'ui/sfx_sounds.png';
   static const String sfxDisableSound = 'ui/no_sfx_sound.png';
 
-  static const double maxVirusSize = 2.2;
+  static const double maxVirusSize = 1.7;
 
   static const String scoreKey = 'high_score';
 
