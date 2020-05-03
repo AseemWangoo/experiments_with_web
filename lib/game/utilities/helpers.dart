@@ -21,4 +21,9 @@ class AssetsLoader {
   AssetsLoader._();
 
   static void loadImages() => Flame.images.loadAll(GameUtils.images);
+
+  static void loadSounds() {
+    Flame.audio.disableLog();
+    Flame.audio.loadAll(GameUtils.sounds);
+  }
 }

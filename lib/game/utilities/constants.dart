@@ -54,4 +54,9 @@ class GameUtils {
   static const double maxVirusSize = 2.2;
 
   static const String scoreKey = 'high_score';
+
+  static const List<String> sounds = [hitSound, laughSound];
+
+  static const String hitSound = 'sfx/hit.mp3';
+  static const String laughSound = 'sfx/laugh.mp3';
 }
