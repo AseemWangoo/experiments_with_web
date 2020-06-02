@@ -20,13 +20,10 @@ Hosted URL : https://fir-signin-4477d.firebaseapp.com/#/
 * [Meetup FlutterSG 2019](https://www.meetup.com/Singapore-Flutter-Meetup/events/past/)
 [![Meetup FlutterSG](https://img.shields.io/badge/Meetup-FlutterSG-red)](https://www.meetup.com/Singapore-Flutter-Meetup/events/past/)
 
-## ‍🗣 Speaker at...
+## Contributor
 
-* [GDG Devfest Singapore 2019](https://events.withgoogle.com/devfest-singapore-2019/speakers/#content)
-[![GDG-SG 2019](https://img.shields.io/badge/GDG--SG-2019-red)](https://events.withgoogle.com/devfest-singapore-2019/speakers/#content) 
-
-* [Meetup FlutterSG 2019](https://www.meetup.com/Singapore-Flutter-Meetup/events/past/)
-[![Meetup FlutterSG](https://img.shields.io/badge/Meetup-FlutterSG-red)](https://www.meetup.com/Singapore-Flutter-Meetup/events/past/)
+* [Flame-Engine](https://github.com/flame-engine/awesome-flame#articles--tutorials)
+[![FLAME-ENGINE](https://img.shields.io/badge/Flame--Engine-Contributor-red)](https://github.com/flame-engine/awesome-flame#articles--tutorials) 
 
 #### Featured In :star:
 [![GDG-SG 2019](https://img.shields.io/badge/GDG--SG-2019-red)](https://events.withgoogle.com/devfest-singapore-2019/speakers/#content)
