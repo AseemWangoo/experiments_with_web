@@ -22,8 +22,8 @@ Hosted URL : https://fir-signin-4477d.firebaseapp.com/#/
 
 ## Contributor
 
-* [Flame-Engine](https://github.com/flame-engine/awesome-flame#articles--tutorials)
-[![FLAME-ENGINE](https://img.shields.io/badge/Flame--Engine-Contributor-red)](https://github.com/flame-engine/awesome-flame#articles--tutorials) 
+* [Flame-Engine](https://github.com/flame-engine/awesome-flame#other-articles--tutorials)
+[![FLAME-ENGINE](https://img.shields.io/badge/Flame--Engine-Contributor-red)](https://github.com/flame-engine/awesome-flame#other-articles--tutorials) 
 
 #### Featured In :star:
 [![GDG-SG 2019](https://img.shields.io/badge/GDG--SG-2019-red)](https://events.withgoogle.com/devfest-singapore-2019/speakers/#content)
