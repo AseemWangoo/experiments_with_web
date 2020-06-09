@@ -36,7 +36,10 @@ class WHOLinks {
 class BrandLinks {
   BrandLinks._();
 
-  static const String website = 'http://flatteredwithflutter.com/';
+  static const String website = 'https://flatteredwithflutter.com/';
+  static const String youtube = 'https://www.youtube.com/aseemwangoo';
+  static const String medium = 'https://medium.com/@aseemwangoo';
+  static const String devTo = 'https://dev.to/aseemwangoo';
 }
 
 class OptionAndRoutes {
