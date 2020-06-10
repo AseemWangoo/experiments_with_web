@@ -7,14 +7,20 @@ class CustomScaffold extends StatelessWidget {
     this.titleText = 'Your Title',
     this.child,
     this.showAppBar = true,
+    this.showDrawer = false,
+    this.drawerChild,
   }) : super(key: key);
 
   final String titleText;
   final Widget child;
   final bool showAppBar;
+  final bool showDrawer;
+  final Widget drawerChild;
 
   @override
   Widget build(BuildContext context) {
+    //
+
     return Scaffold(
       appBar: showAppBar
           ? AppBar(
@@ -22,6 +28,7 @@ class CustomScaffold extends StatelessWidget {
             )
           : null,
       body: child ?? const Center(child: Text('Hi there')),
+      endDrawer: showDrawer ? drawerChild : null,
     );
   }
 }

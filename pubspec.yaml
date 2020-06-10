@@ -1,5 +1,8 @@
 name: experiments_with_web
 description: Experiments with Flutter Web
+version: 1.0.0
+author: Aseem Wangoo
+homepage: http://flatteredwithflutter.com/
 
 environment:
   sdk: ">=2.6.0 <3.0.0"

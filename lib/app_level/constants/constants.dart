@@ -55,3 +55,12 @@ class OptionAndRoutes {
     ApplevelConstants.option7: ApplevelConstants.gameRoute,
   };
 }
+
+class DrawerOptions {
+  DrawerOptions._();
+
+  static const String info = 'More Info';
+  static const String youtube = 'See on Youtube';
+  static const String medium = 'Read on Medium';
+  static const String legalese = 'Experiments with Flutter Web';
+}
