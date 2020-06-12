@@ -59,7 +59,7 @@ class OptionAndRoutes {
 class DrawerOptions {
   DrawerOptions._();
 
-  static const String info = 'More Info';
+  static const String info = 'About Website';
   static const String youtube = 'See on Youtube';
   static const String website = 'View on Website';
   static const String medium = 'Read on Medium';

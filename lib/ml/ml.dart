@@ -39,8 +39,9 @@ class _MLScreenState extends State<MLScreen> {
       titleText: 'ML on Web',
       showDrawer: true,
       drawerChild: CustomDrawer(
-        website: MLConstants.website,
+        medium: MLConstants.medium,
         youtubeLink: MLConstants.youtube,
+        website: MLConstants.website,
       ),
       child: Center(
         child: SingleChildScrollView(

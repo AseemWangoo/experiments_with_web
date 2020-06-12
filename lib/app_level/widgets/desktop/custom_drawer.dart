@@ -12,16 +12,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
     Key key,
-    @required this.youtubeLink,
+    @required this.medium,
     @required this.website,
+    @required this.youtubeLink,
   })  : assert(
           youtubeLink != null,
           website != null,
         ),
         super(key: key);
 
-  final String youtubeLink;
+  final String medium;
   final String website;
+  final String youtubeLink;
 
   static final _linkService = locator<LinkerService>();
 
@@ -56,6 +58,14 @@ class CustomDrawer extends StatelessWidget {
             ),
             title: const Text(DrawerOptions.website),
             onTap: () => _linkService.openLink(website),
+          ).showCursorOnHover,
+          ListTile(
+            trailing: _LinkButton(
+              iconData: FontAwesomeIcons.medium,
+              link: medium,
+            ),
+            title: const Text(DrawerOptions.medium),
+            onTap: () => _linkService.openLink(medium),
           ).showCursorOnHover,
           ListTile(
             trailing: const Icon(Icons.info),
