@@ -9,13 +9,16 @@ class CustomScaffold extends StatelessWidget {
     this.showAppBar = true,
     this.showDrawer = false,
     this.drawerChild,
-  }) : super(key: key);
+    Widget bottomSheet,
+  })  : _bottomSheet = bottomSheet,
+        super(key: key);
 
   final String titleText;
   final Widget child;
   final bool showAppBar;
   final bool showDrawer;
   final Widget drawerChild;
+  final Widget _bottomSheet;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +32,7 @@ class CustomScaffold extends StatelessWidget {
           : null,
       body: child ?? const Center(child: Text('Hi there')),
       endDrawer: showDrawer ? drawerChild : null,
+      bottomSheet: _bottomSheet,
     );
   }
 }
