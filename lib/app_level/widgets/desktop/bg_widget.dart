@@ -69,8 +69,8 @@ class _CustomText extends StatelessWidget {
             child: Text(
               data,
               style: TextStyle(color: Colors.white).size(18.0),
-            ).showCursorOnHover,
-          ),
+            ),
+          ).showCursorOnHover,
           IconButton(
             color: Colors.white,
             icon: FaIcon(FontAwesomeIcons.youtube),
