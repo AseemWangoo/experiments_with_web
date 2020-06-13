@@ -14,4 +14,7 @@ class DataTableConstants {
 
   // REFRESH TEXT
   static const String refresh = '🔄🔄 Refreshed Successfully !!';
+
+  // FIELDS
+  static const String city = 'City';
 }
