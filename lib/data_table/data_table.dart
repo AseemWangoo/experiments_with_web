@@ -5,6 +5,7 @@ import 'package:experiments_with_web/data_table/models/data_notifier.dart';
 import 'package:experiments_with_web/data_table/models/user_model.dart';
 import 'package:experiments_with_web/data_table/utilities/constants.dart';
 import 'package:experiments_with_web/data_table/utilities/data_table_source.dart';
+import 'package:experiments_with_web/data_table/widgets/other_details.dart';
 
 import 'package:flutter/material.dart';
 
@@ -133,7 +134,7 @@ class _InternalWidget extends StatelessWidget {
         context: c,
         builder: (_) => CustomDialog(
           showPadding: false,
-          child: Placeholder(),
+          child: OtherDetails(data: data),
         ),
       );
 }
