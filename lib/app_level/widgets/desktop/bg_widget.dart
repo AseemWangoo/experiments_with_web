@@ -1,12 +1,15 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
+import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/locator.dart';
 
-import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flare_flutter/flare_actor.dart';
 
 class BgWidget extends StatelessWidget {
   const BgWidget({Key key, @required this.children}) : super(key: key);
@@ -65,9 +68,24 @@ class _CustomText extends StatelessWidget {
             onTap: () => _linkService.openLink(BrandLinks.website),
             child: Text(
               data,
-              style: TextStyle(color: Colors.white, fontSize: 24.0),
-            ).showCursorOnHover,
-          ),
+              style: TextStyle(color: Colors.white).size(18.0),
+            ),
+          ).showCursorOnHover,
+          IconButton(
+            color: Colors.white,
+            icon: FaIcon(FontAwesomeIcons.youtube),
+            onPressed: () => _linkService.openLink(BrandLinks.youtube),
+          ).showCursorOnHover,
+          IconButton(
+            color: Colors.white,
+            icon: FaIcon(FontAwesomeIcons.medium),
+            onPressed: () => _linkService.openLink(BrandLinks.medium),
+          ).showCursorOnHover,
+          IconButton(
+            color: Colors.white,
+            icon: FaIcon(FontAwesomeIcons.dev),
+            onPressed: () => _linkService.openLink(BrandLinks.devTo),
+          ).showCursorOnHover,
         ],
       ),
     );

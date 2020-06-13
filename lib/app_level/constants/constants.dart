@@ -15,6 +15,7 @@ class ApplevelConstants {
   static const String locationRoute = '/location';
   static const String mlRoute = '/ml';
   static const String gameRoute = '/game';
+  static const String dtRoute = '/datatable';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -24,6 +25,7 @@ class ApplevelConstants {
   static const String option5 = 'Location';
   static const String option6 = 'ML';
   static const String option7 = 'Game Time';
+  static const String option8 = 'Data Table';
 }
 
 class WHOLinks {
@@ -36,7 +38,10 @@ class WHOLinks {
 class BrandLinks {
   BrandLinks._();
 
-  static const String website = 'http://flatteredwithflutter.com/';
+  static const String website = 'https://flatteredwithflutter.com/';
+  static const String youtube = 'https://www.youtube.com/aseemwangoo';
+  static const String medium = 'https://medium.com/@aseemwangoo';
+  static const String devTo = 'https://dev.to/aseemwangoo';
 }
 
 class OptionAndRoutes {
@@ -50,5 +55,16 @@ class OptionAndRoutes {
     ApplevelConstants.option5: ApplevelConstants.locationRoute,
     ApplevelConstants.option6: ApplevelConstants.mlRoute,
     ApplevelConstants.option7: ApplevelConstants.gameRoute,
+    ApplevelConstants.option8: ApplevelConstants.dtRoute,
   };
+}
+
+class DrawerOptions {
+  DrawerOptions._();
+
+  static const String info = 'About Website';
+  static const String youtube = 'See on Youtube';
+  static const String website = 'View on Website';
+  static const String medium = 'Read on Medium';
+  static const String legalese = 'Experiments with Flutter Web';
 }

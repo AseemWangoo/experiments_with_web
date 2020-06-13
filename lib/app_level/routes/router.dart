@@ -1,5 +1,6 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/home.dart';
+import 'package:experiments_with_web/data_table/data_table.dart';
 import 'package:experiments_with_web/game/game.dart';
 import 'package:experiments_with_web/google/google.dart';
 import 'package:experiments_with_web/iframe/iframe.dart';
@@ -61,6 +62,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const GameScreen(),
           name: ApplevelConstants.gameRoute,
+        );
+
+      case ApplevelConstants.dtRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const DataTableScreen(),
+          name: ApplevelConstants.dtRoute,
         );
 
       default:

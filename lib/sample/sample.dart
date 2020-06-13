@@ -1,7 +1,10 @@
 import 'dart:async' show Timer;
 
 import 'package:experiments_with_web/app_level/services/local_storage_service.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_drawer.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/locator.dart';
+import 'package:experiments_with_web/sample/utilities/constants.dart';
 
 import 'package:flutter/material.dart';
 
@@ -25,9 +28,15 @@ class _SamplePageState extends State<SamplePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Auto Increment Counter')),
-      body: Center(
+    return CustomScaffold(
+      showDrawer: true,
+      drawerChild: CustomDrawer(
+        medium: SampleConstants.medium,
+        youtubeLink: SampleConstants.youtube,
+        website: SampleConstants.website,
+      ),
+      titleText: 'Auto Increment Counter',
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

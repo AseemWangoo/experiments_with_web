@@ -3,8 +3,12 @@ import 'dart:ui' as ui;
 
 import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_drawer.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/generic_dialog.dart';
+import 'package:experiments_with_web/iframe/utilities/constants.dart';
 import 'package:experiments_with_web/iframe/widgets/bottom_sheet.dart';
+
 import 'package:flutter/material.dart';
 
 class IframeScreen extends StatefulWidget {
@@ -50,11 +54,15 @@ class _IframeScreenState extends State<IframeScreen> {
     final _width = _screenQueries.customWidthPercent(context, 0.75);
     final _height = _screenQueries.customHeightPercent(context, 0.75);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Iframe', style: TextStyle(color: Colors.black)),
+    return CustomScaffold(
+      titleText: 'Iframe',
+      showDrawer: true,
+      drawerChild: CustomDrawer(
+        medium: IFrameConstants.medium,
+        youtubeLink: IFrameConstants.youtube,
+        website: IFrameConstants.website,
       ),
-      body: Center(
+      child: Center(
         child: SizedBox(
           height: _height,
           width: _width,

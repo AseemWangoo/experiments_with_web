@@ -2,12 +2,15 @@
 
 import 'dart:html';
 
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_drawer.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/location/utilities/alert.dart';
 import 'package:experiments_with_web/location/utilities/api.dart';
+import 'package:experiments_with_web/location/utilities/constants.dart';
 import 'package:experiments_with_web/location/utilities/loc.dart';
 
 import 'package:flutter/material.dart';
+
 import 'package:js/js.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -26,6 +29,13 @@ class _LocationScreenState extends State<LocationScreen> {
   Widget build(BuildContext context) {
     //
     return CustomScaffold(
+      titleText: 'Location',
+      showDrawer: true,
+      drawerChild: CustomDrawer(
+        medium: LocationConstants.medium,
+        youtubeLink: LocationConstants.youtube,
+        website: LocationConstants.website,
+      ),
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

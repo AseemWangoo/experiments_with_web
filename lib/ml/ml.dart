@@ -4,7 +4,9 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:experiments_with_web/app_level/services/img_picker_service.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_drawer.dart';
 import 'package:experiments_with_web/locator.dart';
+import 'package:experiments_with_web/ml/utilities/constants.dart';
 
 import 'package:js/js_util.dart' as jsutil;
 
@@ -35,6 +37,12 @@ class _MLScreenState extends State<MLScreen> {
 
     return CustomScaffold(
       titleText: 'ML on Web',
+      showDrawer: true,
+      drawerChild: CustomDrawer(
+        medium: MLConstants.medium,
+        youtubeLink: MLConstants.youtube,
+        website: MLConstants.website,
+      ),
       child: Center(
         child: SingleChildScrollView(
           child: Column(
