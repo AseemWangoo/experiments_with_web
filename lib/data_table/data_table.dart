@@ -10,6 +10,7 @@ class DataTableScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     return CustomScaffold(
+      enableDarkMode: true,
       titleText: 'Hands on With DataTable',
       child: CustomPaginatedTable(),
     );
