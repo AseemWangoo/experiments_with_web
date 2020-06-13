@@ -48,11 +48,27 @@ class _InternalWidget extends StatelessWidget {
 
   List<DataColumn> _colGen(List<UserModel> data) {
     return const <DataColumn>[
-      DataColumn(label: Text(DataTableConstants.colID)),
-      DataColumn(label: Text(DataTableConstants.colName)),
-      DataColumn(label: Text(DataTableConstants.colEmail)),
-      DataColumn(label: Text(DataTableConstants.colPhone)),
-      DataColumn(label: Text(DataTableConstants.colWebsite)),
+      DataColumn(
+        label: Text(DataTableConstants.colID),
+        numeric: true,
+        tooltip: DataTableConstants.colID,
+      ),
+      DataColumn(
+        label: Text(DataTableConstants.colName),
+        tooltip: DataTableConstants.colName,
+      ),
+      DataColumn(
+        label: Text(DataTableConstants.colEmail),
+        tooltip: DataTableConstants.colEmail,
+      ),
+      DataColumn(
+        label: Text(DataTableConstants.colPhone),
+        tooltip: DataTableConstants.colPhone,
+      ),
+      DataColumn(
+        label: Text(DataTableConstants.colWebsite),
+        tooltip: DataTableConstants.colWebsite,
+      ),
     ];
   }
 }
