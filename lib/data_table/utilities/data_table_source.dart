@@ -45,7 +45,7 @@ class UserDataTableSource extends DataTableSource {
    * Sorts this list according to the order specified by the [compare] function.
 
     The [compare] function must act as a [Comparator].
-    
+
     List<String> numbers = ['two', 'three', 'four'];
 // Sort from shortest to longest.
     numbers.sort((a, b) => a.length.compareTo(b.length));
@@ -56,7 +56,7 @@ class UserDataTableSource extends DataTableSource {
     nums.sort();
     print(nums);  // [-11, 2, 13] 
    */
-  void _sort<T>(Comparable<T> Function(UserModel d) getField, bool ascending) {
+  void sort<T>(Comparable<T> Function(UserModel d) getField, bool ascending) {
     _userData.sort((UserModel a, UserModel b) {
       if (!ascending) {
         final c = a;

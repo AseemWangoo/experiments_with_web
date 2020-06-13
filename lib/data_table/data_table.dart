@@ -38,11 +38,12 @@ class _InternalWidget extends StatelessWidget {
     if (_model.isEmpty) {
       return const SizedBox.shrink();
     }
+    final _dtSource = UserDataTableSource(userData: _model);
 
     return CustomPaginatedTable(
       dataColumns: _colGen(_model),
       header: const Text(DataTableConstants.users),
-      source: UserDataTableSource(userData: _model),
+      source: _dtSource,
     );
   }
 
