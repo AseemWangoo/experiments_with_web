@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_dialog.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_paginated_datatable.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/data_table/models/data_notifier.dart';
@@ -39,9 +40,7 @@ class _InternalWidget extends StatelessWidget {
       return const SizedBox.shrink();
     }
     final _dtSource = UserDataTableSource(
-      onRowSelect: (index) {
-        print('IMA SLECTED $index');
-      },
+      onRowSelect: (index) => _showDetails(context, _model[index]),
       userData: _model,
     );
 
@@ -128,4 +127,13 @@ class _InternalWidget extends StatelessWidget {
       ),
     );
   }
+
+  void _showDetails(BuildContext c, UserModel data) async =>
+      await showDialog<bool>(
+        context: c,
+        builder: (_) => CustomDialog(
+          showPadding: false,
+          child: Placeholder(),
+        ),
+      );
 }
