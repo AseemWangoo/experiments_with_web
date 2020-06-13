@@ -25,6 +25,7 @@ class ApplevelConstants {
   static const String option5 = 'Location';
   static const String option6 = 'ML';
   static const String option7 = 'Game Time';
+  static const String option8 = 'Data Table';
 }
 
 class WHOLinks {
@@ -54,6 +55,7 @@ class OptionAndRoutes {
     ApplevelConstants.option5: ApplevelConstants.locationRoute,
     ApplevelConstants.option6: ApplevelConstants.mlRoute,
     ApplevelConstants.option7: ApplevelConstants.gameRoute,
+    ApplevelConstants.option8: ApplevelConstants.dtRoute,
   };
 }
 
