@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final userModel = userModelFromJson(jsonString);
-
 // ignore_for_file: prefer_single_quotes
 
 import 'dart:convert';

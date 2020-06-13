@@ -19,8 +19,8 @@ class DataTableApi {
 
       if (resp.statusCode == 200) {
         //
-        final _data = UserModel.fromJson(json.decode(resp.body));
-        _completer.complete(_data);
+        final _data = userModelFromJson(resp.body);
+        _completer.complete(_data.first);
       }
     } catch (exc) {
       _completer.completeError(UserModel);
