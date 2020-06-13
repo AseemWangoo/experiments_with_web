@@ -58,15 +58,13 @@ class UserDataTableSource extends DataTableSource {
    */
   void sort<T>(Comparable<T> Function(UserModel d) getField, bool ascending) {
     _userData.sort((a, b) {
-      if (!ascending) {
-        final c = a;
-        a = b;
-        b = c;
-      }
       final aValue = getField(a);
       final bValue = getField(b);
-      return Comparable.compare(aValue, bValue);
+      return ascending
+          ? Comparable.compare(aValue, bValue)
+          : Comparable.compare(bValue, aValue);
     });
+
     notifyListeners();
   }
 }
