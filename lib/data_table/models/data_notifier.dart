@@ -8,11 +8,11 @@ class UserDataNotifier with ChangeNotifier {
     fetchData();
   }
 
-  UserModel get userModel => _userModel;
+  List<UserModel> get userModel => _userModel;
 
   // -------------------------------------- INTERNALS --------------------------------------------
 
-  var _userModel = UserModel();
+  var _userModel = <UserModel>[];
 
   Future<void> fetchData() async {
     _userModel = await DataTableApi.fetchData();

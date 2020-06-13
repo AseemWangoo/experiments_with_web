@@ -31,7 +31,11 @@ class _InternalWidget extends StatelessWidget {
     final _provider = context.watch<UserDataNotifier>();
     final _model = _provider.userModel;
 
-    print('IM BUILDING ${_model == null}');
+    if (_model.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    print('IM BUILDING ');
 
     return CustomPaginatedTable();
   }

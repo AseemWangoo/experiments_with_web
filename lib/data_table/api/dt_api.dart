@@ -10,9 +10,9 @@ const _url = 'https://jsonplaceholder.typicode.com/users';
 class DataTableApi {
   DataTableApi._();
 
-  static Future<UserModel> fetchData() async {
+  static Future<List<UserModel>> fetchData() async {
     //
-    final _completer = Completer<UserModel>();
+    final _completer = Completer<List<UserModel>>();
 
     try {
       final resp = await http.get(_url);
@@ -20,10 +20,10 @@ class DataTableApi {
       if (resp.statusCode == 200) {
         //
         final _data = userModelFromJson(resp.body);
-        _completer.complete(_data.first);
+        _completer.complete(_data);
       }
     } catch (exc) {
-      _completer.completeError(UserModel);
+      _completer.completeError(<UserModel>[]);
     }
 
     return _completer.future;
