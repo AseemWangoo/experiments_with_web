@@ -1,8 +1,12 @@
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_paginated_datatable.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/data_table/models/data_notifier.dart';
+import 'package:experiments_with_web/data_table/models/user_model.dart';
+import 'package:experiments_with_web/data_table/utilities/constants.dart';
+import 'package:experiments_with_web/data_table/utilities/data_table_source.dart';
 
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
 class DataTableScreen extends StatelessWidget {
@@ -13,7 +17,7 @@ class DataTableScreen extends StatelessWidget {
     //
     return CustomScaffold(
       enableDarkMode: true,
-      titleText: 'Hands on With DataTable',
+      titleText: DataTableConstants.dtTitle,
       child: ChangeNotifierProvider<UserDataNotifier>(
         create: (_) => UserDataNotifier(),
         child: _InternalWidget(),
@@ -35,8 +39,20 @@ class _InternalWidget extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    print('IM BUILDING ');
+    return CustomPaginatedTable(
+      // dataColumns: _colGen(_model),
+      header: const Text(DataTableConstants.users),
+      // source: UserDataTableSource(userData: _model),
+    );
+  }
 
-    return CustomPaginatedTable();
+  List<DataColumn> _colGen(List<UserModel> data) {
+    return const <DataColumn>[
+      DataColumn(label: Text(DataTableConstants.colID)),
+      DataColumn(label: Text(DataTableConstants.colName)),
+      DataColumn(label: Text(DataTableConstants.colEmail)),
+      DataColumn(label: Text(DataTableConstants.colPhone)),
+      DataColumn(label: Text(DataTableConstants.colWebsite)),
+    ];
   }
 }
