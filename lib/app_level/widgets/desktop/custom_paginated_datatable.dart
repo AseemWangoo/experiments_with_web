@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class CustomPaginatedTable extends StatelessWidget {
@@ -10,6 +9,8 @@ class CustomPaginatedTable extends StatelessWidget {
     Widget header,
     bool showActions = false,
     List<Widget> actions,
+    this.sortColumnIndex,
+    this.sortColumnAsc = true,
   })  : _source = source,
         _dataColumns = dataColumns,
         _header = header,
@@ -31,6 +32,8 @@ class CustomPaginatedTable extends StatelessWidget {
   final bool _showActions;
   final List<Widget> _actions;
   final int rowsPerPage;
+  final int sortColumnIndex;
+  final bool sortColumnAsc;
 
   DataTableSource get _fetchDataTableSource {
     if (_source != null) {
@@ -74,6 +77,8 @@ class CustomPaginatedTable extends StatelessWidget {
         header: _fetchHeader,
         rowsPerPage: rowsPerPage,
         source: _fetchDataTableSource,
+        sortColumnIndex: sortColumnIndex,
+        sortAscending: sortColumnAsc,
       ),
       constraints: const BoxConstraints.expand(width: double.maxFinite),
     );
