@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class CustomPaginatedTable extends StatelessWidget {
@@ -69,8 +70,8 @@ class CustomPaginatedTable extends StatelessWidget {
     return ConstrainedBox(
       child: PaginatedDataTable(
         actions: _fetchActions,
-        header: _fetchHeader,
         columns: _fetchDataColumns,
+        header: _fetchHeader,
         rowsPerPage: rowsPerPage,
         source: _fetchDataTableSource,
       ),
