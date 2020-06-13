@@ -40,9 +40,9 @@ class _InternalWidget extends StatelessWidget {
     }
 
     return CustomPaginatedTable(
-      // dataColumns: _colGen(_model),
+      dataColumns: _colGen(_model),
       header: const Text(DataTableConstants.users),
-      // source: UserDataTableSource(userData: _model),
+      source: UserDataTableSource(userData: _model),
     );
   }
 

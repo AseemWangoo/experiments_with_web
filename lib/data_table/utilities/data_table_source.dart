@@ -20,6 +20,7 @@ class UserDataTableSource extends DataTableSource {
     final _user = _userData[index];
 
     return DataRow.byIndex(
+      index: index, // DONT MISS THIS
       cells: <DataCell>[
         DataCell(Text('${_user.id}')),
         DataCell(Text('${_user.name}')),
