@@ -66,10 +66,16 @@ class _InternalWidget extends StatelessWidget {
       DataColumn(
         label: Text(DataTableConstants.colName),
         tooltip: DataTableConstants.colName,
+        onSort: (colIndex, asc) {
+          _sort<String>((user) => user.name, colIndex, asc, _src, _provider);
+        },
       ),
       DataColumn(
         label: Text(DataTableConstants.colEmail),
         tooltip: DataTableConstants.colEmail,
+        onSort: (colIndex, asc) {
+          _sort<String>((user) => user.email, colIndex, asc, _src, _provider);
+        },
       ),
       DataColumn(
         label: Text(DataTableConstants.colPhone),
