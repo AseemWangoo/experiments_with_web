@@ -17,4 +17,8 @@ class DataTableConstants {
 
   // FIELDS
   static const String city = 'City';
+  static const String street = 'Street';
+  static const String suite = 'Suite';
+  static const String zipcode = 'ZipCode';
+  static const String coords = 'Coordinates';
 }

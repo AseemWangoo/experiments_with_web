@@ -53,7 +53,14 @@ class OtherDetails extends StatelessWidget {
 
   Map<String, String> _onGenerateFields(UserModel data) {
     final _fieldValues = {
+      DataTableConstants.colID: data.id.toString(),
+      DataTableConstants.colName: data.name,
       DataTableConstants.city: data.address.city,
+      DataTableConstants.street: data.address.street,
+      DataTableConstants.suite: data.address.suite,
+      DataTableConstants.zipcode: data.address.zipcode,
+      DataTableConstants.coords:
+          '${data.address.geo.lat}, ${data.address.geo.lng}',
     };
 
     return _fieldValues;
