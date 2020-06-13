@@ -41,7 +41,7 @@ class _InternalWidget extends StatelessWidget {
     final _dtSource = UserDataTableSource(userData: _model);
 
     return CustomPaginatedTable(
-      dataColumns: _colGen(_model, _dtSource, _provider),
+      dataColumns: _colGen(_dtSource, _provider),
       header: const Text(DataTableConstants.users),
       source: _dtSource,
       sortColumnIndex: _provider.sortColumnIndex,
@@ -50,7 +50,6 @@ class _InternalWidget extends StatelessWidget {
   }
 
   List<DataColumn> _colGen(
-    List<UserModel> data,
     UserDataTableSource _src,
     UserDataNotifier _provider,
   ) {

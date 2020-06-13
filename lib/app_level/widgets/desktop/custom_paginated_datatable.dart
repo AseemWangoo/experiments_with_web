@@ -70,17 +70,19 @@ class CustomPaginatedTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //
-    return ConstrainedBox(
-      child: PaginatedDataTable(
-        actions: _fetchActions,
-        columns: _fetchDataColumns,
-        header: _fetchHeader,
-        rowsPerPage: rowsPerPage,
-        source: _fetchDataTableSource,
-        sortColumnIndex: sortColumnIndex,
-        sortAscending: sortColumnAsc,
+    return Scrollbar(
+      child: ConstrainedBox(
+        child: PaginatedDataTable(
+          actions: _fetchActions,
+          columns: _fetchDataColumns,
+          header: _fetchHeader,
+          rowsPerPage: rowsPerPage,
+          source: _fetchDataTableSource,
+          sortColumnIndex: sortColumnIndex,
+          sortAscending: sortColumnAsc,
+        ),
+        constraints: const BoxConstraints.expand(width: double.maxFinite),
       ),
-      constraints: const BoxConstraints.expand(width: double.maxFinite),
     );
   }
 }
