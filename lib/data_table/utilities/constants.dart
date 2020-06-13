@@ -1,6 +1,14 @@
 class DataTableConstants {
   DataTableConstants._();
 
+  static const String youtube = 'https://youtu.be/Tw9LSJCpQMs';
+
+  static const String website =
+      'https://flatteredwithflutter.com/using-paginateddatatable-in-flutter-web/';
+
+  static const String medium =
+      'https://medium.com/@aseemwangoo/flutter-web-and-paginateddatatable-3779da7683e';
+
   static const String dtTitle = 'Hands on With DataTable';
   static const String users = 'List of Users';
 

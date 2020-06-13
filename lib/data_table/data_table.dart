@@ -1,4 +1,5 @@
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_dialog.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_drawer.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_paginated_datatable.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/data_table/models/data_notifier.dart';
@@ -18,6 +19,12 @@ class DataTableScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     return CustomScaffold(
+      showDrawer: true,
+      drawerChild: CustomDrawer(
+        medium: DataTableConstants.medium,
+        youtubeLink: DataTableConstants.youtube,
+        website: DataTableConstants.website,
+      ),
       enableDarkMode: true,
       titleText: DataTableConstants.dtTitle,
       child: ChangeNotifierProvider<UserDataNotifier>(
