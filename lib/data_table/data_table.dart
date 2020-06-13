@@ -16,7 +16,7 @@ class DataTableScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     return CustomScaffold(
-      enableDarkMode: false,
+      enableDarkMode: true,
       titleText: DataTableConstants.dtTitle,
       child: ChangeNotifierProvider<UserDataNotifier>(
         create: (_) => UserDataNotifier(),
@@ -38,7 +38,12 @@ class _InternalWidget extends StatelessWidget {
     if (_model.isEmpty) {
       return const SizedBox.shrink();
     }
-    final _dtSource = UserDataTableSource(userData: _model);
+    final _dtSource = UserDataTableSource(
+      onRowSelect: (index) {
+        print('IMA SLECTED $index');
+      },
+      userData: _model,
+    );
 
     return CustomPaginatedTable(
       actions: <IconButton>[
@@ -65,40 +70,43 @@ class _InternalWidget extends StatelessWidget {
   List<DataColumn> _colGen(
     UserDataTableSource _src,
     UserDataNotifier _provider,
-  ) {
-    return <DataColumn>[
-      DataColumn(
-        label: Text(DataTableConstants.colID),
-        numeric: true,
-        tooltip: DataTableConstants.colID,
-        onSort: (colIndex, asc) {
-          _sort<num>((user) => user.id, colIndex, asc, _src, _provider);
-        },
-      ),
-      DataColumn(
-        label: Text(DataTableConstants.colName),
-        tooltip: DataTableConstants.colName,
-        onSort: (colIndex, asc) {
-          _sort<String>((user) => user.name, colIndex, asc, _src, _provider);
-        },
-      ),
-      DataColumn(
-        label: Text(DataTableConstants.colEmail),
-        tooltip: DataTableConstants.colEmail,
-        onSort: (colIndex, asc) {
-          _sort<String>((user) => user.email, colIndex, asc, _src, _provider);
-        },
-      ),
-      DataColumn(
-        label: Text(DataTableConstants.colPhone),
-        tooltip: DataTableConstants.colPhone,
-      ),
-      DataColumn(
-        label: Text(DataTableConstants.colWebsite),
-        tooltip: DataTableConstants.colWebsite,
-      ),
-    ];
-  }
+  ) =>
+      <DataColumn>[
+        DataColumn(
+          label: Text(DataTableConstants.colID),
+          numeric: true,
+          tooltip: DataTableConstants.colID,
+          onSort: (colIndex, asc) {
+            _sort<num>((user) => user.id, colIndex, asc, _src, _provider);
+          },
+        ),
+        DataColumn(
+          label: Text(DataTableConstants.colName),
+          tooltip: DataTableConstants.colName,
+          onSort: (colIndex, asc) {
+            _sort<String>((user) => user.name, colIndex, asc, _src, _provider);
+          },
+        ),
+        DataColumn(
+          label: Text(DataTableConstants.colEmail),
+          tooltip: DataTableConstants.colEmail,
+          onSort: (colIndex, asc) {
+            _sort<String>((user) => user.email, colIndex, asc, _src, _provider);
+          },
+        ),
+        DataColumn(
+          label: Text(DataTableConstants.colPhone),
+          tooltip: DataTableConstants.colPhone,
+        ),
+        DataColumn(
+          label: Text(DataTableConstants.colWebsite),
+          tooltip: DataTableConstants.colWebsite,
+        ),
+        DataColumn(
+          label: Text(DataTableConstants.otherDetails),
+          tooltip: DataTableConstants.otherDetails,
+        ),
+      ];
 
   void _sort<T>(
     Comparable<T> Function(UserModel user) getField,

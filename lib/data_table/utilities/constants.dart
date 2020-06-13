@@ -10,6 +10,7 @@ class DataTableConstants {
   static const String colPhone = 'Phone';
   static const String colEmail = 'Email';
   static const String colWebsite = 'Website';
+  static const String otherDetails = 'Other Details';
 
   // REFRESH TEXT
   static const String refresh = '🔄🔄 Refreshed Successfully !!';

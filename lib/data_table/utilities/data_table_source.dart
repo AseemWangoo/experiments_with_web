@@ -2,13 +2,17 @@ import 'package:experiments_with_web/data_table/models/user_model.dart';
 
 import 'package:flutter/material.dart';
 
+typedef OnRowSelect = void Function(int index);
+
 class UserDataTableSource extends DataTableSource {
   UserDataTableSource({
     @required List<UserModel> userData,
+    @required this.onRowSelect,
   })  : _userData = userData,
         assert(userData != null);
 
   final List<UserModel> _userData;
+  final OnRowSelect onRowSelect;
 
   @override
   DataRow getRow(int index) {
@@ -27,6 +31,14 @@ class UserDataTableSource extends DataTableSource {
         DataCell(Text('${_user.email}')),
         DataCell(Text('${_user.phone}')),
         DataCell(Text('${_user.website}')),
+        DataCell(
+          IconButton(
+            hoverColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            icon: const Icon(Icons.details),
+            onPressed: () => onRowSelect(index),
+          ),
+        ),
       ],
     );
   }
