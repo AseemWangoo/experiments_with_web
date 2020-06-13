@@ -41,18 +41,27 @@ class _InternalWidget extends StatelessWidget {
     final _dtSource = UserDataTableSource(userData: _model);
 
     return CustomPaginatedTable(
-      dataColumns: _colGen(_model),
+      dataColumns: _colGen(_model, _dtSource, _provider),
       header: const Text(DataTableConstants.users),
       source: _dtSource,
+      sortColumnIndex: _provider.sortColumnIndex,
+      sortColumnAsc: _provider.sortAscending,
     );
   }
 
-  List<DataColumn> _colGen(List<UserModel> data) {
-    return const <DataColumn>[
+  List<DataColumn> _colGen(
+    List<UserModel> data,
+    UserDataTableSource _src,
+    UserDataNotifier _provider,
+  ) {
+    return <DataColumn>[
       DataColumn(
         label: Text(DataTableConstants.colID),
         numeric: true,
         tooltip: DataTableConstants.colID,
+        onSort: (colIndex, asc) {
+          _sort<num>((user) => user.id, colIndex, asc, _src, _provider);
+        },
       ),
       DataColumn(
         label: Text(DataTableConstants.colName),
@@ -71,5 +80,17 @@ class _InternalWidget extends StatelessWidget {
         tooltip: DataTableConstants.colWebsite,
       ),
     ];
+  }
+
+  void _sort<T>(
+    Comparable<T> Function(UserModel user) getField,
+    int colIndex,
+    bool asc,
+    UserDataTableSource _src,
+    UserDataNotifier _provider,
+  ) {
+    _src.sort<T>(getField, asc);
+    _provider.sortAscending = asc;
+    _provider.sortColumnIndex = colIndex;
   }
 }
