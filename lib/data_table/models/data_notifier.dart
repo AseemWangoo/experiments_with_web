@@ -10,9 +10,30 @@ class UserDataNotifier with ChangeNotifier {
 
   List<UserModel> get userModel => _userModel;
 
+  // SORT COLUMN INDEX...
+
+  int get sortColumnIndex => _sortColumnIndex;
+
+  set sortColumnIndex(int sortColumnIndex) {
+    _sortColumnIndex = sortColumnIndex;
+    notifyListeners();
+  }
+
+  // SORT ASCENDING....
+
+  bool get sortAscending => _sortAscending;
+
+  set sortAscending(bool sortAscending) {
+    _sortAscending = sortAscending;
+    notifyListeners();
+  }
+
   // -------------------------------------- INTERNALS --------------------------------------------
 
   var _userModel = <UserModel>[];
+
+  int _sortColumnIndex;
+  bool _sortAscending = true;
 
   Future<void> fetchData() async {
     _userModel = await DataTableApi.fetchData();

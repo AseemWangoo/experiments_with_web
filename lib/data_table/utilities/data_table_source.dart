@@ -57,7 +57,7 @@ class UserDataTableSource extends DataTableSource {
     print(nums);  // [-11, 2, 13] 
    */
   void sort<T>(Comparable<T> Function(UserModel d) getField, bool ascending) {
-    _userData.sort((UserModel a, UserModel b) {
+    _userData.sort((a, b) {
       if (!ascending) {
         final c = a;
         a = b;
