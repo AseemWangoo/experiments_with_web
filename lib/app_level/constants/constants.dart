@@ -15,6 +15,7 @@ class ApplevelConstants {
   static const String locationRoute = '/location';
   static const String mlRoute = '/ml';
   static const String gameRoute = '/game';
+  static const String dtRoute = '/datatable';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
