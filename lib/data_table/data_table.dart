@@ -43,10 +43,7 @@ class _InternalWidget extends StatelessWidget {
     return CustomPaginatedTable(
       dataColumns: _colGen(_dtSource, _provider),
       header: const Text(DataTableConstants.users),
-      onRowChanged: (index) {
-        print('INDEX $index');
-        _provider.rowsPerPage = index;
-      },
+      onRowChanged: (index) => _provider.rowsPerPage = index,
       rowsPerPage: _provider.rowsPerPage,
       source: _dtSource,
       sortColumnIndex: _provider.sortColumnIndex,
