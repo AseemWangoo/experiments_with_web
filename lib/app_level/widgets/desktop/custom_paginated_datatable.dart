@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+typedef OnRowChange = void Function(int index);
+
 class CustomPaginatedTable extends StatelessWidget {
   const CustomPaginatedTable({
     Key key,
@@ -11,6 +13,7 @@ class CustomPaginatedTable extends StatelessWidget {
     List<Widget> actions,
     this.sortColumnIndex,
     this.sortColumnAsc = true,
+    this.onRowChanged,
   })  : _source = source,
         _dataColumns = dataColumns,
         _header = header,
@@ -34,6 +37,8 @@ class CustomPaginatedTable extends StatelessWidget {
   final int rowsPerPage;
   final int sortColumnIndex;
   final bool sortColumnAsc;
+
+  final OnRowChange onRowChanged;
 
   DataTableSource get _fetchDataTableSource {
     if (_source != null) {
@@ -76,6 +81,7 @@ class CustomPaginatedTable extends StatelessWidget {
           actions: _fetchActions,
           columns: _fetchDataColumns,
           header: _fetchHeader,
+          onRowsPerPageChanged: onRowChanged,
           rowsPerPage: rowsPerPage,
           source: _fetchDataTableSource,
           sortColumnIndex: sortColumnIndex,
