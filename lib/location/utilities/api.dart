@@ -11,7 +11,7 @@ class LocationAPI {
   LocationAPI();
 
   Future<String> fetchData() async {
-    String _city = '';
+    var _city = '';
     final resp = await http.get(_url);
 
     if (resp.statusCode == 200) {
