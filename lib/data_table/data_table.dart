@@ -16,7 +16,7 @@ class DataTableScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     return CustomScaffold(
-      enableDarkMode: true,
+      enableDarkMode: false,
       titleText: DataTableConstants.dtTitle,
       child: ChangeNotifierProvider<UserDataNotifier>(
         create: (_) => UserDataNotifier(),
@@ -41,10 +41,21 @@ class _InternalWidget extends StatelessWidget {
     final _dtSource = UserDataTableSource(userData: _model);
 
     return CustomPaginatedTable(
+      actions: <IconButton>[
+        IconButton(
+          splashColor: Colors.transparent,
+          icon: const Icon(Icons.refresh),
+          onPressed: () {
+            _provider.fetchData();
+            _showSBar(context, DataTableConstants.refresh);
+          },
+        ),
+      ],
       dataColumns: _colGen(_dtSource, _provider),
       header: const Text(DataTableConstants.users),
       onRowChanged: (index) => _provider.rowsPerPage = index,
       rowsPerPage: _provider.rowsPerPage,
+      showActions: true,
       source: _dtSource,
       sortColumnIndex: _provider.sortColumnIndex,
       sortColumnAsc: _provider.sortAscending,
@@ -99,5 +110,14 @@ class _InternalWidget extends StatelessWidget {
     _src.sort<T>(getField, asc);
     _provider.sortAscending = asc;
     _provider.sortColumnIndex = colIndex;
+  }
+
+  void _showSBar(BuildContext c, String textToShow) {
+    Scaffold.of(c).showSnackBar(
+      SnackBar(
+        content: Text(textToShow),
+        duration: const Duration(milliseconds: 2000),
+      ),
+    );
   }
 }

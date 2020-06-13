@@ -30,5 +30,9 @@ class AppTheme {
       bodyText2: TextStyle(color: Colors.black),
     ),
     fontFamily: 'Montserrat',
+    snackBarTheme: SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: _lightPrimaryColor,
+    ),
   );
 }
