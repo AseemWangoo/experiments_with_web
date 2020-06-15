@@ -23,7 +23,7 @@ doc/api/
 
 .DS_Store
 .firebaserc
-firebase.json
+# firebase.json
 .firebase
 notes.txt
 .DS_Store

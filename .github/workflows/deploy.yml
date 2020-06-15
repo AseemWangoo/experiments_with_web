@@ -1,0 +1,48 @@
+name: Flutter Web and CD
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "beta"
+      - run: flutter config --enable-web
+      - run: flutter pub get
+      - run: flutter build web --release
+      # - uses: w9jds/firebase-action@master
+      #   with:
+      #     args: deploy --only hosting
+      #   env:
+      #     FIREBASE_TOKEN: ${{ secrets.FLUTTERWEB_FIREBASE_KEY }}
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: web
+          path: build/web
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: web
+          path: build/web
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --token "$FIREBASE_TOKEN"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FLUTTERWEB_FIREBASE_KEY }}
+          PROJECT_ID: fir-signin-4477d
