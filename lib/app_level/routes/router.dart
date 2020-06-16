@@ -3,6 +3,7 @@ import 'package:experiments_with_web/app_level/home.dart';
 import 'package:experiments_with_web/data_table/data_table.dart';
 import 'package:experiments_with_web/game/game.dart';
 import 'package:experiments_with_web/google/google.dart';
+import 'package:experiments_with_web/hooks/hooks.dart';
 import 'package:experiments_with_web/iframe/iframe.dart';
 import 'package:experiments_with_web/location/location.dart';
 import 'package:experiments_with_web/ml/ml.dart';
@@ -68,6 +69,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const DataTableScreen(),
           name: ApplevelConstants.dtRoute,
+        );
+
+      case ApplevelConstants.hooksRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const HooksScreen(),
+          name: ApplevelConstants.hooksRoute,
         );
 
       default:
