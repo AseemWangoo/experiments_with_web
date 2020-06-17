@@ -37,15 +37,11 @@ class HooksScreen extends HookWidget {
             builder: (_) {
               useValueListenable(_field);
 
-              debugPrint('FIELD BUILDING');
-
               return CustomInputField(
-                showError: _onSavePressed.value && _field.text.isEmpty,
-                onChanged: (val) {
-                  debugPrint('>>> $val');
-                },
+                onChanged: (_) {},
                 hintText: HookScreenConstants.personFieldHint,
                 labelText: HookScreenConstants.personLabel,
+                showError: _onSavePressed.value && _field.text.isEmpty,
                 textController: _field,
               );
             },
@@ -54,9 +50,6 @@ class HooksScreen extends HookWidget {
             onPressed: () {
               final _model = Suggestion(personName: _field.text);
               _onSavePressed.value = true;
-
-              debugPrint('1 ${_onSavePressed.value}');
-              debugPrint('2 ${_field.text.isEmpty}');
 
               if (_onSavePressed.value) {
                 showDialog(
