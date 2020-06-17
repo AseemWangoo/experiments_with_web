@@ -21,13 +21,6 @@ class HooksScreen extends HookWidget {
       TextEditingValue.empty,
     );
 
-    final update = useValueListenable(_field);
-
-    useEffect(() {
-      _field.text = update.text;
-      return null;
-    }, [update]);
-
     final _onSavePressed = useState(false);
 
     debugPrint('IM BUILDING');
@@ -40,14 +33,22 @@ class HooksScreen extends HookWidget {
             HookScreenConstants.formTitle,
             style: AppTheme.darkTheme.textTheme.headline4,
           ),
-          CustomInputField(
-            showError: _onSavePressed.value && _field.text.isEmpty,
-            onChanged: (val) {
-              debugPrint('>>> $val');
+          HookBuilder(
+            builder: (_) {
+              useValueListenable(_field);
+
+              debugPrint('FIELD BUILDING');
+
+              return CustomInputField(
+                showError: _onSavePressed.value && _field.text.isEmpty,
+                onChanged: (val) {
+                  debugPrint('>>> $val');
+                },
+                hintText: HookScreenConstants.personFieldHint,
+                labelText: HookScreenConstants.personLabel,
+                textController: _field,
+              );
             },
-            hintText: HookScreenConstants.personFieldHint,
-            labelText: HookScreenConstants.personLabel,
-            textController: _field,
           ),
           RaisedButton.icon(
             onPressed: () {
