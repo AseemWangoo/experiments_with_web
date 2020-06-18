@@ -67,6 +67,8 @@ class HooksScreen extends HookWidget {
           ),
           FieldHint(
             child: CustomInputField(
+              maxLines: 3,
+              maxLength: 250,
               onChanged: (_) {},
               hintText: HookScreenConstants.tutorialDescFieldHint,
               labelText: HookScreenConstants.tutorialDescLabel,
@@ -88,6 +90,7 @@ class HooksScreen extends HookWidget {
                   context: context,
                   builder: (_) => CustomDialog(
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Text('${_model.toJson()}'),
                       ],
