@@ -1,3 +1,5 @@
+import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
+import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/styles/themes.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/centered_form.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_dialog.dart';
@@ -17,7 +19,7 @@ class HooksScreen extends HookWidget {
   Widget build(BuildContext context) {
     //
 
-    final _field = useTextEditingController.fromValue(
+    final _namefield = useTextEditingController.fromValue(
       TextEditingValue.empty,
     );
 
@@ -35,20 +37,20 @@ class HooksScreen extends HookWidget {
           ),
           HookBuilder(
             builder: (_) {
-              useValueListenable(_field);
+              useValueListenable(_namefield);
 
               return CustomInputField(
                 onChanged: (_) {},
                 hintText: HookScreenConstants.personFieldHint,
                 labelText: HookScreenConstants.personLabel,
-                showError: _onSavePressed.value && _field.text.isEmpty,
-                textController: _field,
+                showError: _onSavePressed.value && _namefield.text.isEmpty,
+                textController: _namefield,
               );
             },
           ),
           RaisedButton.icon(
             onPressed: () {
-              final _model = Suggestion(personName: _field.text);
+              final _model = Suggestion(personName: _namefield.text);
               _onSavePressed.value = true;
 
               if (_onSavePressed.value) {
@@ -63,10 +65,14 @@ class HooksScreen extends HookWidget {
                   ),
                 );
               }
-              _field.text;
+              _namefield.text;
             },
-            icon: Icon(Icons.save),
-            label: Text('Save'),
+            color: AppColors.brandColor,
+            icon: Icon(Icons.save, color: Colors.white),
+            label: Text(
+              HookScreenConstants.saveBtn,
+              style: TextStyle().c(Colors.white),
+            ),
           ),
         ],
       ),
