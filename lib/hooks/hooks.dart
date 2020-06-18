@@ -23,6 +23,9 @@ class HooksScreen extends HookWidget {
     final _namefield = useTextEditingController.fromValue(
       TextEditingValue.empty,
     );
+    final _tutNamefield = useTextEditingController.fromValue(
+      TextEditingValue.empty,
+    );
 
     final _onSavePressed = useState(false);
 
@@ -53,16 +56,27 @@ class HooksScreen extends HookWidget {
             hintText: HookScreenConstants.personHint,
           ),
           FieldHint(
-            child: CustomInputField(
-              onChanged: (_) {},
-              hintText: HookScreenConstants.tutorialFieldHint,
-              labelText: HookScreenConstants.tutorialLabel,
+            child: HookBuilder(
+              builder: (_) {
+                useValueListenable(_tutNamefield);
+
+                return CustomInputField(
+                  onChanged: (_) {},
+                  hintText: HookScreenConstants.tutorialFieldHint,
+                  labelText: HookScreenConstants.tutorialLabel,
+                  showError: _onSavePressed.value && _tutNamefield.text.isEmpty,
+                  textController: _tutNamefield,
+                );
+              },
             ),
             hintText: HookScreenConstants.tutorialHint,
           ),
           RaisedButton.icon(
             onPressed: () {
-              final _model = Suggestion(personName: _namefield.text);
+              final _model = Suggestion(
+                personName: _namefield.text,
+                tutorialName: _tutNamefield.text,
+              );
               _onSavePressed.value = true;
 
               if (_onSavePressed.value) {
@@ -77,7 +91,6 @@ class HooksScreen extends HookWidget {
                   ),
                 );
               }
-              _namefield.text;
             },
             color: AppColors.brandColor,
             icon: Icon(Icons.save, color: Colors.white),
