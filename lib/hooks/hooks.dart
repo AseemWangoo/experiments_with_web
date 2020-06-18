@@ -29,6 +29,10 @@ class HooksScreen extends HookWidget {
     );
     final _tutNameListenable = useValueListenable(_tutNamefield);
 
+    final _tutDescfield = useTextEditingController.fromValue(
+      TextEditingValue.empty,
+    );
+
     final _onSavePressed = useState(false);
     final _validateFields =
         _nameListenable.text.isNotEmpty && _tutNameListenable.text.isNotEmpty;
@@ -61,11 +65,21 @@ class HooksScreen extends HookWidget {
             ),
             hintText: HookScreenConstants.tutorialHint,
           ),
+          FieldHint(
+            child: CustomInputField(
+              onChanged: (_) {},
+              hintText: HookScreenConstants.tutorialDescFieldHint,
+              labelText: HookScreenConstants.tutorialDescLabel,
+              textController: _tutDescfield,
+            ),
+            hintText: HookScreenConstants.tutorialDescHint,
+          ),
           RaisedButton.icon(
             onPressed: () {
               final _model = Suggestion(
                 personName: _namefield.text,
                 tutorialName: _tutNamefield.text,
+                tutorialDesc: _tutDescfield.text,
               );
               _onSavePressed.value = true;
 
