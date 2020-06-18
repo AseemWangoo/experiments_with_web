@@ -9,10 +9,14 @@ part of 'suggestion.dart';
 _$_Suggestion _$_$_SuggestionFromJson(Map<String, dynamic> json) {
   return _$_Suggestion(
     personName: json['person_name'] as String,
+    tutorialName: json['tutorial_name'] as String,
+    tutorialDesc: json['tutorial_desc'] as String,
   );
 }
 
 Map<String, dynamic> _$_$_SuggestionToJson(_$_Suggestion instance) =>
     <String, dynamic>{
       'person_name': instance.personName,
+      'tutorial_name': instance.tutorialName,
+      'tutorial_desc': instance.tutorialDesc,
     };

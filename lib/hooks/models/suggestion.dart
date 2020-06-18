@@ -8,6 +8,8 @@ part 'suggestion.g.dart';
 abstract class Suggestion with _$Suggestion {
   const factory Suggestion({
     @JsonKey(name: 'person_name') String personName,
+    @JsonKey(name: 'tutorial_name') String tutorialName,
+    @JsonKey(name: 'tutorial_desc') String tutorialDesc,
   }) = _Suggestion;
 
   factory Suggestion.fromJson(Map<String, dynamic> json) =>

@@ -15,9 +15,14 @@ Suggestion _$SuggestionFromJson(Map<String, dynamic> json) {
 class _$SuggestionTearOff {
   const _$SuggestionTearOff();
 
-  _Suggestion call({@JsonKey(name: 'person_name') String personName}) {
+  _Suggestion call(
+      {@JsonKey(name: 'person_name') String personName,
+      @JsonKey(name: 'tutorial_name') String tutorialName,
+      @JsonKey(name: 'tutorial_desc') String tutorialDesc}) {
     return _Suggestion(
       personName: personName,
+      tutorialName: tutorialName,
+      tutorialDesc: tutorialDesc,
     );
   }
 }
@@ -28,6 +33,10 @@ const $Suggestion = _$SuggestionTearOff();
 mixin _$Suggestion {
   @JsonKey(name: 'person_name')
   String get personName;
+  @JsonKey(name: 'tutorial_name')
+  String get tutorialName;
+  @JsonKey(name: 'tutorial_desc')
+  String get tutorialDesc;
 
   Map<String, dynamic> toJson();
   $SuggestionCopyWith<Suggestion> get copyWith;
@@ -37,7 +46,10 @@ abstract class $SuggestionCopyWith<$Res> {
   factory $SuggestionCopyWith(
           Suggestion value, $Res Function(Suggestion) then) =
       _$SuggestionCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'person_name') String personName});
+  $Res call(
+      {@JsonKey(name: 'person_name') String personName,
+      @JsonKey(name: 'tutorial_name') String tutorialName,
+      @JsonKey(name: 'tutorial_desc') String tutorialDesc});
 }
 
 class _$SuggestionCopyWithImpl<$Res> implements $SuggestionCopyWith<$Res> {
@@ -50,10 +62,18 @@ class _$SuggestionCopyWithImpl<$Res> implements $SuggestionCopyWith<$Res> {
   @override
   $Res call({
     Object personName = freezed,
+    Object tutorialName = freezed,
+    Object tutorialDesc = freezed,
   }) {
     return _then(_value.copyWith(
       personName:
           personName == freezed ? _value.personName : personName as String,
+      tutorialName: tutorialName == freezed
+          ? _value.tutorialName
+          : tutorialName as String,
+      tutorialDesc: tutorialDesc == freezed
+          ? _value.tutorialDesc
+          : tutorialDesc as String,
     ));
   }
 }
@@ -63,7 +83,10 @@ abstract class _$SuggestionCopyWith<$Res> implements $SuggestionCopyWith<$Res> {
           _Suggestion value, $Res Function(_Suggestion) then) =
       __$SuggestionCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'person_name') String personName});
+  $Res call(
+      {@JsonKey(name: 'person_name') String personName,
+      @JsonKey(name: 'tutorial_name') String tutorialName,
+      @JsonKey(name: 'tutorial_desc') String tutorialDesc});
 }
 
 class __$SuggestionCopyWithImpl<$Res> extends _$SuggestionCopyWithImpl<$Res>
@@ -78,17 +101,28 @@ class __$SuggestionCopyWithImpl<$Res> extends _$SuggestionCopyWithImpl<$Res>
   @override
   $Res call({
     Object personName = freezed,
+    Object tutorialName = freezed,
+    Object tutorialDesc = freezed,
   }) {
     return _then(_Suggestion(
       personName:
           personName == freezed ? _value.personName : personName as String,
+      tutorialName: tutorialName == freezed
+          ? _value.tutorialName
+          : tutorialName as String,
+      tutorialDesc: tutorialDesc == freezed
+          ? _value.tutorialDesc
+          : tutorialDesc as String,
     ));
   }
 }
 
 @JsonSerializable()
 class _$_Suggestion with DiagnosticableTreeMixin implements _Suggestion {
-  const _$_Suggestion({@JsonKey(name: 'person_name') this.personName});
+  const _$_Suggestion(
+      {@JsonKey(name: 'person_name') this.personName,
+      @JsonKey(name: 'tutorial_name') this.tutorialName,
+      @JsonKey(name: 'tutorial_desc') this.tutorialDesc});
 
   factory _$_Suggestion.fromJson(Map<String, dynamic> json) =>
       _$_$_SuggestionFromJson(json);
@@ -96,10 +130,16 @@ class _$_Suggestion with DiagnosticableTreeMixin implements _Suggestion {
   @override
   @JsonKey(name: 'person_name')
   final String personName;
+  @override
+  @JsonKey(name: 'tutorial_name')
+  final String tutorialName;
+  @override
+  @JsonKey(name: 'tutorial_desc')
+  final String tutorialDesc;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Suggestion(personName: $personName)';
+    return 'Suggestion(personName: $personName, tutorialName: $tutorialName, tutorialDesc: $tutorialDesc)';
   }
 
   @override
@@ -107,7 +147,9 @@ class _$_Suggestion with DiagnosticableTreeMixin implements _Suggestion {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Suggestion'))
-      ..add(DiagnosticsProperty('personName', personName));
+      ..add(DiagnosticsProperty('personName', personName))
+      ..add(DiagnosticsProperty('tutorialName', tutorialName))
+      ..add(DiagnosticsProperty('tutorialDesc', tutorialDesc));
   }
 
   @override
@@ -116,12 +158,21 @@ class _$_Suggestion with DiagnosticableTreeMixin implements _Suggestion {
         (other is _Suggestion &&
             (identical(other.personName, personName) ||
                 const DeepCollectionEquality()
-                    .equals(other.personName, personName)));
+                    .equals(other.personName, personName)) &&
+            (identical(other.tutorialName, tutorialName) ||
+                const DeepCollectionEquality()
+                    .equals(other.tutorialName, tutorialName)) &&
+            (identical(other.tutorialDesc, tutorialDesc) ||
+                const DeepCollectionEquality()
+                    .equals(other.tutorialDesc, tutorialDesc)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(personName);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(personName) ^
+      const DeepCollectionEquality().hash(tutorialName) ^
+      const DeepCollectionEquality().hash(tutorialDesc);
 
   @override
   _$SuggestionCopyWith<_Suggestion> get copyWith =>
@@ -134,8 +185,10 @@ class _$_Suggestion with DiagnosticableTreeMixin implements _Suggestion {
 }
 
 abstract class _Suggestion implements Suggestion {
-  const factory _Suggestion({@JsonKey(name: 'person_name') String personName}) =
-      _$_Suggestion;
+  const factory _Suggestion(
+      {@JsonKey(name: 'person_name') String personName,
+      @JsonKey(name: 'tutorial_name') String tutorialName,
+      @JsonKey(name: 'tutorial_desc') String tutorialDesc}) = _$_Suggestion;
 
   factory _Suggestion.fromJson(Map<String, dynamic> json) =
       _$_Suggestion.fromJson;
@@ -143,6 +196,12 @@ abstract class _Suggestion implements Suggestion {
   @override
   @JsonKey(name: 'person_name')
   String get personName;
+  @override
+  @JsonKey(name: 'tutorial_name')
+  String get tutorialName;
+  @override
+  @JsonKey(name: 'tutorial_desc')
+  String get tutorialDesc;
   @override
   _$SuggestionCopyWith<_Suggestion> get copyWith;
 }

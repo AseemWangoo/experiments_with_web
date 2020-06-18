@@ -52,8 +52,13 @@ class HooksScreen extends HookWidget {
             ),
             hintText: HookScreenConstants.personHint,
           ),
-          CustomInputField(
-            onChanged: (String value) {},
+          FieldHint(
+            child: CustomInputField(
+              onChanged: (_) {},
+              hintText: HookScreenConstants.tutorialFieldHint,
+              labelText: HookScreenConstants.tutorialLabel,
+            ),
+            hintText: HookScreenConstants.tutorialHint,
           ),
           RaisedButton.icon(
             onPressed: () {
