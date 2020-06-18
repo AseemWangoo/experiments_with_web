@@ -23,13 +23,16 @@ class HooksScreen extends HookWidget {
     final _namefield = useTextEditingController.fromValue(
       TextEditingValue.empty,
     );
+    final _nameListenable = useValueListenable(_namefield);
+
     final _tutNamefield = useTextEditingController.fromValue(
       TextEditingValue.empty,
     );
 
     final _onSavePressed = useState(false);
+    final _validateFields = _nameListenable.text.isNotEmpty;
 
-    debugPrint('IM BUILDING');
+    debugPrint('IM BUILDING $_validateFields');
 
     return CustomScaffold(
       titleText: HookScreenConstants.hookTitle,
@@ -40,18 +43,12 @@ class HooksScreen extends HookWidget {
             style: AppTheme.darkTheme.textTheme.headline4,
           ),
           FieldHint(
-            child: HookBuilder(
-              builder: (_) {
-                useValueListenable(_namefield);
-
-                return CustomInputField(
-                  onChanged: (_) {},
-                  hintText: HookScreenConstants.personFieldHint,
-                  labelText: HookScreenConstants.personLabel,
-                  showError: _onSavePressed.value && _namefield.text.isEmpty,
-                  textController: _namefield,
-                );
-              },
+            child: CustomInputField(
+              onChanged: (_) {},
+              hintText: HookScreenConstants.personFieldHint,
+              labelText: HookScreenConstants.personLabel,
+              showError: _onSavePressed.value && _namefield.text.isEmpty,
+              textController: _namefield,
             ),
             hintText: HookScreenConstants.personHint,
           ),
@@ -79,7 +76,7 @@ class HooksScreen extends HookWidget {
               );
               _onSavePressed.value = true;
 
-              if (_onSavePressed.value) {
+              if (_validateFields) {
                 showDialog(
                   context: context,
                   builder: (_) => CustomDialog(
