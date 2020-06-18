@@ -19,7 +19,6 @@ class HooksScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     //
-
     final _namefield = useTextEditingController.fromValue(
       TextEditingValue.empty,
     );
@@ -28,11 +27,11 @@ class HooksScreen extends HookWidget {
     final _tutNamefield = useTextEditingController.fromValue(
       TextEditingValue.empty,
     );
+    final _tutNameListenable = useValueListenable(_tutNamefield);
 
     final _onSavePressed = useState(false);
-    final _validateFields = _nameListenable.text.isNotEmpty;
-
-    debugPrint('IM BUILDING $_validateFields');
+    final _validateFields =
+        _nameListenable.text.isNotEmpty && _tutNameListenable.text.isNotEmpty;
 
     return CustomScaffold(
       titleText: HookScreenConstants.hookTitle,
@@ -53,18 +52,12 @@ class HooksScreen extends HookWidget {
             hintText: HookScreenConstants.personHint,
           ),
           FieldHint(
-            child: HookBuilder(
-              builder: (_) {
-                useValueListenable(_tutNamefield);
-
-                return CustomInputField(
-                  onChanged: (_) {},
-                  hintText: HookScreenConstants.tutorialFieldHint,
-                  labelText: HookScreenConstants.tutorialLabel,
-                  showError: _onSavePressed.value && _tutNamefield.text.isEmpty,
-                  textController: _tutNamefield,
-                );
-              },
+            child: CustomInputField(
+              onChanged: (_) {},
+              hintText: HookScreenConstants.tutorialFieldHint,
+              labelText: HookScreenConstants.tutorialLabel,
+              showError: _onSavePressed.value && _tutNamefield.text.isEmpty,
+              textController: _tutNamefield,
             ),
             hintText: HookScreenConstants.tutorialHint,
           ),
