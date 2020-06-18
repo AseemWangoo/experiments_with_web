@@ -5,6 +5,7 @@ import 'package:experiments_with_web/app_level/widgets/desktop/centered_form.dar
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_dialog.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_input_field.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/field_hint.dart';
 import 'package:experiments_with_web/hooks/models/suggestion.dart';
 import 'package:experiments_with_web/hooks/utilities/constants.dart';
 
@@ -35,18 +36,24 @@ class HooksScreen extends HookWidget {
             HookScreenConstants.formTitle,
             style: AppTheme.darkTheme.textTheme.headline4,
           ),
-          HookBuilder(
-            builder: (_) {
-              useValueListenable(_namefield);
+          FieldHint(
+            child: HookBuilder(
+              builder: (_) {
+                useValueListenable(_namefield);
 
-              return CustomInputField(
-                onChanged: (_) {},
-                hintText: HookScreenConstants.personFieldHint,
-                labelText: HookScreenConstants.personLabel,
-                showError: _onSavePressed.value && _namefield.text.isEmpty,
-                textController: _namefield,
-              );
-            },
+                return CustomInputField(
+                  onChanged: (_) {},
+                  hintText: HookScreenConstants.personFieldHint,
+                  labelText: HookScreenConstants.personLabel,
+                  showError: _onSavePressed.value && _namefield.text.isEmpty,
+                  textController: _namefield,
+                );
+              },
+            ),
+            hintText: HookScreenConstants.personHint,
+          ),
+          CustomInputField(
+            onChanged: (String value) {},
           ),
           RaisedButton.icon(
             onPressed: () {

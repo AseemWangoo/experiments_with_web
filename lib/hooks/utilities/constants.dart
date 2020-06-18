@@ -7,8 +7,7 @@ class HookScreenConstants {
   // FIELDS
   static const String personLabel = 'Your Name';
   static const String personFieldHint = 'Steve';
-  static const String personHint =
-      'Will be used to shout out, if the tutorial gets selected';
+  static const String personHint = 'Get famous, if tutorial gets selected..';
 
   // Button
   static const String saveBtn = 'Save';
