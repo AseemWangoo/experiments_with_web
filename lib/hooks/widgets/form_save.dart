@@ -1,6 +1,7 @@
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
+import 'package:experiments_with_web/hooks/api/suggestion_api.dart';
 import 'package:experiments_with_web/hooks/models/suggestion.dart';
 import 'package:experiments_with_web/hooks/utilities/constants.dart';
 
@@ -112,8 +113,10 @@ class FormSave extends StatelessWidget {
             ),
             FlatButton(
               child: Text(HookScreenConstants.saveBtn),
-              onPressed: () {
+              onPressed: () async {
                 Navigator.of(c).pop();
+                final _data = await SuggestionApi.sendData(_model);
+                debugPrint('statement $_data');
               },
             ),
           ],
