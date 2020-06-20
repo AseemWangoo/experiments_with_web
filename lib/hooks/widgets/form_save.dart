@@ -49,17 +49,7 @@ class FormSave extends StatelessWidget {
         _onSavePressed.value = true;
 
         if (_validateFields) {
-          showDialog(
-            context: context,
-            builder: (_) => CustomDialog(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text('${_model.toJson()}'),
-                ],
-              ),
-            ),
-          );
+          _showDialog(context, _model);
         }
       },
       color: AppColors.brandColor,
@@ -67,6 +57,22 @@ class FormSave extends StatelessWidget {
       label: Text(
         HookScreenConstants.saveBtn,
         style: TextStyle().c(Colors.white),
+      ),
+    );
+  }
+
+  void _showDialog(BuildContext c, Suggestion _model) async {
+    //
+
+    return showDialog(
+      context: c,
+      builder: (_) => CustomDialog(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('${_model.toJson()}'),
+          ],
+        ),
       ),
     );
   }
