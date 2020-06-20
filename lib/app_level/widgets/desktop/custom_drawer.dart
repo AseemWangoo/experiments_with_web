@@ -1,8 +1,8 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
-import 'package:experiments_with_web/app_level/extensions/color_extension.dart';
 import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
+import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/locator.dart';
 
 import 'package:flutter/material.dart';
@@ -41,7 +41,7 @@ class CustomDrawer extends StatelessWidget {
               WebAssets.logo.assetName,
               fit: BoxFit.contain,
             ),
-            decoration: BoxDecoration(color: HexColor.fromHex('#002B5C')),
+            decoration: BoxDecoration(color: AppColors.brandColor),
           ),
           ListTile(
             trailing: _LinkButton(

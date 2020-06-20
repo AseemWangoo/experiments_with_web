@@ -10,7 +10,7 @@ class DataTableConstants {
       'https://medium.com/@aseemwangoo/flutter-web-and-paginateddatatable-3779da7683e';
 
   static const String dtTitle = 'Hands on With DataTable';
-  static const String users = 'List of Users';
+  static const String users = 'List of Users (Sort by Name, ID, Email)';
 
   // COLUMNS
   static const String colName = 'Name';

@@ -26,13 +26,44 @@ class AppTheme {
       color: _darkPrimaryAppBarColor,
       iconTheme: IconThemeData(color: _darkPrimaryColor),
     ),
-    textTheme: const TextTheme(
-      bodyText2: TextStyle(color: Colors.black),
-    ),
+
     fontFamily: 'Montserrat',
     snackBarTheme: SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
       backgroundColor: _lightPrimaryColor,
+    ),
+
+    // TEXTS
+    textTheme: const TextTheme(
+      bodyText2: TextStyle(color: Colors.black),
+      headline1: TextStyle(
+        color: _darkPrimaryColor,
+        fontSize: 96.0,
+        letterSpacing: -1.5,
+      ),
+      headline2: TextStyle(
+        color: _darkPrimaryColor,
+        fontSize: 60.0,
+        letterSpacing: -0.5,
+      ),
+      headline3: TextStyle(
+        color: _darkPrimaryColor,
+        fontSize: 48.0,
+        letterSpacing: 0.0,
+      ),
+      headline4: TextStyle(
+        color: _darkPrimaryColor,
+        fontSize: 34.0,
+        letterSpacing: 0.25,
+      ),
+      headline5: TextStyle(
+        letterSpacing: 0.0,
+        fontSize: 25.0,
+      ),
+      headline6: TextStyle(
+        letterSpacing: 0.15,
+        fontSize: 20.0,
+      ),
     ),
   );
 }

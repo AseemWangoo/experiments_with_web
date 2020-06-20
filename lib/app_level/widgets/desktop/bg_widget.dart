@@ -70,7 +70,7 @@ class _CustomText extends StatelessWidget {
               data,
               style: TextStyle(color: Colors.white).size(18.0),
             ),
-          ).showCursorOnHover,
+          ),
           IconButton(
             color: Colors.white,
             icon: FaIcon(FontAwesomeIcons.youtube),

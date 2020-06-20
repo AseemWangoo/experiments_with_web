@@ -4,7 +4,7 @@ class ApplevelConstants {
   static const double stdWidth = 1366;
   static const double stdHeight = 768;
 
-  static const String titleOnTab = 'Web';
+  static const String titleOnTab = 'Fluttering';
 
   static const String homeRoute = '/';
 
@@ -16,6 +16,7 @@ class ApplevelConstants {
   static const String mlRoute = '/ml';
   static const String gameRoute = '/game';
   static const String dtRoute = '/datatable';
+  static const String hooksRoute = '/hooks';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -26,6 +27,7 @@ class ApplevelConstants {
   static const String option6 = 'ML';
   static const String option7 = 'Game Time';
   static const String option8 = 'Data Table';
+  static const String option9 = 'Hooks';
 }
 
 class WHOLinks {
@@ -56,6 +58,7 @@ class OptionAndRoutes {
     ApplevelConstants.option6: ApplevelConstants.mlRoute,
     ApplevelConstants.option7: ApplevelConstants.gameRoute,
     ApplevelConstants.option8: ApplevelConstants.dtRoute,
+    ApplevelConstants.option9: ApplevelConstants.hooksRoute,
   };
 }
 
