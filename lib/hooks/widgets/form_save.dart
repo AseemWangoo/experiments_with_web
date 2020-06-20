@@ -1,8 +1,10 @@
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/generic_dialog.dart';
 import 'package:experiments_with_web/hooks/api/suggestion_api.dart';
 import 'package:experiments_with_web/hooks/models/suggestion.dart';
+import 'package:experiments_with_web/hooks/models/suggestion_resp.dart';
 import 'package:experiments_with_web/hooks/utilities/constants.dart';
 
 import 'package:flutter/material.dart';
@@ -116,9 +118,24 @@ class FormSave extends StatelessWidget {
               onPressed: () async {
                 Navigator.of(c).pop();
                 final _data = await SuggestionApi.sendData(_model);
-                debugPrint('statement ${_data.response}');
+                _respDialog(c, _data);
               },
             ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _respDialog(BuildContext c, SuggestionResponse _data) async {
+    //
+    return showDialog(
+      context: c,
+      builder: (_) {
+        return GenericDialog(
+          children: [
+            Text(_data.status.toString()),
+            Text(_data.response),
           ],
         );
       },

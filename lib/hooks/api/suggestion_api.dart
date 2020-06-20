@@ -40,6 +40,6 @@ class SuggestionApi {
       print('ERROR ${exc.toString()}');
     }
 
-    return null;
+    return SuggestionResponse();
   }
 }
