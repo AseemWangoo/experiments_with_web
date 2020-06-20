@@ -7,7 +7,12 @@ class HookScreenConstants {
   // FIELDS
   static const String personLabel = 'Your Name';
   static const String personFieldHint = 'Steve';
-  static const String personHint = 'Get famous, if tutorial gets selected..';
+  static const String personHint =
+      'e.g Thanks to Steve, for recommending this tutorial..';
+
+  static const String handleLabel = 'Your Handle (Optional)';
+  static const String handleFieldHint = 'e.g https://medium.com/@steve';
+  static const String handleHint = 'Medium / Twitter handle..';
 
   static const String tutorialLabel = 'Tutorial Name';
   static const String tutorialFieldHint = 'e.g Parallax in Flutter Web';

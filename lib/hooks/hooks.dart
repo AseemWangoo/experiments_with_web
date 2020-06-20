@@ -24,6 +24,10 @@ class HooksScreen extends HookWidget {
     );
     final _nameListenable = useValueListenable(_namefield);
 
+    final _handlefield = useTextEditingController.fromValue(
+      TextEditingValue.empty,
+    );
+
     final _tutNamefield = useTextEditingController.fromValue(
       TextEditingValue.empty,
     );
@@ -54,6 +58,15 @@ class HooksScreen extends HookWidget {
               textController: _namefield,
             ),
             hintText: HookScreenConstants.personHint,
+          ),
+          FieldHint(
+            child: CustomInputField(
+              onChanged: (_) {},
+              hintText: HookScreenConstants.handleFieldHint,
+              labelText: HookScreenConstants.handleLabel,
+              textController: _handlefield,
+            ),
+            hintText: HookScreenConstants.handleHint,
           ),
           FieldHint(
             child: CustomInputField(
