@@ -14,6 +14,10 @@ class HookScreenConstants {
   static const String handleFieldHint = 'e.g https://medium.com/@steve';
   static const String handleHint = 'Medium / Twitter handle..';
 
+  static const String emailLabel = 'Email (Optional)';
+  static const String emailFieldHint = 'steve@xyz.com';
+  static const String emailHint = 'Get notified if tutorial is chosen.';
+
   static const String tutorialLabel = 'Tutorial Name';
   static const String tutorialFieldHint = 'e.g Parallax in Flutter Web';
   static const String tutorialHint = 'Name of the tutorial..';

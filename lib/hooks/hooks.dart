@@ -28,6 +28,10 @@ class HooksScreen extends HookWidget {
       TextEditingValue.empty,
     );
 
+    final _emailfield = useTextEditingController.fromValue(
+      TextEditingValue.empty,
+    );
+
     final _tutNamefield = useTextEditingController.fromValue(
       TextEditingValue.empty,
     );
@@ -62,21 +66,30 @@ class HooksScreen extends HookWidget {
           FieldHint(
             child: CustomInputField(
               onChanged: (_) {},
-              hintText: HookScreenConstants.handleFieldHint,
-              labelText: HookScreenConstants.handleLabel,
-              textController: _handlefield,
-            ),
-            hintText: HookScreenConstants.handleHint,
-          ),
-          FieldHint(
-            child: CustomInputField(
-              onChanged: (_) {},
               hintText: HookScreenConstants.tutorialFieldHint,
               labelText: HookScreenConstants.tutorialLabel,
               showError: _onSavePressed.value && _tutNamefield.text.isEmpty,
               textController: _tutNamefield,
             ),
             hintText: HookScreenConstants.tutorialHint,
+          ),
+          FieldHint(
+            child: CustomInputField(
+              onChanged: (_) {},
+              hintText: HookScreenConstants.emailFieldHint,
+              labelText: HookScreenConstants.emailLabel,
+              textController: _emailfield,
+            ),
+            hintText: HookScreenConstants.emailHint,
+          ),
+          FieldHint(
+            child: CustomInputField(
+              onChanged: (_) {},
+              hintText: HookScreenConstants.handleFieldHint,
+              labelText: HookScreenConstants.handleLabel,
+              textController: _handlefield,
+            ),
+            hintText: HookScreenConstants.handleHint,
           ),
           FieldHint(
             child: CustomInputField(
