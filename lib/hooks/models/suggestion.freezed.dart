@@ -18,10 +18,14 @@ class _$SuggestionTearOff {
   _Suggestion call(
       {@JsonKey(name: 'person_name') String personName,
       @JsonKey(name: 'tutorial_name') String tutorialName,
+      @JsonKey(name: 'email') String email,
+      @JsonKey(name: 'media_handle') String handle,
       @JsonKey(name: 'tutorial_desc') String tutorialDesc}) {
     return _Suggestion(
       personName: personName,
       tutorialName: tutorialName,
+      email: email,
+      handle: handle,
       tutorialDesc: tutorialDesc,
     );
   }
@@ -35,6 +39,10 @@ mixin _$Suggestion {
   String get personName;
   @JsonKey(name: 'tutorial_name')
   String get tutorialName;
+  @JsonKey(name: 'email')
+  String get email;
+  @JsonKey(name: 'media_handle')
+  String get handle;
   @JsonKey(name: 'tutorial_desc')
   String get tutorialDesc;
 
@@ -49,6 +57,8 @@ abstract class $SuggestionCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'person_name') String personName,
       @JsonKey(name: 'tutorial_name') String tutorialName,
+      @JsonKey(name: 'email') String email,
+      @JsonKey(name: 'media_handle') String handle,
       @JsonKey(name: 'tutorial_desc') String tutorialDesc});
 }
 
@@ -63,6 +73,8 @@ class _$SuggestionCopyWithImpl<$Res> implements $SuggestionCopyWith<$Res> {
   $Res call({
     Object personName = freezed,
     Object tutorialName = freezed,
+    Object email = freezed,
+    Object handle = freezed,
     Object tutorialDesc = freezed,
   }) {
     return _then(_value.copyWith(
@@ -71,6 +83,8 @@ class _$SuggestionCopyWithImpl<$Res> implements $SuggestionCopyWith<$Res> {
       tutorialName: tutorialName == freezed
           ? _value.tutorialName
           : tutorialName as String,
+      email: email == freezed ? _value.email : email as String,
+      handle: handle == freezed ? _value.handle : handle as String,
       tutorialDesc: tutorialDesc == freezed
           ? _value.tutorialDesc
           : tutorialDesc as String,
@@ -86,6 +100,8 @@ abstract class _$SuggestionCopyWith<$Res> implements $SuggestionCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'person_name') String personName,
       @JsonKey(name: 'tutorial_name') String tutorialName,
+      @JsonKey(name: 'email') String email,
+      @JsonKey(name: 'media_handle') String handle,
       @JsonKey(name: 'tutorial_desc') String tutorialDesc});
 }
 
@@ -102,6 +118,8 @@ class __$SuggestionCopyWithImpl<$Res> extends _$SuggestionCopyWithImpl<$Res>
   $Res call({
     Object personName = freezed,
     Object tutorialName = freezed,
+    Object email = freezed,
+    Object handle = freezed,
     Object tutorialDesc = freezed,
   }) {
     return _then(_Suggestion(
@@ -110,6 +128,8 @@ class __$SuggestionCopyWithImpl<$Res> extends _$SuggestionCopyWithImpl<$Res>
       tutorialName: tutorialName == freezed
           ? _value.tutorialName
           : tutorialName as String,
+      email: email == freezed ? _value.email : email as String,
+      handle: handle == freezed ? _value.handle : handle as String,
       tutorialDesc: tutorialDesc == freezed
           ? _value.tutorialDesc
           : tutorialDesc as String,
@@ -122,6 +142,8 @@ class _$_Suggestion with DiagnosticableTreeMixin implements _Suggestion {
   const _$_Suggestion(
       {@JsonKey(name: 'person_name') this.personName,
       @JsonKey(name: 'tutorial_name') this.tutorialName,
+      @JsonKey(name: 'email') this.email,
+      @JsonKey(name: 'media_handle') this.handle,
       @JsonKey(name: 'tutorial_desc') this.tutorialDesc});
 
   factory _$_Suggestion.fromJson(Map<String, dynamic> json) =>
@@ -134,12 +156,18 @@ class _$_Suggestion with DiagnosticableTreeMixin implements _Suggestion {
   @JsonKey(name: 'tutorial_name')
   final String tutorialName;
   @override
+  @JsonKey(name: 'email')
+  final String email;
+  @override
+  @JsonKey(name: 'media_handle')
+  final String handle;
+  @override
   @JsonKey(name: 'tutorial_desc')
   final String tutorialDesc;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Suggestion(personName: $personName, tutorialName: $tutorialName, tutorialDesc: $tutorialDesc)';
+    return 'Suggestion(personName: $personName, tutorialName: $tutorialName, email: $email, handle: $handle, tutorialDesc: $tutorialDesc)';
   }
 
   @override
@@ -149,6 +177,8 @@ class _$_Suggestion with DiagnosticableTreeMixin implements _Suggestion {
       ..add(DiagnosticsProperty('type', 'Suggestion'))
       ..add(DiagnosticsProperty('personName', personName))
       ..add(DiagnosticsProperty('tutorialName', tutorialName))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('handle', handle))
       ..add(DiagnosticsProperty('tutorialDesc', tutorialDesc));
   }
 
@@ -162,6 +192,10 @@ class _$_Suggestion with DiagnosticableTreeMixin implements _Suggestion {
             (identical(other.tutorialName, tutorialName) ||
                 const DeepCollectionEquality()
                     .equals(other.tutorialName, tutorialName)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.handle, handle) ||
+                const DeepCollectionEquality().equals(other.handle, handle)) &&
             (identical(other.tutorialDesc, tutorialDesc) ||
                 const DeepCollectionEquality()
                     .equals(other.tutorialDesc, tutorialDesc)));
@@ -172,6 +206,8 @@ class _$_Suggestion with DiagnosticableTreeMixin implements _Suggestion {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(personName) ^
       const DeepCollectionEquality().hash(tutorialName) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(handle) ^
       const DeepCollectionEquality().hash(tutorialDesc);
 
   @override
@@ -188,6 +224,8 @@ abstract class _Suggestion implements Suggestion {
   const factory _Suggestion(
       {@JsonKey(name: 'person_name') String personName,
       @JsonKey(name: 'tutorial_name') String tutorialName,
+      @JsonKey(name: 'email') String email,
+      @JsonKey(name: 'media_handle') String handle,
       @JsonKey(name: 'tutorial_desc') String tutorialDesc}) = _$_Suggestion;
 
   factory _Suggestion.fromJson(Map<String, dynamic> json) =
@@ -199,6 +237,12 @@ abstract class _Suggestion implements Suggestion {
   @override
   @JsonKey(name: 'tutorial_name')
   String get tutorialName;
+  @override
+  @JsonKey(name: 'email')
+  String get email;
+  @override
+  @JsonKey(name: 'media_handle')
+  String get handle;
   @override
   @JsonKey(name: 'tutorial_desc')
   String get tutorialDesc;

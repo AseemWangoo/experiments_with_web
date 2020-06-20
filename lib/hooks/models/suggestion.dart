@@ -9,6 +9,8 @@ abstract class Suggestion with _$Suggestion {
   const factory Suggestion({
     @JsonKey(name: 'person_name') String personName,
     @JsonKey(name: 'tutorial_name') String tutorialName,
+    @JsonKey(name: 'email') String email,
+    @JsonKey(name: 'media_handle') String handle,
     @JsonKey(name: 'tutorial_desc') String tutorialDesc,
   }) = _Suggestion;
 
