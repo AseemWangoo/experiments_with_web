@@ -129,13 +129,14 @@ class FormSave extends StatelessWidget {
 
   void _respDialog(BuildContext c, SuggestionResponse _data) async {
     //
+
     return showDialog(
       context: c,
       builder: (_) {
         return GenericDialog(
           children: [
-            Text(_data.status.toString()),
-            Text(_data.response),
+            Text('Received : ${_data.status.toString()}'),
+            Text('Description : ${_data.response}'),
           ],
         );
       },
