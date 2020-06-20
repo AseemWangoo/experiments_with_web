@@ -1,18 +1,26 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:experiments_with_web/hooks/models/suggestion.dart';
 import 'package:experiments_with_web/hooks/models/suggestion_resp.dart';
 import 'package:http/http.dart' as http;
 
-const _url = 'https://tinyurl.com/y9ha4h34';
+const _url =
+    'https://us-central1-fir-signin-4477d.cloudfunctions.net/TutorialSuggestion/tutorialSuggestion';
 
 class SuggestionApi {
   SuggestionApi._();
 
   static Future<SuggestionResponse> sendData(Suggestion model) async {
-    //
-    final _completer = Completer<SuggestionResponse>();
+    // BODY GEN
+    final _body = <String, String>{
+      'person_name': model.personName,
+      'tutorial_name': model.tutorialName,
+      'email': model.email,
+      'media_handle': model.handle,
+      'tutorial_desc': model.tutorialDesc,
+    };
 
     try {
       final resp = await http.post(
@@ -20,18 +28,18 @@ class SuggestionApi {
         headers: <String, String>{
           HttpHeaders.contentTypeHeader: 'application/json',
         },
-        body: model.toJson(),
+        body: json.encode(_body),
       );
 
       if (resp.statusCode == 200) {
         //
         final _data = suggestionResponseFromJson(resp.body);
-        _completer.complete(_data);
+        return _data;
       }
     } catch (exc) {
-      _completer.completeError(SuggestionResponse());
+      print('ERROR ${exc.toString()}');
     }
 
-    return _completer.future;
+    return null;
   }
 }

@@ -116,7 +116,7 @@ class FormSave extends StatelessWidget {
               onPressed: () async {
                 Navigator.of(c).pop();
                 final _data = await SuggestionApi.sendData(_model);
-                debugPrint('statement $_data');
+                debugPrint('statement ${_data.response}');
               },
             ),
           ],
