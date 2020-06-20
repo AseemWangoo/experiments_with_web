@@ -28,5 +28,13 @@ class HookScreenConstants {
   static const String tutorialDescHint = 'Description about the tutorial..';
 
   // Button
+  static const String editBtn = 'Edit';
   static const String saveBtn = 'Save';
+  static const String review = 'Confirm your suggestion';
+
+  static const String field1 = 'Name';
+  static const String field2 = 'Tutorial Name';
+  static const String field3 = 'Email';
+  static const String field4 = 'Handle';
+  static const String field5 = 'Tutorial Desc';
 }

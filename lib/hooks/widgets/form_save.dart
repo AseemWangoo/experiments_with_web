@@ -1,6 +1,6 @@
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/styles/colors.dart';
-import 'package:experiments_with_web/app_level/widgets/desktop/custom_dialog.dart';
+import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/hooks/models/suggestion.dart';
 import 'package:experiments_with_web/hooks/utilities/constants.dart';
 
@@ -33,6 +33,18 @@ class FormSave extends StatelessWidget {
   final ValueNotifier<bool> _onSavePressed;
   final bool _validateFields;
 
+  Iterable<MapEntry<String, String>> get _onGenerateFields {
+    final _fieldValues = {
+      HookScreenConstants.field1: _namefield.text,
+      HookScreenConstants.field2: _tutNamefield.text,
+      HookScreenConstants.field3: _emailfield.text,
+      HookScreenConstants.field4: _handlefield.text,
+      HookScreenConstants.field5: _tutDescfield.text,
+    };
+
+    return _fieldValues.entries;
+  }
+
   @override
   Widget build(BuildContext context) {
     //
@@ -63,17 +75,50 @@ class FormSave extends StatelessWidget {
 
   void _showDialog(BuildContext c, Suggestion _model) async {
     //
+    final _width = ScreenQueries.instance.width(c);
 
     return showDialog(
       context: c,
-      builder: (_) => CustomDialog(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('${_model.toJson()}'),
+      builder: (_) {
+        return AlertDialog(
+          title: const Text(HookScreenConstants.review),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (final _fieldValue in _onGenerateFields) ...[
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: _width * 0.1,
+                      child: Text(_fieldValue.key),
+                    ),
+                    SizedBox(
+                      child: Text(
+                        _fieldValue.value,
+                        style: const TextStyle().bold,
+                      ),
+                      width: _width * 0.1,
+                    ),
+                  ],
+                )
+              ],
+            ],
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text(HookScreenConstants.editBtn),
+              onPressed: () => Navigator.of(c).pop(),
+            ),
+            FlatButton(
+              child: Text(HookScreenConstants.saveBtn),
+              onPressed: () {
+                Navigator.of(c).pop();
+              },
+            ),
           ],
-        ),
-      ),
+        );
+      },
     );
   }
 }
