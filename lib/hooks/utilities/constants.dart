@@ -1,6 +1,14 @@
 class HookScreenConstants {
   HookScreenConstants._();
 
+  static const String youtube = 'https://www.youtube.com/watch?v=L9i7OMbCm3c';
+
+  static const String website =
+      'https://flatteredwithflutter.com/flutter-web-and-flutter-hooks/';
+
+  static const String medium =
+      'https://medium.com/@aseemwangoo/flutter-web-and-flutter-hooks-ae80c691c83e';
+
   static const String hookTitle = 'Hands on With Flutter Hooks';
   static const String formTitle = 'Tutorial Suggestions';
 

@@ -1,5 +1,6 @@
 import 'package:experiments_with_web/app_level/styles/themes.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/centered_form.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_drawer.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_input_field.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/field_hint.dart';
@@ -44,6 +45,12 @@ class HooksScreen extends HookWidget {
 
     return CustomScaffold(
       titleText: HookScreenConstants.hookTitle,
+      showDrawer: true,
+      drawerChild: CustomDrawer(
+        medium: HookScreenConstants.medium,
+        youtubeLink: HookScreenConstants.youtube,
+        website: HookScreenConstants.website,
+      ),
       child: CenteredForm(
         children: [
           Text(
