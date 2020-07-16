@@ -17,6 +17,7 @@ class ApplevelConstants {
   static const String gameRoute = '/game';
   static const String dtRoute = '/datatable';
   static const String hooksRoute = '/hooks';
+  static const String codepenRoute = '/codepens';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -28,6 +29,7 @@ class ApplevelConstants {
   static const String option7 = 'Game Time';
   static const String option8 = 'Data Table';
   static const String option9 = 'Hooks';
+  static const String option10 = 'My Codepenz';
 }
 
 class WHOLinks {
@@ -59,6 +61,7 @@ class OptionAndRoutes {
     ApplevelConstants.option7: ApplevelConstants.gameRoute,
     ApplevelConstants.option8: ApplevelConstants.dtRoute,
     ApplevelConstants.option9: ApplevelConstants.hooksRoute,
+    ApplevelConstants.option10: ApplevelConstants.codepenRoute,
   };
 }
 

@@ -1,5 +1,6 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/home.dart';
+import 'package:experiments_with_web/codepenz/codepen.dart';
 import 'package:experiments_with_web/data_table/data_table.dart';
 import 'package:experiments_with_web/game/game.dart';
 import 'package:experiments_with_web/google/google.dart';
@@ -75,6 +76,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const HooksScreen(),
           name: ApplevelConstants.hooksRoute,
+        );
+
+      case ApplevelConstants.codepenRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const CodepenScreen(),
+          name: ApplevelConstants.codepenRoute,
         );
 
       default:
