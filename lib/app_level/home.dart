@@ -18,6 +18,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: BgWidget(
+          showAnim: false,
           children: <Widget>[
             Wrap(
               alignment: WrapAlignment.end,

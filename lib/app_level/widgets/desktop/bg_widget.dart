@@ -2,6 +2,7 @@ import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
+import 'package:experiments_with_web/app_level/extensions/widget_extension.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/locator.dart';
@@ -12,23 +13,38 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
 class BgWidget extends StatelessWidget {
-  const BgWidget({Key key, @required this.children}) : super(key: key);
+  const BgWidget({
+    Key key,
+    @required this.children,
+    this.showAnim = true,
+  }) : super(key: key);
 
   final List<Widget> children;
+  final bool showAnim;
 
   @override
   Widget build(BuildContext context) {
     //
+    final _height = ScreenQueries.instance.height(context);
+    final _width = ScreenQueries.instance.width(context);
 
     return Stack(
       alignment: AlignmentDirectional.center,
       children: <Widget>[
-        FlareActor(
-          WebAssets.flareBkgrd.assetName,
-          // alignment: Alignment.centerLeft,
-          fit: BoxFit.cover,
-          animation: 'Untitled',
-        ),
+        if (showAnim)
+          FlareActor(
+            WebAssets.flareBkgrd.assetName,
+            // alignment: Alignment.centerLeft,
+            fit: BoxFit.cover,
+            animation: 'Untitled',
+          )
+        else
+          Image.asset(
+            WebAssets.homeBg.assetName,
+            fit: BoxFit.cover,
+            width: _width,
+            height: _height,
+          ),
         const Positioned(
           bottom: 0.0,
           child: _CustomText(data: 'Flattered with Flutter'),
@@ -70,7 +86,7 @@ class _CustomText extends StatelessWidget {
               data,
               style: TextStyle(color: Colors.white).size(18.0),
             ),
-          ),
+          ).showCursor,
           IconButton(
             color: Colors.white,
             icon: FaIcon(FontAwesomeIcons.youtube),
