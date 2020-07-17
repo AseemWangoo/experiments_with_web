@@ -19,7 +19,7 @@ class RowSpacer extends StatelessWidget {
   Widget build(BuildContext context) {
     final _spacedChildren = <Widget>[];
 
-    for (int i = 0; i < children.length; i++) {
+    for (var i = 0; i < children.length; i++) {
       if (i == 0) {
         _spacedChildren.add(children[i]);
       } else if (i == children.length - 1) {

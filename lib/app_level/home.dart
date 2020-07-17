@@ -1,8 +1,6 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
-import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
 import 'package:experiments_with_web/app_level/extensions/widget_extension.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/bg_widget.dart';
-import 'package:experiments_with_web/app_level/widgets/desktop/option_name.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/parallax_btn.dart';
 
 import 'package:flutter/material.dart';
