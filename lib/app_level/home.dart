@@ -1,7 +1,9 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
+import 'package:experiments_with_web/app_level/extensions/widget_extension.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/bg_widget.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/option_name.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/parallax_btn.dart';
 
 import 'package:flutter/material.dart';
 
@@ -27,10 +29,13 @@ class Home extends StatelessWidget {
               children: [
                 for (MapEntry<String, String> _optionRoute
                     in _optionAndRoute) ...[
-                  OptionButton(
-                    buttonText: _optionRoute.key,
-                    onTap: () => _nav.pushNamed(_optionRoute.value),
-                  ).showCursorOnHover
+                  // OptionButton(
+                  //   buttonText: _optionRoute.key,
+                  //   onTap: () => _nav.pushNamed(_optionRoute.value),
+                  // ).showCursorOnHover
+                  ParallaxButton(
+                    text: _optionRoute.key,
+                  ).clickable(() => _nav.pushNamed(_optionRoute.value)),
                 ]
               ],
             ),

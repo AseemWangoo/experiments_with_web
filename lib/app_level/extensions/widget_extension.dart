@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 extension WidgetModifier on Widget {
   /// Set the background color..
@@ -38,6 +39,18 @@ extension WidgetModifier on Widget {
     return MouseRegion(
       cursor: MaterialStateMouseCursor.clickable,
       child: this,
+    );
+  }
+
+  Widget clickable(void Function() action, {bool opaque = true}) {
+    return GestureDetector(
+      behavior: opaque ? HitTestBehavior.opaque : HitTestBehavior.deferToChild,
+      onTap: action,
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        opaque: opaque ?? false,
+        child: this,
+      ),
     );
   }
 }

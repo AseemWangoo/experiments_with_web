@@ -10,6 +10,9 @@
 
 - ValueListenableBuilder (https://api.flutter.dev/flutter/widgets/ValueListenableBuilder-class.html)
 
+- CustomPainter Basics (https://dev.to/sbis04/flutter-custom-painter-part-1-j4m)
+
 ### GitIssues
 
 - TextController (https://github.com/flutter/flutter/issues/11416)
+
