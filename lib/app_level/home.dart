@@ -9,6 +9,7 @@ class Home extends StatelessWidget {
   const Home({Key key}) : super(key: key);
 
   static final _optionAndRoute = OptionAndRoutes.optionRoutes.entries;
+  static final _linkAndRoute = OptionAndRoutes.linksRoutes;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,9 @@ class Home extends StatelessWidget {
                   // ).showCursorOnHover
                   ParallaxButton(
                     text: _optionRoute.key,
+                    medium: _linkAndRoute['${_optionRoute.key}'].first,
+                    website: _linkAndRoute['${_optionRoute.key}'][1],
+                    youtubeLink: _linkAndRoute['${_optionRoute.key}'].last,
                   ).clickable(() => _nav.pushNamed(_optionRoute.value)),
                 ]
               ],

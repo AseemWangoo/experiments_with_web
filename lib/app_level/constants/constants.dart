@@ -63,6 +63,59 @@ class OptionAndRoutes {
     ApplevelConstants.option9: ApplevelConstants.hooksRoute,
     ApplevelConstants.option10: ApplevelConstants.codepenRoute,
   };
+
+  static const Map<String, List<String>> linksRoutes = {
+    ApplevelConstants.option1: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option2: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option3: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option4: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option5: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option6: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option7: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option8: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option9: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option10: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+  };
 }
 
 class DrawerOptions {
