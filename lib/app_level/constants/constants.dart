@@ -1,3 +1,9 @@
+import 'package:experiments_with_web/data_table/utilities/constants.dart';
+import 'package:experiments_with_web/hooks/utilities/constants.dart';
+import 'package:experiments_with_web/iframe/utilities/constants.dart';
+import 'package:experiments_with_web/location/utilities/constants.dart';
+import 'package:experiments_with_web/ml/utilities/constants.dart';
+
 class ApplevelConstants {
   ApplevelConstants._();
 
@@ -76,39 +82,39 @@ class OptionAndRoutes {
       BrandLinks.youtube
     ],
     ApplevelConstants.option3: <String>[
-      BrandLinks.medium,
-      BrandLinks.website,
-      BrandLinks.youtube
+      IFrameConstants.medium,
+      IFrameConstants.website,
+      IFrameConstants.youtube
     ],
     ApplevelConstants.option4: <String>[
-      BrandLinks.medium,
+      BrandLinks.medium, //TODO
       BrandLinks.website,
       BrandLinks.youtube
     ],
     ApplevelConstants.option5: <String>[
-      BrandLinks.medium,
-      BrandLinks.website,
-      BrandLinks.youtube
+      LocationConstants.medium,
+      LocationConstants.website,
+      LocationConstants.youtube
     ],
     ApplevelConstants.option6: <String>[
-      BrandLinks.medium,
-      BrandLinks.website,
-      BrandLinks.youtube
+      MLConstants.medium,
+      MLConstants.website,
+      MLConstants.youtube
     ],
     ApplevelConstants.option7: <String>[
-      BrandLinks.medium,
+      BrandLinks.medium, //TODO
       BrandLinks.website,
       BrandLinks.youtube
     ],
     ApplevelConstants.option8: <String>[
-      BrandLinks.medium,
-      BrandLinks.website,
-      BrandLinks.youtube
+      DataTableConstants.medium,
+      DataTableConstants.website,
+      DataTableConstants.youtube
     ],
     ApplevelConstants.option9: <String>[
-      BrandLinks.medium,
-      BrandLinks.website,
-      BrandLinks.youtube
+      HookScreenConstants.medium,
+      HookScreenConstants.website,
+      HookScreenConstants.youtube
     ],
     ApplevelConstants.option10: <String>[
       BrandLinks.medium,
