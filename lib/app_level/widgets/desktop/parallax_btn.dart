@@ -6,6 +6,8 @@ import 'package:experiments_with_web/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'image_loader.dart';
+
 class ParallaxButton extends StatelessWidget {
   const ParallaxButton({
     Key key,
@@ -46,8 +48,8 @@ class ParallaxButton extends StatelessWidget {
               flex: 2,
               child: ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
-                child: Image.asset(
-                  WebAssets.logo.assetName,
+                child: ImageWidgetPlaceholder(
+                  image: WebAssets.logo,
                   width: double.maxFinite,
                   fit: BoxFit.fitWidth,
                 ),

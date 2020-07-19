@@ -12,6 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
+import 'image_loader.dart';
+
 class BgWidget extends StatelessWidget {
   const BgWidget({
     Key key,
@@ -39,11 +41,10 @@ class BgWidget extends StatelessWidget {
             animation: 'Untitled',
           )
         else
-          Image.asset(
-            WebAssets.homeBg.assetName,
-            fit: BoxFit.cover,
-            width: _width,
+          ImageWidgetPlaceholder(
+            image: WebAssets.homeBg,
             height: _height,
+            width: _width,
           ),
         const Positioned(
           bottom: 0.0,
