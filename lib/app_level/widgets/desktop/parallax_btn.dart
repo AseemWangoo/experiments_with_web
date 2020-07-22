@@ -1,5 +1,6 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
+import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/locator.dart';
 
@@ -67,6 +68,12 @@ class _ParallaxButtonState extends State<ParallaxButton> {
           final _rotateY =
               defaultPosition ? 0 : (-0.3 * (percentageX / 50) + 0.3);
 
+          final _translateX =
+              defaultPosition ? 0.0 : (15 * (percentageX / 50) + -15);
+
+          final _translateY =
+              defaultPosition ? 0.0 : (15 * (percentageY / 50) + -15);
+
           return GestureDetector(
             onPanStart: onPanStart,
             onPanUpdate: (details) =>
@@ -74,37 +81,51 @@ class _ParallaxButtonState extends State<ParallaxButton> {
             onPanEnd: (details) => onPanEnd(details, _maxHeight, _maxWidth),
             onPanCancel: onPanCancel,
             onPanDown: onPanDown,
-            child: Card(
-              margin: EdgeInsets.only(left: 8, right: 8, bottom: 24),
-              elevation: 8,
-              shape: shape,
-              child: Column(
+            child: Transform(
+              alignment: FractionalOffset.center,
+              transform: Matrix4.identity()
+                ..setEntry(3, 2, 0.001)
+                ..rotateX(_rotateX)
+                ..rotateY(_rotateY),
+              child: Stack(
+                fit: StackFit.expand,
                 children: [
-                  Expanded(
-                    flex: 2,
+                  Card(
+                    color: AppColors.brandColor,
+                    margin: EdgeInsets.only(left: 8, right: 8, bottom: 24),
+                    elevation: 8,
+                    shape: shape,
                     child: Transform(
                       alignment: FractionalOffset.center,
                       transform: Matrix4.identity()
-                        ..setEntry(3, 2, 0.001)
-                        ..rotateX(_rotateX)
-                        ..rotateY(_rotateY),
-                      child: ClipRRect(
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(32)),
-                        child: ImageWidgetPlaceholder(
-                          image: WebAssets.logo,
-                          width: double.maxFinite,
-                          fit: BoxFit.fitWidth,
-                        ),
+                        ..translate(_translateX, _translateY, 0),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(32)),
+                              child: ImageWidgetPlaceholder(
+                                image: WebAssets.logo,
+                                width: double.maxFinite,
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              color: Colors.white,
+                              child: _Content(
+                                text: widget.text,
+                                medium: widget.medium,
+                                website: widget.website,
+                                youtubeLink: widget.youtubeLink,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ),
-                  Expanded(
-                    child: _Content(
-                      text: widget.text,
-                      medium: widget.medium,
-                      website: widget.website,
-                      youtubeLink: widget.youtubeLink,
                     ),
                   ),
                 ],
