@@ -16,3 +16,12 @@
 
 - TextController (https://github.com/flutter/flutter/issues/11416)
 
+## Helpful commands 🥳🥳
+
+- To kill all dart processes
+`killall -9 dart` for Mac
+
+`taskkill /F /IM dart.exe` for Windows
+
+`flutter analyze` for analysis of project
+
