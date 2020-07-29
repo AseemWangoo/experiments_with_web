@@ -35,10 +35,7 @@ class _WidgetScreenerState extends State<WidgetScreener> {
         elevation: 4.0,
         child: AspectRatio(
           aspectRatio: 3 / 2,
-          child: SingleChildScrollView(
-            controller: _controller,
-            child: widget.child,
-          ),
+          child: widget.child,
         ),
       ),
     );

@@ -6,6 +6,7 @@ class RowSpacer extends StatelessWidget {
     @required this.children,
     this.spacerWidget = const SizedBox(width: 8),
     this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.mainAxisSize = MainAxisSize.min,
   })  : assert(children.length > 1),
         super(key: key);
 
@@ -14,6 +15,8 @@ class RowSpacer extends StatelessWidget {
   final Widget spacerWidget;
 
   final CrossAxisAlignment crossAxisAlignment;
+
+  final MainAxisSize mainAxisSize;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,7 @@ class RowSpacer extends StatelessWidget {
 
     return Row(
       crossAxisAlignment: crossAxisAlignment,
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: mainAxisSize,
       children: _spacedChildren,
     );
   }

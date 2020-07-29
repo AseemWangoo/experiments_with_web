@@ -12,6 +12,8 @@
 
 - CustomPainter Basics (https://dev.to/sbis04/flutter-custom-painter-part-1-j4m)
 
+- Grid System (https://uxdesign.cc/responsive-grids-and-how-to-actually-use-them-970de4c16e01)
+
 ### GitIssues
 
 - TextController (https://github.com/flutter/flutter/issues/11416)
