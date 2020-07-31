@@ -1,8 +1,10 @@
 import 'package:experiments_with_web/data_table/utilities/constants.dart';
+import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:experiments_with_web/hooks/utilities/constants.dart';
 import 'package:experiments_with_web/iframe/utilities/constants.dart';
 import 'package:experiments_with_web/location/utilities/constants.dart';
 import 'package:experiments_with_web/ml/utilities/constants.dart';
+import 'package:experiments_with_web/parallax/utilities/constants.dart';
 
 class ApplevelConstants {
   ApplevelConstants._();
@@ -35,7 +37,7 @@ class ApplevelConstants {
   static const String option7 = 'Game Time';
   static const String option8 = 'Data Table';
   static const String option9 = 'Hooks';
-  static const String option10 = 'My Codepenz';
+  static const String option10 = 'Slivers & Codepen';
 }
 
 class WHOLinks {
@@ -87,9 +89,9 @@ class OptionAndRoutes {
       IFrameConstants.youtube
     ],
     ApplevelConstants.option4: <String>[
-      BrandLinks.medium, //TODO
-      BrandLinks.website,
-      BrandLinks.youtube
+      ParallaxConstants.medium,
+      ParallaxConstants.website,
+      ParallaxConstants.youtube
     ],
     ApplevelConstants.option5: <String>[
       LocationConstants.medium,
@@ -102,9 +104,9 @@ class OptionAndRoutes {
       MLConstants.youtube
     ],
     ApplevelConstants.option7: <String>[
-      BrandLinks.medium, //TODO
-      BrandLinks.website,
-      BrandLinks.youtube
+      GameUtils.medium,
+      GameUtils.website,
+      GameUtils.youtube
     ],
     ApplevelConstants.option8: <String>[
       DataTableConstants.medium,

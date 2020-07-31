@@ -31,74 +31,78 @@ class _CodepenScreenState extends State<CodepenScreen> {
   }
 
   double get _height => ScreenQueries.instance.height(context);
+  static const _kScrollRatio = 0.85;
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollbar(
       controller: _controller,
-      child: SliverScaffold(
-        controller: _controller,
-        children: [
-          Container(
-            alignment: Alignment.topLeft,
-            height: _height * 0.85,
-            child: WidgetScreener(
-              child: SimpleSliverScaffold(
-                menu: _DemoMenu(),
-                children: [
-                  _DemoContainer(color: const Color(0xFF36311f)),
-                  _DemoContainer(color: const Color(0xFF7d8ca3)),
-                  _DemoContainer(color: const Color(0xFF4f3130)),
-                ],
+      child: Container(
+        color: Colors.white70,
+        child: SliverScaffold(
+          controller: _controller,
+          children: [
+            Container(
+              alignment: Alignment.topLeft,
+              height: _height * _kScrollRatio,
+              child: WidgetScreener(
+                child: SimpleSliverScaffold(
+                  menu: _DemoMenu(),
+                  children: [
+                    _DemoContainer(color: const Color(0xFF36311f)),
+                    _DemoContainer(color: const Color(0xFF7d8ca3)),
+                    _DemoContainer(color: const Color(0xFF4f3130)),
+                  ],
+                ),
               ),
             ),
-          ),
-          Container(
-            alignment: Alignment.topRight,
-            height: _height * 0.85,
-            child: WidgetScreener(
-              child: SliverScaffold(
-                controller: null,
-                menu: _DemoMenu(menuText: 'Disappear-header Sliver'),
-                children: [
-                  _DemoContainer(color: const Color(0xFFd8bd8a)),
-                  _DemoContainer(color: const Color(0xFFaa5042)),
-                  _DemoContainer(color: const Color(0xFF753742)),
-                ],
-                statusBarChild: _OverTheMenu(),
+            Container(
+              alignment: Alignment.topRight,
+              height: _height * _kScrollRatio,
+              child: WidgetScreener(
+                child: SliverScaffold(
+                  controller: null,
+                  menu: _DemoMenu(menuText: 'Disappear-header Sliver'),
+                  children: [
+                    _DemoContainer(color: const Color(0xFFd8bd8a)),
+                    _DemoContainer(color: const Color(0xFFaa5042)),
+                    _DemoContainer(color: const Color(0xFF753742)),
+                  ],
+                  statusBarChild: _OverTheMenu(),
+                ),
               ),
             ),
-          ),
-          Container(
-            alignment: Alignment.topLeft,
-            height: _height * 0.85,
-            child: WidgetScreener(
-              child: SliverAppbarScaffold(
-                children: [
-                  _DemoContainer(color: const Color(0xFF8963ba)),
-                  _DemoContainer(color: const Color(0xFFaa5042)),
-                  _DemoContainer(color: const Color(0xFFff9f1c)),
-                ],
+            Container(
+              alignment: Alignment.topLeft,
+              height: _height * _kScrollRatio,
+              child: WidgetScreener(
+                child: SliverAppbarScaffold(
+                  children: [
+                    _DemoContainer(color: const Color(0xFF8963ba)),
+                    _DemoContainer(color: const Color(0xFFaa5042)),
+                    _DemoContainer(color: const Color(0xFFff9f1c)),
+                  ],
+                ),
               ),
             ),
-          ),
-          Container(
-            alignment: Alignment.topRight,
-            height: _height * 0.85,
-            child: WidgetScreener(
-              child: SliverPaddingScaffold(),
+            Container(
+              alignment: Alignment.topRight,
+              height: _height * _kScrollRatio,
+              child: WidgetScreener(
+                child: SliverPaddingScaffold(),
+              ),
             ),
-          ),
-          ItemsScroller(
-            children: [
-              WidgetScreener(child: ImplicitlyAseem()),
-              WidgetScreener(child: AseemLayouted()),
-              WidgetScreener(child: AseemStack()),
-            ],
-          ),
-        ],
-        menu: _Menu(controller: _controller),
-        statusBarChild: _OverTheMenu(),
+            ItemsScroller(
+              children: [
+                WidgetScreener(child: ImplicitlyAseem()),
+                WidgetScreener(child: AseemLayouted()),
+                WidgetScreener(child: AseemStack()),
+              ],
+            ),
+          ],
+          menu: _Menu(controller: _controller, ratio: _kScrollRatio),
+          statusBarChild: _OverTheMenu(),
+        ),
       ),
     );
   }
@@ -152,9 +156,12 @@ class _DemoMenu extends StatelessWidget {
 }
 
 class _Menu extends StatelessWidget {
-  const _Menu({Key key, this.controller}) : super(key: key);
+  const _Menu({Key key, this.controller, double ratio})
+      : _scrollRatio = ratio,
+        super(key: key);
 
   final ScrollController controller;
+  final double _scrollRatio;
 
   TextStyle get _textStyle => TextStyle(
         color: Colors.white,
@@ -193,7 +200,7 @@ class _Menu extends StatelessWidget {
 
   void _scrollToItem(ScrollController _controller, [double multiplier = 0.0]) {
     _controller.animateTo(
-      multiplier,
+      multiplier * _scrollRatio,
       duration: const Duration(seconds: 1),
       curve: Curves.easeInOut,
     );

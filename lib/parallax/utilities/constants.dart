@@ -1,6 +1,12 @@
 class ParallaxConstants {
   ParallaxConstants._();
 
+  static const String website =
+      'https://flatteredwithflutter.com/flutter-web-parallax/';
+  static const String youtube = 'https://youtu.be/3R3VZnUbMfY';
+  static const String medium =
+      'https://medium.com/flutterpub/flutter-web-and-parallax-c742ea4522eb';
+
   static const String whatUKnow = 'What you need to know';
 
   static const String selfIsolation = 'Self-isolation';
