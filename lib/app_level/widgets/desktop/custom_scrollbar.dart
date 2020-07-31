@@ -9,7 +9,7 @@ class CustomScrollbar extends StatefulWidget {
     @required this.controller,
     this.heightFraction = 0.20,
     this.scrollBarWidth = 10.0,
-    this.color = Colors.red,
+    this.color = const Color(0xFF002B5C),
     this.backgroundColor = Colors.black12,
     this.showScrollbar = false,
   })  : assert(child != null),
