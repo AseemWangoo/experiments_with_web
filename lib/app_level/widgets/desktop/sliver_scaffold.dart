@@ -15,7 +15,6 @@ class SliverScaffold extends StatelessWidget {
         _children = children,
         _menu = menu,
         _statusBarChild = statusBarChild,
-        assert(controller != null),
         super(key: key);
 
   final ScrollController _controller;
@@ -36,6 +35,43 @@ class SliverScaffold extends StatelessWidget {
             childCount: 1,
           ),
         ),
+        SliverPersistentHeader(
+          pinned: true,
+          floating: true,
+          delegate: _SliverDelegate(child: _menu),
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (_, int index) => Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [..._children],
+            ),
+            childCount: 1,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class SimpleSliverScaffold extends StatelessWidget {
+  const SimpleSliverScaffold({
+    Key key,
+    @required List<Widget> children,
+    @required Widget menu,
+  })  : _children = children,
+        _menu = menu,
+        super(key: key);
+
+  final List<Widget> _children;
+  final Widget _menu;
+
+  @override
+  Widget build(BuildContext context) {
+    //
+
+    return CustomScrollView(
+      slivers: <Widget>[
         SliverPersistentHeader(
           pinned: true,
           floating: true,

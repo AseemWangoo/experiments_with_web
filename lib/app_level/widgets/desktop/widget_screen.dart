@@ -7,10 +7,11 @@ class WidgetScreener extends StatefulWidget {
     Key key,
     @required this.child,
     this.scrollbarWidth = 20.0,
+    this.ratio = 3 / 2,
   }) : super(key: key);
 
   final Widget child;
-
+  final double ratio;
   final double scrollbarWidth;
 
   @override
@@ -18,11 +19,8 @@ class WidgetScreener extends StatefulWidget {
 }
 
 class _WidgetScreenerState extends State<WidgetScreener> {
-  ScrollController _controller;
-
   @override
   void initState() {
-    _controller = ScrollController();
     super.initState();
   }
 
@@ -34,7 +32,7 @@ class _WidgetScreenerState extends State<WidgetScreener> {
       child: Material(
         elevation: 4.0,
         child: AspectRatio(
-          aspectRatio: 3 / 2,
+          aspectRatio: widget.ratio,
           child: widget.child,
         ),
       ),
