@@ -1,5 +1,7 @@
 import 'dart:math' as math;
 
+import 'package:experiments_with_web/app_level/assets/assets.dart';
+import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -91,6 +93,98 @@ class SimpleSliverScaffold extends StatelessWidget {
   }
 }
 
+class SliverAppbarScaffold extends StatelessWidget {
+  const SliverAppbarScaffold({
+    Key key,
+    @required List<Widget> children,
+    this.titleWidget = const Text('SliverAppBar'),
+    this.expandedHeight = 300.0,
+    this.image = WebAssets.homeBg,
+  })  : _children = children,
+        super(key: key);
+
+  final Widget titleWidget;
+  final double expandedHeight;
+  final AssetImage image;
+  final List<Widget> _children;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverAppBar(
+          automaticallyImplyLeading: false,
+          title: titleWidget,
+          backgroundColor: AppColors.brandColor,
+          expandedHeight: expandedHeight,
+          flexibleSpace: FlexibleSpaceBar(
+            background: Image.asset(
+              image.assetName,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (_, int index) => Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [..._children],
+            ),
+            childCount: 1,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class SliverPaddingScaffold extends StatelessWidget {
+  const SliverPaddingScaffold({
+    Key key,
+    this.titleWidget = const Text('SliverPadding and SliverToBoxAdapter'),
+  }) : super(key: key);
+
+  final Widget titleWidget;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverAppBar(
+          backgroundColor: AppColors.brandColor,
+          pinned: false,
+          floating: true,
+          title: titleWidget,
+        ),
+        SliverToBoxAdapter(
+          child: Container(
+            color: const Color(0xFF9b9987),
+            height: 300.0,
+            child: Center(
+              child: Text('SliverToBoxAdapter'),
+            ),
+          ),
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(vertical: 24.0),
+          sliver: SliverFillRemaining(
+            child: Container(
+              color: const Color(0xFF442220),
+              child: Center(
+                child: Text(
+                  'SliverFillRemaining',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+// **************************** INTERNALS ****************************
 class _SliverDelegate implements SliverPersistentHeaderDelegate {
   _SliverDelegate({
     this.minHeight = 56.0,
