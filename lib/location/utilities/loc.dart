@@ -4,6 +4,7 @@ library jslocation;
 import 'package:js/js.dart';
 
 @JS('getCurrentPosition') //Geolocation API's getCurrentPosition
+// ignore: use_function_type_syntax_for_parameters
 external void getCurrentPosition(Function success(GeolocationPosition pos));
 
 @JS()

@@ -29,7 +29,7 @@ dependencies:
   http: ^0.12.0+4
 
   # GAMING
-  flame: ^0.19.1
+  flame: ^0.24.0
 
   # CODE GEN
   freezed_annotation: ^0.7.1
@@ -39,6 +39,9 @@ dependencies:
 
   # ICONS
   font_awesome_flutter: ^8.8.1
+
+dependency_overrides:
+  flutter_svg: 0.18.0
 
 dev_dependencies:
   flutter_test:

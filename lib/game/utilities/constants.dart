@@ -8,6 +8,12 @@ enum GameView {
 class GameUtils {
   GameUtils._();
 
+  static const String website =
+      'https://flatteredwithflutter.com/how-to-create-game-in-flutter-web-using-flame/';
+  static const String youtube = 'https://youtu.be/uUVKxa-YrK8';
+  static const String medium =
+      'https://medium.com/flutterpub/flutter-web-and-flame-5df7772ce226';
+
   static const int screenElementSize = 27;
 
   static const List<String> images = [

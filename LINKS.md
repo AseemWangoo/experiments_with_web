@@ -10,6 +10,22 @@
 
 - ValueListenableBuilder (https://api.flutter.dev/flutter/widgets/ValueListenableBuilder-class.html)
 
+- CustomPainter Basics (https://dev.to/sbis04/flutter-custom-painter-part-1-j4m)
+
+- Grid System (https://uxdesign.cc/responsive-grids-and-how-to-actually-use-them-970de4c16e01)
+
+- Web Pro (https://medium.com/better-programming/9-popular-github-repos-for-every-web-developer-6826582291bc)
+
 ### GitIssues
 
 - TextController (https://github.com/flutter/flutter/issues/11416)
+
+## Helpful commands 🥳🥳
+
+- To kill all dart processes
+`killall -9 dart` for Mac
+
+`taskkill /F /IM dart.exe` for Windows
+
+`flutter analyze` for analysis of project
+

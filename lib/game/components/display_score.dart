@@ -35,6 +35,7 @@ class DisplayScore {
   void render(Canvas c) => painter.paint(c, position);
 
   void update(double t) {
+    // ignore: deprecated_member_use
     final _text = painter.text?.text ?? '';
     final _gameScore = gameTime.score.toString();
 

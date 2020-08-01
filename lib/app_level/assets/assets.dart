@@ -7,6 +7,7 @@ class WebAssets {
   static const logo = AssetImage('assets/images/logo.png');
 
   static const flareBkgrd = AssetImage('assets/animations/spaceman.flr');
+  static const homeBg = AssetImage('assets/images/background.jpg');
 
   /* Parallax */
   static const socialDistance = AssetImage('assets/images/social_distance.jpg');

@@ -115,6 +115,7 @@ class Virus {
 
     if (score > _scoreInt) {
       _service.saveKeyValue(GameUtils.scoreKey, score.toString());
+      // ignore: unawaited_futures
       gameTime.highScoreDisplay.updateHighScore;
     }
   }

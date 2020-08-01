@@ -1,3 +1,11 @@
+import 'package:experiments_with_web/data_table/utilities/constants.dart';
+import 'package:experiments_with_web/game/utilities/constants.dart';
+import 'package:experiments_with_web/hooks/utilities/constants.dart';
+import 'package:experiments_with_web/iframe/utilities/constants.dart';
+import 'package:experiments_with_web/location/utilities/constants.dart';
+import 'package:experiments_with_web/ml/utilities/constants.dart';
+import 'package:experiments_with_web/parallax/utilities/constants.dart';
+
 class ApplevelConstants {
   ApplevelConstants._();
 
@@ -17,6 +25,7 @@ class ApplevelConstants {
   static const String gameRoute = '/game';
   static const String dtRoute = '/datatable';
   static const String hooksRoute = '/hooks';
+  static const String codepenRoute = '/codepens';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -28,6 +37,7 @@ class ApplevelConstants {
   static const String option7 = 'Game Time';
   static const String option8 = 'Data Table';
   static const String option9 = 'Hooks';
+  static const String option10 = 'Slivers & Codepen';
 }
 
 class WHOLinks {
@@ -59,6 +69,60 @@ class OptionAndRoutes {
     ApplevelConstants.option7: ApplevelConstants.gameRoute,
     ApplevelConstants.option8: ApplevelConstants.dtRoute,
     ApplevelConstants.option9: ApplevelConstants.hooksRoute,
+    ApplevelConstants.option10: ApplevelConstants.codepenRoute,
+  };
+
+  static const Map<String, List<String>> linksRoutes = {
+    ApplevelConstants.option1: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option2: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
+    ApplevelConstants.option3: <String>[
+      IFrameConstants.medium,
+      IFrameConstants.website,
+      IFrameConstants.youtube
+    ],
+    ApplevelConstants.option4: <String>[
+      ParallaxConstants.medium,
+      ParallaxConstants.website,
+      ParallaxConstants.youtube
+    ],
+    ApplevelConstants.option5: <String>[
+      LocationConstants.medium,
+      LocationConstants.website,
+      LocationConstants.youtube
+    ],
+    ApplevelConstants.option6: <String>[
+      MLConstants.medium,
+      MLConstants.website,
+      MLConstants.youtube
+    ],
+    ApplevelConstants.option7: <String>[
+      GameUtils.medium,
+      GameUtils.website,
+      GameUtils.youtube
+    ],
+    ApplevelConstants.option8: <String>[
+      DataTableConstants.medium,
+      DataTableConstants.website,
+      DataTableConstants.youtube
+    ],
+    ApplevelConstants.option9: <String>[
+      HookScreenConstants.medium,
+      HookScreenConstants.website,
+      HookScreenConstants.youtube
+    ],
+    ApplevelConstants.option10: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
+    ],
   };
 }
 

@@ -37,6 +37,7 @@ class VirusSpawner {
 
   void update(double t) {
     final _currTimestamp = DateTime.now().millisecondsSinceEpoch;
+    // ignore: omit_local_variable_types
     int _livingViruses = 0;
 
     final _virusCmpnt = gameTime.virusCmpnt;

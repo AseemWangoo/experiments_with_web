@@ -105,6 +105,7 @@ class GameTime extends Game with TapDetector {
 
     // AUDIO PLAYERS
     playBGM = await Flame.audio.loopLongAudio(GameUtils.bgMusic, volume: 0.25);
+    // ignore: unawaited_futures
     playBGM.pause();
     playBGMusic();
 
@@ -206,6 +207,7 @@ class GameTime extends Game with TapDetector {
     final _touchPointOffset = details.globalPosition;
     print('TAP DOWN OFFSET >>> $_touchPointOffset');
     // FOR START BUTTON TAP...
+    // ignore: omit_local_variable_types
     bool _isHandled = false;
 
     // FOR INST IMAGE
@@ -247,6 +249,7 @@ class GameTime extends Game with TapDetector {
     // FOR THE START BUTTON
     if (!_isHandled) {
       // IS VIRUS HIT
+      // ignore: omit_local_variable_types
       bool _isVirusHit = false;
 
       for (final _virus in virusCmpnt) {
