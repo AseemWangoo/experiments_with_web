@@ -13,7 +13,7 @@ class _AseemPaintedState extends State<AseemPainted> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.black,
+      // color: Colors.black87,
       child: CustomPaint(
         painter: _ThatsAllFolksPainter(),
       ),
@@ -25,37 +25,31 @@ class _ThatsAllFolksPainter extends CustomPainter {
   const _ThatsAllFolksPainter({this.circles = 6}) : assert(circles >= 1);
 
   final int circles;
+  static const _kColor = Color(0xFF791600);
 
   @override
   void paint(Canvas canvas, Size size) {
     var _darkPaint = Paint()
-      ..color = Colors.black
+      ..color = Colors.black12
       ..style = PaintingStyle.fill;
-
-    var _outerPaint = Paint()
-      ..color = const Color(0xFF791600)
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round
-      ..strokeWidth = 0.1;
 
     var _centerPos = Offset(size.width / 2, size.height / 2);
     var _centerRadius = size.width / 12;
 
-    canvas.drawCircle(_centerPos, _centerRadius, _darkPaint);
-
     for (var i = 2; i <= circles; i++) {
       //
-      canvas.drawCircle(_centerPos, i * _centerRadius * 0.7, _outerPaint);
+      var _radius = i * _centerRadius * 1.0;
+
       var path = Path();
       path.addOval(
-        Rect.fromCircle(
-          center: _centerPos,
-          radius: i * _centerRadius * 0.7,
-        ),
+        Rect.fromCircle(center: _centerPos, radius: _radius),
       );
       path.close();
-      canvas.drawShadow(path, Colors.black45, 3.0, false);
+
+      canvas.drawShadow(path, _kColor, 1.0, false);
     }
+
+    canvas.drawCircle(_centerPos, _centerRadius, _darkPaint);
   }
 
   @override
