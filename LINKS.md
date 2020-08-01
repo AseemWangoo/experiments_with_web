@@ -16,6 +16,8 @@
 
 - Web Pro (https://medium.com/better-programming/9-popular-github-repos-for-every-web-developer-6826582291bc)
 
+- Learn Custom Painter (https://blog.codemagic.io/flutter-custom-painter/)
+
 ### GitIssues
 
 - TextController (https://github.com/flutter/flutter/issues/11416)
