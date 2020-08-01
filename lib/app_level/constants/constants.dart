@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/codepenz/utilities/constants.dart';
 import 'package:experiments_with_web/data_table/utilities/constants.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:experiments_with_web/hooks/utilities/constants.dart';
@@ -119,9 +120,9 @@ class OptionAndRoutes {
       HookScreenConstants.youtube
     ],
     ApplevelConstants.option10: <String>[
-      BrandLinks.medium,
-      BrandLinks.website,
-      BrandLinks.youtube
+      CodepenConstants.medium,
+      CodepenConstants.website,
+      CodepenConstants.youtube
     ],
   };
 }
