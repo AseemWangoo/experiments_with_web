@@ -35,8 +35,8 @@ class _ThatsAllFolksPainter extends CustomPainter {
     var _outerPaint = Paint()
       ..color = const Color(0xFF791600)
       ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round;
-    //..strokeWidth = 5.0;
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = 0.1;
 
     var _centerPos = Offset(size.width / 2, size.height / 2);
     var _centerRadius = size.width / 12;
@@ -46,6 +46,15 @@ class _ThatsAllFolksPainter extends CustomPainter {
     for (var i = 2; i <= circles; i++) {
       //
       canvas.drawCircle(_centerPos, i * _centerRadius * 0.7, _outerPaint);
+      var path = Path();
+      path.addOval(
+        Rect.fromCircle(
+          center: _centerPos,
+          radius: i * _centerRadius * 0.7,
+        ),
+      );
+      path.close();
+      canvas.drawShadow(path, Colors.black45, 3.0, false);
     }
   }
 
