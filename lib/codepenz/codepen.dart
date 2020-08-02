@@ -7,6 +7,7 @@ import 'package:experiments_with_web/app_level/widgets/desktop/row_spacer.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/scroller.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/widget_screen.dart';
+import 'package:experiments_with_web/codepenz/painter.dart';
 
 import 'package:flutter/material.dart';
 
@@ -94,6 +95,7 @@ class _CodepenScreenState extends State<CodepenScreen> {
             ),
             ItemsScroller(
               children: [
+                WidgetScreener(child: AseemPainted()),
                 WidgetScreener(child: ImplicitlyAseem()),
                 WidgetScreener(child: AseemLayouted()),
                 WidgetScreener(child: AseemStack()),

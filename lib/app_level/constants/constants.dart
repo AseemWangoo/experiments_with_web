@@ -55,6 +55,7 @@ class BrandLinks {
   static const String youtube = 'https://www.youtube.com/aseemwangoo';
   static const String medium = 'https://medium.com/@aseemwangoo';
   static const String devTo = 'https://dev.to/aseemwangoo';
+  static const String codepen = 'https://codepen.io/aseemwangoo/pens/public';
 }
 
 class OptionAndRoutes {

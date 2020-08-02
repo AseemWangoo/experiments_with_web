@@ -1,6 +1,5 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
-import 'package:experiments_with_web/app_level/extensions/hover_extension.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/extensions/widget_extension.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
@@ -92,17 +91,24 @@ class _CustomText extends StatelessWidget {
             color: Colors.white,
             icon: FaIcon(FontAwesomeIcons.youtube),
             onPressed: () => _linkService.openLink(BrandLinks.youtube),
-          ).showCursorOnHover,
+          ),
           IconButton(
             color: Colors.white,
             icon: FaIcon(FontAwesomeIcons.medium),
             onPressed: () => _linkService.openLink(BrandLinks.medium),
-          ).showCursorOnHover,
+          ),
+          IconButton(
+            color: Colors.white,
+            icon: FaIcon(FontAwesomeIcons.codepen),
+            tooltip: 'Codepen',
+            onPressed: () => _linkService.openLink(BrandLinks.codepen),
+          ),
           IconButton(
             color: Colors.white,
             icon: FaIcon(FontAwesomeIcons.dev),
+            tooltip: 'DevTo',
             onPressed: () => _linkService.openLink(BrandLinks.devTo),
-          ).showCursorOnHover,
+          ),
         ],
       ),
     );
