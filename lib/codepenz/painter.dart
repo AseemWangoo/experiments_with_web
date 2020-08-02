@@ -9,15 +9,55 @@ class AseemPainted extends StatefulWidget {
   _AseemPaintedState createState() => _AseemPaintedState();
 }
 
-class _AseemPaintedState extends State<AseemPainted> {
+class _AseemPaintedState extends State<AseemPainted>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  Animation<String> _animation;
+
+  static const String _kFolks = "That's all Folks!";
+
+  TextStyle get _textStyle =>
+      Theme.of(context).textTheme.headline1.copyWith(color: Colors.white);
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 2000),
+      vsync: this,
+    )..repeat(reverse: true);
+
+    _animation = _TextWriter(start: '', end: _kFolks).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.decelerate),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.black87,
+      color: Colors.black87,
       child: CustomPaint(
         painter: _ThatsAllFolksPainter(),
+        child: AnimatedBuilder(
+          animation: _animation,
+          builder: (_, child) {
+            return Center(
+              child: Text(
+                '${_animation.value}',
+                style: _textStyle,
+              ),
+            );
+          },
+        ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
   }
 }
 
@@ -30,7 +70,7 @@ class _ThatsAllFolksPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var _darkPaint = Paint()
-      ..color = Colors.black12
+      ..color = Colors.black38
       ..style = PaintingStyle.fill;
 
     var _centerPos = Offset(size.width / 2, size.height / 2);
@@ -56,61 +96,12 @@ class _ThatsAllFolksPainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
 
-class PostmanPainter extends CustomPainter {
-  double rotationFactor;
-
-  PostmanPainter({this.rotationFactor});
+class _TextWriter extends Tween<String> {
+  _TextWriter({String start = '', String end}) : super(begin: start, end: end);
 
   @override
-  void paint(Canvas canvas, Size size) {
-    Offset centerOffset = Offset(size.width / 2, size.height / 2);
-
-    Paint innerPaint = Paint()
-      ..color = Colors.orange
-      ..strokeCap = StrokeCap.round
-      ..style = PaintingStyle.fill;
-
-    Paint outerPaint = Paint()
-      ..color = Colors.orange
-      ..strokeCap = StrokeCap.round
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2.0;
-
-    double rotationAngle = rotationFactor * math.pi;
-    double initialDisplacement = 0.75 * math.pi;
-
-    canvas.drawCircle(centerOffset, 20.0, innerPaint);
-    canvas.drawCircle(centerOffset, 40.0, outerPaint);
-    canvas.drawCircle(centerOffset, 60.0, outerPaint);
-    canvas.drawCircle(centerOffset, 80.0, outerPaint);
-    canvas.drawCircle(
-        Offset(
-            size.width / 2 +
-                40.0 * math.cos(initialDisplacement + rotationAngle * 4),
-            size.height / 2 +
-                40.0 * math.sin(initialDisplacement + rotationAngle * 4)),
-        6.0,
-        innerPaint);
-    canvas.drawCircle(
-        Offset(
-            size.width / 2 +
-                60.0 * math.cos(initialDisplacement + rotationAngle * 2),
-            size.height / 2 +
-                60.0 * math.sin(initialDisplacement + rotationAngle * 2)),
-        6.0,
-        innerPaint);
-    canvas.drawCircle(
-        Offset(
-            size.width / 2 +
-                80.0 * math.cos(initialDisplacement + rotationAngle),
-            size.height / 2 +
-                80.0 * math.sin(initialDisplacement + rotationAngle)),
-        6.0,
-        innerPaint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
+  String lerp(double t) {
+    var _showPortion = (end.length * t).round();
+    return end.substring(0, _showPortion);
   }
 }

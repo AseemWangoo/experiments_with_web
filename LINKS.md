@@ -18,6 +18,8 @@
 
 - Learn Custom Painter (https://blog.codemagic.io/flutter-custom-painter/)
 
+- Random Color Gen (https://stackoverflow.com/questions/51340588/flutter-how-can-i-make-a-random-color-generator-background)
+
 ### GitIssues
 
 - TextController (https://github.com/flutter/flutter/issues/11416)
