@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 class AseemPainted extends StatefulWidget {
@@ -15,10 +13,7 @@ class _AseemPaintedState extends State<AseemPainted>
 
   Animation<String> _animation;
 
-  static const String _kFolks = "That's all Folks!";
-
-  TextStyle get _textStyle =>
-      Theme.of(context).textTheme.headline1.copyWith(color: Colors.white);
+  static const String _kFolks = '''"That's all Folks!"''';
 
   @override
   void initState() {
@@ -29,7 +24,7 @@ class _AseemPaintedState extends State<AseemPainted>
     )..repeat(reverse: true);
 
     _animation = _TextWriter(start: '', end: _kFolks).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.decelerate),
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
   }
 
@@ -37,19 +32,13 @@ class _AseemPaintedState extends State<AseemPainted>
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black87,
-      child: CustomPaint(
-        painter: _ThatsAllFolksPainter(),
-        child: AnimatedBuilder(
-          animation: _animation,
-          builder: (_, child) {
-            return Center(
-              child: Text(
-                '${_animation.value}',
-                style: _textStyle,
-              ),
-            );
-          },
-        ),
+      child: AnimatedBuilder(
+        animation: _animation,
+        builder: (_, child) {
+          return CustomPaint(
+            painter: _ThatsAllFolksPainter(text: _animation.value),
+          );
+        },
       ),
     );
   }
@@ -62,10 +51,14 @@ class _AseemPaintedState extends State<AseemPainted>
 }
 
 class _ThatsAllFolksPainter extends CustomPainter {
-  const _ThatsAllFolksPainter({this.circles = 6}) : assert(circles >= 1);
+  const _ThatsAllFolksPainter({this.circles = 6, this.text = ''})
+      : assert(circles >= 1);
 
+  final String text;
   final int circles;
   static const _kColor = Color(0xFF791600);
+
+  TextStyle get _textStyle => TextStyle(color: Colors.white, fontSize: 60);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -76,10 +69,9 @@ class _ThatsAllFolksPainter extends CustomPainter {
     var _centerPos = Offset(size.width / 2, size.height / 2);
     var _centerRadius = size.width / 12;
 
+    // DRAW RINGS
     for (var i = 2; i <= circles; i++) {
-      //
       var _radius = i * _centerRadius * 1.0;
-
       var path = Path();
       path.addOval(
         Rect.fromCircle(center: _centerPos, radius: _radius),
@@ -88,12 +80,25 @@ class _ThatsAllFolksPainter extends CustomPainter {
 
       canvas.drawShadow(path, _kColor, 1.0, false);
     }
-
+    // DRAW INNERMOST CIRCLE
     canvas.drawCircle(_centerPos, _centerRadius, _darkPaint);
+
+    // DRAW TEXT
+    final _textSpan = TextSpan(text: text, style: _textStyle);
+    final _textPainter = TextPainter(
+      text: _textSpan,
+      textDirection: TextDirection.ltr,
+    );
+    final _offset = Offset(size.width / 3.5, size.height / 2.2);
+
+    _textPainter
+      ..layout(minWidth: 0, maxWidth: size.width)
+      ..paint(canvas, _offset);
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
+  bool shouldRepaint(_ThatsAllFolksPainter oldDelegate) =>
+      text != oldDelegate.text;
 }
 
 class _TextWriter extends Tween<String> {
