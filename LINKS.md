@@ -16,6 +16,8 @@
 
 - Web Pro (https://medium.com/better-programming/9-popular-github-repos-for-every-web-developer-6826582291bc)
 
+- FrontEndChecklist (https://github.com/thedaviddias/Front-End-Checklist)
+
 - Learn Custom Painter (https://blog.codemagic.io/flutter-custom-painter/)
 
 - Random Color Gen (https://stackoverflow.com/questions/51340588/flutter-how-can-i-make-a-random-color-generator-background)
