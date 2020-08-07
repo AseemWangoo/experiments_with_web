@@ -4,7 +4,7 @@ import 'package:experiments_with_web/app_level/utilities/html_element.dart';
 import 'package:flutter/material.dart';
 
 class IframeWidget extends HtmlElementWidget {
-  IframeWidget({
+  const IframeWidget({
     Key key,
     @required this.src,
     this.width = 640.0,

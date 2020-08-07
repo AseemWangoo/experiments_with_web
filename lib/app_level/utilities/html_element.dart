@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 final _widgetRef = <int, HtmlElementWidgetState>{};
 
 abstract class HtmlElementWidget extends StatefulWidget {
-  HtmlElementWidget({Key key}) : super(key: key);
+  const HtmlElementWidget({Key key}) : super(key: key);
 
   html.HtmlElement createHtmlElement(BuildContext context) {
     throw UnimplementedError("Can't be ignored");
@@ -27,12 +27,12 @@ class HtmlElementWidgetState<T extends HtmlElementWidget> extends State<T> {
   void initState() {
     super.initState();
     if (!_registered) {
-      _regPlatformView;
+      _regPlatformView();
       _registered = true;
     }
   }
 
-  void get _regPlatformView {
+  void _regPlatformView() {
     if (kIsWeb) {
       ui.platformViewRegistry.registerViewFactory(
         'HtmlElementWidget',
@@ -53,10 +53,11 @@ class HtmlElementWidgetState<T extends HtmlElementWidget> extends State<T> {
   Widget build(BuildContext context) {
     return PlatformViewLink(
       onCreatePlatformView: (PlatformViewCreationParams params) {
+        _widgetRef[params.id] = this;
         final _controller = _HtmlElementViewController(params);
-        _controller
-            ._init()
-            .then((_) => params.onPlatformViewCreated(params.id));
+        _controller._init().then((_) {
+          params.onPlatformViewCreated(params.id);
+        });
 
         return _controller;
       },
