@@ -19,6 +19,11 @@ class CustomPaginatedTable extends StatelessWidget {
         _header = header,
         _showActions = showActions,
         _actions = actions,
+        assert(
+            sortColumnIndex == null ||
+                (sortColumnIndex >= 0 && sortColumnIndex < dataColumns.length),
+            'Check the sortColumnIndex value'),
+        assert(sortColumnAsc != null),
         super(key: key);
 
   /// This is the source / model which will be binded
