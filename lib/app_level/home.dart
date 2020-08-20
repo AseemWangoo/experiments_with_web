@@ -21,25 +21,27 @@ class Home extends StatelessWidget {
         child: BgWidget(
           showAnim: false,
           children: <Widget>[
-            Wrap(
-              alignment: WrapAlignment.end,
-              spacing: 40.0,
-              runSpacing: 20.0,
-              children: [
-                for (MapEntry<String, String> _optionRoute
-                    in _optionAndRoute) ...[
-                  // OptionButton(
-                  //   buttonText: _optionRoute.key,
-                  //   onTap: () => _nav.pushNamed(_optionRoute.value),
-                  // ).showCursorOnHover
-                  ParallaxButton(
-                    text: _optionRoute.key,
-                    medium: _linkAndRoute['${_optionRoute.key}'].first,
-                    website: _linkAndRoute['${_optionRoute.key}'][1],
-                    youtubeLink: _linkAndRoute['${_optionRoute.key}'].last,
-                  ).clickable(() => _nav.pushNamed(_optionRoute.value)),
-                ]
-              ],
+            SingleChildScrollView(
+              child: Wrap(
+                alignment: WrapAlignment.end,
+                spacing: 40.0,
+                runSpacing: 20.0,
+                children: [
+                  for (MapEntry<String, String> _optionRoute
+                      in _optionAndRoute) ...[
+                    // OptionButton(
+                    //   buttonText: _optionRoute.key,
+                    //   onTap: () => _nav.pushNamed(_optionRoute.value),
+                    // ).showCursorOnHover
+                    ParallaxButton(
+                      text: _optionRoute.key,
+                      medium: _linkAndRoute['${_optionRoute.key}'].first,
+                      website: _linkAndRoute['${_optionRoute.key}'][1],
+                      youtubeLink: _linkAndRoute['${_optionRoute.key}'].last,
+                    ).clickable(() => _nav.pushNamed(_optionRoute.value)),
+                  ]
+                ],
+              ),
             ),
           ],
         ),

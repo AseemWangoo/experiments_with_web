@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:meta/meta.dart';
 
 enum Validator { validateInt, validateDouble, validateString }
@@ -20,40 +22,63 @@ abstract class InputValidator {
     }
   }
 
-  void validation() {}
+  StreamTransformer<String, String> validation();
 }
 
 class StringValidator implements InputValidator {
   @override
-  void validation() {
-    print('String');
-  }
+  StreamTransformer<String, String> validation() =>
+      StreamTransformer<String, String>.fromHandlers(
+        handleData: (field, sink) {
+          if (field.isNotEmpty) {
+            sink.add(field);
+          } else {
+            sink.addError(_kErrorText);
+          }
+        },
+      );
+
+  static const String _kErrorText = 'Invalid input';
 }
 
 class DoubleValidator implements InputValidator {
   @override
-  void validation() {
-    print('Double');
-  }
+  StreamTransformer<String, String> validation() =>
+      StreamTransformer<String, String>.fromHandlers(
+        handleData: (field, sink) {
+          final _kDouble = double.tryParse(field);
+
+          if (_kDouble != null && !_kDouble.isNegative) {
+            sink.add(field);
+          } else {
+            sink.addError(_kErrorText);
+          }
+        },
+      );
+
+  static const String _kErrorText = 'Invalid input';
 }
 
 class IntegerValidator implements InputValidator {
   @override
-  void validation() {
-    print('Integer');
-  }
-}
+  StreamTransformer<String, String> validation() =>
+      StreamTransformer<String, String>.fromHandlers(
+        handleData: (field, sink) {
+          final _kInt = int.tryParse(field);
 
-void main() {
-  // InputValidator(Validator.validateInt).validation();
-  ValidatorFactory.validation(type: Validator.validateInt);
+          if (_kInt != null && !_kInt.isNegative) {
+            sink.add(field);
+          } else {
+            sink.addError(_kErrorText);
+          }
+        },
+      );
+
+  static const String _kErrorText = 'Invalid input';
 }
 
 class ValidatorFactory {
-  ValidatorFactory._();
-
-  static void validation({@required Validator type}) {
-    InputValidator(type).validation();
-    return null;
-  }
+  static StreamTransformer<String, String> validation(
+          {@required Validator type}) =>
+      InputValidator(type).validation();
 }
