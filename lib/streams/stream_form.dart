@@ -27,6 +27,7 @@ class _StreamsView extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final _formHooks = FormHooks();
+    debugPrint('IM BUILDING 👀 👀');
 
     return CenteredForm(
       children: [
@@ -37,7 +38,6 @@ class _StreamsView extends HookWidget {
               autofocus: true,
               onChanged: (val) {
                 _formHooks.field1Controller.add(val);
-                // _model.name = _promocodeName;
               },
               //     initialValue: _model.name,
               hintText: StreamFormConstants.field1InputHint,

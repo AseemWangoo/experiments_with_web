@@ -6,7 +6,7 @@ class StreamFormConstants {
   static const String save = 'Save';
 
   // HINTS
-  static const String field1Hint = 'Accepts string expect empty';
+  static const String field1Hint = 'Anything except empty';
   static const String field1Label = 'String Stream';
   static const String field1InputHint = 'e.g aseem, aw7';
 }

@@ -35,14 +35,14 @@ class FormHooks with ValidatorFactory {
 }
 
 class _FormSaveButton {
-  _FormSaveButton();
+  _FormSaveButton() {
+    _controller = useStreamController<bool>();
+  }
 
   List<bool> errors;
   Stream<bool> get status => _controller.stream;
 
   void listen(List<Stream> streams) {
-    _controller = StreamController<bool>.broadcast();
-
     // SET ERRORS TO FALSE
     errors = List.generate(streams.length, (_) => false);
 
@@ -63,7 +63,7 @@ class _FormSaveButton {
   void _validate() {
     final hasNoErrors =
         errors.firstWhere((bool b) => b == true, orElse: () => null) == null;
-    _controller.sink.add(hasNoErrors);
+    _controller.add(hasNoErrors);
   }
 
   StreamController<bool> _controller;
