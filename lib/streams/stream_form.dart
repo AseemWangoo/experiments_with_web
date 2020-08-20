@@ -48,6 +48,21 @@ class _StreamsView extends HookWidget {
           ),
           hintText: StreamFormConstants.field1Hint,
         ),
+        FieldHint(
+          child: StreamBuilder<String>(
+            stream: _formHooks.field2Stream,
+            builder: (context, snapshot) => CustomInputField(
+              onChanged: (val) {
+                _formHooks.field2Controller.add(val);
+              },
+              hintText: StreamFormConstants.field2InputHint,
+              labelText: StreamFormConstants.field2Label,
+              showError: snapshot.hasError,
+              errorText: snapshot.error.toString(),
+            ),
+          ),
+          hintText: StreamFormConstants.field2Hint,
+        ),
         _SaveForm(formHooks: _formHooks),
       ],
     );

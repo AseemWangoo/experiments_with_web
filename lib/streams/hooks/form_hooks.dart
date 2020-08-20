@@ -9,6 +9,7 @@ class FormHooks with ValidatorFactory {
   FormHooks() {
     context = useContext();
     field1Controller = useStreamController<String>();
+    field2Controller = useStreamController<String>();
 
     _saveForm = _FormSaveButton();
   }
@@ -21,12 +22,18 @@ class FormHooks with ValidatorFactory {
       );
   StreamController<String> field1Controller;
 
+  // INPUT FIELD 2 (INTEGER)
+  Stream<String> get field2Stream => field2Controller.stream.transform<String>(
+        validation(type: Validator.validateInt),
+      );
+  StreamController<String> field2Controller;
+
   // *************************** INTERNALS ***************************
 
   // IS FORM VALID
   Stream<bool> get isFormValid {
     // INCLUDE THE STREAMS YOU NEED TO VALIDATE
-    _saveForm.listen([field1Stream]);
+    _saveForm.listen([field1Stream, field2Stream]);
 
     return _saveForm.status;
   }
