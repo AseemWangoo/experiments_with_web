@@ -1,4 +1,6 @@
+import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/centered_form.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_drawer.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_input_field.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/field_hint.dart';
@@ -16,6 +18,12 @@ class StreamForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
+      showDrawer: true,
+      drawerChild: CustomDrawer(
+        medium: BrandLinks.medium,
+        youtubeLink: BrandLinks.youtube,
+        website: BrandLinks.website,
+      ),
       titleText: StreamFormConstants.title,
       child: _StreamsView(),
     );
@@ -119,11 +127,7 @@ class _SaveForm extends StatelessWidget {
             final _isEnabled = snapshot.data;
 
             return RaisedButton.icon(
-              onPressed: _isEnabled
-                  ? () {
-                      debugPrint(data.toString());
-                    }
-                  : null,
+              onPressed: _isEnabled ? () => debugPrint(data.toString()) : null,
               label: const Text(StreamFormConstants.save),
               icon: const Icon(Icons.save),
             );
