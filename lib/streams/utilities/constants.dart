@@ -13,4 +13,8 @@ class StreamFormConstants {
   static const String field2Hint = 'Any integer';
   static const String field2Label = 'Integer Stream';
   static const String field2InputHint = 'e.g 7, 10';
+
+  static const String field3Hint = 'Any double';
+  static const String field3Label = 'Double Stream';
+  static const String field3InputHint = 'e.g 0.1, 7.5';
 }
