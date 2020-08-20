@@ -4,8 +4,8 @@ import 'package:meta/meta.dart';
 
 enum Validator { validateInt, validateDouble, validateString }
 
-abstract class InputValidator {
-  factory InputValidator(Validator validatorType) {
+abstract class _InputValidator {
+  factory _InputValidator(Validator validatorType) {
     //
     switch (validatorType) {
       case Validator.validateInt:
@@ -25,7 +25,7 @@ abstract class InputValidator {
   StreamTransformer<String, String> validation();
 }
 
-class StringValidator implements InputValidator {
+class StringValidator implements _InputValidator {
   @override
   StreamTransformer<String, String> validation() =>
       StreamTransformer<String, String>.fromHandlers(
@@ -41,7 +41,7 @@ class StringValidator implements InputValidator {
   static const String _kErrorText = 'Invalid input';
 }
 
-class DoubleValidator implements InputValidator {
+class DoubleValidator implements _InputValidator {
   @override
   StreamTransformer<String, String> validation() =>
       StreamTransformer<String, String>.fromHandlers(
@@ -59,7 +59,7 @@ class DoubleValidator implements InputValidator {
   static const String _kErrorText = 'Invalid input';
 }
 
-class IntegerValidator implements InputValidator {
+class IntegerValidator implements _InputValidator {
   @override
   StreamTransformer<String, String> validation() =>
       StreamTransformer<String, String>.fromHandlers(
@@ -79,5 +79,5 @@ class IntegerValidator implements InputValidator {
 
 class ValidatorFactory {
   StreamTransformer<String, String> validation({@required Validator type}) =>
-      InputValidator(type).validation();
+      _InputValidator(type).validation();
 }
