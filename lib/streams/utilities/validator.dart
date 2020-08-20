@@ -2,30 +2,39 @@ import 'dart:async';
 
 import 'package:meta/meta.dart';
 
+//**************** EXPOSED SECTION  *****************//
+
 enum Validator { validateInt, validateDouble, validateString }
+
+class ValidatorFactory {
+  StreamTransformer<String, String> validation({@required Validator type}) =>
+      _InputValidator(type).validation();
+}
+
+//**************** INTERNALS *****************//
 
 abstract class _InputValidator {
   factory _InputValidator(Validator validatorType) {
     //
     switch (validatorType) {
       case Validator.validateInt:
-        return IntegerValidator();
+        return _IntegerValidator();
 
       case Validator.validateDouble:
-        return DoubleValidator();
+        return _DoubleValidator();
 
       case Validator.validateString:
-        return StringValidator();
+        return _StringValidator();
 
       default:
-        return StringValidator();
+        return _StringValidator();
     }
   }
 
   StreamTransformer<String, String> validation();
 }
 
-class StringValidator implements _InputValidator {
+class _StringValidator implements _InputValidator {
   @override
   StreamTransformer<String, String> validation() =>
       StreamTransformer<String, String>.fromHandlers(
@@ -41,7 +50,7 @@ class StringValidator implements _InputValidator {
   static const String _kErrorText = 'Invalid input';
 }
 
-class DoubleValidator implements _InputValidator {
+class _DoubleValidator implements _InputValidator {
   @override
   StreamTransformer<String, String> validation() =>
       StreamTransformer<String, String>.fromHandlers(
@@ -59,7 +68,7 @@ class DoubleValidator implements _InputValidator {
   static const String _kErrorText = 'Invalid input';
 }
 
-class IntegerValidator implements _InputValidator {
+class _IntegerValidator implements _InputValidator {
   @override
   StreamTransformer<String, String> validation() =>
       StreamTransformer<String, String>.fromHandlers(
@@ -75,9 +84,4 @@ class IntegerValidator implements _InputValidator {
       );
 
   static const String _kErrorText = 'Invalid input';
-}
-
-class ValidatorFactory {
-  StreamTransformer<String, String> validation({@required Validator type}) =>
-      _InputValidator(type).validation();
 }
