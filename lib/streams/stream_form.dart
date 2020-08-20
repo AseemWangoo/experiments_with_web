@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'hooks/form_hooks.dart';
+import 'models/form_model.dart';
 
 class StreamForm extends StatelessWidget {
   const StreamForm({Key key}) : super(key: key);
@@ -26,68 +27,81 @@ class _StreamsView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final data = FormData();
     final _formHooks = FormHooks();
     debugPrint('IM BUILDING 👀 👀');
 
-    return CenteredForm(
-      children: [
-        FieldHint(
-          child: StreamBuilder<String>(
-            stream: _formHooks.field1Stream,
-            builder: (context, snapshot) => CustomInputField(
-              autofocus: true,
-              onChanged: (val) {
-                _formHooks.field1Controller.add(val);
-              },
-              //     initialValue: _model.name,
-              hintText: StreamFormConstants.field1InputHint,
-              labelText: StreamFormConstants.field1Label,
-              showError: snapshot.hasError,
-              errorText: snapshot.error.toString(),
+    return Center(
+      child: CenteredForm(
+        children: [
+          FieldHint(
+            child: StreamBuilder<String>(
+              stream: _formHooks.field1Stream,
+              builder: (context, snapshot) => CustomInputField(
+                autofocus: true,
+                onChanged: (val) {
+                  _formHooks.field1Controller.add(val);
+                  data.first = val;
+                },
+                initialValue: data.first,
+                hintText: StreamFormConstants.field1InputHint,
+                labelText: StreamFormConstants.field1Label,
+                showError: snapshot.hasError,
+                errorText: snapshot.error.toString(),
+              ),
             ),
+            hintText: StreamFormConstants.field1Hint,
           ),
-          hintText: StreamFormConstants.field1Hint,
-        ),
-        FieldHint(
-          child: StreamBuilder<String>(
-            stream: _formHooks.field2Stream,
-            builder: (context, snapshot) => CustomInputField(
-              onChanged: (val) {
-                _formHooks.field2Controller.add(val);
-              },
-              hintText: StreamFormConstants.field2InputHint,
-              labelText: StreamFormConstants.field2Label,
-              showError: snapshot.hasError,
-              errorText: snapshot.error.toString(),
+          FieldHint(
+            child: StreamBuilder<String>(
+              stream: _formHooks.field2Stream,
+              builder: (context, snapshot) => CustomInputField(
+                onChanged: (val) {
+                  _formHooks.field2Controller.add(val);
+                  data.second = val;
+                },
+                initialValue: data.second,
+                hintText: StreamFormConstants.field2InputHint,
+                labelText: StreamFormConstants.field2Label,
+                showError: snapshot.hasError,
+                errorText: snapshot.error.toString(),
+              ),
             ),
+            hintText: StreamFormConstants.field2Hint,
           ),
-          hintText: StreamFormConstants.field2Hint,
-        ),
-        FieldHint(
-          child: StreamBuilder<String>(
-            stream: _formHooks.field3Stream,
-            builder: (context, snapshot) => CustomInputField(
-              onChanged: (val) {
-                _formHooks.field3Controller.add(val);
-              },
-              hintText: StreamFormConstants.field3InputHint,
-              labelText: StreamFormConstants.field3Label,
-              showError: snapshot.hasError,
-              errorText: snapshot.error.toString(),
+          FieldHint(
+            child: StreamBuilder<String>(
+              stream: _formHooks.field3Stream,
+              builder: (context, snapshot) => CustomInputField(
+                onChanged: (val) {
+                  _formHooks.field3Controller.add(val);
+                  data.third = val;
+                },
+                initialValue: data.third,
+                hintText: StreamFormConstants.field3InputHint,
+                labelText: StreamFormConstants.field3Label,
+                showError: snapshot.hasError,
+                errorText: snapshot.error.toString(),
+              ),
             ),
+            hintText: StreamFormConstants.field3Hint,
           ),
-          hintText: StreamFormConstants.field3Hint,
-        ),
-        _SaveForm(formHooks: _formHooks),
-      ],
+          _SaveForm(formHooks: _formHooks, data: data),
+        ],
+      ),
     );
   }
 }
 
 class _SaveForm extends StatelessWidget {
-  const _SaveForm({Key key, @required this.formHooks}) : super(key: key);
+  const _SaveForm({
+    Key key,
+    @required this.formHooks,
+    @required this.data,
+  }) : super(key: key);
 
   final FormHooks formHooks;
+  final FormData data;
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +119,11 @@ class _SaveForm extends StatelessWidget {
             final _isEnabled = snapshot.data;
 
             return RaisedButton.icon(
-              onPressed: _isEnabled ? () async {} : null,
+              onPressed: _isEnabled
+                  ? () {
+                      debugPrint(data.toString());
+                    }
+                  : null,
               label: const Text(StreamFormConstants.save),
               icon: const Icon(Icons.save),
             );
