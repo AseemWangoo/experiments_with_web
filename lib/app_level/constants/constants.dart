@@ -40,7 +40,7 @@ class ApplevelConstants {
   static const String option8 = 'Data Table';
   static const String option9 = 'Hooks';
   static const String option10 = 'Slivers & Codepen';
-  static const String option11 = 'Streams';
+  static const String option11 = 'Streams & Hooks';
 }
 
 class WHOLinks {

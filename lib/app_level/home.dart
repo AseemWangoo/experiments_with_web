@@ -23,9 +23,10 @@ class Home extends StatelessWidget {
           children: <Widget>[
             SingleChildScrollView(
               child: Wrap(
-                alignment: WrapAlignment.end,
-                spacing: 40.0,
-                runSpacing: 20.0,
+                // alignment: WrapAlignment.end,
+                // spacing: 24.0,
+                // runSpacing: 20.0,
+                runAlignment: WrapAlignment.center,
                 children: [
                   for (MapEntry<String, String> _optionRoute
                       in _optionAndRoute) ...[

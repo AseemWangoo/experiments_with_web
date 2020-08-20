@@ -46,7 +46,7 @@ class BgWidget extends StatelessWidget {
             width: _width,
           ),
         const Positioned(
-          bottom: 0.0,
+          top: 0.0,
           child: _CustomText(data: 'Flattered with Flutter'),
         ),
         ...children,
@@ -69,7 +69,7 @@ class _CustomText extends StatelessWidget {
 
     final _height = _screenQueries.customHeightPercent(
       context,
-      80.0 / ApplevelConstants.stdHeight,
+      56.0 / ApplevelConstants.stdHeight,
     );
 
     return Container(
