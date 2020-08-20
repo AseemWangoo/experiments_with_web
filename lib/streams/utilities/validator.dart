@@ -78,7 +78,6 @@ class IntegerValidator implements InputValidator {
 }
 
 class ValidatorFactory {
-  static StreamTransformer<String, String> validation(
-          {@required Validator type}) =>
+  StreamTransformer<String, String> validation({@required Validator type}) =>
       InputValidator(type).validation();
 }

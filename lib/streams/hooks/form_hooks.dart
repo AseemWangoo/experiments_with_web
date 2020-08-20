@@ -8,17 +8,14 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 class FormHooks with ValidatorFactory {
   FormHooks() {
     context = useContext();
+    field1Controller = useStreamController<String>();
   }
 
   BuildContext context;
 
   // INPUT FIELD 1 (STRING)
   Stream<String> get field1Stream => field1Controller.stream.transform<String>(
-        ValidatorFactory.validation(type: Validator.validateString),
+        validation(type: Validator.validateString),
       );
   StreamController<String> field1Controller;
-}
-
-void main() {
-  print('Hii');
 }
