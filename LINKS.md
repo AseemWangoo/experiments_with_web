@@ -28,6 +28,8 @@
 
 - YouTube player (https://pub.dev/packages/youtube_player_iframe)
 
+- StreamController (https://stackoverflow.com/questions/51395729/what-is-the-difference-between-streamcontroller-add-and-streamcontroller-sink)
+
 ### GitIssues
 
 - TextController (https://github.com/flutter/flutter/issues/11416)

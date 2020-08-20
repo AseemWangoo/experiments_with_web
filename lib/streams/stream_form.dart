@@ -1,4 +1,3 @@
-import 'package:experiments_with_web/app_level/styles/themes.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/centered_form.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_input_field.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
@@ -48,6 +47,39 @@ class _StreamsView extends HookWidget {
             ),
           ),
           hintText: StreamFormConstants.field1Hint,
+        ),
+        _SaveForm(formHooks: _formHooks),
+      ],
+    );
+  }
+}
+
+class _SaveForm extends StatelessWidget {
+  const _SaveForm({Key key, @required this.formHooks}) : super(key: key);
+
+  final FormHooks formHooks;
+
+  @override
+  Widget build(BuildContext context) {
+    return ButtonBar(
+      children: [
+        RaisedButton.icon(
+          onPressed: () => Navigator.of(context).pop(),
+          label: const Text(StreamFormConstants.back),
+          icon: const Icon(Icons.chevron_left),
+        ),
+        StreamBuilder<bool>(
+          initialData: true,
+          stream: formHooks.isFormValid,
+          builder: (context, snapshot) {
+            final _isEnabled = snapshot.data;
+
+            return RaisedButton.icon(
+              onPressed: _isEnabled ? () async {} : null,
+              label: const Text(StreamFormConstants.save),
+              icon: const Icon(Icons.save),
+            );
+          },
         ),
       ],
     );

@@ -2,6 +2,8 @@ class StreamFormConstants {
   StreamFormConstants._();
 
   static const String title = 'Streams and Flutter Hooks';
+  static const String back = 'Back';
+  static const String save = 'Save';
 
   // HINTS
   static const String field1Hint = 'Accepts string expect empty';

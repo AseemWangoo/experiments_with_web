@@ -9,6 +9,8 @@ class FormHooks with ValidatorFactory {
   FormHooks() {
     context = useContext();
     field1Controller = useStreamController<String>();
+
+    _saveForm = _FormSaveButton();
   }
 
   BuildContext context;
@@ -18,4 +20,51 @@ class FormHooks with ValidatorFactory {
         validation(type: Validator.validateString),
       );
   StreamController<String> field1Controller;
+
+  // *************************** INTERNALS ***************************
+
+  // IS FORM VALID
+  Stream<bool> get isFormValid {
+    // INCLUDE THE STREAMS YOU NEED TO VALIDATE
+    _saveForm.listen([field1Stream]);
+
+    return _saveForm.status;
+  }
+
+  _FormSaveButton _saveForm;
+}
+
+class _FormSaveButton {
+  _FormSaveButton();
+
+  List<bool> errors;
+  Stream<bool> get status => _controller.stream;
+
+  void listen(List<Stream> streams) {
+    _controller = StreamController<bool>.broadcast();
+
+    // SET ERRORS TO FALSE
+    errors = List.generate(streams.length, (_) => false);
+
+    List.generate(streams.length, (int index) {
+      return streams[index].listen(
+        (dynamic _) {
+          errors[index] = false;
+          _validate();
+        },
+        onError: (dynamic _) {
+          errors[index] = true;
+          _validate();
+        },
+      );
+    });
+  }
+
+  void _validate() {
+    final hasNoErrors =
+        errors.firstWhere((bool b) => b == true, orElse: () => null) == null;
+    _controller.sink.add(hasNoErrors);
+  }
+
+  StreamController<bool> _controller;
 }
