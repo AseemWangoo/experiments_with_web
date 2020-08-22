@@ -1,5 +1,5 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
-import 'package:experiments_with_web/app_level/routes/router.dart';
+import 'package:experiments_with_web/app_level/routes/router.dart' as route;
 import 'package:experiments_with_web/app_level/styles/themes.dart';
 import 'package:experiments_with_web/locator.dart';
 
@@ -30,9 +30,9 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: ApplevelConstants.homeRoute,
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: Router.generateRoute,
+      onGenerateRoute: route.Router.generateRoute,
       onUnknownRoute: (settings) => MaterialPageRoute<dynamic>(
-        builder: (context) => UndefinedView(name: settings.name),
+        builder: (context) => route.UndefinedView(name: settings.name),
       ),
       title: ApplevelConstants.titleOnTab,
       darkTheme: AppTheme.darkTheme,
