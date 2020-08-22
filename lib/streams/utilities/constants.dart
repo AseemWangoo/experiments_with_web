@@ -1,6 +1,12 @@
 class StreamFormConstants {
   StreamFormConstants._();
 
+  static const String website =
+      'https://flatteredwithflutter.com/flutter-web-and-streams/';
+  static const String youtube = 'https://youtu.be/c_mjIb3dkFM';
+  static const String medium =
+      'https://medium.com/@aseemwangoo/flutter-web-and-streams-e3b2d14432b6';
+
   static const String title = 'Streams and Flutter Hooks';
   static const String back = 'Back';
   static const String save = 'Save';

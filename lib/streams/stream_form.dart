@@ -1,4 +1,3 @@
-import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/centered_form.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_drawer.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_input_field.dart';
@@ -20,9 +19,9 @@ class StreamForm extends StatelessWidget {
     return CustomScaffold(
       showDrawer: true,
       drawerChild: CustomDrawer(
-        medium: BrandLinks.medium,
-        youtubeLink: BrandLinks.youtube,
-        website: BrandLinks.website,
+        medium: StreamFormConstants.medium,
+        youtubeLink: StreamFormConstants.youtube,
+        website: StreamFormConstants.website,
       ),
       titleText: StreamFormConstants.title,
       child: _StreamsView(),
@@ -37,7 +36,7 @@ class _StreamsView extends HookWidget {
   Widget build(BuildContext context) {
     final data = FormData();
     final _formHooks = FormHooks();
-    debugPrint('IM BUILDING 👀 👀');
+    // debugPrint('IM BUILDING 👀 👀');
 
     return Center(
       child: CenteredForm(
