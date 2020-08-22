@@ -10,6 +10,7 @@ import 'package:experiments_with_web/location/location.dart';
 import 'package:experiments_with_web/ml/ml.dart';
 import 'package:experiments_with_web/parallax/parallax.dart';
 import 'package:experiments_with_web/sample/sample.dart';
+import 'package:experiments_with_web/streams/stream_form.dart';
 
 import 'package:flutter/material.dart';
 
@@ -82,6 +83,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const CodepenScreen(),
           name: ApplevelConstants.codepenRoute,
+        );
+
+      case ApplevelConstants.streamsRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const StreamForm(),
+          name: ApplevelConstants.streamsRoute,
         );
 
       default:

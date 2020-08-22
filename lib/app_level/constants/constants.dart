@@ -6,6 +6,7 @@ import 'package:experiments_with_web/iframe/utilities/constants.dart';
 import 'package:experiments_with_web/location/utilities/constants.dart';
 import 'package:experiments_with_web/ml/utilities/constants.dart';
 import 'package:experiments_with_web/parallax/utilities/constants.dart';
+import 'package:experiments_with_web/streams/utilities/constants.dart';
 
 class ApplevelConstants {
   ApplevelConstants._();
@@ -27,6 +28,7 @@ class ApplevelConstants {
   static const String dtRoute = '/datatable';
   static const String hooksRoute = '/hooks';
   static const String codepenRoute = '/codepens';
+  static const String streamsRoute = '/streams';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -39,6 +41,7 @@ class ApplevelConstants {
   static const String option8 = 'Data Table';
   static const String option9 = 'Hooks';
   static const String option10 = 'Slivers & Codepen';
+  static const String option11 = 'Streams & Hooks';
 }
 
 class WHOLinks {
@@ -72,6 +75,7 @@ class OptionAndRoutes {
     ApplevelConstants.option8: ApplevelConstants.dtRoute,
     ApplevelConstants.option9: ApplevelConstants.hooksRoute,
     ApplevelConstants.option10: ApplevelConstants.codepenRoute,
+    ApplevelConstants.option11: ApplevelConstants.streamsRoute,
   };
 
   static const Map<String, List<String>> linksRoutes = {
@@ -124,6 +128,11 @@ class OptionAndRoutes {
       CodepenConstants.medium,
       CodepenConstants.website,
       CodepenConstants.youtube
+    ],
+    ApplevelConstants.option11: <String>[
+      StreamFormConstants.medium,
+      StreamFormConstants.website,
+      StreamFormConstants.youtube
     ],
   };
 }
