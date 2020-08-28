@@ -71,13 +71,32 @@
     <script defer src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
-    <script src="/__/firebase/init.js"></script>
+    <!-- <script src="/__/firebase/init.js"></script> -->
 
     <!-- CUSTOM JS -->
     <script src="js/custom.js"></script>
     <script src="js/ml/ml.js"></script>
     <!-- <script src="js/ml/iris/data.js"></script> -->
     <script src="js/ml/mobilenet.js"></script>
+
+    <script>
+        let _hostName = window.location.hostname;
+        if (_hostName != 'localhost') {
+            var firebaseConfig = {
+                apiKey: "AIzaSyBxRTBBJGkbu3fqQD7_7DamkziaKN-YdFU",
+                authDomain: "fir-signin-4477d.firebaseapp.com",
+                databaseURL: "https://fir-signin-4477d.firebaseio.com",
+                projectId: "fir-signin-4477d",
+                storageBucket: "fir-signin-4477d.appspot.com",
+                messagingSenderId: "1063780613983",
+                appId: "1:1063780613983:web:590f03b2e93d08d88a40ea",
+                measurementId: "G-48SN55JTLC"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        }
+    </script>
 
     <script defer src="main.dart.js?version=5" type="application/javascript"></script>
 </body>
