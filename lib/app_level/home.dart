@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
     final _nav = Navigator.of(context);
 
     return Scaffold(
-      backgroundColor: Colors.black87,
+      backgroundColor: Colors.black12,
       body: SimpleSliverScaffold(
         minHeight: 130.0,
         maxHeight: 130.0,

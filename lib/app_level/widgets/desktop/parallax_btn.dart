@@ -115,7 +115,7 @@ class _ParallaxButtonState extends State<ParallaxButton> {
                           ),
                           Expanded(
                             child: Container(
-                              color: Colors.white,
+                              color: Colors.grey.shade200,
                               child: _Content(
                                 text: widget.text,
                                 medium: widget.medium,
