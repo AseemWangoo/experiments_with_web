@@ -30,6 +30,10 @@
 
 - StreamController (https://stackoverflow.com/questions/51395729/what-is-the-difference-between-streamcontroller-add-and-streamcontroller-sink)
 
+- Iframe (SO) (https://stackoverflow.com/questions/61298630/using-htmlelementview-with-paypal/61306049#61306049)
+
+- Iframe 2 (https://stackoverflow.com/questions/60276170/use-js-library-in-flutter-web)
+
 ### GitIssues
 
 - TextController (https://github.com/flutter/flutter/issues/11416)

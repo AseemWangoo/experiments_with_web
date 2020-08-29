@@ -61,12 +61,16 @@ class SimpleSliverScaffold extends StatelessWidget {
     Key key,
     @required List<Widget> children,
     @required Widget menu,
+    this.minHeight = 56.0,
+    this.maxHeight = 56.0,
   })  : _children = children,
         _menu = menu,
         super(key: key);
 
   final List<Widget> _children;
   final Widget _menu;
+  final double minHeight;
+  final double maxHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +81,11 @@ class SimpleSliverScaffold extends StatelessWidget {
         SliverPersistentHeader(
           pinned: true,
           floating: true,
-          delegate: _SliverDelegate(child: _menu),
+          delegate: _SliverDelegate(
+            child: _menu,
+            minHeight: minHeight,
+            maxHeight: maxHeight,
+          ),
         ),
         SliverList(
           delegate: SliverChildBuilderDelegate(
