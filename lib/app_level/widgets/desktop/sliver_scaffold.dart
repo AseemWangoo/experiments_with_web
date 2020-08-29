@@ -63,6 +63,7 @@ class SimpleSliverScaffold extends StatelessWidget {
     @required Widget menu,
     this.minHeight = 56.0,
     this.maxHeight = 56.0,
+    this.controller,
   })  : _children = children,
         _menu = menu,
         super(key: key);
@@ -71,12 +72,14 @@ class SimpleSliverScaffold extends StatelessWidget {
   final Widget _menu;
   final double minHeight;
   final double maxHeight;
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
     //
 
     return CustomScrollView(
+      controller: controller,
       slivers: <Widget>[
         SliverPersistentHeader(
           pinned: true,

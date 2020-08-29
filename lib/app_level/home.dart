@@ -12,12 +12,25 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'services/linker_service.dart';
 import 'widgets/desktop/image_loader.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
 
   static final _optionAndRoute = OptionAndRoutes.optionRoutes.entries;
   static final _linkAndRoute = OptionAndRoutes.linksRoutes;
   static final _linkService = locator<LinkerService>();
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  ScrollController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = ScrollController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +40,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black12,
       body: SimpleSliverScaffold(
+        controller: _controller,
         minHeight: 130.0,
         maxHeight: 130.0,
         children: [
@@ -39,12 +53,12 @@ class Home extends StatelessWidget {
             padding: const EdgeInsets.all(32.0),
             children: [
               for (MapEntry<String, String> _optionRoute
-                  in _optionAndRoute) ...[
+                  in Home._optionAndRoute) ...[
                 ParallaxButton(
                   text: _optionRoute.key,
-                  medium: _linkAndRoute['${_optionRoute.key}'].first,
-                  website: _linkAndRoute['${_optionRoute.key}'][1],
-                  youtubeLink: _linkAndRoute['${_optionRoute.key}'].last,
+                  medium: Home._linkAndRoute['${_optionRoute.key}'].first,
+                  website: Home._linkAndRoute['${_optionRoute.key}'][1],
+                  youtubeLink: Home._linkAndRoute['${_optionRoute.key}'].last,
                 ).clickable(() => _nav.pushNamed(_optionRoute.value)),
               ]
             ],
@@ -55,7 +69,13 @@ class Home extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 24),
           child: Row(
             children: [
-              ImageWidgetPlaceholder(image: WebAssets.logo),
+              ImageWidgetPlaceholder(image: WebAssets.logo).clickable(() {
+                _controller.animateTo(
+                  0.0,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+              }),
               const Spacer(),
               Column(
                 children: <Widget>[
@@ -73,7 +93,7 @@ class Home extends StatelessWidget {
                         iconSize: 20.0,
                         padding: EdgeInsets.zero,
                         onPressed: () =>
-                            _linkService.openLink(BrandLinks.youtube),
+                            Home._linkService.openLink(BrandLinks.youtube),
                       ),
                       IconButton(
                         color: Colors.white,
@@ -81,7 +101,7 @@ class Home extends StatelessWidget {
                         icon: FaIcon(FontAwesomeIcons.medium),
                         padding: EdgeInsets.zero,
                         onPressed: () =>
-                            _linkService.openLink(BrandLinks.medium),
+                            Home._linkService.openLink(BrandLinks.medium),
                       ),
                       IconButton(
                         iconSize: 20.0,
@@ -89,7 +109,7 @@ class Home extends StatelessWidget {
                         icon: FaIcon(FontAwesomeIcons.chrome),
                         padding: EdgeInsets.zero,
                         onPressed: () =>
-                            _linkService.openLink(BrandLinks.website),
+                            Home._linkService.openLink(BrandLinks.website),
                       ),
                       IconButton(
                         iconSize: 20.0,
@@ -97,7 +117,7 @@ class Home extends StatelessWidget {
                         icon: FaIcon(FontAwesomeIcons.dev),
                         padding: EdgeInsets.zero,
                         onPressed: () =>
-                            _linkService.openLink(BrandLinks.devTo),
+                            Home._linkService.openLink(BrandLinks.devTo),
                       ),
                       IconButton(
                         iconSize: 20.0,
@@ -105,7 +125,7 @@ class Home extends StatelessWidget {
                         icon: FaIcon(FontAwesomeIcons.github),
                         padding: EdgeInsets.zero,
                         onPressed: () =>
-                            _linkService.openLink(BrandLinks.github),
+                            Home._linkService.openLink(BrandLinks.github),
                       ),
                     ],
                   ),
@@ -117,5 +137,11 @@ class Home extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
   }
 }
