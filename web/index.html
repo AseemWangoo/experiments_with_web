@@ -46,6 +46,8 @@
     <meta name="twitter:description" content="Experiments with Flutter Web by Aseem Wangoo">
     <meta name="twitter:image" content="https://fir-signin-4477d.firebaseapp.com/logo.png">
 
+    <meta name="monetization" content="$ilp.gatehub.net/376980522">
+
     <!--ALWAYS COMES HERE-->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
 
@@ -58,7 +60,7 @@
 
 </head>
 
-<body id='body-container'>
+<body id='body-container' style="background-color:#002B5C;">
     <!-- <div id="ml_output"></div> -->
     <img id="img" src="cat.jpg" hidden></img>
 
@@ -69,7 +71,7 @@
     <script defer src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
-    <script src="/__/firebase/init.js"></script>
+    <!-- <script src="/__/firebase/init.js"></script> -->
 
     <!-- CUSTOM JS -->
     <script src="js/custom.js"></script>
@@ -77,7 +79,26 @@
     <!-- <script src="js/ml/iris/data.js"></script> -->
     <script src="js/ml/mobilenet.js"></script>
 
-    <script defer src="main.dart.js?version=5" type="application/javascript"></script>
+    <script>
+        let _hostName = window.location.hostname;
+        if (_hostName != 'localhost') {
+            var firebaseConfig = {
+                apiKey: "AIzaSyBxRTBBJGkbu3fqQD7_7DamkziaKN-YdFU",
+                authDomain: "fir-signin-4477d.firebaseapp.com",
+                databaseURL: "https://fir-signin-4477d.firebaseio.com",
+                projectId: "fir-signin-4477d",
+                storageBucket: "fir-signin-4477d.appspot.com",
+                messagingSenderId: "1063780613983",
+                appId: "1:1063780613983:web:590f03b2e93d08d88a40ea",
+                measurementId: "G-48SN55JTLC"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        }
+    </script>
+
+    <script defer src="main.dart.js?version=2.0.0+1" type="application/javascript"></script>
 </body>
 
 </html>
