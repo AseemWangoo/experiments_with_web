@@ -41,8 +41,8 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.black12,
       body: SimpleSliverScaffold(
         controller: _controller,
-        minHeight: 130.0,
-        maxHeight: 130.0,
+        minHeight: 120.0,
+        maxHeight: 120.0,
         children: [
           GridView.count(
             childAspectRatio: 0.8,
@@ -135,7 +135,7 @@ class _HomeState extends State<Home> {
               Text(
                 ApplevelConstants.supportTitle,
                 style: Theme.of(context).textTheme.headline6.c(Colors.white),
-              ),
+              ).clickable(() => Home._linkService.openLink(BrandLinks.support)),
             ],
           ),
         ),

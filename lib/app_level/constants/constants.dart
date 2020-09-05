@@ -16,7 +16,7 @@ class ApplevelConstants {
 
   static const String titleOnTab = 'FlutterWeb | Aseem Wangoo';
   static const String homeTitle = 'Flattered With Flutter';
-  static const String supportTitle = 'Support!';
+  static const String supportTitle = '🤗 Support!';
 
   static const String homeRoute = '/';
 
@@ -62,6 +62,7 @@ class BrandLinks {
   static const String devTo = 'https://dev.to/aseemwangoo';
   static const String github = 'https://github.com/aseemwangoo';
   static const String codepen = 'https://codepen.io/aseemwangoo/pens/public';
+  static const String support = 'https://support.flatteredwithflutter.com/';
 }
 
 class OptionAndRoutes {
