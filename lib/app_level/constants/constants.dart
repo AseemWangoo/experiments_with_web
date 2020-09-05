@@ -14,8 +14,9 @@ class ApplevelConstants {
   static const double stdWidth = 1366;
   static const double stdHeight = 768;
 
-  static const String titleOnTab = 'Fluttering';
+  static const String titleOnTab = 'FlutterWeb | Aseem Wangoo';
   static const String homeTitle = 'Flattered With Flutter';
+  static const String supportTitle = 'Support!';
 
   static const String homeRoute = '/';
 

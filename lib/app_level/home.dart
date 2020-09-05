@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
                   Text(
                     ApplevelConstants.homeTitle,
                     style:
-                        Theme.of(context).textTheme.headline5.c(Colors.white),
+                        Theme.of(context).textTheme.headline6.c(Colors.white),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
@@ -132,6 +132,10 @@ class _HomeState extends State<Home> {
                 ],
               ),
               const Spacer(),
+              Text(
+                ApplevelConstants.supportTitle,
+                style: Theme.of(context).textTheme.headline6.c(Colors.white),
+              ),
             ],
           ),
         ),
