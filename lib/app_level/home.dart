@@ -2,6 +2,7 @@ import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/extensions/widget_extension.dart';
+import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/parallax_btn.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
 import 'package:experiments_with_web/locator.dart';
@@ -36,9 +37,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     //
     final _nav = Navigator.of(context);
+    final _whiteStyle = Theme.of(context).textTheme.headline6.c(Colors.white);
 
     return Scaffold(
-      backgroundColor: Colors.black12,
+      backgroundColor: AppColors.bgColor,
       body: SimpleSliverScaffold(
         controller: _controller,
         minHeight: 120.0,
@@ -65,7 +67,7 @@ class _HomeState extends State<Home> {
           ),
         ],
         menu: Container(
-          color: Colors.black87,
+          color: AppColors.navColor,
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 24),
           child: Row(
             children: [
@@ -79,11 +81,7 @@ class _HomeState extends State<Home> {
               const Spacer(),
               Column(
                 children: <Widget>[
-                  Text(
-                    ApplevelConstants.homeTitle,
-                    style:
-                        Theme.of(context).textTheme.headline6.c(Colors.white),
-                  ),
+                  Text(ApplevelConstants.homeTitle, style: _whiteStyle),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -134,7 +132,7 @@ class _HomeState extends State<Home> {
               const Spacer(),
               Text(
                 ApplevelConstants.supportTitle,
-                style: Theme.of(context).textTheme.headline6.c(Colors.white),
+                style: _whiteStyle,
               ).clickable(() => Home._linkService.openLink(BrandLinks.support)),
             ],
           ),
