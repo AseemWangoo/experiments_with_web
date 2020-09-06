@@ -2,7 +2,7 @@ name: experiments_with_web
 description: Experiments with Flutter Web
 version: 2.0.0+1
 author: Aseem Wangoo
-homepage: https://flatteredwithflutter.com/
+homepage: https://support.flatteredwithflutter.com/
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
