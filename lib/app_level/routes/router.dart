@@ -11,6 +11,7 @@ import 'package:experiments_with_web/ml/ml.dart';
 import 'package:experiments_with_web/parallax/parallax.dart';
 import 'package:experiments_with_web/sample/sample.dart';
 import 'package:experiments_with_web/streams/stream_form.dart';
+import 'package:experiments_with_web/using_selector/use_selector.dart';
 
 import 'package:flutter/material.dart';
 
@@ -89,6 +90,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const StreamForm(),
           name: ApplevelConstants.streamsRoute,
+        );
+
+      case ApplevelConstants.selectorsRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const UseSelector(),
+          name: ApplevelConstants.selectorsRoute,
         );
 
       default:

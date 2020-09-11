@@ -31,6 +31,7 @@ class ApplevelConstants {
   static const String hooksRoute = '/hooks';
   static const String codepenRoute = '/codepens';
   static const String streamsRoute = '/streams';
+  static const String selectorsRoute = '/selector';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -44,6 +45,7 @@ class ApplevelConstants {
   static const String option9 = 'Hooks';
   static const String option10 = 'Slivers & Codepen';
   static const String option11 = 'Streams & Hooks';
+  static const String option12 = 'Selectors in Provider';
 }
 
 class WHOLinks {
@@ -80,6 +82,7 @@ class OptionAndRoutes {
     ApplevelConstants.option9: ApplevelConstants.hooksRoute,
     ApplevelConstants.option10: ApplevelConstants.codepenRoute,
     ApplevelConstants.option11: ApplevelConstants.streamsRoute,
+    ApplevelConstants.option12: ApplevelConstants.selectorsRoute,
   };
 
   static const Map<String, List<String>> linksRoutes = {
@@ -134,6 +137,11 @@ class OptionAndRoutes {
       CodepenConstants.youtube
     ],
     ApplevelConstants.option11: <String>[
+      StreamFormConstants.medium,
+      StreamFormConstants.website,
+      StreamFormConstants.youtube
+    ],
+    ApplevelConstants.option12: <String>[
       StreamFormConstants.medium,
       StreamFormConstants.website,
       StreamFormConstants.youtube
