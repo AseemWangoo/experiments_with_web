@@ -2,7 +2,7 @@ name: experiments_with_web
 description: Experiments with Flutter Web
 version: 2.0.0+1
 author: Aseem Wangoo
-homepage: https://support.flatteredwithflutter.com/
+homepage: https://web.flatteredwithflutter.com/
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
@@ -39,6 +39,9 @@ dependencies:
 
   # ICONS
   font_awesome_flutter: ^8.8.1
+
+  # EFFICIENCY
+  tuple: ^1.0.3
 
 dev_dependencies:
   flutter_test:
