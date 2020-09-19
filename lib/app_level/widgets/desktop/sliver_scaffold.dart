@@ -240,4 +240,11 @@ class _SliverDelegate implements SliverPersistentHeaderDelegate {
 
   @override
   OverScrollHeaderStretchConfiguration get stretchConfiguration => null;
+
+  @override
+  PersistentHeaderShowOnScreenConfiguration get showOnScreenConfiguration =>
+      PersistentHeaderShowOnScreenConfiguration();
+
+  @override
+  TickerProvider get vsync => null;
 }

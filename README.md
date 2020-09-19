@@ -4,7 +4,7 @@
 
 # Welcome !
 
-Hosted URL : https://fir-signin-4477d.firebaseapp.com/#/
+Hosted URL : https://web.flatteredwithflutter.com/#/
 
 # Begin
 
