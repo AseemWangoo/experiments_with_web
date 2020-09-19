@@ -1,9 +1,11 @@
 class SelectorsConstants {
   SelectorsConstants._();
 
-  static const String website = '';
-  static const String youtube = '';
-  static const String medium = '';
+  static const String website =
+      'https://flatteredwithflutter.com/using-selector-in-provider/';
+  static const String youtube = 'https://youtu.be/bYQJp8XQd6U';
+  static const String medium =
+      'https://medium.com/@aseemwangoo/using-selector-in-provider-b32113d5da64';
 
   static const String title = 'Using selectors in Provider';
   static const String back = 'Back';

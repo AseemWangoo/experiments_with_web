@@ -7,6 +7,7 @@ import 'package:experiments_with_web/location/utilities/constants.dart';
 import 'package:experiments_with_web/ml/utilities/constants.dart';
 import 'package:experiments_with_web/parallax/utilities/constants.dart';
 import 'package:experiments_with_web/streams/utilities/constants.dart';
+import 'package:experiments_with_web/using_selector/utilities/constants.dart';
 
 class ApplevelConstants {
   ApplevelConstants._();
@@ -142,9 +143,9 @@ class OptionAndRoutes {
       StreamFormConstants.youtube
     ],
     ApplevelConstants.option12: <String>[
-      StreamFormConstants.medium,
-      StreamFormConstants.website,
-      StreamFormConstants.youtube
+      SelectorsConstants.medium,
+      SelectorsConstants.website,
+      SelectorsConstants.youtube
     ],
   };
 }
