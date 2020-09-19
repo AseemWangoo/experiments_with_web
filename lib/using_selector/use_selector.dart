@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/centered_form.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_input_field.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
@@ -35,37 +36,56 @@ class _InternalWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     //
 
-    return Consumer<UserData>(
-      builder: (_, userData, child) {
+    return CenteredForm(
+      children: [
+        CustomInputField(
+          onChanged: (val) {
+            context.read<UserData>().name = val;
+          },
+          hintText: SelectorsConstants.field1InputHint,
+          labelText: SelectorsConstants.field1Hint,
+        ),
+
         //
-        debugPrint('Entire form building 1️⃣ ');
-        return CenteredForm(
-          children: [
-            // DEMO TO SHOW CONSUMER
-            CustomInputField(
-              onChanged: (val) => userData.name = val,
-              hintText: SelectorsConstants.field1InputHint,
-              labelText: SelectorsConstants.field1Hint,
-            ),
+        CustomInputField(
+          onChanged: (val) {
+            context.read<UserData>().age = int.tryParse(val);
+          },
+          hintText: SelectorsConstants.field2InputHint,
+          labelText: SelectorsConstants.field2Hint,
+        ),
+        //
+        _NameAgeSelector(),
 
-            CustomInputField(
-              onChanged: (val) => userData.age = int.tryParse(val),
-              hintText: SelectorsConstants.field2InputHint,
-              labelText: SelectorsConstants.field2Hint,
-            ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 18.0),
+          child: Divider(
+            color: AppColors.brandColor,
+            height: 10.0,
+            thickness: 5.0,
+          ),
+        ),
 
-            CustomInputField(
-              onChanged: (val) => userData.emailAddress = val,
-              hintText: SelectorsConstants.field3InputHint,
-              labelText: SelectorsConstants.field3Hint,
-            ),
+        CustomInputField(
+          onChanged: (val) {
+            context.read<UserData>().emailAddress = val;
+          },
+          hintText: SelectorsConstants.field3InputHint,
+          labelText: SelectorsConstants.field3Hint,
+        ),
+        _EmailWatchSelector(),
 
-            _EmailWatchSelector(),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 18.0),
+          child: Divider(
+            color: AppColors.brandColor,
+            height: 10.0,
+            thickness: 5.0,
+          ),
+        ),
 
-            _ListenSelector(),
-          ],
-        );
-      },
+        _AllFieldsWatchSelector(),
+      ],
     );
   }
 }
@@ -79,14 +99,14 @@ class _EmailWatchSelector extends StatelessWidget {
     final _email =
         context.select<UserData, String>((model) => model.emailAddress);
 
-    debugPrint('Email Watching');
+    debugPrint('Email Watching 3️⃣ ');
 
-    return Text('Email : $_email');
+    return Text('(Listen to Email) Email : $_email');
   }
 }
 
-class _ListenSelector extends StatelessWidget {
-  const _ListenSelector({Key key}) : super(key: key);
+class _NameAgeSelector extends StatelessWidget {
+  const _NameAgeSelector({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -94,9 +114,28 @@ class _ListenSelector extends StatelessWidget {
 
     return Selector<UserData, Tuple2<String, int>>(
       builder: (_, data, __) {
-        return Text('Name : ${data.item1} >>> Age : ${data.item2}');
+        print('Name or age changed 1️⃣  2️⃣ ');
+
+        return Text(
+            '(Listening to Name & Age) Name : ${data.item1} >>> Age : ${data.item2}');
       },
       selector: (_, userData) => Tuple2(userData.name, userData.age),
+    );
+  }
+}
+
+class _AllFieldsWatchSelector extends StatelessWidget {
+  const _AllFieldsWatchSelector({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    //
+    return Consumer<UserData>(
+      builder: (_, data, __) {
+        return Text(
+          '(Listening to all) Name : ${data.name} >>> Age : ${data.age} >>> Email : ${data.emailAddress}',
+        );
+      },
     );
   }
 }
