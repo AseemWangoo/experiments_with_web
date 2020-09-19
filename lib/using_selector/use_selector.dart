@@ -54,7 +54,13 @@ class _InternalWidget extends StatelessWidget {
               labelText: SelectorsConstants.field2Hint,
             ),
 
-            _WatchSelector(),
+            CustomInputField(
+              onChanged: (val) => userData.emailAddress = val,
+              hintText: SelectorsConstants.field3InputHint,
+              labelText: SelectorsConstants.field3Hint,
+            ),
+
+            _EmailWatchSelector(),
 
             _ListenSelector(),
           ],
@@ -64,25 +70,18 @@ class _InternalWidget extends StatelessWidget {
   }
 }
 
-class _WatchSelector extends StatelessWidget {
-  const _WatchSelector({Key key}) : super(key: key);
+class _EmailWatchSelector extends StatelessWidget {
+  const _EmailWatchSelector({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     //
-    final _model = Provider.of<UserData>(context, listen: false);
     final _email =
         context.select<UserData, String>((model) => model.emailAddress);
 
-    debugPrint('Hiii');
+    debugPrint('Email Watching');
 
-    return CustomInputField(
-      onChanged: (val) {
-        _model.emailAddress = val;
-      },
-      hintText: SelectorsConstants.field3InputHint,
-      labelText: SelectorsConstants.field3Hint,
-    );
+    return Text('Email : $_email');
   }
 }
 
