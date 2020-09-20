@@ -23,4 +23,6 @@ class SelectorsConstants {
   static const String field3Hint = 'Enter email';
   static const String field3Label = 'Double Stream';
   static const String field3InputHint = 'e.g john.doe@gmail.com';
+
+  static const String tip = 'TIP: 🕶 🕶 Open browser console to see logs';
 }
