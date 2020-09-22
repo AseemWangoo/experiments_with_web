@@ -72,8 +72,8 @@ class OptionAndRoutes {
   OptionAndRoutes._();
 
   static const Map<String, String> optionRoutes = {
-    ApplevelConstants.option1: ApplevelConstants.sampleRoute,
-    ApplevelConstants.option2: ApplevelConstants.googleRoute,
+    // ApplevelConstants.option1: ApplevelConstants.sampleRoute,
+    ApplevelConstants.option12: ApplevelConstants.selectorsRoute,
     ApplevelConstants.option3: ApplevelConstants.iframeRoute,
     ApplevelConstants.option4: ApplevelConstants.parallaxRoute,
     ApplevelConstants.option5: ApplevelConstants.locationRoute,
@@ -83,15 +83,15 @@ class OptionAndRoutes {
     ApplevelConstants.option9: ApplevelConstants.hooksRoute,
     ApplevelConstants.option10: ApplevelConstants.codepenRoute,
     ApplevelConstants.option11: ApplevelConstants.streamsRoute,
-    ApplevelConstants.option12: ApplevelConstants.selectorsRoute,
+    ApplevelConstants.option2: ApplevelConstants.googleRoute,
   };
 
   static const Map<String, List<String>> linksRoutes = {
-    ApplevelConstants.option1: <String>[
-      BrandLinks.medium,
-      BrandLinks.website,
-      BrandLinks.youtube
-    ],
+    // ApplevelConstants.option1: <String>[
+    //   BrandLinks.medium,
+    //   BrandLinks.website,
+    //   BrandLinks.youtube
+    // ],
     ApplevelConstants.option2: <String>[
       BrandLinks.medium,
       BrandLinks.website,
