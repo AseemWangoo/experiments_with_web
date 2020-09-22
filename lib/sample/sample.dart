@@ -1,5 +1,3 @@
-import 'dart:async' show Timer;
-
 import 'package:experiments_with_web/app_level/services/local_storage_service.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_drawer.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
@@ -18,7 +16,7 @@ class SamplePage extends StatefulWidget {
 }
 
 class _SamplePageState extends State<SamplePage> {
-  int _counter = 0;
+  final int _counter = 0;
 
   @override
   void initState() {
@@ -70,9 +68,9 @@ class _SamplePageState extends State<SamplePage> {
   }
 
   void get _incCounter {
-    Timer.periodic(
-      const Duration(seconds: 1),
-      (timer) => setState(() => _counter = timer.tick),
-    );
+    // Timer.periodic(
+    //   const Duration(seconds: 1),
+    //   (timer) => setState(() => _counter = timer.tick),
+    // );
   }
 }
