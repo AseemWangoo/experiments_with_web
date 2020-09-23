@@ -1,5 +1,6 @@
 import 'dart:html';
 
+import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/color_extension.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/widget_screen.dart';
@@ -52,8 +53,8 @@ class _VisitedScreensState extends State<VisitedScreens> {
               appBar: AppBar(
                 bottom: TabBar(
                   tabs: [
-                    Tab(icon: const Icon(Icons.arrow_downward)),
                     Tab(icon: const Icon(Icons.arrow_upward)),
+                    Tab(icon: const Icon(Icons.arrow_downward)),
                   ],
                 ),
                 title: const Text('Nav Stack'),
@@ -61,11 +62,11 @@ class _VisitedScreensState extends State<VisitedScreens> {
               ),
               body: TabBarView(
                 children: [
+                  _Internal(items: _ascOrderData),
                   _Internal(
                     items: _descOrderData,
                     text: NavConstants.lastToFirst,
                   ),
-                  _Internal(items: _ascOrderData),
                 ],
               ),
             ),
@@ -108,10 +109,19 @@ class _Internal extends StatelessWidget {
               ),
               itemBuilder: (context, index) {
                 //
+                var _pageName = 'Home';
+
+                if (items[index] != ApplevelConstants.homeRoute) {
+                  _pageName = OptionAndRoutes.optionRoutes.keys.firstWhere(
+                    (element) =>
+                        OptionAndRoutes.optionRoutes[element] == items[index],
+                  );
+                }
+
                 return Container(
                   height: 150,
                   color: HexColor.fromHex('#820263'),
-                  child: Center(child: Text('${items[index]}')),
+                  child: Center(child: Text('$_pageName')),
                 );
               },
             ),
