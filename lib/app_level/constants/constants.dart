@@ -50,6 +50,7 @@ class ApplevelConstants {
   static const String option10 = 'Slivers & Codepen';
   static const String option11 = 'Streams & Hooks';
   static const String option12 = 'Selectors in Provider';
+  static const String option13 = 'Navigation History';
 }
 
 class WHOLinks {
@@ -87,6 +88,7 @@ class OptionAndRoutes {
     ApplevelConstants.option10: ApplevelConstants.codepenRoute,
     ApplevelConstants.option11: ApplevelConstants.streamsRoute,
     ApplevelConstants.option2: ApplevelConstants.googleRoute,
+    ApplevelConstants.option13: ApplevelConstants.visitedPagesRoute,
   };
 
   static const Map<String, List<String>> linksRoutes = {
@@ -149,6 +151,11 @@ class OptionAndRoutes {
       SelectorsConstants.medium,
       SelectorsConstants.website,
       SelectorsConstants.youtube
+    ],
+    ApplevelConstants.option13: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
     ],
   };
 }

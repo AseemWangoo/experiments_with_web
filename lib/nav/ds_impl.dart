@@ -34,6 +34,9 @@ class NavStack<T> implements _NavStack<T> {
 
     return _list;
   }
+
+  @override
+  void get clear => _internal.clear();
 }
 
 abstract class _NavStack<T> {
@@ -44,4 +47,6 @@ abstract class _NavStack<T> {
   T top();
 
   List<T> fetchAll();
+
+  void get clear {}
 }
