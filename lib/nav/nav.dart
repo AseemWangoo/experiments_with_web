@@ -44,12 +44,32 @@ class _VisitedScreensState extends State<VisitedScreens> {
       titleText: NavConstants.title,
       enableDarkMode: true,
       child: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _Internal(items: _descOrderData, text: NavConstants.lastToFirst),
-            _Internal(items: _ascOrderData),
-          ],
+        child: WidgetScreener(
+          ratio: 1,
+          child: DefaultTabController(
+            length: 2,
+            child: Scaffold(
+              appBar: AppBar(
+                bottom: TabBar(
+                  tabs: [
+                    Tab(icon: const Icon(Icons.arrow_downward)),
+                    Tab(icon: const Icon(Icons.arrow_upward)),
+                  ],
+                ),
+                title: const Text('Nav Stack'),
+                automaticallyImplyLeading: false,
+              ),
+              body: TabBarView(
+                children: [
+                  _Internal(
+                    items: _descOrderData,
+                    text: NavConstants.lastToFirst,
+                  ),
+                  _Internal(items: _ascOrderData),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -76,7 +96,7 @@ class _Internal extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40.0),
+              padding: const EdgeInsets.symmetric(vertical: 24.0),
               child: Text(text, style: Theme.of(context).textTheme.headline5),
             ),
             ListView.separated(
@@ -87,6 +107,7 @@ class _Internal extends StatelessWidget {
                 color: Colors.white,
               ),
               itemBuilder: (context, index) {
+                //
                 return Container(
                   height: 150,
                   color: HexColor.fromHex('#820263'),
