@@ -18,12 +18,13 @@ class VisitedScreens extends StatefulWidget {
 
 class _VisitedScreensState extends State<VisitedScreens> {
   //
+  List<String> get _ascOrderData =>
+      AppGlobals.routeObserver.navStack.fetchAll();
+  List<String> get _descOrderData => List<String>.from(_ascOrderData.reversed);
 
   @override
   Widget build(BuildContext context) {
     //
-    final _ascOrderData = AppGlobals.routeObserver.navStack.fetchAll();
-    final _descOrderData = List<String>.from(_ascOrderData.reversed);
 
     return CustomScaffold(
       actions: [
