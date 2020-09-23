@@ -8,6 +8,7 @@ import 'package:experiments_with_web/hooks/hooks.dart';
 import 'package:experiments_with_web/iframe/iframe.dart';
 import 'package:experiments_with_web/location/location.dart';
 import 'package:experiments_with_web/ml/ml.dart';
+import 'package:experiments_with_web/nav/nav.dart';
 import 'package:experiments_with_web/parallax/parallax.dart';
 import 'package:experiments_with_web/sample/sample.dart';
 import 'package:experiments_with_web/streams/stream_form.dart';
@@ -96,6 +97,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const UseSelector(),
           name: ApplevelConstants.selectorsRoute,
+        );
+
+      case ApplevelConstants.visitedPagesRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const VisitedScreens(),
+          name: ApplevelConstants.visitedPagesRoute,
         );
 
       default:

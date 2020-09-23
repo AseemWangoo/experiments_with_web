@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -17,7 +18,7 @@ class AppTheme {
     textTheme: const TextTheme(
       bodyText2: TextStyle(color: Colors.black),
     ),
-    fontFamily: 'Montserrat',
+    fontFamily: ApplevelConstants.fontFamily,
   );
 
   static final darkTheme = ThemeData(
@@ -27,7 +28,7 @@ class AppTheme {
       iconTheme: IconThemeData(color: _darkPrimaryColor),
     ),
 
-    fontFamily: 'Montserrat',
+    fontFamily: ApplevelConstants.fontFamily,
     snackBarTheme: SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
       backgroundColor: _lightPrimaryColor,

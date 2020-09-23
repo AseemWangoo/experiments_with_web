@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/styles/themes.dart';
 
@@ -24,17 +25,25 @@ class CustomScaffold extends StatelessWidget {
   final Widget drawerChild;
   final Widget _bottomSheet;
 
+  static TextStyle get light => TextStyle().c(Colors.black);
+  static TextStyle get dark => TextStyle().c(Colors.white);
+
   @override
   Widget build(BuildContext context) {
     //
 
     return Theme(
-      data: enableDarkMode ? ThemeData.dark() : AppTheme.darkTheme,
+      data: enableDarkMode
+          ? ThemeData.dark().copyWith(
+              textTheme: ThemeData.dark().textTheme.apply(
+                    fontFamily: ApplevelConstants.fontFamily,
+                  ),
+            )
+          : AppTheme.darkTheme,
       child: Scaffold(
         appBar: showAppBar
             ? AppBar(
-                title:
-                    Text(titleText, style: const TextStyle().c(Colors.black)),
+                title: Text(titleText, style: enableDarkMode ? dark : light),
               )
             : null,
         body: child ?? const Center(child: Text('Hi there')),

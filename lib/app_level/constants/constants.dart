@@ -15,6 +15,8 @@ class ApplevelConstants {
   static const double stdWidth = 1366;
   static const double stdHeight = 768;
 
+  static const String fontFamily = 'Montserrat';
+
   static const String titleOnTab = 'FlutterWeb | Aseem Wangoo';
   static const String homeTitle = 'Flattered With Flutter';
   static const String supportTitle = '🤗 Support!';
@@ -33,6 +35,7 @@ class ApplevelConstants {
   static const String codepenRoute = '/codepens';
   static const String streamsRoute = '/streams';
   static const String selectorsRoute = '/selector';
+  static const String visitedPagesRoute = '/pages-seen';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
