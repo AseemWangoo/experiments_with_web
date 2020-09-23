@@ -9,8 +9,15 @@ import 'package:flutter/material.dart';
 
 import 'utilities/constants.dart';
 
-class VisitedScreens extends StatelessWidget {
+class VisitedScreens extends StatefulWidget {
   const VisitedScreens({Key key}) : super(key: key);
+
+  @override
+  _VisitedScreensState createState() => _VisitedScreensState();
+}
+
+class _VisitedScreensState extends State<VisitedScreens> {
+  //
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +29,13 @@ class VisitedScreens extends StatelessWidget {
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 20.0),
-          child: GestureDetector(
-            onTap: () => AppGlobals.routeObserver.navStack.clear,
-            child: const Icon(Icons.clear),
+          child: OutlineButton.icon(
+            onPressed: () {
+              AppGlobals.routeObserver.navStack.clear;
+              setState(() {});
+            },
+            icon: const Icon(Icons.clear),
+            label: const Text(NavConstants.clearHistory),
           ),
         ),
       ],
@@ -60,28 +71,30 @@ class _Internal extends StatelessWidget {
 
     return WidgetScreener(
       ratio: 1 / 2,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 40.0),
-            child: Text(text, style: Theme.of(context).textTheme.headline5),
-          ),
-          ListView.separated(
-            shrinkWrap: true,
-            itemCount: items.length,
-            separatorBuilder: (context, index) => const Divider(
-              height: 3,
-              color: Colors.white,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 40.0),
+              child: Text(text, style: Theme.of(context).textTheme.headline5),
             ),
-            itemBuilder: (context, index) {
-              return Container(
-                height: 150,
-                color: HexColor.fromHex('#820263'),
-                child: Center(child: Text('${items[index]}')),
-              );
-            },
-          ),
-        ],
+            ListView.separated(
+              shrinkWrap: true,
+              itemCount: items.length,
+              separatorBuilder: (context, index) => const Divider(
+                height: 3,
+                color: Colors.white,
+              ),
+              itemBuilder: (context, index) {
+                return Container(
+                  height: 150,
+                  color: HexColor.fromHex('#820263'),
+                  child: Center(child: Text('${items[index]}')),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
