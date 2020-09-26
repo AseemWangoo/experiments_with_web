@@ -38,6 +38,9 @@
 
 - TextController (https://github.com/flutter/flutter/issues/11416)
 
+### DataStructures in Dart
+- https://github.com/liemvo/Dart_DataStructure_Algorithm
+
 ## Helpful commands 🥳🥳
 
 - To kill all dart processes

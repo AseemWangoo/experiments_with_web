@@ -1,4 +1,4 @@
-import 'package:experiments_with_web/nav/ds_impl.dart';
+import 'package:experiments_with_web/nav/nav_stack.dart';
 
 import 'package:flutter/material.dart';
 
