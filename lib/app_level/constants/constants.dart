@@ -5,14 +5,18 @@ import 'package:experiments_with_web/hooks/utilities/constants.dart';
 import 'package:experiments_with_web/iframe/utilities/constants.dart';
 import 'package:experiments_with_web/location/utilities/constants.dart';
 import 'package:experiments_with_web/ml/utilities/constants.dart';
+import 'package:experiments_with_web/nav/utilities/constants.dart';
 import 'package:experiments_with_web/parallax/utilities/constants.dart';
 import 'package:experiments_with_web/streams/utilities/constants.dart';
+import 'package:experiments_with_web/using_selector/utilities/constants.dart';
 
 class ApplevelConstants {
   ApplevelConstants._();
 
   static const double stdWidth = 1366;
   static const double stdHeight = 768;
+
+  static const String fontFamily = 'Montserrat';
 
   static const String titleOnTab = 'FlutterWeb | Aseem Wangoo';
   static const String homeTitle = 'Flattered With Flutter';
@@ -32,6 +36,7 @@ class ApplevelConstants {
   static const String codepenRoute = '/codepens';
   static const String streamsRoute = '/streams';
   static const String selectorsRoute = '/selector';
+  static const String visitedPagesRoute = '/pages-seen';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -46,6 +51,7 @@ class ApplevelConstants {
   static const String option10 = 'Slivers & Codepen';
   static const String option11 = 'Streams & Hooks';
   static const String option12 = 'Selectors in Provider';
+  static const String option13 = 'Navigation History';
 }
 
 class WHOLinks {
@@ -71,8 +77,8 @@ class OptionAndRoutes {
   OptionAndRoutes._();
 
   static const Map<String, String> optionRoutes = {
-    ApplevelConstants.option1: ApplevelConstants.sampleRoute,
-    ApplevelConstants.option2: ApplevelConstants.googleRoute,
+    // ApplevelConstants.option1: ApplevelConstants.sampleRoute,
+    ApplevelConstants.option12: ApplevelConstants.selectorsRoute,
     ApplevelConstants.option3: ApplevelConstants.iframeRoute,
     ApplevelConstants.option4: ApplevelConstants.parallaxRoute,
     ApplevelConstants.option5: ApplevelConstants.locationRoute,
@@ -82,15 +88,16 @@ class OptionAndRoutes {
     ApplevelConstants.option9: ApplevelConstants.hooksRoute,
     ApplevelConstants.option10: ApplevelConstants.codepenRoute,
     ApplevelConstants.option11: ApplevelConstants.streamsRoute,
-    ApplevelConstants.option12: ApplevelConstants.selectorsRoute,
+    ApplevelConstants.option2: ApplevelConstants.googleRoute,
+    ApplevelConstants.option13: ApplevelConstants.visitedPagesRoute,
   };
 
   static const Map<String, List<String>> linksRoutes = {
-    ApplevelConstants.option1: <String>[
-      BrandLinks.medium,
-      BrandLinks.website,
-      BrandLinks.youtube
-    ],
+    // ApplevelConstants.option1: <String>[
+    //   BrandLinks.medium,
+    //   BrandLinks.website,
+    //   BrandLinks.youtube
+    // ],
     ApplevelConstants.option2: <String>[
       BrandLinks.medium,
       BrandLinks.website,
@@ -142,9 +149,14 @@ class OptionAndRoutes {
       StreamFormConstants.youtube
     ],
     ApplevelConstants.option12: <String>[
-      StreamFormConstants.medium,
-      StreamFormConstants.website,
-      StreamFormConstants.youtube
+      SelectorsConstants.medium,
+      SelectorsConstants.website,
+      SelectorsConstants.youtube
+    ],
+    ApplevelConstants.option13: <String>[
+      NavConstants.medium,
+      NavConstants.website,
+      NavConstants.youtube
     ],
   };
 }

@@ -5,6 +5,8 @@ import 'package:experiments_with_web/locator.dart';
 
 import 'package:flutter/material.dart';
 
+import 'globals.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -25,18 +27,19 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    // ?
+    //
 
     return MaterialApp(
-      initialRoute: ApplevelConstants.homeRoute,
+      darkTheme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: route.Router.generateRoute,
       onUnknownRoute: (settings) => MaterialPageRoute<dynamic>(
         builder: (context) => route.UndefinedView(name: settings.name),
       ),
-      title: ApplevelConstants.titleOnTab,
-      darkTheme: AppTheme.darkTheme,
+      initialRoute: ApplevelConstants.homeRoute,
+      navigatorObservers: [AppGlobals.routeObserver],
       theme: AppTheme.lightTheme,
+      title: ApplevelConstants.titleOnTab,
     );
   }
 }

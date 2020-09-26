@@ -85,6 +85,11 @@ class _InternalWidget extends StatelessWidget {
         ),
 
         _AllFieldsWatchSelector(),
+
+        const Padding(
+          padding: EdgeInsets.only(top: 32.0),
+          child: Text(SelectorsConstants.tip),
+        ),
       ],
     );
   }
