@@ -34,6 +34,8 @@
 
 - Iframe 2 (https://stackoverflow.com/questions/60276170/use-js-library-in-flutter-web)
 
+- GoogleSignIn FW (https://medium.com/flutter-community/flutter-web-firebase-authentication-and-google-sign-in-33ef84a70b71)
+
 ### GitIssues
 
 - TextController (https://github.com/flutter/flutter/issues/11416)
