@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
-part 'favorites.g.dart';
+part 'articles.g.dart';
 
 @HiveType(typeId: 1)
 @JsonSerializable(nullable: false)
-class FavoritesModel {
-  FavoritesModel({
+class ArticlesModel {
+  ArticlesModel({
     this.articleID,
     this.articleName,
     this.articleRoute,
@@ -14,14 +14,14 @@ class FavoritesModel {
   });
 
   /// A necessary factory constructor for creating a new instance
-  /// from a map. Pass the map to the generated `_$FavoritesModelFromJson()` constructor.
-  // factory FavoritesModel.fromJson(Map<String, dynamic> json) =>
-  //     _$FavoritesModelFromJson(json);
+  /// from a map. Pass the map to the generated `_$ArticlesModelFromJson()` constructor.
+  factory ArticlesModel.fromJson(Map<String, dynamic> json) =>
+      _$ArticlesModelFromJson(json);
 
   /// `toJson` is the convention for a class to declare support for serialization
   /// to JSON. The implementation simply calls the private, generated
-  /// helper method `_$FavoritesModelToJson`.
-  // Map<String, dynamic> toJson() => _$FavoritesModelToJson(this);
+  /// helper method `_$ArticlesModelToJson`.
+  Map<String, dynamic> toJson() => _$ArticlesModelToJson(this);
 
   @HiveField(0)
   @JsonKey(name: 'article_id')
@@ -38,4 +38,8 @@ class FavoritesModel {
   @HiveField(3)
   @JsonKey(name: 'article_links')
   List<String> articleLinks;
+
+  @HiveField(4)
+  @JsonKey(name: 'is_favorite')
+  bool isFavorite;
 }
