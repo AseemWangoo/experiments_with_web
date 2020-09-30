@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/app_level/models/favorites/favorites.dart';
 import 'package:experiments_with_web/codepenz/utilities/constants.dart';
 import 'package:experiments_with_web/data_table/utilities/constants.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
@@ -169,4 +170,27 @@ class DrawerOptions {
   static const String website = 'View on Website';
   static const String medium = 'Read on Medium';
   static const String legalese = 'Experiments with Flutter Web';
+}
+
+class OptionsModel {
+  OptionsModel._();
+
+  static List<FavoritesModel> options() {
+    var _favModelList = <FavoritesModel>[];
+
+    final _optionRoutes = OptionAndRoutes.optionRoutes;
+    final _linkRoutes = OptionAndRoutes.linksRoutes;
+
+    for (var _optionRoute in _optionRoutes.entries) {
+      final _favModel = FavoritesModel();
+
+      _favModel.articleID = _optionRoute.value;
+      _favModel.articleName = _optionRoute.key;
+      _favModel.articleRoute = _optionRoute.value;
+      _favModel.articleLinks = _linkRoutes[_optionRoute.key];
+
+      _favModelList.add(_favModel);
+    }
+    return _favModelList;
+  }
 }

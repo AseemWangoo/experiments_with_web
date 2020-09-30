@@ -16,8 +16,6 @@ import 'widgets/desktop/image_loader.dart';
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
 
-  static final _optionAndRoute = OptionAndRoutes.optionRoutes.entries;
-  static final _linkAndRoute = OptionAndRoutes.linksRoutes;
   static final _linkService = locator<LinkerService>();
 
   @override
@@ -53,17 +51,7 @@ class _HomeState extends State<Home> {
             crossAxisSpacing: 32.0,
             mainAxisSpacing: 16.0,
             padding: const EdgeInsets.all(32.0),
-            children: [
-              for (MapEntry<String, String> _optionRoute
-                  in Home._optionAndRoute) ...[
-                ParallaxButton(
-                  text: _optionRoute.key,
-                  medium: Home._linkAndRoute['${_optionRoute.key}'].first,
-                  website: Home._linkAndRoute['${_optionRoute.key}'][1],
-                  youtubeLink: Home._linkAndRoute['${_optionRoute.key}'].last,
-                ).clickable(() => _nav.pushNamed(_optionRoute.value)),
-              ]
-            ],
+            children: _displayOptions(_nav),
           ),
         ],
         menu: Container(
@@ -139,6 +127,26 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  List<Widget> _displayOptions(NavigatorState nav) {
+    var _list = <Widget>[];
+    var _count = OptionsModel.options().length;
+
+    for (var i = 0; i < _count; i++) {
+      final _model = OptionsModel.options()[i];
+
+      _list.add(
+        ParallaxButton(
+          text: _model.articleName,
+          medium: _model.articleLinks.first,
+          website: _model.articleLinks[1],
+          youtubeLink: _model.articleLinks.last,
+        ).clickable(() => nav.pushNamed(_model.articleRoute)),
+      );
+    }
+
+    return _list;
   }
 
   @override
