@@ -5,7 +5,7 @@ author: Aseem Wangoo
 homepage: https://web.flatteredwithflutter.com/
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: ">=2.8.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -43,6 +43,10 @@ dependencies:
   # EFFICIENCY
   tuple: ^1.0.3
 
+  # OFFLINE
+  hive: ^1.4.2
+  hive_flutter: ^0.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -52,6 +56,9 @@ dev_dependencies:
   json_serializable: ^3.3.0
 
   pedantic: ^1.9.0
+
+  # HIVE
+  hive_generator: ^0.7.1
 
 flutter:
   uses-material-design: true
