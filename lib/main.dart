@@ -21,6 +21,9 @@ Future<void> main() async {
   await Hive.initFlutter();
   HiveHelpers.registerAdapters();
 
+  // Open Fav Box
+  await HiveHelpers.openFavoritesBox();
+
   runApp(const MyApp());
 }
 

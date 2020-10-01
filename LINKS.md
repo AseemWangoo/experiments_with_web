@@ -36,6 +36,9 @@
 
 - GoogleSignIn FW (https://medium.com/flutter-community/flutter-web-firebase-authentication-and-google-sign-in-33ef84a70b71)
 
+- Hive (https://github.com/awaik/todo_hive_example/blob/master/lib/main.dart)
+- Official Hive examples (https://docs.hivedb.dev/#/tutorials/favorite_books)
+
 ### GitIssues
 
 - TextController (https://github.com/flutter/flutter/issues/11416)

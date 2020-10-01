@@ -188,9 +188,16 @@ class OptionsModel {
       _favModel.articleName = _optionRoute.key;
       _favModel.articleRoute = _optionRoute.value;
       _favModel.articleLinks = _linkRoutes[_optionRoute.key];
+      _favModel.isFavorite = false;
 
       _favModelList.add(_favModel);
     }
     return _favModelList;
   }
+}
+
+class HiveBoxes {
+  HiveBoxes._();
+
+  static const String favBox = 'favorites';
 }
