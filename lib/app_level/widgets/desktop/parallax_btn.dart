@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/styles/colors.dart';
@@ -191,8 +192,13 @@ class _Content extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(text, style: TextStyle(fontSize: 20)),
-          Text('Links', style: Theme.of(context).textTheme.caption),
+          Row(
+            children: [
+              AutoSizeText(text, minFontSize: 16),
+              const Spacer(),
+              Icon(Icons.favorite_border),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
