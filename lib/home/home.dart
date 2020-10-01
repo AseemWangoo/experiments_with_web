@@ -3,6 +3,7 @@ import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/extensions/widget_extension.dart';
 import 'package:experiments_with_web/app_level/styles/colors.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/nav_rail.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/parallax_btn.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
 import 'package:experiments_with_web/locator.dart';
@@ -10,8 +11,8 @@ import 'package:experiments_with_web/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'services/linker_service.dart';
-import 'widgets/desktop/image_loader.dart';
+import '../app_level/services/linker_service.dart';
+import '../app_level/widgets/desktop/image_loader.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -36,6 +37,11 @@ class _HomeState extends State<Home> {
     //
     final _nav = Navigator.of(context);
     final _whiteStyle = Theme.of(context).textTheme.headline6.c(Colors.white);
+
+    return Scaffold(
+      backgroundColor: AppColors.bgColor,
+      body: const NavRail(),
+    );
 
     return Scaffold(
       backgroundColor: AppColors.bgColor,
