@@ -5,7 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NavRail extends StatefulWidget {
-  const NavRail({Key key}) : super(key: key);
+  const NavRail({
+    Key key,
+    @required this.optionWidgets,
+  })  : assert(optionWidgets.length > 0),
+        super(key: key);
+
+  final List<Widget> optionWidgets;
 
   @override
   _NavRailState createState() => _NavRailState();
@@ -47,14 +53,9 @@ class _NavRailState extends State<NavRail> {
           selectedLabelTextStyle:
               Theme.of(context).textTheme.button.c(Colors.white),
         ),
-        Expanded(
-          child: Center(
-            child: Text(
-              'selectedIndex: $_selectedIndex',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ),
-        ),
+        //
+
+        Expanded(child: widget.optionWidgets[_selectedIndex]),
       ],
     );
   }
