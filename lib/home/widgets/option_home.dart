@@ -16,6 +16,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../locator.dart';
+import 'grid_view.dart';
 
 class OptionHome extends StatefulWidget {
   const OptionHome({Key key}) : super(key: key);
@@ -47,13 +48,7 @@ class _OptionHomeState extends State<OptionHome> {
       maxHeight: 120.0,
       children: [
         ValueListenableBuilder(
-          builder: (_, Box<ArticlesModel> model, child) => GridView.count(
-            childAspectRatio: 0.8,
-            shrinkWrap: true,
-            crossAxisCount: 5,
-            crossAxisSpacing: 32.0,
-            mainAxisSpacing: 16.0,
-            padding: const EdgeInsets.all(32.0),
+          builder: (_, Box<ArticlesModel> model, child) => HomeGridView(
             children: _displayOptions(_nav),
           ),
           valueListenable: _hiveService.favBox.listenable(),
