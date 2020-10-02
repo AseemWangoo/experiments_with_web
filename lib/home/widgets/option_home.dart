@@ -135,14 +135,18 @@ class _OptionHomeState extends State<OptionHome> {
 
       for (var i = 0; i < _count; i++) {
         final _model = OptionsModel.options()[i];
+        bool _insertion = false;
 
         // FOR FAV CHECK
         for (var j = 0; j < _favCount; j++) {
           if (_model.articleID == _favBox.values.toList()[j].articleID) {
             _list.add(_addToList(nav, true, _model));
+            _insertion = true;
             break;
           }
+        }
 
+        if (!_insertion) {
           _list.add(_addToList(nav, false, _model));
         }
       }
