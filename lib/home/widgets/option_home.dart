@@ -12,6 +12,8 @@ import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.d
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../locator.dart';
 
@@ -44,14 +46,17 @@ class _OptionHomeState extends State<OptionHome> {
       minHeight: 120.0,
       maxHeight: 120.0,
       children: [
-        GridView.count(
-          childAspectRatio: 0.8,
-          shrinkWrap: true,
-          crossAxisCount: 5,
-          crossAxisSpacing: 32.0,
-          mainAxisSpacing: 16.0,
-          padding: const EdgeInsets.all(32.0),
-          children: _displayOptions(_nav),
+        ValueListenableBuilder(
+          builder: (_, Box<ArticlesModel> model, child) => GridView.count(
+            childAspectRatio: 0.8,
+            shrinkWrap: true,
+            crossAxisCount: 5,
+            crossAxisSpacing: 32.0,
+            mainAxisSpacing: 16.0,
+            padding: const EdgeInsets.all(32.0),
+            children: _displayOptions(_nav),
+          ),
+          valueListenable: _hiveService.favBox.listenable(),
         ),
       ],
       menu: Container(
@@ -135,7 +140,7 @@ class _OptionHomeState extends State<OptionHome> {
 
       for (var i = 0; i < _count; i++) {
         final _model = OptionsModel.options()[i];
-        bool _insertion = false;
+        var _insertion = false;
 
         // FOR FAV CHECK
         for (var j = 0; j < _favCount; j++) {
@@ -153,7 +158,6 @@ class _OptionHomeState extends State<OptionHome> {
     } else {
       for (var i = 0; i < _count; i++) {
         final _model = OptionsModel.options()[i];
-
         _list.add(_addToList(nav, false, _model));
       }
     }
@@ -161,16 +165,15 @@ class _OptionHomeState extends State<OptionHome> {
     return _list;
   }
 
-  Widget _addToList(NavigatorState nav, bool value, ArticlesModel _model) {
-    return ParallaxButton(
-      isFavorite: value,
-      medium: _model.articleLinks.first,
-      model: _model,
-      text: _model.articleName,
-      website: _model.articleLinks[1],
-      youtubeLink: _model.articleLinks.last,
-    ).clickable(() => nav.pushNamed(_model.articleRoute));
-  }
+  Widget _addToList(NavigatorState nav, bool value, ArticlesModel _model) =>
+      ParallaxButton(
+        isFavorite: value,
+        medium: _model.articleLinks.first,
+        model: _model,
+        text: _model.articleName,
+        website: _model.articleLinks[1],
+        youtubeLink: _model.articleLinks.last,
+      ).clickable(() => nav.pushNamed(_model.articleRoute));
 
   @override
   void dispose() {
