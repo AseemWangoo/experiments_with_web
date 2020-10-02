@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:experiments_with_web/app_level/assets/assets.dart';
+import 'package:experiments_with_web/app_level/models/articles/articles.dart';
 import 'package:experiments_with_web/app_level/services/hive/hive_operations.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/styles/colors.dart';
@@ -21,6 +22,7 @@ class ParallaxButton extends StatefulWidget {
     @required this.website,
     @required this.youtubeLink,
     @required this.isFavorite,
+    this.model,
   }) : super(key: key);
 
   final String medium;
@@ -29,6 +31,7 @@ class ParallaxButton extends StatefulWidget {
   final bool isFavorite;
 
   final String text;
+  final ArticlesModel model;
 
   @override
   _ParallaxButtonState createState() => _ParallaxButtonState();
@@ -126,6 +129,7 @@ class _ParallaxButtonState extends State<ParallaxButton> {
                               child: _Content(
                                 isFavorite: widget.isFavorite,
                                 medium: widget.medium,
+                                model: widget.model,
                                 text: widget.text,
                                 website: widget.website,
                                 youtubeLink: widget.youtubeLink,
@@ -185,6 +189,7 @@ class _Content extends StatelessWidget {
     @required this.website,
     @required this.youtubeLink,
     @required this.isFavorite,
+    this.model,
   }) : super(key: key);
 
   final String text;
@@ -193,6 +198,8 @@ class _Content extends StatelessWidget {
   final String website;
   final String youtubeLink;
   final bool isFavorite;
+
+  final ArticlesModel model;
 
   static final _hiveService = locator<HiveOperationsService>();
 
@@ -212,16 +219,12 @@ class _Content extends StatelessWidget {
               if (isFavorite)
                 GestureDetector(
                   child: const Icon(Icons.favorite, color: Colors.orangeAccent),
-                  onTap: () {
-                    print('I AM FAV');
-                  },
+                  onTap: () => _hiveService.deleteFromFavBox(model),
                 )
               else
                 GestureDetector(
                   child: const Icon(Icons.favorite_border),
-                  onTap: () {
-                    print('I AM NOT A FAV');
-                  },
+                  onTap: () => _hiveService.addToFavBox(model),
                 ),
             ],
           ),
