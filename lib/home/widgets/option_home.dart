@@ -135,6 +135,7 @@ class _OptionHomeState extends State<OptionHome> {
           medium: _model.articleLinks.first,
           website: _model.articleLinks[1],
           youtubeLink: _model.articleLinks.last,
+          onfavClick: () {},
         ).clickable(() => nav.pushNamed(_model.articleRoute)),
       );
     }

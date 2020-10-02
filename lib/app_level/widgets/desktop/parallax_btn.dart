@@ -10,6 +10,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'image_loader.dart';
 
+typedef OnFavClick = void Function();
+
 class ParallaxButton extends StatefulWidget {
   const ParallaxButton({
     Key key,
@@ -17,11 +19,13 @@ class ParallaxButton extends StatefulWidget {
     @required this.medium,
     @required this.website,
     @required this.youtubeLink,
+    @required this.onfavClick,
   }) : super(key: key);
 
   final String medium;
   final String website;
   final String youtubeLink;
+  final OnFavClick onfavClick;
 
   final String text;
 
@@ -106,7 +110,8 @@ class _ParallaxButtonState extends State<ParallaxButton> {
                             flex: 2,
                             child: ClipRRect(
                               borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(32)),
+                                top: const Radius.circular(32),
+                              ),
                               child: ImageWidgetPlaceholder(
                                 image: WebAssets.logo,
                                 width: double.maxFinite,
@@ -118,6 +123,7 @@ class _ParallaxButtonState extends State<ParallaxButton> {
                             child: Container(
                               color: Colors.grey.shade200,
                               child: _Content(
+                                onfavClick: widget.onfavClick,
                                 text: widget.text,
                                 medium: widget.medium,
                                 website: widget.website,
@@ -177,6 +183,7 @@ class _Content extends StatelessWidget {
     @required this.medium,
     @required this.website,
     @required this.youtubeLink,
+    @required this.onfavClick,
   }) : super(key: key);
 
   final String text;
@@ -184,9 +191,12 @@ class _Content extends StatelessWidget {
   final String medium;
   final String website;
   final String youtubeLink;
+  final OnFavClick onfavClick;
 
   @override
   Widget build(BuildContext context) {
+    //
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
       child: Column(
@@ -196,7 +206,10 @@ class _Content extends StatelessWidget {
             children: [
               AutoSizeText(text, minFontSize: 16),
               const Spacer(),
-              Icon(Icons.favorite_border),
+              GestureDetector(
+                child: Icon(Icons.favorite_border),
+                onTap: onfavClick,
+              ),
             ],
           ),
           Row(
