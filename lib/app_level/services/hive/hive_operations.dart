@@ -7,14 +7,20 @@ class HiveOperationsService {
   //
   final _favBox = Hive.box<ArticlesModel>(HiveBoxes.favBox);
 
-  String get favBoxKey => 'fav_box';
-
   Future<void> addToFavBox(ArticlesModel data) async {
-    return _favBox.put(favBoxKey, data);
+    return _favBox.put(data.articleID, data);
+  }
+
+  Future<void> addBulkToFavBox(ArticlesModel data) async {
+    final _insertMap = <String, ArticlesModel>{
+      data.articleID: data,
+    };
+
+    return _favBox.putAll(_insertMap);
   }
 
   Future<void> deleteFromFavBox(ArticlesModel data) async {
-    return _favBox.delete(favBoxKey);
+    return _favBox.delete(data.articleID);
   }
 
   Box<ArticlesModel> get favBox => _favBox;
