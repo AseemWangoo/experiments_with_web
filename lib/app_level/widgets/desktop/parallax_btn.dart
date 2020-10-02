@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:experiments_with_web/app_level/assets/assets.dart';
+import 'package:experiments_with_web/app_level/services/hive/hive_operations.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
@@ -19,13 +20,13 @@ class ParallaxButton extends StatefulWidget {
     @required this.medium,
     @required this.website,
     @required this.youtubeLink,
-    @required this.onfavClick,
+    @required this.isFavorite,
   }) : super(key: key);
 
   final String medium;
   final String website;
   final String youtubeLink;
-  final OnFavClick onfavClick;
+  final bool isFavorite;
 
   final String text;
 
@@ -123,9 +124,9 @@ class _ParallaxButtonState extends State<ParallaxButton> {
                             child: Container(
                               color: Colors.grey.shade200,
                               child: _Content(
-                                onfavClick: widget.onfavClick,
-                                text: widget.text,
+                                isFavorite: widget.isFavorite,
                                 medium: widget.medium,
+                                text: widget.text,
                                 website: widget.website,
                                 youtubeLink: widget.youtubeLink,
                               ),
@@ -183,7 +184,7 @@ class _Content extends StatelessWidget {
     @required this.medium,
     @required this.website,
     @required this.youtubeLink,
-    @required this.onfavClick,
+    @required this.isFavorite,
   }) : super(key: key);
 
   final String text;
@@ -191,7 +192,9 @@ class _Content extends StatelessWidget {
   final String medium;
   final String website;
   final String youtubeLink;
-  final OnFavClick onfavClick;
+  final bool isFavorite;
+
+  static final _hiveService = locator<HiveOperationsService>();
 
   @override
   Widget build(BuildContext context) {
@@ -206,10 +209,20 @@ class _Content extends StatelessWidget {
             children: [
               AutoSizeText(text, minFontSize: 16),
               const Spacer(),
-              GestureDetector(
-                child: Icon(Icons.favorite_border),
-                onTap: onfavClick,
-              ),
+              if (isFavorite)
+                GestureDetector(
+                  child: const Icon(Icons.favorite, color: Colors.orangeAccent),
+                  onTap: () {
+                    print('I AM FAV');
+                  },
+                )
+              else
+                GestureDetector(
+                  child: const Icon(Icons.favorite_border),
+                  onTap: () {
+                    print('I AM NOT A FAV');
+                  },
+                ),
             ],
           ),
           Row(

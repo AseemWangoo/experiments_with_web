@@ -2,7 +2,6 @@ import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/extensions/widget_extension.dart';
-import 'package:experiments_with_web/app_level/services/hive/hive_operations.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/image_loader.dart';
@@ -24,7 +23,6 @@ class OptionHome extends StatefulWidget {
 class _OptionHomeState extends State<OptionHome> {
   ScrollController _controller;
   static final _linkService = locator<LinkerService>();
-  static final _hiveService = locator<HiveOperationsService>();
 
   @override
   void initState() {
@@ -133,11 +131,11 @@ class _OptionHomeState extends State<OptionHome> {
 
       _list.add(
         ParallaxButton(
-          text: _model.articleName,
+          isFavorite: true,
           medium: _model.articleLinks.first,
+          text: _model.articleName,
           website: _model.articleLinks[1],
           youtubeLink: _model.articleLinks.last,
-          onfavClick: () => _hiveService.addToFavBox(_model),
         ).clickable(() => nav.pushNamed(_model.articleRoute)),
       );
     }
