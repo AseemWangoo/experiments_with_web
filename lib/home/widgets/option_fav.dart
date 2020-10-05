@@ -90,6 +90,7 @@ class _OptionFavState extends State<OptionFav> {
           website: _model.articleLinks[1],
           youtubeLink: _model.articleLinks.last,
           isFavorite: true,
+          model: _model,
         ).clickable(() => nav.pushNamed(_model.articleRoute)),
       );
     }
