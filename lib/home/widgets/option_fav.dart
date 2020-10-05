@@ -47,9 +47,15 @@ class _OptionFavState extends State<OptionFav> {
 
             if (model.values.isEmpty) {
               return Center(
-                child: Text(
-                  '🥺 🥺 No favorites !!',
-                  style: Theme.of(context).textTheme.bodyText1.c(Colors.white),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 80.0),
+                    Text(
+                      '🥺 🥺 No favorites !!',
+                      style:
+                          Theme.of(context).textTheme.bodyText1.c(Colors.white),
+                    ),
+                  ],
                 ),
               );
             }
@@ -59,7 +65,6 @@ class _OptionFavState extends State<OptionFav> {
             );
           },
           valueListenable: OptionFav._hiveService.favBox.listenable(),
-          child: const Placeholder(),
         ),
       ],
     );
