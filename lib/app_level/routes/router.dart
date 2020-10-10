@@ -1,5 +1,5 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
-import 'package:experiments_with_web/app_level/home.dart';
+import 'package:experiments_with_web/home/home.dart';
 import 'package:experiments_with_web/codepenz/codepen.dart';
 import 'package:experiments_with_web/data_table/data_table.dart';
 import 'package:experiments_with_web/game/game.dart';

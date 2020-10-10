@@ -4,15 +4,25 @@ import 'package:experiments_with_web/app_level/styles/themes.dart';
 import 'package:experiments_with_web/locator.dart';
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
+import 'app_level/services/hive/hive_helpers.dart';
 import 'globals.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // INIT DEP INJECTION..
   /// ¯_(ツ)_/¯
   setupLocator();
+
+  // HIVE SECTION
+  await Hive.initFlutter();
+  HiveHelpers.registerAdapters();
+
+  // Open Fav Box
+  await HiveHelpers.openFavoritesBox();
 
   runApp(const MyApp());
 }

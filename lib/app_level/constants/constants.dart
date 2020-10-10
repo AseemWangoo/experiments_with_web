@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/app_level/models/articles/articles.dart';
 import 'package:experiments_with_web/codepenz/utilities/constants.dart';
 import 'package:experiments_with_web/data_table/utilities/constants.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
@@ -71,6 +72,11 @@ class BrandLinks {
   static const String github = 'https://github.com/aseemwangoo';
   static const String codepen = 'https://codepen.io/aseemwangoo/pens/public';
   static const String support = 'https://support.flatteredwithflutter.com/';
+
+  static const String favWebsite =
+      'https://flatteredwithflutter.com/using-hive-in-flutter-web/';
+  static const String favMedium = 'https://medium.com/@aseemwangoo';
+  static const String favYoutube = 'https://youtu.be/4u6TXhqUbHw';
 }
 
 class OptionAndRoutes {
@@ -169,4 +175,34 @@ class DrawerOptions {
   static const String website = 'View on Website';
   static const String medium = 'Read on Medium';
   static const String legalese = 'Experiments with Flutter Web';
+}
+
+class OptionsModel {
+  OptionsModel._();
+
+  static List<ArticlesModel> options() {
+    var _favModelList = <ArticlesModel>[];
+
+    final _optionRoutes = OptionAndRoutes.optionRoutes;
+    final _linkRoutes = OptionAndRoutes.linksRoutes;
+
+    for (var _optionRoute in _optionRoutes.entries) {
+      final _favModel = ArticlesModel();
+
+      _favModel.articleID = _optionRoute.value;
+      _favModel.articleName = _optionRoute.key;
+      _favModel.articleRoute = _optionRoute.value;
+      _favModel.articleLinks = _linkRoutes[_optionRoute.key];
+      _favModel.isFavorite = false;
+
+      _favModelList.add(_favModel);
+    }
+    return _favModelList;
+  }
+}
+
+class HiveBoxes {
+  HiveBoxes._();
+
+  static const String favBox = 'favorites';
 }

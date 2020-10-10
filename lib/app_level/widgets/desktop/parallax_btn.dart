@@ -1,4 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:experiments_with_web/app_level/assets/assets.dart';
+import 'package:experiments_with_web/app_level/models/articles/articles.dart';
+import 'package:experiments_with_web/app_level/services/hive/hive_operations.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
@@ -9,6 +12,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'image_loader.dart';
 
+typedef OnFavClick = void Function();
+
 class ParallaxButton extends StatefulWidget {
   const ParallaxButton({
     Key key,
@@ -16,13 +21,17 @@ class ParallaxButton extends StatefulWidget {
     @required this.medium,
     @required this.website,
     @required this.youtubeLink,
+    @required this.isFavorite,
+    this.model,
   }) : super(key: key);
 
   final String medium;
   final String website;
   final String youtubeLink;
+  final bool isFavorite;
 
   final String text;
+  final ArticlesModel model;
 
   @override
   _ParallaxButtonState createState() => _ParallaxButtonState();
@@ -105,7 +114,8 @@ class _ParallaxButtonState extends State<ParallaxButton> {
                             flex: 2,
                             child: ClipRRect(
                               borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(32)),
+                                top: const Radius.circular(32),
+                              ),
                               child: ImageWidgetPlaceholder(
                                 image: WebAssets.logo,
                                 width: double.maxFinite,
@@ -117,8 +127,10 @@ class _ParallaxButtonState extends State<ParallaxButton> {
                             child: Container(
                               color: Colors.grey.shade200,
                               child: _Content(
-                                text: widget.text,
+                                isFavorite: widget.isFavorite,
                                 medium: widget.medium,
+                                model: widget.model,
+                                text: widget.text,
                                 website: widget.website,
                                 youtubeLink: widget.youtubeLink,
                               ),
@@ -176,6 +188,8 @@ class _Content extends StatelessWidget {
     @required this.medium,
     @required this.website,
     @required this.youtubeLink,
+    @required this.isFavorite,
+    this.model,
   }) : super(key: key);
 
   final String text;
@@ -183,16 +197,37 @@ class _Content extends StatelessWidget {
   final String medium;
   final String website;
   final String youtubeLink;
+  final bool isFavorite;
+
+  final ArticlesModel model;
+
+  static final _hiveService = locator<HiveOperationsService>();
 
   @override
   Widget build(BuildContext context) {
+    //
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(text, style: TextStyle(fontSize: 20)),
-          Text('Links', style: Theme.of(context).textTheme.caption),
+          Row(
+            children: [
+              AutoSizeText(text, minFontSize: 16),
+              const Spacer(),
+              if (isFavorite)
+                GestureDetector(
+                  child: const Icon(Icons.favorite, color: Colors.orangeAccent),
+                  onTap: () => _hiveService.deleteFromFavBox(model),
+                )
+              else
+                GestureDetector(
+                  child: const Icon(Icons.favorite_border),
+                  onTap: () => _hiveService.addToFavBox(model),
+                ),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
