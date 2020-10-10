@@ -72,6 +72,11 @@ class BrandLinks {
   static const String github = 'https://github.com/aseemwangoo';
   static const String codepen = 'https://codepen.io/aseemwangoo/pens/public';
   static const String support = 'https://support.flatteredwithflutter.com/';
+
+  static const String favWebsite =
+      'https://flatteredwithflutter.com/using-hive-in-flutter-web/';
+  static const String favMedium = 'https://medium.com/@aseemwangoo';
+  static const String favYoutube = 'https://youtu.be/4u6TXhqUbHw';
 }
 
 class OptionAndRoutes {

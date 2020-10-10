@@ -1,13 +1,18 @@
+import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/extensions/widget_extension.dart';
 import 'package:experiments_with_web/app_level/models/articles/articles.dart';
+import 'package:experiments_with_web/app_level/services/linker_service.dart';
+import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/parallax_btn.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/spacer_view.dart';
 import 'package:experiments_with_web/home/widgets/top_nav.dart';
 import 'package:experiments_with_web/locator.dart';
 import 'package:experiments_with_web/app_level/services/hive/hive_operations.dart';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -24,6 +29,7 @@ class OptionFav extends StatefulWidget {
 
 class _OptionFavState extends State<OptionFav> {
   ScrollController _controller;
+  static final _linkService = locator<LinkerService>();
 
   @override
   void initState() {
@@ -65,6 +71,43 @@ class _OptionFavState extends State<OptionFav> {
             );
           },
           valueListenable: OptionFav._hiveService.favBox.listenable(),
+        ),
+        const SizedBox(height: 80),
+        SpacerView(
+          child: Card(
+            color: AppColors.brandColor,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'See the implementation',
+                  style: Theme.of(context).textTheme.bodyText1.c(Colors.white),
+                ),
+                IconButton(
+                  color: Colors.white,
+                  icon: FaIcon(FontAwesomeIcons.youtube),
+                  iconSize: 20.0,
+                  padding: EdgeInsets.zero,
+                  onPressed: () => _linkService.openLink(BrandLinks.favYoutube),
+                ),
+                IconButton(
+                  color: Colors.white,
+                  iconSize: 20.0,
+                  icon: FaIcon(FontAwesomeIcons.medium),
+                  padding: EdgeInsets.zero,
+                  onPressed: () => _linkService.openLink(BrandLinks.favMedium),
+                ),
+                IconButton(
+                  iconSize: 20.0,
+                  color: Colors.white,
+                  icon: FaIcon(FontAwesomeIcons.chrome),
+                  padding: EdgeInsets.zero,
+                  onPressed: () => _linkService.openLink(BrandLinks.favWebsite),
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );
