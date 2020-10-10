@@ -1,3 +1,5 @@
+import 'package:experiments_with_web/app_level/services/searches/search_operations.dart';
+
 import 'app_level/services/img_picker_service.dart';
 import 'app_level/services/linker_service.dart';
 import 'app_level/services/local_storage_service.dart';
@@ -20,4 +22,6 @@ void setupLocator() {
   locator.registerLazySingleton<HiveOperationsService>(
     () => HiveOperationsService(),
   );
+
+  locator.registerLazySingleton<SearchOperations>(() => SearchOperations());
 }

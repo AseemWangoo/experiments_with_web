@@ -23,6 +23,7 @@ Future<void> main() async {
 
   // Open Fav Box
   await HiveHelpers.openFavoritesBox();
+  await HiveHelpers.openBoxes();
 
   runApp(const MyApp());
 }

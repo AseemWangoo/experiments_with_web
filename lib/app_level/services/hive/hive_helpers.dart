@@ -16,4 +16,8 @@ class HiveHelpers {
   static Future<void> openFavoritesBox() async {
     await Hive.openBox<ArticlesModel>(HiveBoxes.favBox);
   }
+
+  static Future<void> openBoxes() async {
+    await Hive.openBox<CachedSearches>(HiveBoxes.searchesBox);
+  }
 }

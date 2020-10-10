@@ -205,4 +205,5 @@ class HiveBoxes {
   HiveBoxes._();
 
   static const String favBox = 'favorites';
+  static const String searchesBox = 'searches';
 }
