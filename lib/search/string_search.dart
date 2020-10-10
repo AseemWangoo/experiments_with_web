@@ -22,3 +22,9 @@ class StringSearch {
     return input;
   }
 }
+
+// Phrase | Occurence | Cliched Result || Timestamp
+// ----------------------------------------------
+//    0   |    0     |        0       ||  fade
+//    1   |    1     |        0       ||  1.0
+//    1   |    1     |        1       ||  fade

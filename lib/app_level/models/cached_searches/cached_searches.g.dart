@@ -18,7 +18,7 @@ class CachedSearchesAdapter extends TypeAdapter<CachedSearches> {
     };
     return CachedSearches(
       phrase: fields[0] as String,
-      occurances: fields[1] as int,
+      occurences: fields[1] as int,
       clickedResult: fields[2] as String,
       projectStartedOn: fields[3] as DateTime,
     );
@@ -31,7 +31,7 @@ class CachedSearchesAdapter extends TypeAdapter<CachedSearches> {
       ..writeByte(0)
       ..write(obj.phrase)
       ..writeByte(1)
-      ..write(obj.occurances)
+      ..write(obj.occurences)
       ..writeByte(2)
       ..write(obj.clickedResult)
       ..writeByte(3)
@@ -56,7 +56,7 @@ class CachedSearchesAdapter extends TypeAdapter<CachedSearches> {
 CachedSearches _$CachedSearchesFromJson(Map<String, dynamic> json) {
   return CachedSearches(
     phrase: json['phrase'] as String,
-    occurances: json['occurances'] as int,
+    occurences: json['occurences'] as int,
     clickedResult: json['clicked_result'] as String,
     projectStartedOn: CachedSearches.rawDateTime(json['timestamp']),
   );
@@ -65,7 +65,7 @@ CachedSearches _$CachedSearchesFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$CachedSearchesToJson(CachedSearches instance) =>
     <String, dynamic>{
       'phrase': instance.phrase,
-      'occurances': instance.occurances,
+      'occurences': instance.occurences,
       'clicked_result': instance.clickedResult,
       'timestamp': CachedSearches.setDateTime(instance.projectStartedOn),
     };

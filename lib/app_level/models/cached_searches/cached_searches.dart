@@ -8,7 +8,7 @@ part 'cached_searches.g.dart';
 class CachedSearches {
   CachedSearches({
     this.phrase,
-    this.occurances,
+    this.occurences,
     this.clickedResult,
     this.projectStartedOn,
   });
@@ -28,8 +28,8 @@ class CachedSearches {
   String phrase;
 
   @HiveField(1)
-  @JsonKey(name: 'occurances')
-  int occurances;
+  @JsonKey(name: 'occurences')
+  int occurences;
 
   @HiveField(2)
   @JsonKey(name: 'clicked_result')
