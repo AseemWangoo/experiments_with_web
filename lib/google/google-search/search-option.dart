@@ -36,7 +36,12 @@ class GoogleSearch extends StatelessWidget {
               ),
             ),
             Flexible(
-              child: RoundedShape(bgColor: Colors.white.withOpacity(0.9)),
+              child: RoundedShape(
+                bgColor: Colors.white.withOpacity(0.9),
+                cursorColor: Colors.black,
+                iconColor: Colors.orange,
+                textColor: Colors.black,
+              ),
             ),
             Flexible(child: _customSearchButtons(context)),
             Flexible(child: _customLanguageOptions(context)),

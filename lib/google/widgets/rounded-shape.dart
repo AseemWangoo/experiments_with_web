@@ -10,10 +10,11 @@ class RoundedShape extends StatelessWidget {
   const RoundedShape({
     Key key,
     @required this.bgColor,
-    this.iconColor = Colors.orange,
-    this.cursorColor = Colors.black,
-    this.textColor = Colors.black,
+    this.iconColor = Colors.white,
+    this.cursorColor = Colors.white,
+    this.textColor = Colors.white,
     this.onChanged,
+    this.focusNode,
   }) : super(key: key);
 
   final Color bgColor;
@@ -21,6 +22,11 @@ class RoundedShape extends StatelessWidget {
   final Color cursorColor;
   final Color textColor;
   final ValueChanged<String> onChanged;
+  final FocusNode focusNode;
+
+  FocusNode get _focusNode => _checkFocusNode;
+
+  FocusNode get _checkFocusNode => focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +64,7 @@ class RoundedShape extends StatelessWidget {
               size: 18.0,
             ),
           ),
+          focusNode: _focusNode,
           onChanged: (val) {
             _debouncer.call(() {
               if (onChanged != null) onChanged(val);
