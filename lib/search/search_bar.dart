@@ -3,7 +3,8 @@ import 'package:experiments_with_web/google/widgets/rounded-shape.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../app_level/widgets/desktop/transform_follower.dart';
+import '../app_level/widgets/desktop/transform_follower.dart';
+import 'commands/results_command.dart';
 
 class SearchBar extends StatefulWidget {
   const SearchBar({Key key}) : super(key: key);
@@ -62,9 +63,7 @@ class _SearchBarState extends State<SearchBar> {
                 for (var item in searchCommand.searchedResults)
                   ListTile(
                     title: Text(item),
-                    onTap: () {
-                      searchResultTap(item);
-                    },
+                    onTap: () => SearchResultCommand().tap(item),
                   ),
               ],
             ),
@@ -72,10 +71,6 @@ class _SearchBarState extends State<SearchBar> {
         ),
       ),
     );
-  }
-
-  void searchResultTap(String result) {
-    debugPrint('You clicked $result');
   }
 
   @override
@@ -89,9 +84,7 @@ class _SearchBarState extends State<SearchBar> {
         textController: controller,
         bgColor: Colors.white30,
         focusNode: focusNode,
-        onChanged: (term) {
-          searchCommand.showSearchResults(term);
-        },
+        onChanged: (term) => searchCommand.showSearchResults(term),
       ),
     );
   }

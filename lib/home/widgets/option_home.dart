@@ -3,7 +3,7 @@ import 'package:experiments_with_web/app_level/extensions/widget_extension.dart'
 import 'package:experiments_with_web/app_level/models/articles/articles.dart';
 import 'package:experiments_with_web/app_level/services/hive/hive_operations.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/parallax_btn.dart';
-import 'package:experiments_with_web/home/widgets/search_bar.dart';
+import 'package:experiments_with_web/search/search_bar.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
 
 import 'package:flutter/material.dart';
