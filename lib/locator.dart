@@ -7,6 +7,7 @@ import 'app_level/services/local_storage_service.dart';
 import 'package:get_it/get_it.dart';
 
 import 'app_level/services/hive/hive_operations.dart';
+import 'app_level/services/navigation/navigation.dart';
 
 GetIt locator = GetIt.instance;
 
@@ -24,4 +25,5 @@ void setupLocator() {
   );
 
   locator.registerLazySingleton<SearchOperations>(() => SearchOperations());
+  locator.registerLazySingleton(() => NavigationService());
 }

@@ -11,6 +11,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'app_level/services/hive/hive_helpers.dart';
+import 'app_level/services/navigation/navigation.dart';
 import 'globals.dart';
 
 Future<void> main() async {
@@ -39,10 +40,11 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
+  final _navigatorService = locator<NavigationService>();
+
   @override
   Widget build(BuildContext context) {
     //
-
     return Builder(
       builder: (BuildContext context) {
         Commands.init(context);
@@ -55,6 +57,7 @@ class MyAppState extends State<MyApp> {
             builder: (context) => route.UndefinedView(name: settings.name),
           ),
           initialRoute: ApplevelConstants.homeRoute,
+          navigatorKey: _navigatorService.rootNavKey,
           navigatorObservers: [AppGlobals.routeObserver],
           theme: AppTheme.lightTheme,
           title: ApplevelConstants.titleOnTab,
