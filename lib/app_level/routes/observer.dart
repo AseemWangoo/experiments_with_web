@@ -7,6 +7,10 @@ class CustomRouteObserver extends RouteObserver<PageRoute<dynamic>> {
   void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
     super.didPush(route, previousRoute);
 
+    // TRY TO REMOVE FOCUS FROM SEARCH BAR
+    final focus = FocusManager.instance.primaryFocus;
+    focus?.unfocus();
+
     final _screenName = route.settings.name;
     // print('>>>>>> Pushed Route is $_screenName');
     _navStack.push(_screenName);

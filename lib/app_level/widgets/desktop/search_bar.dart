@@ -11,13 +11,17 @@ class SearchBar extends StatefulWidget {
 }
 
 class _SearchBarState extends State<SearchBar> {
-  final FocusNode _focusNode = FocusNode();
+  final FocusNode focusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    _focusNode.addListener(() {
-      if (_focusNode.hasFocus) {}
+    focusNode.addListener(() {
+      if (focusNode.hasFocus) {
+        debugPrint('I HAVE FOCUS');
+      } else {
+        debugPrint('NO FOCUS');
+      }
     });
   }
 
@@ -28,10 +32,17 @@ class _SearchBarState extends State<SearchBar> {
     return SpacerView(
       child: RoundedShape(
         bgColor: Colors.white30,
+        focusNode: focusNode,
         onChanged: (val) {
           debugPrint('You searched >>> $val');
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    focusNode?.dispose();
+    super.dispose();
   }
 }
