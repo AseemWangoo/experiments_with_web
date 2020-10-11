@@ -17,6 +17,8 @@ class _SearchBarState extends State<SearchBar> {
   OverlayEntry overlayEntry;
   final LayerLink layerLink = LayerLink();
 
+  final SearchCommand searchCommand = SearchCommand();
+
   @override
   void initState() {
     super.initState();
@@ -62,14 +64,15 @@ class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     //
+
     return CompositedTransformTarget(
       link: layerLink,
       child: RoundedShape(
         bgColor: Colors.white30,
         focusNode: focusNode,
         onChanged: (term) {
-          final _res = SearchCommand().showSearchResults(term);
-          debugPrint(_res.toString());
+          searchCommand.showSearchResults(term);
+          debugPrint('>>> ${searchCommand.searchedResults.toString()}');
         },
       ),
     );
