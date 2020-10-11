@@ -16,6 +16,11 @@ class SearchCommand extends GenericNotifier with BaseCommand {
     return _searchedResults;
   }
 
+  void clearResults() {
+    _searchedResults.clear();
+    notify();
+  }
+
   List<String> get searchedResults => _searchedResults;
 
   // ************************** INTERNALS
