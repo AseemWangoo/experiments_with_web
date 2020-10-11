@@ -3,6 +3,8 @@ import 'package:experiments_with_web/google/widgets/rounded-shape.dart';
 
 import 'package:flutter/material.dart';
 
+import 'transform_follower.dart';
+
 class SearchBar extends StatefulWidget {
   const SearchBar({Key key}) : super(key: key);
 
@@ -35,7 +37,7 @@ class _SearchBarState extends State<SearchBar> {
     return OverlayEntry(
         builder: (_) => Positioned(
               width: size.width,
-              child: CompositedTransformFollower(
+              child: TransformFollower(
                 offset: Offset(0.0, size.height - 10),
                 link: layerLink,
                 child: Material(
