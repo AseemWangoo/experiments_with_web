@@ -1,7 +1,9 @@
 import 'package:experiments_with_web/app_level/commands/base_command.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/models/articles/articles.dart';
+import 'package:experiments_with_web/app_level/models/cached_searches/cached_searches.dart';
 import 'package:experiments_with_web/app_level/services/navigation/navigation.dart';
+import 'package:experiments_with_web/app_level/services/searches/search_operations.dart';
 
 import '../../locator.dart';
 
@@ -10,12 +12,12 @@ class SearchResultCommand extends BaseCommand {
     _combinedInputList;
   }
 
-  void tap(String result) {
-    print('You clicked $result');
+  void tap(String result, String searchTerm) {
     var article =
         _combinedInputList.where((item) => item.articleName == result).first;
 
-    print(article.toJson());
+    // INSERT IN CACHE
+    _insertInCache(article, searchTerm);
 
     _navTo(article.articleRoute);
   }
@@ -28,4 +30,16 @@ class SearchResultCommand extends BaseCommand {
 
   List<ArticlesModel> get _combinedInputList => OptionsModel.options();
   final _navigatorService = locator<NavigationService>();
+  final _searchOps = locator<SearchOperations>();
+
+  void _insertInCache(ArticlesModel model, String searchTerm) {
+    //TODO: CHECK IF PHRASE PRESENT
+    final data = CachedSearches(
+      clickedResult: model.articleRoute,
+      occurences: 1,
+      phrase: searchTerm,
+      timestamp: DateTime.now(),
+    );
+    _searchOps.addToCache(data);
+  }
 }

@@ -10,7 +10,7 @@ class CachedSearches {
     this.phrase,
     this.occurences,
     this.clickedResult,
-    this.projectStartedOn,
+    this.timestamp,
   });
 
   /// A necessary factory constructor for creating a new instance
@@ -42,7 +42,7 @@ class CachedSearches {
     fromJson: rawDateTime,
     toJson: setDateTime,
   )
-  DateTime projectStartedOn;
+  DateTime timestamp;
 
   static DateTime rawDateTime(dynamic t) {
     if (t == null) {

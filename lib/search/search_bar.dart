@@ -63,7 +63,10 @@ class _SearchBarState extends State<SearchBar> {
                 for (var item in searchCommand.searchedResults)
                   ListTile(
                     title: Text(item),
-                    onTap: () => SearchResultCommand().tap(item),
+                    onTap: () => SearchResultCommand().tap(
+                      item,
+                      controller.text,
+                    ),
                   ),
               ],
             ),
@@ -92,7 +95,7 @@ class _SearchBarState extends State<SearchBar> {
   @override
   void dispose() {
     focusNode?.dispose();
-    controller?.dispose();
+    // controller?.dispose();
     super.dispose();
   }
 }

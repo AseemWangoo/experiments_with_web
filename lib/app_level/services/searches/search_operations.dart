@@ -6,11 +6,12 @@ import 'package:hive/hive.dart';
 class SearchOperations {
   final _searchBox = Hive.box<CachedSearches>(HiveBoxes.searchesBox);
 
-  Future<void> addToFavBox(CachedSearches data) async {
+  Future<void> addToCache(CachedSearches data) async {
     return _searchBox.put(data.phrase, data);
   }
 
-  Box<CachedSearches> get favBox => _searchBox;
+  Box<CachedSearches> get cacheSearchBox => _searchBox;
 
-  List<CachedSearches> get fetchFromFavBox => _searchBox.values.toList();
+  List<CachedSearches> get fetchFromCacheSearchBox =>
+      _searchBox.values.toList();
 }

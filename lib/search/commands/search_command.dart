@@ -1,7 +1,10 @@
 import 'package:experiments_with_web/app_level/commands/base_command.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
+import 'package:experiments_with_web/app_level/services/searches/search_operations.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/change_notifier.dart';
 import 'package:experiments_with_web/search/string_search.dart';
+
+import '../../locator.dart';
 
 class SearchCommand extends GenericNotifier with BaseCommand {
   SearchCommand() {
@@ -10,6 +13,10 @@ class SearchCommand extends GenericNotifier with BaseCommand {
 
   List<String> showSearchResults(String searchTerm) {
     _searchedResults = StringSearch(_articles, searchTerm).relevantResults();
+
+    // CACHED RESULTS
+    print('Cache>>> ${_cachedPhrases.toString()}');
+
     notify();
     return _searchedResults;
   }
@@ -30,5 +37,17 @@ class SearchCommand extends GenericNotifier with BaseCommand {
     return articles;
   }
 
+  List<String> get _cachedPhrases {
+    var phrases = <String>[];
+
+    _searchOps.fetchFromCacheSearchBox.forEach((item) {
+      phrases.add(item.phrase);
+    });
+
+    return phrases;
+  }
+
   List<String> _searchedResults = [];
+
+  final _searchOps = locator<SearchOperations>();
 }
