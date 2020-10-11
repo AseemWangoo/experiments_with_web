@@ -63,7 +63,8 @@ class _SearchBarState extends State<SearchBar> {
       bgColor: Colors.white30,
       focusNode: focusNode,
       onChanged: (term) {
-        SearchCommand().showSearchResults(term);
+        final _res = SearchCommand().showSearchResults(term);
+        debugPrint(_res.toString());
       },
     );
   }
