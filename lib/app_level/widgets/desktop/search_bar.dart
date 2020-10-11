@@ -13,6 +13,7 @@ class SearchBar extends StatefulWidget {
 class _SearchBarState extends State<SearchBar> {
   final FocusNode focusNode = FocusNode();
   OverlayEntry overlayEntry;
+  final LayerLink layerLink = LayerLink();
 
   @override
   void initState() {
@@ -30,26 +31,27 @@ class _SearchBarState extends State<SearchBar> {
   OverlayEntry createOverlayEntry() {
     RenderBox renderBox = context.findRenderObject();
     var size = renderBox.size;
-    var offset = renderBox.localToGlobal(Offset.zero);
 
     return OverlayEntry(
         builder: (_) => Positioned(
-              left: offset.dx,
-              top: offset.dy + size.height - 10,
               width: size.width,
-              child: Material(
-                elevation: 4.0,
-                child: ListView(
-                  padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  children: <Widget>[
-                    ListTile(
-                      title: Text('Syria'),
-                    ),
-                    ListTile(
-                      title: Text('Lebanon'),
-                    )
-                  ],
+              child: CompositedTransformFollower(
+                offset: Offset(0.0, size.height - 10),
+                link: layerLink,
+                child: Material(
+                  elevation: 4.0,
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    children: <Widget>[
+                      ListTile(
+                        title: Text('Syria'),
+                      ),
+                      ListTile(
+                        title: Text('Lebanon'),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ));
@@ -58,14 +60,16 @@ class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     //
-
-    return RoundedShape(
-      bgColor: Colors.white30,
-      focusNode: focusNode,
-      onChanged: (term) {
-        final _res = SearchCommand().showSearchResults(term);
-        debugPrint(_res.toString());
-      },
+    return CompositedTransformTarget(
+      link: layerLink,
+      child: RoundedShape(
+        bgColor: Colors.white30,
+        focusNode: focusNode,
+        onChanged: (term) {
+          final _res = SearchCommand().showSearchResults(term);
+          debugPrint(_res.toString());
+        },
+      ),
     );
   }
 
