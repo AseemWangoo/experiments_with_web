@@ -12,31 +12,58 @@ class SearchBar extends StatefulWidget {
 
 class _SearchBarState extends State<SearchBar> {
   final FocusNode focusNode = FocusNode();
+  OverlayEntry get overlayEntry => createOverlayEntry();
 
   @override
   void initState() {
     super.initState();
     focusNode.addListener(() {
       if (focusNode.hasFocus) {
-        debugPrint('I HAVE FOCUS');
+        Overlay.of(context).insert(overlayEntry);
       } else {
-        debugPrint('NO FOCUS');
+        overlayEntry?.remove();
       }
     });
+  }
+
+  OverlayEntry createOverlayEntry() {
+    RenderBox renderBox = context.findRenderObject();
+    var size = renderBox.size;
+    var offset = renderBox.localToGlobal(Offset.zero);
+
+    return OverlayEntry(
+        builder: (_) => Positioned(
+              left: offset.dx,
+              top: offset.dy + size.height - 10,
+              width: size.width,
+              child: Material(
+                elevation: 4.0,
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  children: <Widget>[
+                    ListTile(
+                      title: Text('Syria'),
+                    ),
+                    ListTile(
+                      title: Text('Lebanon'),
+                    )
+                  ],
+                ),
+              ),
+            ));
   }
 
   @override
   Widget build(BuildContext context) {
     //
 
-    return SpacerView(
-      child: RoundedShape(
-        bgColor: Colors.white30,
-        focusNode: focusNode,
-        onChanged: (val) {
-          debugPrint('You searched >>> $val');
-        },
-      ),
+    return RoundedShape(
+      bgColor: Colors.white30,
+      focusNode: focusNode,
+      onChanged: (val) {
+        debugPrint('You searched >>> $val');
+      },
     );
   }
 
