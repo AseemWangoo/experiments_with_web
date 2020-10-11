@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/app_level/utilities/debouncer.dart';
 import 'package:experiments_with_web/google/helpers/constants.dart';
 import 'package:experiments_with_web/google/helpers/dimensions.dart'
     as dimensions;
@@ -25,6 +26,7 @@ class RoundedShape extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     final _width = dimensions.width(context);
+    final _debouncer = Debouncer();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 18.0),
@@ -56,7 +58,11 @@ class RoundedShape extends StatelessWidget {
               size: 18.0,
             ),
           ),
-          onChanged: onChanged,
+          onChanged: (val) {
+            _debouncer.call(() {
+              if (onChanged != null) onChanged(val);
+            });
+          },
           style: TextStyle(color: textColor),
           maxLines: 1,
         ),
