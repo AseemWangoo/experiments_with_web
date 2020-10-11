@@ -15,11 +15,12 @@ class StringSearch {
       return [];
     }
 
-    input.retainWhere((item) {
-      return item.toLowerCase().contains(searchTerm.toLowerCase());
-    });
-
-    return input;
+    // input.retainWhere((item) {
+    //   return item.toLowerCase().contains(searchTerm.toLowerCase());
+    // });
+    return input
+        .where((item) => item.toLowerCase().contains(searchTerm.toLowerCase()))
+        .toList();
   }
 }
 

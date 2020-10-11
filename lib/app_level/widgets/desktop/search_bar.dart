@@ -22,13 +22,24 @@ class _SearchBarState extends State<SearchBar> {
   @override
   void initState() {
     super.initState();
-    focusNode.addListener(() {
+    // focusNode.addListener(() {
+    //   if (focusNode.hasFocus) {
+    //     overlayEntry = createOverlayEntry();
+    //     Overlay.of(context).insert(overlayEntry);
+    //   } else {
+    //     overlayEntry?.remove();
+    //   }
+    // });
+
+    // OPTIMIZE THIS
+    searchCommand.addListener(() {
       if (focusNode.hasFocus) {
         overlayEntry = createOverlayEntry();
         Overlay.of(context).insert(overlayEntry);
       } else {
         overlayEntry?.remove();
       }
+      setState(() {});
     });
   }
 
@@ -37,33 +48,31 @@ class _SearchBarState extends State<SearchBar> {
     var size = renderBox.size;
 
     return OverlayEntry(
-        builder: (_) => Positioned(
-              width: size.width,
-              child: TransformFollower(
-                offset: Offset(0.0, size.height - 10),
-                link: layerLink,
-                child: Material(
-                  elevation: 4.0,
-                  child: ListView(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    children: <Widget>[
-                      ListTile(
-                        title: Text('Syria'),
-                      ),
-                      ListTile(
-                        title: Text('Lebanon'),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ));
+      builder: (_) => Positioned(
+        width: size.width,
+        child: TransformFollower(
+          offset: Offset(0.0, size.height - 10),
+          link: layerLink,
+          child: Material(
+            elevation: 4.0,
+            child: ListView(
+              padding: EdgeInsets.zero,
+              shrinkWrap: true,
+              children: <Widget>[
+                for (var item in searchCommand.searchedResults)
+                  ListTile(title: Text(item)),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     //
+    debugPrint('>>> ${searchCommand.searchedResults.toString()}');
 
     return CompositedTransformTarget(
       link: layerLink,
@@ -72,7 +81,6 @@ class _SearchBarState extends State<SearchBar> {
         focusNode: focusNode,
         onChanged: (term) {
           searchCommand.showSearchResults(term);
-          debugPrint('>>> ${searchCommand.searchedResults.toString()}');
         },
       ),
     );
