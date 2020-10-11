@@ -18,6 +18,7 @@ class _SearchBarState extends State<SearchBar> {
   final LayerLink layerLink = LayerLink();
 
   final SearchCommand searchCommand = SearchCommand();
+  final TextEditingController controller = TextEditingController();
 
   @override
   void initState() {
@@ -30,6 +31,14 @@ class _SearchBarState extends State<SearchBar> {
     //     overlayEntry?.remove();
     //   }
     // });
+
+    controller.addListener(() {
+      if (!focusNode.hasFocus) {
+        controller.text = '';
+        searchCommand.searchedResults.clear();
+        setState(() {});
+      }
+    });
 
     // OPTIMIZE THIS
     searchCommand.addListener(() {
@@ -77,6 +86,7 @@ class _SearchBarState extends State<SearchBar> {
     return CompositedTransformTarget(
       link: layerLink,
       child: RoundedShape(
+        textController: controller,
         bgColor: Colors.white30,
         focusNode: focusNode,
         onChanged: (term) {
@@ -89,6 +99,7 @@ class _SearchBarState extends State<SearchBar> {
   @override
   void dispose() {
     focusNode?.dispose();
+    controller?.dispose();
     super.dispose();
   }
 }
