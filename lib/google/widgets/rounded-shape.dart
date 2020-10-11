@@ -6,25 +6,31 @@ import 'package:flutter/material.dart';
 
 class RoundedShape extends StatelessWidget {
   ///Creates the rounded shape widget..
-  const RoundedShape({Key key}) : super(key: key);
+  const RoundedShape({
+    Key key,
+    @required this.bgColor,
+    this.iconColor = Colors.orange,
+    this.cursorColor = Colors.black,
+    this.textColor = Colors.black,
+    this.onChanged,
+  }) : super(key: key);
+
+  final Color bgColor;
+  final Color iconColor;
+  final Color cursorColor;
+  final Color textColor;
+  final ValueChanged<String> onChanged;
 
   @override
   Widget build(BuildContext context) {
-    //begin...
-
-    return _constructBody(context);
-  }
-
-  //Main widget...
-  Widget _constructBody(BuildContext context) {
-    //Begin...
+    //
     final _width = dimensions.width(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 18.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.9),
+          color: bgColor,
           borderRadius: BorderRadius.circular(25.0),
           boxShadow: [
             BoxShadow(
@@ -36,24 +42,25 @@ class RoundedShape extends StatelessWidget {
           ],
         ),
         width: dimensions.adjustWidth(googleSearchPercent, _width),
-        child: _customTextField(context),
+        child: TextField(
+          cursorColor: cursorColor,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 12.0,
+              vertical: 13.0,
+            ),
+            prefixIcon: Icon(
+              Icons.search,
+              color: iconColor,
+              size: 18.0,
+            ),
+          ),
+          onChanged: onChanged,
+          style: TextStyle(color: textColor),
+          maxLines: 1,
+        ),
       ),
-    );
-  }
-
-  //Constructs the search text widget...
-  Widget _customTextField(BuildContext context) {
-    //begin...
-
-    return TextField(
-      cursorColor: Theme.of(context).primaryColor,
-      decoration: InputDecoration(
-        border: InputBorder.none,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 12.0, vertical: 13.0),
-        prefixIcon: const Icon(Icons.search, color: Colors.orange, size: 18.0),
-      ),
-      maxLines: 1,
     );
   }
 }

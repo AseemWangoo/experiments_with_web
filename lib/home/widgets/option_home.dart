@@ -3,6 +3,7 @@ import 'package:experiments_with_web/app_level/extensions/widget_extension.dart'
 import 'package:experiments_with_web/app_level/models/articles/articles.dart';
 import 'package:experiments_with_web/app_level/services/hive/hive_operations.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/parallax_btn.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/search_bar.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
 
 import 'package:flutter/material.dart';
@@ -40,6 +41,7 @@ class _OptionHomeState extends State<OptionHome> {
       minHeight: 120.0,
       maxHeight: 120.0,
       children: [
+        SearchBar(),
         ValueListenableBuilder(
           builder: (_, Box<ArticlesModel> model, child) => HomeGridView(
             children: _displayOptions(_nav),
