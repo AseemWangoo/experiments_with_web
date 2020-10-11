@@ -17,6 +17,7 @@ class TransformFollower extends StatelessWidget {
     return CompositedTransformFollower(
       offset: offset,
       link: link,
+      showWhenUnlinked: false,
       child: child,
     );
   }
