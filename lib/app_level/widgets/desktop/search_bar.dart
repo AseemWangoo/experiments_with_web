@@ -1,4 +1,4 @@
-import 'package:experiments_with_web/app_level/widgets/desktop/spacer_view.dart';
+import 'package:experiments_with_web/search/commands/search_command.dart';
 import 'package:experiments_with_web/google/widgets/rounded-shape.dart';
 
 import 'package:flutter/material.dart';
@@ -12,13 +12,14 @@ class SearchBar extends StatefulWidget {
 
 class _SearchBarState extends State<SearchBar> {
   final FocusNode focusNode = FocusNode();
-  OverlayEntry get overlayEntry => createOverlayEntry();
+  OverlayEntry overlayEntry;
 
   @override
   void initState() {
     super.initState();
     focusNode.addListener(() {
       if (focusNode.hasFocus) {
+        overlayEntry = createOverlayEntry();
         Overlay.of(context).insert(overlayEntry);
       } else {
         overlayEntry?.remove();
@@ -61,8 +62,8 @@ class _SearchBarState extends State<SearchBar> {
     return RoundedShape(
       bgColor: Colors.white30,
       focusNode: focusNode,
-      onChanged: (val) {
-        debugPrint('You searched >>> $val');
+      onChanged: (term) {
+        SearchCommand().showSearchResults(term);
       },
     );
   }

@@ -1,3 +1,5 @@
+import 'package:experiments_with_web/app_level/commands/base_command.dart'
+    as Commands;
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/routes/router.dart' as route;
 import 'package:experiments_with_web/app_level/styles/themes.dart';
@@ -40,17 +42,23 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     //
 
-    return MaterialApp(
-      darkTheme: AppTheme.darkTheme,
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: route.Router.generateRoute,
-      onUnknownRoute: (settings) => MaterialPageRoute<dynamic>(
-        builder: (context) => route.UndefinedView(name: settings.name),
-      ),
-      initialRoute: ApplevelConstants.homeRoute,
-      navigatorObservers: [AppGlobals.routeObserver],
-      theme: AppTheme.lightTheme,
-      title: ApplevelConstants.titleOnTab,
+    return Builder(
+      builder: (BuildContext context) {
+        Commands.init(context);
+
+        return MaterialApp(
+          darkTheme: AppTheme.darkTheme,
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: route.Router.generateRoute,
+          onUnknownRoute: (settings) => MaterialPageRoute<dynamic>(
+            builder: (context) => route.UndefinedView(name: settings.name),
+          ),
+          initialRoute: ApplevelConstants.homeRoute,
+          navigatorObservers: [AppGlobals.routeObserver],
+          theme: AppTheme.lightTheme,
+          title: ApplevelConstants.titleOnTab,
+        );
+      },
     );
   }
 }
