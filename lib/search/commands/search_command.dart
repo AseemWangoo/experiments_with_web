@@ -12,13 +12,8 @@ class SearchCommand extends GenericNotifier with BaseCommand {
 
   List<String> showSearchResults(String searchTerm) {
     _searchedResults = StringSearch(_articles, searchTerm).relevantResults();
-    notifyListeners();
-    return _searchedResults;
-  }
-
-  void clearResults() {
-    _searchedResults.clear();
     notify();
+    return _searchedResults;
   }
 
   List<String> get searchedResults => _searchedResults;

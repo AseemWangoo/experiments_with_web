@@ -23,20 +23,11 @@ class _SearchBarState extends State<SearchBar> {
   @override
   void initState() {
     super.initState();
-    // focusNode.addListener(() {
-    //   if (focusNode.hasFocus) {
-    //     overlayEntry = createOverlayEntry();
-    //     Overlay.of(context).insert(overlayEntry);
-    //   } else {
-    //     overlayEntry?.remove();
-    //   }
-    // });
 
     controller.addListener(() {
       if (!focusNode.hasFocus) {
         controller.text = '';
         searchCommand.searchedResults.clear();
-        setState(() {});
       }
     });
 
@@ -81,7 +72,7 @@ class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     //
-    debugPrint('>>> ${searchCommand.searchedResults.toString()}');
+    // debugPrint('>>> ${searchCommand.searchedResults.toString()}');
 
     return CompositedTransformTarget(
       link: layerLink,
