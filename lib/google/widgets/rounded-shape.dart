@@ -5,7 +5,7 @@ import 'package:experiments_with_web/google/helpers/dimensions.dart'
 
 import 'package:flutter/material.dart';
 
-class RoundedShape extends StatelessWidget {
+class RoundedShape extends StatefulWidget {
   ///Creates the rounded shape widget..
   const RoundedShape({
     Key key,
@@ -15,6 +15,8 @@ class RoundedShape extends StatelessWidget {
     this.textColor = Colors.white,
     this.onChanged,
     this.focusNode,
+    this.initialValue = '',
+    this.textController,
   }) : super(key: key);
 
   final Color bgColor;
@@ -23,22 +25,46 @@ class RoundedShape extends StatelessWidget {
   final Color textColor;
   final ValueChanged<String> onChanged;
   final FocusNode focusNode;
+  final String initialValue;
+  final TextEditingController textController;
 
+  String get _initValue => initialValue;
+
+  TextEditingController get _widgetTextController => _textController;
+  TextEditingController get _textController {
+    if (textController != null) {
+      return textController;
+    }
+    return null;
+  }
+
+  @override
+  _RoundedShapeState createState() => _RoundedShapeState();
+}
+
+class _RoundedShapeState extends State<RoundedShape> {
   FocusNode get _focusNode => _checkFocusNode;
 
-  FocusNode get _checkFocusNode => focusNode;
+  FocusNode get _checkFocusNode => widget.focusNode;
+  final _debouncer = Debouncer();
+  TextEditingController _textController;
+
+  @override
+  void initState() {
+    super.initState();
+    _textController = TextEditingController(text: widget._initValue);
+  }
 
   @override
   Widget build(BuildContext context) {
     //
     final _width = dimensions.width(context);
-    final _debouncer = Debouncer();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 18.0),
       child: Container(
         decoration: BoxDecoration(
-          color: bgColor,
+          color: widget.bgColor,
           borderRadius: BorderRadius.circular(25.0),
           boxShadow: [
             BoxShadow(
@@ -51,7 +77,8 @@ class RoundedShape extends StatelessWidget {
         ),
         width: dimensions.adjustWidth(googleSearchPercent, _width),
         child: TextField(
-          cursorColor: cursorColor,
+          controller: widget._widgetTextController ?? _textController,
+          cursorColor: widget.cursorColor,
           decoration: InputDecoration(
             border: InputBorder.none,
             contentPadding: const EdgeInsets.symmetric(
@@ -60,20 +87,26 @@ class RoundedShape extends StatelessWidget {
             ),
             prefixIcon: Icon(
               Icons.search,
-              color: iconColor,
+              color: widget.iconColor,
               size: 18.0,
             ),
           ),
           focusNode: _focusNode,
           onChanged: (val) {
             _debouncer.call(() {
-              if (onChanged != null) onChanged(val);
+              if (widget.onChanged != null) widget.onChanged(val);
             });
           },
-          style: TextStyle(color: textColor),
+          style: TextStyle(color: widget.textColor),
           maxLines: 1,
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _textController?.dispose();
+    super.dispose();
   }
 }
