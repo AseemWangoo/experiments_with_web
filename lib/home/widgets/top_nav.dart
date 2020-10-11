@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
@@ -7,28 +10,23 @@ import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/image_loader.dart';
 import 'package:experiments_with_web/locator.dart';
 
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 class TopNavBar extends StatefulWidget {
-  const TopNavBar({Key key}) : super(key: key);
+  const TopNavBar({
+    Key key,
+    @required this.controller,
+  }) : super(key: key);
+
+  final ScrollController controller;
 
   @override
   _TopNavBarState createState() => _TopNavBarState();
 }
 
 class _TopNavBarState extends State<TopNavBar> {
-  ScrollController _controller;
   static final _linkService = locator<LinkerService>();
 
   TextStyle get _whiteStyle =>
       Theme.of(context).textTheme.headline6.c(Colors.white);
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = ScrollController();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +38,7 @@ class _TopNavBarState extends State<TopNavBar> {
       child: Row(
         children: [
           ImageWidgetPlaceholder(image: WebAssets.logo).clickable(() {
-            _controller.animateTo(
+            widget.controller.animateTo(
               0.0,
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeInOut,
@@ -100,11 +98,5 @@ class _TopNavBarState extends State<TopNavBar> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
   }
 }

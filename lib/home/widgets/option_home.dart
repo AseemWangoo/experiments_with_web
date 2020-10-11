@@ -49,7 +49,7 @@ class _OptionHomeState extends State<OptionHome> {
           valueListenable: _hiveService.favBox.listenable(),
         ),
       ],
-      menu: const TopNavBar(),
+      menu: TopNavBar(controller: _controller),
     );
   }
 
