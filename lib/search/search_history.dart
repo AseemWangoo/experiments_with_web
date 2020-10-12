@@ -28,8 +28,16 @@ class SearchHistory extends StatelessWidget {
           );
 
           return CustomPaginatedTable(
+            actions: [
+              OutlineButton.icon(
+                onPressed: () => _searchOps.clearEntireCache,
+                icon: const Icon(Icons.clear_all),
+                label: const Text(SearchHistoryConsts.clearSearch),
+              ),
+            ],
             dataColumns: _colGen(),
             header: const Text(SearchHistoryConsts.users),
+            showActions: true,
             source: dtSource,
           );
         },

@@ -25,6 +25,8 @@ class SearchOperations {
     return true;
   }
 
+  void get clearEntireCache => _searchBox.clear();
+
   Box<CachedSearches> get cacheSearchBox => _searchBox;
 
   List<CachedSearches> get fetchFromCacheSearchBox =>
