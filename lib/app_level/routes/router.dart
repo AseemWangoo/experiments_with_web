@@ -11,6 +11,7 @@ import 'package:experiments_with_web/ml/ml.dart';
 import 'package:experiments_with_web/nav/nav.dart';
 import 'package:experiments_with_web/parallax/parallax.dart';
 import 'package:experiments_with_web/sample/sample.dart';
+import 'package:experiments_with_web/search/search_history.dart';
 import 'package:experiments_with_web/streams/stream_form.dart';
 import 'package:experiments_with_web/using_selector/use_selector.dart';
 
@@ -103,6 +104,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const VisitedScreens(),
           name: ApplevelConstants.visitedPagesRoute,
+        );
+
+      case ApplevelConstants.searchHistoryRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const SearchHistory(),
+          name: ApplevelConstants.searchHistoryRoute,
         );
 
       default:

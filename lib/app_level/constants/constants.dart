@@ -38,6 +38,7 @@ class ApplevelConstants {
   static const String streamsRoute = '/streams';
   static const String selectorsRoute = '/selector';
   static const String visitedPagesRoute = '/pages-seen';
+  static const String searchHistoryRoute = '/search-history';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -53,6 +54,7 @@ class ApplevelConstants {
   static const String option11 = 'Streams & Hooks';
   static const String option12 = 'Selectors in Provider';
   static const String option13 = 'Navigation History';
+  static const String option14 = 'Search History';
 }
 
 class WHOLinks {
@@ -96,6 +98,7 @@ class OptionAndRoutes {
     ApplevelConstants.option11: ApplevelConstants.streamsRoute,
     ApplevelConstants.option2: ApplevelConstants.googleRoute,
     ApplevelConstants.option13: ApplevelConstants.visitedPagesRoute,
+    ApplevelConstants.option14: ApplevelConstants.searchHistoryRoute,
   };
 
   static const Map<String, List<String>> linksRoutes = {
@@ -163,6 +166,11 @@ class OptionAndRoutes {
       NavConstants.medium,
       NavConstants.website,
       NavConstants.youtube
+    ],
+    ApplevelConstants.option14: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
     ],
   };
 }
