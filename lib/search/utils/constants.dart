@@ -8,5 +8,5 @@ class SearchHistoryConsts {
   static const String medium = '';
 
   static const String dtTitle = 'See what you searched';
-  static const String users = 'List of Users (Sort by Name, ID, Email)';
+  static const String users = 'Your searches (Sort by Occurence)';
 }
