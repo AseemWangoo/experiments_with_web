@@ -1,5 +1,5 @@
-import 'package:experiments_with_web/search/front_back_search.dart';
-import 'package:experiments_with_web/search/string_search.dart';
+import 'package:experiments_with_web/search/algo/front_back_search.dart';
+import 'package:experiments_with_web/search/algo/string_search.dart';
 
 void main() {
   // testFrontBackSearch();

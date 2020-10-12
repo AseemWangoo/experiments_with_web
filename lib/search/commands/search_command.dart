@@ -3,7 +3,7 @@ import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/models/cached_searches/cached_searches.dart';
 import 'package:experiments_with_web/app_level/services/searches/search_operations.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/change_notifier.dart';
-import 'package:experiments_with_web/search/string_search.dart';
+import 'package:experiments_with_web/search/algo/string_search.dart';
 
 import '../../locator.dart';
 

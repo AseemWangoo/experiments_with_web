@@ -11,7 +11,6 @@ class SearchOperations {
     if (exists) {
       final val = _searchBox.get(data.phrase);
       data..occurences = val.occurences + 1;
-      print('Data to be inserted ${data.toJson()}');
       return _searchBox.put(data.phrase, data);
     }
 

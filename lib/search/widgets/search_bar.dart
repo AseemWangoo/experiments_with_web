@@ -3,8 +3,8 @@ import 'package:experiments_with_web/google/widgets/rounded-shape.dart';
 
 import 'package:flutter/material.dart';
 
-import '../app_level/widgets/desktop/transform_follower.dart';
-import 'commands/results_command.dart';
+import '../../app_level/widgets/desktop/transform_follower.dart';
+import '../commands/results_command.dart';
 
 class SearchBar extends StatefulWidget {
   const SearchBar({Key key}) : super(key: key);
