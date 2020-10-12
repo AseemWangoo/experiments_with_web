@@ -1,5 +1,6 @@
 import 'package:experiments_with_web/app_level/commands/base_command.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
+import 'package:experiments_with_web/app_level/models/cached_searches/cached_searches.dart';
 import 'package:experiments_with_web/app_level/services/searches/search_operations.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/change_notifier.dart';
 import 'package:experiments_with_web/search/string_search.dart';
@@ -16,6 +17,12 @@ class SearchCommand extends GenericNotifier with BaseCommand {
 
     // CACHED RESULTS
     print('Cache>>> ${_cachedPhrases.toString()}');
+    final cachedResult = isTermInCache(searchTerm);
+
+    if (cachedResult.isNotEmpty) {
+      print('FROM CACHE >>>> ${cachedResult.first.toJson()}');
+      _searchedResults.add(cachedResult.first.articleName);
+    }
 
     notify();
     return _searchedResults;
@@ -45,6 +52,13 @@ class SearchCommand extends GenericNotifier with BaseCommand {
     });
 
     return phrases;
+  }
+
+  List<CachedSearches> isTermInCache(String searchTerm) {
+    final cachedData = _searchOps.cacheSearchBox.values
+        .where((item) => item.phrase == searchTerm)
+        .toList();
+    return cachedData;
   }
 
   List<String> _searchedResults = [];

@@ -21,13 +21,14 @@ class CachedSearchesAdapter extends TypeAdapter<CachedSearches> {
       occurences: fields[1] as int,
       clickedResult: fields[2] as String,
       timestamp: fields[3] as DateTime,
+      articleName: fields[4] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, CachedSearches obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.phrase)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class CachedSearchesAdapter extends TypeAdapter<CachedSearches> {
       ..writeByte(2)
       ..write(obj.clickedResult)
       ..writeByte(3)
-      ..write(obj.timestamp);
+      ..write(obj.timestamp)
+      ..writeByte(4)
+      ..write(obj.articleName);
   }
 
   @override
@@ -59,6 +62,7 @@ CachedSearches _$CachedSearchesFromJson(Map<String, dynamic> json) {
     occurences: json['occurences'] as int,
     clickedResult: json['clicked_result'] as String,
     timestamp: CachedSearches.rawDateTime(json['timestamp']),
+    articleName: json['article_name'] as String,
   );
 }
 
@@ -68,4 +72,5 @@ Map<String, dynamic> _$CachedSearchesToJson(CachedSearches instance) =>
       'occurences': instance.occurences,
       'clicked_result': instance.clickedResult,
       'timestamp': CachedSearches.setDateTime(instance.timestamp),
+      'article_name': instance.articleName,
     };

@@ -11,6 +11,7 @@ class CachedSearches {
     this.occurences,
     this.clickedResult,
     this.timestamp,
+    this.articleName,
   });
 
   /// A necessary factory constructor for creating a new instance
@@ -43,6 +44,10 @@ class CachedSearches {
     toJson: setDateTime,
   )
   DateTime timestamp;
+
+  @HiveField(4)
+  @JsonKey(name: 'article_name')
+  String articleName;
 
   static DateTime rawDateTime(dynamic t) {
     if (t == null) {

@@ -35,6 +35,7 @@ class SearchResultCommand extends BaseCommand {
   void _insertInCache(ArticlesModel model, String searchTerm) {
     //TODO: CHECK IF PHRASE PRESENT
     final data = CachedSearches(
+      articleName: model.articleName,
       clickedResult: model.articleRoute,
       occurences: 1,
       phrase: searchTerm,
