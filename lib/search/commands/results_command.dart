@@ -33,7 +33,6 @@ class SearchResultCommand extends BaseCommand {
   final _searchOps = locator<SearchOperations>();
 
   void _insertInCache(ArticlesModel model, String searchTerm) {
-    //TODO: CHECK IF PHRASE PRESENT
     final data = CachedSearches(
       articleName: model.articleName,
       clickedResult: model.articleRoute,

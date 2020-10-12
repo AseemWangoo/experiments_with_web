@@ -7,7 +7,23 @@ class SearchOperations {
   final _searchBox = Hive.box<CachedSearches>(HiveBoxes.searchesBox);
 
   Future<void> addToCache(CachedSearches data) async {
+    final exists = checkIfExistsInCache(data);
+    if (exists) {
+      final val = _searchBox.get(data.phrase);
+      data..occurences = val.occurences + 1;
+      print('Data to be inserted ${data.toJson()}');
+      return _searchBox.put(data.phrase, data);
+    }
+
     return _searchBox.put(data.phrase, data);
+  }
+
+  bool checkIfExistsInCache(CachedSearches data) {
+    final val = _searchBox.get(data.phrase);
+    if (val == null) {
+      return false;
+    }
+    return true;
   }
 
   Box<CachedSearches> get cacheSearchBox => _searchBox;
