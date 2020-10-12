@@ -15,15 +15,6 @@ class SearchCommand extends GenericNotifier with BaseCommand {
   List<String> showSearchResults(String searchTerm) {
     _searchedResults = StringSearch(_articles, searchTerm).relevantResults();
 
-    // CACHED RESULTS
-    print('Cache>>> ${_cachedPhrases.toString()}');
-    final cachedResult = isTermInCache(searchTerm);
-
-    if (cachedResult.isNotEmpty) {
-      print('FROM CACHE >>>> ${cachedResult.first.toJson()}');
-      _searchedResults.add(cachedResult.first.articleName);
-    }
-
     notify();
     return _searchedResults;
   }
@@ -42,16 +33,6 @@ class SearchCommand extends GenericNotifier with BaseCommand {
     });
 
     return articles;
-  }
-
-  List<String> get _cachedPhrases {
-    var phrases = <String>[];
-
-    _searchOps.fetchFromCacheSearchBox.forEach((item) {
-      phrases.add(item.phrase);
-    });
-
-    return phrases;
   }
 
   List<CachedSearches> isTermInCache(String searchTerm) {
