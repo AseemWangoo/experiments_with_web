@@ -20,8 +20,8 @@ class SearchHistoryDataTable extends DataTableSource {
 
     return DataRow.byIndex(
       cells: <DataCell>[
-        DataCell(Text(searchItem.phrase)),
         DataCell(Text(searchItem.occurences.toString())),
+        DataCell(Text(searchItem.phrase)),
         DataCell(Text(searchItem.articleName)),
         DataCell(Text(searchItem.timestamp.toIso8601String())),
       ],

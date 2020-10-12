@@ -40,20 +40,17 @@ class SearchHistory extends StatelessWidget {
 
   List<DataColumn> _colGen() => <DataColumn>[
         DataColumn(
-          label: Text(SearchHistoryConsts.colPhrase),
-          tooltip: SearchHistoryConsts.colPhrase,
+          label: Text(SearchHistoryConsts.colOccurence),
+          numeric: true,
         ),
         DataColumn(
-          label: Text(SearchHistoryConsts.colOccurence),
-          tooltip: SearchHistoryConsts.colOccurence,
+          label: Text(SearchHistoryConsts.colPhrase),
         ),
         DataColumn(
           label: Text(SearchHistoryConsts.colArticleName),
-          tooltip: SearchHistoryConsts.colArticleName,
         ),
         DataColumn(
           label: Text(SearchHistoryConsts.colTimestamp),
-          tooltip: SearchHistoryConsts.colTimestamp,
         ),
       ];
 }
