@@ -1,12 +1,17 @@
 import 'package:experiments_with_web/app_level/models/cached_searches/cached_searches.dart';
+
 import 'package:flutter/material.dart';
+
+typedef OnRowSelect = void Function(CachedSearches data);
 
 class SearchHistoryDataTable extends DataTableSource {
   SearchHistoryDataTable({
     @required List<CachedSearches> cachedData,
+    @required this.onRowSelect,
   }) : _cachedData = cachedData;
 
   final List<CachedSearches> _cachedData;
+  final OnRowSelect onRowSelect;
 
   @override
   DataRow getRow(int index) {
@@ -24,6 +29,14 @@ class SearchHistoryDataTable extends DataTableSource {
         DataCell(Text(searchItem.phrase)),
         DataCell(Text(searchItem.articleName)),
         DataCell(Text(searchItem.timestamp.toIso8601String())),
+        DataCell(
+          IconButton(
+            hoverColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            icon: const Icon(Icons.clear),
+            onPressed: () => onRowSelect(searchItem),
+          ),
+        ),
       ],
       index: index,
     );

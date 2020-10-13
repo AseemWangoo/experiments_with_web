@@ -27,6 +27,10 @@ class SearchOperations {
 
   void get clearEntireCache => _searchBox.clear();
 
+  Future<void> clearItemInCache(CachedSearches data) async {
+    await _searchBox.delete(data.phrase);
+  }
+
   Box<CachedSearches> get cacheSearchBox => _searchBox;
 
   List<CachedSearches> get fetchFromCacheSearchBox =>

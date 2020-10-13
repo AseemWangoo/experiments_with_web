@@ -25,6 +25,8 @@ class SearchHistory extends StatelessWidget {
         builder: (_, Box<CachedSearches> model, child) {
           final dtSource = SearchHistoryDataTable(
             cachedData: model.values.toList(),
+            onRowSelect: (searchData) =>
+                _searchOps.clearItemInCache(searchData),
           );
 
           return CustomPaginatedTable(
@@ -51,14 +53,9 @@ class SearchHistory extends StatelessWidget {
           label: Text(SearchHistoryConsts.colOccurence),
           numeric: true,
         ),
-        DataColumn(
-          label: Text(SearchHistoryConsts.colPhrase),
-        ),
-        DataColumn(
-          label: Text(SearchHistoryConsts.colArticleName),
-        ),
-        DataColumn(
-          label: Text(SearchHistoryConsts.colTimestamp),
-        ),
+        DataColumn(label: Text(SearchHistoryConsts.colPhrase)),
+        DataColumn(label: Text(SearchHistoryConsts.colArticleName)),
+        DataColumn(label: Text(SearchHistoryConsts.colTimestamp)),
+        DataColumn(label: Text(SearchHistoryConsts.colRemove)),
       ];
 }

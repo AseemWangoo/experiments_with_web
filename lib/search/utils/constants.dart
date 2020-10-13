@@ -14,6 +14,7 @@ class SearchHistoryConsts {
   static const String colOccurence = 'Occurences';
   static const String colArticleName = 'Article Name';
   static const String colTimestamp = 'Searched At';
+  static const String colRemove = 'Remove Item';
 
   static const String clearSearch = 'Clear Search History';
 }
