@@ -77,7 +77,8 @@ class BrandLinks {
 
   static const String favWebsite =
       'https://flatteredwithflutter.com/using-hive-in-flutter-web/';
-  static const String favMedium = 'https://medium.com/@aseemwangoo';
+  static const String favMedium =
+      'https://medium.com/flutter-community/flutter-web-and-hive-709fdb9920a2';
   static const String favYoutube = 'https://youtu.be/4u6TXhqUbHw';
 }
 
