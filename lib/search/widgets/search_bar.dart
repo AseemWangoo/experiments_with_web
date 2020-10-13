@@ -62,7 +62,8 @@ class _SearchBarState extends State<SearchBar> {
               children: <Widget>[
                 for (var item in searchCommand.searchedResults)
                   ListTile(
-                    title: Text(item),
+                    tileColor: Colors.black54,
+                    title: Text(item, style: TextStyle(color: Colors.white)),
                     onTap: () => SearchResultCommand().tap(
                       item,
                       controller.text,

@@ -15,9 +15,6 @@ class StringSearch {
       return [];
     }
 
-    // input.retainWhere((item) {
-    //   return item.toLowerCase().contains(searchTerm.toLowerCase());
-    // });
     return input
         .where((item) => item.toLowerCase().contains(searchTerm.toLowerCase()))
         .toList();
@@ -26,6 +23,6 @@ class StringSearch {
 
 // Phrase | Occurence | Cliched Result || Timestamp
 // ----------------------------------------------
-//    0   |    0     |        0       ||  fade
-//    1   |    1     |        0       ||  1.0
-//    1   |    1     |        1       ||  fade
+//    0   |    0     |        0       ||  DateTime
+//    1   |    1     |        0       ||  DateTime
+//    1   |    1     |        1       ||  DateTime
