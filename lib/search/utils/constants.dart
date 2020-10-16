@@ -1,9 +1,10 @@
 class SearchHistoryConsts {
   SearchHistoryConsts._();
 
-  static const String youtube = '';
+  static const String youtube = 'https://www.youtube.com/watch?v=iNjzG3mkF8I';
 
-  static const String website = '';
+  static const String website =
+      'https://flatteredwithflutter.com/how-to-implement-search-in-flutter-web/';
 
   static const String medium = '';
 

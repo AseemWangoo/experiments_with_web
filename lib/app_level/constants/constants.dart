@@ -8,6 +8,7 @@ import 'package:experiments_with_web/location/utilities/constants.dart';
 import 'package:experiments_with_web/ml/utilities/constants.dart';
 import 'package:experiments_with_web/nav/utilities/constants.dart';
 import 'package:experiments_with_web/parallax/utilities/constants.dart';
+import 'package:experiments_with_web/search/utils/constants.dart';
 import 'package:experiments_with_web/streams/utilities/constants.dart';
 import 'package:experiments_with_web/using_selector/utilities/constants.dart';
 
@@ -170,8 +171,8 @@ class OptionAndRoutes {
     ],
     ApplevelConstants.option14: <String>[
       BrandLinks.medium,
-      BrandLinks.website,
-      BrandLinks.youtube
+      SearchHistoryConsts.website,
+      SearchHistoryConsts.youtube
     ],
   };
 }
