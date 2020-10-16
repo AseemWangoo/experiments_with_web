@@ -45,7 +45,7 @@ class _OptionFavState extends State<OptionFav> {
       controller: _controller,
       minHeight: 120.0,
       maxHeight: 120.0,
-      menu: const TopNavBar(),
+      menu: TopNavBar(controller: _controller),
       children: [
         ValueListenableBuilder(
           builder: (_, Box<ArticlesModel> model, child) {

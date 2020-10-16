@@ -8,6 +8,7 @@ import 'package:experiments_with_web/location/utilities/constants.dart';
 import 'package:experiments_with_web/ml/utilities/constants.dart';
 import 'package:experiments_with_web/nav/utilities/constants.dart';
 import 'package:experiments_with_web/parallax/utilities/constants.dart';
+import 'package:experiments_with_web/search/utils/constants.dart';
 import 'package:experiments_with_web/streams/utilities/constants.dart';
 import 'package:experiments_with_web/using_selector/utilities/constants.dart';
 
@@ -38,6 +39,7 @@ class ApplevelConstants {
   static const String streamsRoute = '/streams';
   static const String selectorsRoute = '/selector';
   static const String visitedPagesRoute = '/pages-seen';
+  static const String searchHistoryRoute = '/search-history';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -53,6 +55,7 @@ class ApplevelConstants {
   static const String option11 = 'Streams & Hooks';
   static const String option12 = 'Selectors in Provider';
   static const String option13 = 'Navigation History';
+  static const String option14 = 'Search History';
 }
 
 class WHOLinks {
@@ -97,6 +100,7 @@ class OptionAndRoutes {
     ApplevelConstants.option11: ApplevelConstants.streamsRoute,
     ApplevelConstants.option2: ApplevelConstants.googleRoute,
     ApplevelConstants.option13: ApplevelConstants.visitedPagesRoute,
+    ApplevelConstants.option14: ApplevelConstants.searchHistoryRoute,
   };
 
   static const Map<String, List<String>> linksRoutes = {
@@ -165,6 +169,11 @@ class OptionAndRoutes {
       NavConstants.website,
       NavConstants.youtube
     ],
+    ApplevelConstants.option14: <String>[
+      BrandLinks.medium,
+      SearchHistoryConsts.website,
+      SearchHistoryConsts.youtube
+    ],
   };
 }
 
@@ -206,4 +215,5 @@ class HiveBoxes {
   HiveBoxes._();
 
   static const String favBox = 'favorites';
+  static const String searchesBox = 'searches';
 }
