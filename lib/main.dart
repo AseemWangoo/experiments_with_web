@@ -1,3 +1,6 @@
+import 'package:experiments_with_web/app_level/commands/base_command.dart'
+    // ignore: library_prefixes
+    as Commands;
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/routes/router.dart' as route;
 import 'package:experiments_with_web/app_level/styles/themes.dart';
@@ -8,6 +11,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'app_level/services/hive/hive_helpers.dart';
+import 'app_level/services/navigation/navigation.dart';
 import 'globals.dart';
 
 Future<void> main() async {
@@ -23,6 +27,7 @@ Future<void> main() async {
 
   // Open Fav Box
   await HiveHelpers.openFavoritesBox();
+  await HiveHelpers.openBoxes();
 
   runApp(const MyApp());
 }
@@ -35,21 +40,29 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
+  final _navigatorService = locator<NavigationService>();
+
   @override
   Widget build(BuildContext context) {
     //
+    return Builder(
+      builder: (BuildContext context) {
+        Commands.init(context);
 
-    return MaterialApp(
-      darkTheme: AppTheme.darkTheme,
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: route.Router.generateRoute,
-      onUnknownRoute: (settings) => MaterialPageRoute<dynamic>(
-        builder: (context) => route.UndefinedView(name: settings.name),
-      ),
-      initialRoute: ApplevelConstants.homeRoute,
-      navigatorObservers: [AppGlobals.routeObserver],
-      theme: AppTheme.lightTheme,
-      title: ApplevelConstants.titleOnTab,
+        return MaterialApp(
+          darkTheme: AppTheme.darkTheme,
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: route.Router.generateRoute,
+          onUnknownRoute: (settings) => MaterialPageRoute<dynamic>(
+            builder: (context) => route.UndefinedView(name: settings.name),
+          ),
+          initialRoute: ApplevelConstants.homeRoute,
+          navigatorKey: _navigatorService.rootNavKey,
+          navigatorObservers: [AppGlobals.routeObserver],
+          theme: AppTheme.lightTheme,
+          title: ApplevelConstants.titleOnTab,
+        );
+      },
     );
   }
 }

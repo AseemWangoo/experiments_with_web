@@ -46,3 +46,13 @@ class _ChangeNotifierWidgetState<T extends ChangeNotifier>
     );
   }
 }
+
+class GenericNotifier extends ChangeNotifier {
+  void notify() => notifyListeners();
+}
+
+class GenericValueNotifier<T> extends ValueNotifier<T> {
+  GenericValueNotifier(T value) : super(value);
+
+  void notify() => notifyListeners();
+}

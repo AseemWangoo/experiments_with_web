@@ -39,6 +39,12 @@
 - Hive (https://github.com/awaik/todo_hive_example/blob/master/lib/main.dart)
 - Official Hive examples (https://docs.hivedb.dev/#/tutorials/favorite_books)
 
+- Overlay (https://medium.com/saugo360/https-medium-com-saugo360-flutter-using-overlay-to-display-floating-widgets-2e6d0e8decb9)
+
+- CompositeTransformFollower (https://medium.com/flutter/how-to-float-an-overlay-widget-over-a-possibly-transformed-ui-widget-1d15ca7667b6)
+
+- Flutter Portal (https://pub.dev/packages/flutter_portal)
+
 ### GitIssues
 
 - TextController (https://github.com/flutter/flutter/issues/11416)
