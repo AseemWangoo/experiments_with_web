@@ -170,7 +170,7 @@ class OptionAndRoutes {
       NavConstants.youtube
     ],
     ApplevelConstants.option14: <String>[
-      BrandLinks.medium,
+      SearchHistoryConsts.medium,
       SearchHistoryConsts.website,
       SearchHistoryConsts.youtube
     ],

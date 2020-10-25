@@ -6,7 +6,8 @@ class SearchHistoryConsts {
   static const String website =
       'https://flatteredwithflutter.com/how-to-implement-search-in-flutter-web/';
 
-  static const String medium = '';
+  static const String medium =
+      'https://medium.com/flutterpub/flutter-web-and-search-48bf2db8b1c4';
 
   static const String dtTitle = 'Search History';
   static const String users = 'Your searches';
