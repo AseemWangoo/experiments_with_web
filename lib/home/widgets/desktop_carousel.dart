@@ -12,6 +12,7 @@ class DesktopCarousel extends StatefulWidget {
     Key key,
     @required this.children,
     this.heightFactor = 0.3,
+    this.showNavButtons = true,
   })  : assert(
           heightFactor >= 0 && heightFactor <= 1,
           'HeightFactor should be between 0 and 1',
@@ -20,6 +21,7 @@ class DesktopCarousel extends StatefulWidget {
 
   final List<Widget> children;
   final double heightFactor;
+  final bool showNavButtons;
 
   @override
   _DesktopCarouselState createState() => _DesktopCarouselState();
@@ -80,7 +82,7 @@ class _DesktopCarouselState extends State<DesktopCarousel> {
               scrollDirection: Axis.horizontal,
             ),
           ),
-          if (showPreviousButton)
+          if (widget.showNavButtons && showPreviousButton)
             _DesktopPageButton(
               onTap: () {
                 _controller.animateTo(
@@ -90,7 +92,7 @@ class _DesktopCarouselState extends State<DesktopCarousel> {
                 );
               },
             ),
-          if (showNextButton)
+          if (widget.showNavButtons && showNextButton)
             _DesktopPageButton(
               isEnd: true,
               onTap: () {

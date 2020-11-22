@@ -9,8 +9,8 @@ class CarouselCard extends StatelessWidget {
   const CarouselCard({
     Key key,
     this.asset,
-    this.title = 'Some title',
-    this.subTitle = 'Some subtitle',
+    this.title = '',
+    this.subTitle = '',
   }) : super(key: key);
 
   final ImageProvider asset;
@@ -35,12 +35,7 @@ class CarouselCard extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            if (asset != null)
-              ImageWidgetPlaceholder(
-                image: WebAssets.logo,
-                // width: double.maxFinite,
-                // fit: BoxFit.fitWidth,
-              ),
+            if (asset != null) ImageWidgetPlaceholder(image: asset),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
               child: Column(

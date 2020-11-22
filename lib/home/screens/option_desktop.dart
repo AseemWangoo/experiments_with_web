@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
 import 'package:experiments_with_web/home/widgets/carousel_card.dart';
@@ -46,11 +47,18 @@ class _OptionDesktopState extends State<OptionDesktop> {
             ),
             DesktopCarousel(
               children: [
-                CarouselCard(),
-                CarouselCard(),
-                CarouselCard(),
-                CarouselCard(),
-                CarouselCard(),
+                CarouselCard(asset: DesktopAssets.ffi),
+                CarouselCard(asset: DesktopAssets.plugin),
+                CarouselCard(asset: DesktopAssets.liquidCardsVignette),
+                CarouselCard(asset: DesktopAssets.darkModeVignette),
+                CarouselCard(asset: DesktopAssets.boardingVignette),
+              ],
+            ),
+            DesktopCarousel(
+              showNavButtons: false,
+              children: [
+                CarouselCard(asset: DesktopAssets.threeD),
+                CarouselCard(asset: DesktopAssets.dsktp),
               ],
             ),
           ],
