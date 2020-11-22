@@ -1,12 +1,10 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
-import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
 import 'package:experiments_with_web/home/utils/dsktp_links.dart';
 import 'package:experiments_with_web/home/widgets/carousel_card.dart';
 import 'package:experiments_with_web/home/widgets/desktop_carousel.dart';
 import 'package:experiments_with_web/home/widgets/header.dart';
 import 'package:experiments_with_web/home/widgets/top_nav.dart';
-import 'package:experiments_with_web/locator.dart';
 
 import 'package:flutter/material.dart';
 
@@ -19,7 +17,6 @@ class OptionDesktop extends StatefulWidget {
 
 class _OptionDesktopState extends State<OptionDesktop> {
   ScrollController _controller;
-  static final _linkService = locator<LinkerService>();
 
   @override
   void initState() {

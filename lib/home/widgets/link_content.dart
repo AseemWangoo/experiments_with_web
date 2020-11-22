@@ -1,7 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
-
-import 'package:experiments_with_web/app_level/models/articles/articles.dart';
-import 'package:experiments_with_web/app_level/services/hive/hive_operations.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/locator.dart';
 
