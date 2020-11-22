@@ -1,13 +1,31 @@
+import 'package:experiments_with_web/app_level/assets/assets.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/image_loader.dart';
+
 import 'package:flutter/material.dart';
 
 const _carouselItemMargin = 8.0;
 
 class CarouselCard extends StatelessWidget {
-  const CarouselCard({Key key}) : super(key: key);
+  const CarouselCard({
+    Key key,
+    this.asset,
+    this.title = 'Some title',
+    this.subTitle = 'Some subtitle',
+  }) : super(key: key);
+
+  final ImageProvider asset;
+  final String title;
+  final String subTitle;
 
   @override
   Widget build(BuildContext context) {
     //
+    final titleStyle =
+        Theme.of(context).textTheme.caption.apply(color: Colors.black);
+
+    final subTitleStyle =
+        Theme.of(context).textTheme.overline.apply(color: Colors.black);
+
     return Container(
       margin: EdgeInsets.all(_carouselItemMargin),
       child: Material(
@@ -17,9 +35,32 @@ class CarouselCard extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
+            if (asset != null)
+              ImageWidgetPlaceholder(
+                image: WebAssets.logo,
+                // width: double.maxFinite,
+                // fit: BoxFit.fitWidth,
+              ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
-              child: Text('Hello'),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    title,
+                    style: titleStyle,
+                    maxLines: 3,
+                    overflow: TextOverflow.visible,
+                  ),
+                  Text(
+                    subTitle,
+                    style: subTitleStyle,
+                    maxLines: 5,
+                    overflow: TextOverflow.visible,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
