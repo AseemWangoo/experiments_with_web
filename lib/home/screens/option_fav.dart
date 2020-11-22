@@ -16,7 +16,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'grid_view.dart';
+import '../widgets/grid_view.dart';
 
 class OptionFav extends StatefulWidget {
   const OptionFav({Key key}) : super(key: key);

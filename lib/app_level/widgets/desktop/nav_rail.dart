@@ -30,20 +30,12 @@ class _NavRailState extends State<NavRail> {
         NavigationRail(
           minWidth: _width,
           backgroundColor: Colors.black,
-          destinations: <NavigationRailDestination>[
-            NavigationRailDestination(
-              icon: const FaIcon(FontAwesomeIcons.home),
-              label: const Text('Home'),
-            ),
-            NavigationRailDestination(
-              icon: const Icon(Icons.favorite_border),
-              label: const Text('Favorites'),
-              selectedIcon: const Icon(Icons.favorite),
-            ),
-          ],
+          destinations: _createOptions,
           labelType: NavigationRailLabelType.all,
           onDestinationSelected: (int index) {
-            setState(() => _selectedIndex = index);
+            setState(() {
+              _selectedIndex = index;
+            });
           },
           selectedIndex: _selectedIndex,
           unselectedIconTheme: IconThemeData(color: Colors.white),
@@ -58,5 +50,24 @@ class _NavRailState extends State<NavRail> {
         Expanded(child: widget.optionWidgets[_selectedIndex]),
       ],
     );
+  }
+
+  List<NavigationRailDestination> get _createOptions {
+    final _options = [
+      const NavigationRailDestination(
+        icon: FaIcon(FontAwesomeIcons.home),
+        label: Text('Home'),
+      ),
+      const NavigationRailDestination(
+        icon: Icon(Icons.favorite_border),
+        label: Text('Favorites'),
+        selectedIcon: Icon(Icons.favorite),
+      ),
+      const NavigationRailDestination(
+        icon: Icon(Icons.desktop_mac),
+        label: Text('Desktop Links'),
+      ),
+    ];
+    return _options;
   }
 }
