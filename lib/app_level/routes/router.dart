@@ -4,6 +4,8 @@ import 'package:experiments_with_web/codepenz/codepen.dart';
 import 'package:experiments_with_web/data_table/data_table.dart';
 import 'package:experiments_with_web/game/game.dart';
 import 'package:experiments_with_web/google/google.dart';
+import 'package:experiments_with_web/home/screens/option_desktop.dart';
+import 'package:experiments_with_web/home/screens/option_fav.dart';
 import 'package:experiments_with_web/hooks/hooks.dart';
 import 'package:experiments_with_web/iframe/iframe.dart';
 import 'package:experiments_with_web/location/location.dart';
@@ -26,6 +28,18 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const Home(),
           name: ApplevelConstants.homeRoute,
+        );
+
+      case ApplevelConstants.favRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const OptionFav(),
+          name: ApplevelConstants.favRoute,
+        );
+
+      case ApplevelConstants.desktopRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const OptionDesktop(),
+          name: ApplevelConstants.desktopRoute,
         );
 
       case ApplevelConstants.googleRoute:

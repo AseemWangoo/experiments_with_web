@@ -34,3 +34,19 @@ class WebAssets {
   static const enemy = AssetImage('assets/images/virus/enemy.png');
   static const gameBg = AssetImage('assets/images/bg/room.png');
 }
+
+class DesktopAssets {
+  DesktopAssets._();
+
+  static const threeD = AssetImage('assets/images/dsktp_3d.png');
+  static const ffi = AssetImage('assets/images/dsktp_dart_ffi.jpg');
+  static const plugin = AssetImage('assets/images/dsktp_plugin.png');
+
+  static const darkModeVignette =
+      AssetImage('assets/images/dsktp_v_darkmode.png');
+
+  static const liquidCardsVignette = AssetImage('assets/images/dsktp_v_lc.png');
+
+  static const boardingVignette = AssetImage('assets/images/dsktp_v_pass.png');
+  static const dsktp = AssetImage('assets/images/dsktp.png');
+}
