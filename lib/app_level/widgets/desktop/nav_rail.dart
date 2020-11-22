@@ -1,3 +1,4 @@
+import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 
@@ -32,11 +33,7 @@ class _NavRailState extends State<NavRail> {
           backgroundColor: Colors.black,
           destinations: _createOptions,
           labelType: NavigationRailLabelType.all,
-          onDestinationSelected: (int index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
+          onDestinationSelected: (int i) => _onOptionSelected(i),
           selectedIndex: _selectedIndex,
           unselectedIconTheme: IconThemeData(color: Colors.white),
           selectedIconTheme: IconThemeData(color: Colors.white),
@@ -50,6 +47,24 @@ class _NavRailState extends State<NavRail> {
         Expanded(child: widget.optionWidgets[_selectedIndex]),
       ],
     );
+  }
+
+  void _onOptionSelected(int index) {
+    // final _nav = Navigator.of(context);
+    // switch (index) {
+    //   case 1:
+    //     _nav.pushNamed(ApplevelConstants.favRoute);
+    //     break;
+
+    //   case 2:
+    //     _nav.pushNamed(ApplevelConstants.desktopRoute);
+    //     break;
+
+    //   default:
+    //     _nav.pushNamed(ApplevelConstants.homeRoute);
+    // }
+
+    setState(() => _selectedIndex = index);
   }
 
   List<NavigationRailDestination> get _createOptions {
