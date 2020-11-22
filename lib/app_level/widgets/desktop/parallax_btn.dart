@@ -1,14 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/models/articles/articles.dart';
-import 'package:experiments_with_web/app_level/services/hive/hive_operations.dart';
-import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/styles/colors.dart';
 import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
-import 'package:experiments_with_web/locator.dart';
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'image_loader.dart';
 import 'link_content.dart';

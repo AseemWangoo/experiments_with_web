@@ -1,6 +1,7 @@
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
+import 'package:experiments_with_web/home/utils/dsktp_links.dart';
 import 'package:experiments_with_web/home/widgets/carousel_card.dart';
 import 'package:experiments_with_web/home/widgets/desktop_carousel.dart';
 import 'package:experiments_with_web/home/widgets/header.dart';
@@ -47,18 +48,46 @@ class _OptionDesktopState extends State<OptionDesktop> {
             ),
             DesktopCarousel(
               children: [
-                CarouselCard(asset: DesktopAssets.ffi),
-                CarouselCard(asset: DesktopAssets.plugin),
-                CarouselCard(asset: DesktopAssets.liquidCardsVignette),
-                CarouselCard(asset: DesktopAssets.darkModeVignette),
-                CarouselCard(asset: DesktopAssets.boardingVignette),
+                CarouselCard(
+                  asset: DesktopAssets.ffi,
+                  website: DesktopLinks.websiteFFI,
+                  youtubeLink: DesktopLinks.youtubeFFI,
+                ),
+                CarouselCard(
+                  asset: DesktopAssets.plugin,
+                  website: DesktopLinks.websiteFFI,
+                  youtubeLink: DesktopLinks.youtubeFFI,
+                ),
+                CarouselCard(
+                  asset: DesktopAssets.liquidCardsVignette,
+                  website: DesktopLinks.websiteFFI,
+                  youtubeLink: DesktopLinks.youtubeFFI,
+                ),
+                CarouselCard(
+                  asset: DesktopAssets.darkModeVignette,
+                  website: DesktopLinks.websiteFFI,
+                  youtubeLink: DesktopLinks.youtubeFFI,
+                ),
+                CarouselCard(
+                  asset: DesktopAssets.boardingVignette,
+                  website: DesktopLinks.websiteFFI,
+                  youtubeLink: DesktopLinks.youtubeFFI,
+                ),
               ],
             ),
             DesktopCarousel(
               showNavButtons: false,
               children: [
-                CarouselCard(asset: DesktopAssets.threeD),
-                CarouselCard(asset: DesktopAssets.dsktp),
+                CarouselCard(
+                  asset: DesktopAssets.threeD,
+                  website: DesktopLinks.websiteFFI,
+                  youtubeLink: DesktopLinks.youtubeFFI,
+                ),
+                CarouselCard(
+                  asset: DesktopAssets.dsktp,
+                  website: DesktopLinks.websiteFFI,
+                  youtubeLink: DesktopLinks.youtubeFFI,
+                ),
               ],
             ),
           ],
