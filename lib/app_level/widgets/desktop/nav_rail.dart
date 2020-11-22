@@ -30,21 +30,9 @@ class _NavRailState extends State<NavRail> {
         NavigationRail(
           minWidth: _width,
           backgroundColor: Colors.black,
-          destinations: <NavigationRailDestination>[
-            NavigationRailDestination(
-              icon: const FaIcon(FontAwesomeIcons.home),
-              label: const Text('Home'),
-            ),
-            NavigationRailDestination(
-              icon: const Icon(Icons.favorite_border),
-              label: const Text('Favorites'),
-              selectedIcon: const Icon(Icons.favorite),
-            ),
-          ],
+          destinations: _createOptions,
           labelType: NavigationRailLabelType.all,
-          onDestinationSelected: (int index) {
-            setState(() => _selectedIndex = index);
-          },
+          onDestinationSelected: (int i) => _onOptionSelected(i),
           selectedIndex: _selectedIndex,
           unselectedIconTheme: IconThemeData(color: Colors.white),
           selectedIconTheme: IconThemeData(color: Colors.white),
@@ -58,5 +46,42 @@ class _NavRailState extends State<NavRail> {
         Expanded(child: widget.optionWidgets[_selectedIndex]),
       ],
     );
+  }
+
+  void _onOptionSelected(int index) {
+    // final _nav = Navigator.of(context);
+    // switch (index) {
+    //   case 1:
+    //     _nav.pushNamed(ApplevelConstants.favRoute);
+    //     break;
+
+    //   case 2:
+    //     _nav.pushNamed(ApplevelConstants.desktopRoute);
+    //     break;
+
+    //   default:
+    //     _nav.pushNamed(ApplevelConstants.homeRoute);
+    // }
+
+    setState(() => _selectedIndex = index);
+  }
+
+  List<NavigationRailDestination> get _createOptions {
+    final _options = [
+      const NavigationRailDestination(
+        icon: FaIcon(FontAwesomeIcons.home),
+        label: Text('Home'),
+      ),
+      const NavigationRailDestination(
+        icon: Icon(Icons.favorite_border),
+        label: Text('Favorites'),
+        selectedIcon: Icon(Icons.favorite),
+      ),
+      const NavigationRailDestination(
+        icon: Icon(Icons.desktop_mac),
+        label: Text('Desktop Links'),
+      ),
+    ];
+    return _options;
   }
 }
