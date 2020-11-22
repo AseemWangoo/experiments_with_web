@@ -1,8 +1,8 @@
 import 'package:experiments_with_web/app_level/services/linker_service.dart';
-import 'package:experiments_with_web/app_level/utilities/screen_size.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
 import 'package:experiments_with_web/home/widgets/carousel_card.dart';
 import 'package:experiments_with_web/home/widgets/desktop_carousel.dart';
+import 'package:experiments_with_web/home/widgets/header.dart';
 import 'package:experiments_with_web/home/widgets/top_nav.dart';
 import 'package:experiments_with_web/locator.dart';
 
@@ -27,7 +27,7 @@ class _OptionDesktopState extends State<OptionDesktop> {
 
   @override
   Widget build(BuildContext context) {
-    final h = ScreenQueries.instance.height(context);
+    //
 
     return SimpleSliverScaffold(
       controller: _controller,
@@ -35,17 +35,26 @@ class _OptionDesktopState extends State<OptionDesktop> {
       maxHeight: 120.0,
       menu: TopNavBar(controller: _controller),
       children: [
-        SizedBox(
-          height: h * .3,
-          child: DesktopCarousel(
-            children: [
-              CarouselCard(),
-              CarouselCard(),
-              CarouselCard(),
-              CarouselCard(),
-              CarouselCard(),
-            ],
-          ),
+        ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 88),
+              child: Header(
+                color: Colors.orange,
+                text: 'Desktop Links',
+              ),
+            ),
+            DesktopCarousel(
+              children: [
+                CarouselCard(),
+                CarouselCard(),
+                CarouselCard(),
+                CarouselCard(),
+                CarouselCard(),
+              ],
+            ),
+          ],
+          shrinkWrap: true,
         ),
       ],
     );

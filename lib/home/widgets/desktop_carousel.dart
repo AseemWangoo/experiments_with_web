@@ -8,9 +8,18 @@ const cardPadding = 15.0;
 const _desktopCardsPerPage = 4;
 
 class DesktopCarousel extends StatefulWidget {
-  const DesktopCarousel({Key key, @required this.children}) : super(key: key);
+  const DesktopCarousel({
+    Key key,
+    @required this.children,
+    this.heightFactor = 0.3,
+  })  : assert(
+          heightFactor >= 0 && heightFactor <= 1,
+          'HeightFactor should be between 0 and 1',
+        ),
+        super(key: key);
 
   final List<Widget> children;
+  final double heightFactor;
 
   @override
   _DesktopCarouselState createState() => _DesktopCarouselState();
@@ -49,47 +58,51 @@ class _DesktopCarouselState extends State<DesktopCarousel> {
     }
 
     final w = ScreenQueries.instance.width(context);
+    final h = ScreenQueries.instance.height(context);
 
     final totalWidth = w - (_horizontalDesktopPadding - cardPadding) * 2;
     final itemWidth = totalWidth / _desktopCardsPerPage;
 
-    return Stack(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: _horizontalDesktopPadding - cardPadding,
+    return SizedBox(
+      height: h * widget.heightFactor,
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: _horizontalDesktopPadding - cardPadding,
+            ),
+            child: ListView.builder(
+              controller: _controller,
+              itemExtent: itemWidth,
+              itemCount: widget.children.length,
+              itemBuilder: (context, index) => _builder(index),
+              physics: const _SnappingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+            ),
           ),
-          child: ListView.builder(
-            controller: _controller,
-            itemExtent: itemWidth,
-            itemCount: widget.children.length,
-            itemBuilder: (context, index) => _builder(index),
-            physics: const _SnappingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-          ),
-        ),
-        if (showPreviousButton)
-          _DesktopPageButton(
-            onTap: () {
-              _controller.animateTo(
-                _controller.offset - itemWidth,
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.easeInOut,
-              );
-            },
-          ),
-        if (showNextButton)
-          _DesktopPageButton(
-            isEnd: true,
-            onTap: () {
-              _controller.animateTo(
-                _controller.offset + itemWidth,
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.easeInOut,
-              );
-            },
-          ),
-      ],
+          if (showPreviousButton)
+            _DesktopPageButton(
+              onTap: () {
+                _controller.animateTo(
+                  _controller.offset - itemWidth,
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeInOut,
+                );
+              },
+            ),
+          if (showNextButton)
+            _DesktopPageButton(
+              isEnd: true,
+              onTap: () {
+                _controller.animateTo(
+                  _controller.offset + itemWidth,
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeInOut,
+                );
+              },
+            ),
+        ],
+      ),
     );
   }
 
