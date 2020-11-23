@@ -1,6 +1,8 @@
 class DesktopLinks {
   DesktopLinks._();
 
+  static const String mediumFFI =
+      'https://levelup.gitconnected.com/dart-ffi-and-cli-app-8cc5ed2f8aae';
   static const String ytFFI = 'https://youtu.be/jKbwhutlw6A';
   static const String webFFI =
       'https://flatteredwithflutter.com/dart-ffi-cli-dart2native/';
