@@ -47,6 +47,7 @@ class _OptionDesktopState extends State<OptionDesktop> {
               children: [
                 CarouselCard(
                   asset: DesktopAssets.ffi,
+                  medium: DesktopLinks.mediumFFI,
                   website: DesktopLinks.webFFI,
                   youtubeLink: DesktopLinks.ytFFI,
                 ),
