@@ -42,76 +42,76 @@ class _OptionMobileState extends State<OptionMobile> {
                 text: 'Mobile Links',
               ),
             ),
+            DesktopCarousel(
+              children: [
+                CarouselCard(
+                  asset: MobileAssets.fday,
+                  medium: MobileLinks.mediumFDay,
+                  website: MobileLinks.webFDay,
+                  youtubeLink: MobileLinks.ytFDay,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.tab,
+                  medium: MobileLinks.mediumTAB,
+                  website: MobileLinks.webTAB,
+                  youtubeLink: MobileLinks.ytTAB,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.testProv,
+                  medium: MobileLinks.mediumTestProv,
+                  website: MobileLinks.webTestProv,
+                  youtubeLink: MobileLinks.ytTestProv,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.services,
+                  medium: MobileLinks.mediumService,
+                  website: MobileLinks.webService,
+                  youtubeLink: MobileLinks.ytService,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.sockets,
+                  medium: MobileLinks.mediumSockets,
+                  website: MobileLinks.webSockets,
+                  youtubeLink: MobileLinks.ytSockets,
+                ),
+              ],
+            ),
+            DesktopCarousel(
+              children: [
+                CarouselCard(
+                  asset: MobileAssets.aws,
+                  medium: MobileLinks.mediumAWS,
+                  website: MobileLinks.webAWS,
+                  youtubeLink: MobileLinks.ytAWS,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.moor,
+                  medium: MobileLinks.mediumMoor,
+                  website: MobileLinks.webMoor,
+                  youtubeLink: MobileLinks.ytMoor,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.provStreams,
+                  medium: MobileLinks.mediumProvStreams,
+                  website: MobileLinks.webProvStreams,
+                  youtubeLink: MobileLinks.ytProvStreams,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.prov,
+                  medium: MobileLinks.mediumProv,
+                  website: MobileLinks.webProv,
+                  youtubeLink: MobileLinks.ytProv,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.rekog,
+                  medium: MobileLinks.mediumRekog,
+                  website: MobileLinks.webRekog,
+                  youtubeLink: MobileLinks.ytRekog,
+                ),
+              ],
+            ),
           ],
           shrinkWrap: true,
-        ),
-        DesktopCarousel(
-          children: [
-            CarouselCard(
-              asset: MobileAssets.fday,
-              medium: MobileLinks.mediumFDay,
-              website: MobileLinks.webFDay,
-              youtubeLink: MobileLinks.ytFDay,
-            ),
-            CarouselCard(
-              asset: MobileAssets.tab,
-              medium: MobileLinks.mediumTAB,
-              website: MobileLinks.webTAB,
-              youtubeLink: MobileLinks.ytTAB,
-            ),
-            CarouselCard(
-              asset: MobileAssets.testProv,
-              medium: MobileLinks.mediumTestProv,
-              website: MobileLinks.webTestProv,
-              youtubeLink: MobileLinks.ytTestProv,
-            ),
-            CarouselCard(
-              asset: MobileAssets.services,
-              medium: MobileLinks.mediumService,
-              website: MobileLinks.webService,
-              youtubeLink: MobileLinks.ytService,
-            ),
-            CarouselCard(
-              asset: MobileAssets.sockets,
-              medium: MobileLinks.mediumSockets,
-              website: MobileLinks.webSockets,
-              youtubeLink: MobileLinks.ytSockets,
-            ),
-          ],
-        ),
-        DesktopCarousel(
-          children: [
-            CarouselCard(
-              asset: MobileAssets.aws,
-              medium: MobileLinks.mediumAWS,
-              website: MobileLinks.webAWS,
-              youtubeLink: MobileLinks.ytAWS,
-            ),
-            CarouselCard(
-              asset: MobileAssets.moor,
-              medium: MobileLinks.mediumMoor,
-              website: MobileLinks.webMoor,
-              youtubeLink: MobileLinks.ytMoor,
-            ),
-            CarouselCard(
-              asset: MobileAssets.provStreams,
-              medium: MobileLinks.mediumProvStreams,
-              website: MobileLinks.webProvStreams,
-              youtubeLink: MobileLinks.ytProvStreams,
-            ),
-            CarouselCard(
-              asset: MobileAssets.prov,
-              medium: MobileLinks.mediumProv,
-              website: MobileLinks.webProv,
-              youtubeLink: MobileLinks.ytProv,
-            ),
-            CarouselCard(
-              asset: MobileAssets.rekog,
-              medium: MobileLinks.mediumRekog,
-              website: MobileLinks.webRekog,
-              youtubeLink: MobileLinks.ytRekog,
-            ),
-          ],
         ),
       ],
     );
