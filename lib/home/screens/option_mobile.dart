@@ -79,6 +79,40 @@ class _OptionMobileState extends State<OptionMobile> {
             ),
           ],
         ),
+        DesktopCarousel(
+          children: [
+            CarouselCard(
+              asset: MobileAssets.aws,
+              medium: MobileLinks.mediumAWS,
+              website: MobileLinks.webAWS,
+              youtubeLink: MobileLinks.ytAWS,
+            ),
+            CarouselCard(
+              asset: MobileAssets.moor,
+              medium: MobileLinks.mediumMoor,
+              website: MobileLinks.webMoor,
+              youtubeLink: MobileLinks.ytMoor,
+            ),
+            CarouselCard(
+              asset: MobileAssets.provStreams,
+              medium: MobileLinks.mediumProvStreams,
+              website: MobileLinks.webProvStreams,
+              youtubeLink: MobileLinks.ytProvStreams,
+            ),
+            CarouselCard(
+              asset: MobileAssets.prov,
+              medium: MobileLinks.mediumProv,
+              website: MobileLinks.webProv,
+              youtubeLink: MobileLinks.ytProv,
+            ),
+            CarouselCard(
+              asset: MobileAssets.rekog,
+              medium: MobileLinks.mediumRekog,
+              website: MobileLinks.webRekog,
+              youtubeLink: MobileLinks.ytRekog,
+            ),
+          ],
+        ),
       ],
     );
   }

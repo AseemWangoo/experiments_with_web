@@ -59,4 +59,10 @@ class MobileAssets {
   static const sockets = AssetImage('assets/images/ntv_sockets.png');
   static const tab = AssetImage('assets/images/ntv_tab.png');
   static const testProv = AssetImage('assets/images/ntv_testing_provider.png');
+
+  static const aws = AssetImage('assets/images/ntv_aws.png');
+  static const moor = AssetImage('assets/images/ntv_moor.png');
+  static const provStreams = AssetImage('assets/images/ntv_prov_streams.png');
+  static const prov = AssetImage('assets/images/ntv_provider.png');
+  static const rekog = AssetImage('assets/images/ntv_rekog.png');
 }
