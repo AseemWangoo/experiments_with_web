@@ -78,6 +78,10 @@ class _NavRailState extends State<NavRail> {
         selectedIcon: Icon(Icons.favorite),
       ),
       const NavigationRailDestination(
+        icon: Icon(Icons.mobile_friendly),
+        label: Text('Mobile Links'),
+      ),
+      const NavigationRailDestination(
         icon: Icon(Icons.desktop_mac),
         label: Text('Desktop Links'),
       ),

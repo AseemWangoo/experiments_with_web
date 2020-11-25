@@ -27,6 +27,7 @@ class ApplevelConstants {
   static const String homeRoute = '/';
   static const String favRoute = '/favs';
   static const String desktopRoute = '/desktop';
+  static const String mobileRoute = '/mobile';
 
   static const String sampleRoute = '/sample';
   static const String googleRoute = '/google-clone';
