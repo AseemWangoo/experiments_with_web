@@ -50,3 +50,13 @@ class DesktopAssets {
   static const boardingVignette = AssetImage('assets/images/dsktp_v_pass.png');
   static const dsktp = AssetImage('assets/images/dsktp.png');
 }
+
+class MobileAssets {
+  MobileAssets._();
+
+  static const fday = AssetImage('assets/images/ntv_f_day.png');
+  static const services = AssetImage('assets/images/ntv_services.png');
+  static const sockets = AssetImage('assets/images/ntv_sockets.png');
+  static const tab = AssetImage('assets/images/ntv_tab.png');
+  static const testProv = AssetImage('assets/images/ntv_testing_provider.png');
+}

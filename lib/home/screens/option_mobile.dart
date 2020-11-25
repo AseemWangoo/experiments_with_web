@@ -1,4 +1,8 @@
+import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/sliver_scaffold.dart';
+import 'package:experiments_with_web/home/utils/mobile_links.dart';
+import 'package:experiments_with_web/home/widgets/carousel_card.dart';
+import 'package:experiments_with_web/home/widgets/desktop_carousel.dart';
 import 'package:experiments_with_web/home/widgets/header.dart';
 import 'package:experiments_with_web/home/widgets/top_nav.dart';
 
@@ -40,6 +44,40 @@ class _OptionMobileState extends State<OptionMobile> {
             ),
           ],
           shrinkWrap: true,
+        ),
+        DesktopCarousel(
+          children: [
+            CarouselCard(
+              asset: MobileAssets.fday,
+              medium: MobileLinks.mediumFDay,
+              website: MobileLinks.webFDay,
+              youtubeLink: MobileLinks.ytFDay,
+            ),
+            CarouselCard(
+              asset: MobileAssets.tab,
+              medium: MobileLinks.mediumTAB,
+              website: MobileLinks.webTAB,
+              youtubeLink: MobileLinks.ytTAB,
+            ),
+            CarouselCard(
+              asset: MobileAssets.testProv,
+              medium: MobileLinks.mediumTestProv,
+              website: MobileLinks.webTestProv,
+              youtubeLink: MobileLinks.ytTestProv,
+            ),
+            CarouselCard(
+              asset: MobileAssets.services,
+              medium: MobileLinks.mediumService,
+              website: MobileLinks.webService,
+              youtubeLink: MobileLinks.ytService,
+            ),
+            CarouselCard(
+              asset: MobileAssets.sockets,
+              medium: MobileLinks.mediumSockets,
+              website: MobileLinks.webSockets,
+              youtubeLink: MobileLinks.ytSockets,
+            ),
+          ],
         ),
       ],
     );
