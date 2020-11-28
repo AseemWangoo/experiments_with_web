@@ -110,6 +110,136 @@ class _OptionMobileState extends State<OptionMobile> {
                 ),
               ],
             ),
+            DesktopCarousel(
+              children: [
+                CarouselCard(
+                  asset: MobileAssets.ar,
+                  medium: MobileLinks.mediumAR,
+                  website: MobileLinks.webAR,
+                  youtubeLink: MobileLinks.ytAR,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.asheet,
+                  medium: MobileLinks.mediumAS,
+                  website: MobileLinks.webAS,
+                  youtubeLink: MobileLinks.ytAS,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.crash,
+                  medium: MobileLinks.mediumCrash,
+                  website: MobileLinks.webCrash,
+                  youtubeLink: MobileLinks.ytCrash,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.youTube,
+                  medium: MobileLinks.mediumYT,
+                  website: MobileLinks.webYT,
+                  youtubeLink: MobileLinks.ytYT,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.gTranslation,
+                  medium: MobileLinks.mediumGT,
+                  website: MobileLinks.webGT,
+                  youtubeLink: MobileLinks.ytGT,
+                ),
+              ],
+            ),
+            DesktopCarousel(
+              children: [
+                CarouselCard(
+                  asset: MobileAssets.orientation,
+                  medium: MobileLinks.mediumOrient,
+                  website: MobileLinks.webOrient,
+                  youtubeLink: MobileLinks.ytOrient,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.backdrop,
+                  medium: MobileLinks.mediumBkdrp,
+                  website: MobileLinks.webBkdrp,
+                  youtubeLink: MobileLinks.ytBkdrp,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.cupertino,
+                  medium: MobileLinks.mediumCupert,
+                  website: MobileLinks.webCupert,
+                  youtubeLink: MobileLinks.ytCupert,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.df,
+                  medium: MobileLinks.mediumDF,
+                  website: MobileLinks.webDF,
+                  youtubeLink: MobileLinks.ytDF,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.widgetInspector,
+                  medium: MobileLinks.mediumWI,
+                  website: MobileLinks.webWI,
+                  youtubeLink: MobileLinks.ytWI,
+                ),
+              ],
+            ),
+            DesktopCarousel(
+              children: [
+                CarouselCard(
+                  asset: MobileAssets.whatsapp,
+                  medium: MobileLinks.mediumWAT,
+                  website: MobileLinks.webWAT,
+                  youtubeLink: MobileLinks.ytWAT,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.webview,
+                  medium: MobileLinks.mediumWV,
+                  website: MobileLinks.webWV,
+                  youtubeLink: MobileLinks.ytWV,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.sprite,
+                  medium: MobileLinks.mediumSprite,
+                  website: MobileLinks.webSprite,
+                  youtubeLink: MobileLinks.ytSprite,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.oneSignal,
+                  medium: MobileLinks.mediumOneSignal,
+                  website: MobileLinks.webOneSignal,
+                  youtubeLink: MobileLinks.ytOneSignal,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.stripe,
+                  medium: MobileLinks.mediumStripe,
+                  website: MobileLinks.webStripe,
+                  youtubeLink: MobileLinks.ytStripe,
+                ),
+              ],
+            ),
+            DesktopCarousel(
+              children: [
+                CarouselCard(
+                  asset: MobileAssets.sControl,
+                  medium: MobileLinks.mediumSC,
+                  website: MobileLinks.webSC,
+                  youtubeLink: MobileLinks.ytSC,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.table,
+                  medium: MobileLinks.mediumTable,
+                  website: MobileLinks.webTable,
+                  youtubeLink: MobileLinks.ytTable,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.shapeBorder,
+                  medium: MobileLinks.mediumSBC,
+                  website: MobileLinks.webSBC,
+                  youtubeLink: MobileLinks.ytSBC,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.gQL,
+                  medium: MobileLinks.mediumGQL,
+                  website: MobileLinks.webGQL,
+                  youtubeLink: MobileLinks.ytGQL,
+                ),
+              ],
+            )
           ],
           shrinkWrap: true,
         ),

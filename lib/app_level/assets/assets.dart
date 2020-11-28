@@ -65,4 +65,26 @@ class MobileAssets {
   static const provStreams = AssetImage('assets/images/ntv_prov_streams.png');
   static const prov = AssetImage('assets/images/ntv_provider.png');
   static const rekog = AssetImage('assets/images/ntv_rekog.png');
+
+  static const ar = AssetImage('assets/images/ntv_ar.png');
+  static const asheet = AssetImage('assets/images/ntv_as.png');
+  static const backdrop = AssetImage('assets/images/ntv_backdrp.png');
+  static const crash = AssetImage('assets/images/ntv_crash.png');
+  static const cupertino = AssetImage('assets/images/ntv_cupert.png');
+  static const df = AssetImage('assets/images/ntv_df.png');
+  static const gQL = AssetImage('assets/images/ntv_gql.png');
+  static const gTranslation = AssetImage('assets/images/ntv_gt.png');
+  static const gMaps = AssetImage('assets/images/ntv_maps.png');
+  static const oneSignal = AssetImage('assets/images/ntv_ones.png');
+  static const orientation = AssetImage('assets/images/ntv_orient.png');
+  static const sControl = AssetImage('assets/images/ntv_sc.png');
+  static const shapeBorder = AssetImage('assets/images/ntv_shapeborder.png');
+  static const sprite = AssetImage('assets/images/ntv_sprite.png');
+  static const stripe = AssetImage('assets/images/ntv_stripe.png');
+  static const table = AssetImage('assets/images/ntv_table.png');
+  static const upload = AssetImage('assets/images/upload.png');
+  static const whatsapp = AssetImage('assets/images/ntv_wa_t.png');
+  static const webview = AssetImage('assets/images/ntv_webview.png');
+  static const widgetInspector = AssetImage('assets/images/ntv_wi.png');
+  static const youTube = AssetImage('assets/images/ntv_yt.png');
 }
