@@ -33,6 +33,9 @@ class WebAssets {
   /* Game Time */
   static const enemy = AssetImage('assets/images/virus/enemy.png');
   static const gameBg = AssetImage('assets/images/bg/room.png');
+
+  /* Wasm */
+  static const wasmOpsMod = 'assets/wasm/optimized.wasm';
 }
 
 class DesktopAssets {

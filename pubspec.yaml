@@ -94,6 +94,7 @@ flutter:
     - assets/audio/sfx/hit1.mp3
     - assets/audio/sfx/hit2.mp3
     - assets/audio/sfx/laugh.mp3
+    - assets/wasm/
 
   fonts:
     - family: arial
