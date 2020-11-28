@@ -50,6 +50,9 @@ dependencies:
   # AUTOSIZE TEXT
   auto_size_text: ^2.1.0
 
+  # WASM
+  wasm_interop: ^1.0.0-dev.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
