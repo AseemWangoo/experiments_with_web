@@ -6,6 +6,7 @@ import 'package:experiments_with_web/game/game.dart';
 import 'package:experiments_with_web/google/google.dart';
 import 'package:experiments_with_web/home/screens/option_desktop.dart';
 import 'package:experiments_with_web/home/screens/option_fav.dart';
+import 'package:experiments_with_web/home/screens/option_mobile.dart';
 import 'package:experiments_with_web/hooks/hooks.dart';
 import 'package:experiments_with_web/iframe/iframe.dart';
 import 'package:experiments_with_web/location/location.dart';
@@ -40,6 +41,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const OptionDesktop(),
           name: ApplevelConstants.desktopRoute,
+        );
+
+      case ApplevelConstants.mobileRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const OptionMobile(),
+          name: ApplevelConstants.mobileRoute,
         );
 
       case ApplevelConstants.googleRoute:
