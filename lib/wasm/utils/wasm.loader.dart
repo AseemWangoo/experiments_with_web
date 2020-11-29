@@ -29,4 +29,10 @@ class WasmLoader extends WasmContract {
 
   @override
   bool get isLoaded => _wasmInstance != null;
+
+  @override
+  Object callfunc(String name, List<int> input) {
+    final _func = _wasmInstance.functions[name];
+    return _func.call(input.first, input.last);
+  }
 }
