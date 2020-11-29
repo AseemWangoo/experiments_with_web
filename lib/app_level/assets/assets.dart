@@ -35,7 +35,7 @@ class WebAssets {
   static const gameBg = AssetImage('assets/images/bg/room.png');
 
   /* Wasm */
-  static const wasmOpsMod = 'assets/wasm/optimized.wasm';
+  static const wasmOps = 'assets/wasm/ops.wasm';
 }
 
 class DesktopAssets {
