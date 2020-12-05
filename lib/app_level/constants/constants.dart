@@ -11,6 +11,7 @@ import 'package:experiments_with_web/parallax/utilities/constants.dart';
 import 'package:experiments_with_web/search/utils/constants.dart';
 import 'package:experiments_with_web/streams/utilities/constants.dart';
 import 'package:experiments_with_web/using_selector/utilities/constants.dart';
+import 'package:experiments_with_web/wasm/utils/strings.dart';
 
 class ApplevelConstants {
   ApplevelConstants._();
@@ -182,8 +183,8 @@ class OptionAndRoutes {
     ],
     ApplevelConstants.option15: <String>[
       BrandLinks.medium,
-      BrandLinks.website,
-      BrandLinks.youtube
+      WasmStrings.website,
+      WasmStrings.youtube
     ],
   };
 }
