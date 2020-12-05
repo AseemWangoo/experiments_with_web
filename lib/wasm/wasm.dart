@@ -2,7 +2,6 @@ import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/column_spacer.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
-import 'package:experiments_with_web/app_level/widgets/desktop/row_spacer.dart';
 import 'package:experiments_with_web/wasm/utils/strings.dart';
 import 'package:experiments_with_web/wasm/utils/wasm.loader.dart';
 
@@ -56,7 +55,7 @@ class _WasmScreenState extends State<WasmScreen> {
               RaisedButton.icon(
                 onPressed: () => _addition([1, 3]),
                 icon: Icon(Icons.add),
-                label: Text('Add'),
+                label: Text('Add 1,3'),
               ),
               if (_sum != null) Text('$_sum', style: _ts),
             ],
@@ -67,7 +66,7 @@ class _WasmScreenState extends State<WasmScreen> {
               RaisedButton.icon(
                 onPressed: () => _multiply([2, 3]),
                 icon: Icon(Icons.close),
-                label: Text('Multiply'),
+                label: Text('Multiply 3,3'),
               ),
               if (_mult != null) Text('$_mult', style: _ts),
             ],
