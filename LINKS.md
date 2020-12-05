@@ -52,6 +52,17 @@
 ### DataStructures in Dart
 - https://github.com/liemvo/Dart_DataStructure_Algorithm
 
+### WASM
+- [flutter_wasm_interop] https://pub.dev/packages/flutter_wasm_interop/
+- [wasm_interop] https://pub.dev/packages/wasm_interop
+- [Fireship] https://www.youtube.com/watch?v=-OTc0Ki7Sv0
+- [Github] https://github.com/rodydavis/flutter_wasm_interop
+- [WASM Examples] https://github.com/mdn/webassembly-examples
+
+- [OnlineWebAssemblyIDE] https://webassembly.studio/
+- [GameOfLife] https://blog.scottlogic.com/2018/04/26/webassembly-by-hand.html
+- [AssemblyScript] https://www.assemblyscript.org/
+
 ## Helpful commands 🥳🥳
 
 - To kill all dart processes

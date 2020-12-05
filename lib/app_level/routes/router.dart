@@ -17,6 +17,7 @@ import 'package:experiments_with_web/sample/sample.dart';
 import 'package:experiments_with_web/search/search_history.dart';
 import 'package:experiments_with_web/streams/stream_form.dart';
 import 'package:experiments_with_web/using_selector/use_selector.dart';
+import 'package:experiments_with_web/wasm/wasm.dart';
 
 import 'package:flutter/material.dart';
 
@@ -131,6 +132,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const SearchHistory(),
           name: ApplevelConstants.searchHistoryRoute,
+        );
+
+      case ApplevelConstants.wasmRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const WasmScreen(),
+          name: ApplevelConstants.wasmRoute,
         );
 
       default:
