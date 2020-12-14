@@ -9,4 +9,7 @@ class WasmStrings {
 
   static const String website =
       'https://flatteredwithflutter.com/flutter-web-wasm/';
+
+  static const String medium =
+      'https://medium.com/flutter-community/flutter-web-and-wasm-49217497b0ed';
 }
