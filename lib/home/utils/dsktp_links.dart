@@ -1,6 +1,11 @@
 class DesktopLinks {
   DesktopLinks._();
 
+  static const String mediumFFIMacOS = 'https://medium.com/@aseemwangoo';
+  static const String ytFFIMacOS = 'https://youtu.be/LUQBDT02ha0';
+  static const String webFFIMacOS =
+      'https://flatteredwithflutter.com/flutterdesktop-and-c/';
+
   static const String mediumFFI =
       'https://levelup.gitconnected.com/dart-ffi-and-cli-app-8cc5ed2f8aae';
   static const String ytFFI = 'https://youtu.be/jKbwhutlw6A';

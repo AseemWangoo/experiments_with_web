@@ -52,6 +52,7 @@ class DesktopAssets {
 
   static const boardingVignette = AssetImage('assets/images/dsktp_v_pass.png');
   static const dsktp = AssetImage('assets/images/dsktp.png');
+  static const dsktpMacOSC = AssetImage('assets/images/dsktp_c_macos.jpg');
 }
 
 class MobileAssets {
