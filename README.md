@@ -16,6 +16,8 @@ Hosted URL : https://web.flatteredwithflutter.com/#/
 
 ## ‍🗣 Speaker at...
 
+* [Flutter SG Meetup 2021](https://www.meetup.com/Singapore-Flutter-Meetup/events/275617045/)
+
 * [GDG Devfest Singapore 2019](https://events.withgoogle.com/devfest-singapore-2019/speakers/#content)
 [![GDG-SG 2019](https://img.shields.io/badge/GDG--SG-2019-red)](https://events.withgoogle.com/devfest-singapore-2019/speakers/#content) 
 
@@ -23,6 +25,7 @@ Hosted URL : https://web.flatteredwithflutter.com/#/
 [![Meetup FlutterSG](https://img.shields.io/badge/Meetup-FlutterSG-red)](https://www.meetup.com/Singapore-Flutter-Meetup/events/past/)
 
 #### Featured In :star:
+[![Meetup FlutterSG](https://img.shields.io/badge/Meetup-FlutterSG-red)](https://www.meetup.com/Singapore-Flutter-Meetup/events/275617045/)
 [![GDG-SG 2019](https://img.shields.io/badge/GDG--SG-2019-red)](https://events.withgoogle.com/devfest-singapore-2019/speakers/#content)
 [![Flutter Force](https://img.shields.io/badge/FlutterForce-%2368-blue)](https://medium.com/flutterforce/flutterforce-week-68-12701c18377b)
 [![Flutter Force](https://img.shields.io/badge/FlutterForce-%2366-blue)](https://medium.com/flutterforce/flutterforce-week-66-51f726aab2bd) 
