@@ -66,6 +66,9 @@ dev_dependencies:
   # HIVE
   hive_generator: ^0.7.1
 
+  # RXDART
+  rxdart: ^0.25.0
+
 flutter:
   uses-material-design: true
 
