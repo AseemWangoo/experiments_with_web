@@ -2,12 +2,20 @@ import 'package:experiments_with_web/app_level/utilities/bloc/bloc_event_state.c
 
 import 'package:flutter/foundation.dart';
 
+enum States {
+  noTerm,
+}
+
 @immutable
 class SearchState extends BlocState {
-  SearchState();
+  SearchState({
+    this.state,
+  });
+
+  final States state;
 
   factory SearchState.noTerm() {
-    return SearchState();
+    return SearchState(state: States.noTerm);
   }
 
   SearchState copyWith() {

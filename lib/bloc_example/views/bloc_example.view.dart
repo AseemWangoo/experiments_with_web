@@ -32,7 +32,7 @@ class _BlocExampleScreenState extends State<BlocExampleScreen> {
       child: BlocBuilderProvider<SearchEvent, SearchState>(
         bloc: searchBloc,
         builder: (_, state) {
-          print('STATE is ${state}');
+          print('STATE is ${state.state}');
           return Text('HELLLOOOO');
         },
       ),
