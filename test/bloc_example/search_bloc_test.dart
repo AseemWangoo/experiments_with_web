@@ -17,6 +17,13 @@ void main() {
   });
 
   group('Search bloc', () {
+    test('throws AssertionError if contract is null', () {
+      expect(
+        () => SearchBloc(null),
+        throwsA(isAssertionError),
+      );
+    });
+
     test('initial state should be NoTerm', () {
       expect(searchBloc.initState.state, equals(SearchState.noTerm().state));
     });

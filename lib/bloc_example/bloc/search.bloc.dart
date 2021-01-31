@@ -6,7 +6,9 @@ import 'package:experiments_with_web/bloc_example/contract/github.contract.dart'
 import 'package:rxdart/rxdart.dart';
 
 class SearchBloc extends BlocEventStateBase<SearchEvent, SearchState> {
-  SearchBloc(this.api) : super(initState: SearchState.noTerm()) {
+  SearchBloc(this.api)
+      : assert(api != null),
+        super(initState: SearchState.noTerm()) {
     _helpers = _Internals(api);
   }
 
@@ -24,9 +26,7 @@ class SearchBloc extends BlocEventStateBase<SearchEvent, SearchState> {
           break;
 
         case Events.typing:
-          // yield SearchState.fetching();
-
-          _helpers.eventTyping(event);
+          yield* _helpers.eventTyping(event);
           break;
       }
     } catch (exc) {
@@ -43,7 +43,7 @@ class _Internals {
 
   final GithubSearchContract api;
 
-  Stream<void> eventTyping(SearchEvent event) async* {
+  Stream<SearchState> eventTyping(SearchEvent event) async* {
     final term = event.searchTerm;
 
     if (term.isEmpty) {
@@ -51,6 +51,7 @@ class _Internals {
     } else {
       // final streamOfResult = Rx.fromCallable(() => api.search(term));
       // streamOfResult.map((result) => result.isEmpty);
+      yield SearchState.fetching();
     }
   }
 }

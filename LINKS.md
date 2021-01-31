@@ -72,3 +72,5 @@
 
 `flutter analyze` for analysis of project
 
+### Testing BloC
+- https://blog.codemagic.io/flutter-unit-testing-bloc-with-codemagic/
