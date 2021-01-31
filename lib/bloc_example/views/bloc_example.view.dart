@@ -1,4 +1,5 @@
 import 'package:experiments_with_web/app_level/components/bloc_builder/bloc_builder.component.dart';
+import 'package:experiments_with_web/app_level/widgets/desktop/custom_input_field.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
 import 'package:experiments_with_web/bloc_example/bloc/events.bloc.dart';
 import 'package:experiments_with_web/bloc_example/bloc/search.bloc.dart';
@@ -33,9 +34,27 @@ class _BlocExampleScreenState extends State<BlocExampleScreen> {
         bloc: searchBloc,
         builder: (_, state) {
           print('STATE is ${state.state}');
-          return Text('HELLLOOOO');
+
+          return const Center(child: _Internal());
         },
       ),
+    );
+  }
+}
+
+class _Internal extends StatelessWidget {
+  const _Internal({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final bloc = locator<SearchBloc>();
+
+    return CustomInputField(
+      onChanged: (val) {
+        bloc.emitEvent(
+          SearchEvent(eventType: Events.typing, searchTerm: val),
+        );
+      },
     );
   }
 }

@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart';
 
 enum States {
   noTerm,
+  fetching,
+  error,
 }
 
 @immutable
@@ -20,5 +22,13 @@ class SearchState extends BlocState {
 
   SearchState copyWith() {
     return SearchState();
+  }
+
+  factory SearchState.fetching() {
+    return SearchState(state: States.fetching);
+  }
+
+  factory SearchState.error() {
+    return SearchState(state: States.error);
   }
 }
