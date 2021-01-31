@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:experiments_with_web/bloc_example/contract/github.contract.dart';
 import 'package:http/http.dart' as http;
 
-class GithubApi {
+class GithubApi implements GithubSearchContract {
   final String baseUrl;
   final Map<String, SearchResult> cache;
   final http.Client client;
@@ -16,6 +17,7 @@ class GithubApi {
         cache = cache ?? <String, SearchResult>{};
 
   /// Search Github for repositories using the given term
+  @override
   Future<SearchResult> search(String term) async {
     if (cache.containsKey(term)) {
       return cache[term];
