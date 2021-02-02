@@ -16,10 +16,6 @@ class SearchState extends BlocState {
 
   final States state;
 
-  factory SearchState.noTerm() {
-    return SearchState(state: States.noTerm);
-  }
-
   SearchState copyWith() {
     return SearchState();
   }
@@ -31,4 +27,8 @@ class SearchState extends BlocState {
   factory SearchState.error() {
     return SearchState(state: States.error);
   }
+}
+
+class SearchNoTerm extends SearchState {
+  SearchNoTerm() : super(state: States.noTerm);
 }

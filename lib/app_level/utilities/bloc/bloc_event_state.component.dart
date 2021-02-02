@@ -1,12 +1,19 @@
 import 'dart:async';
 
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:rxdart/rxdart.dart';
 
-abstract class BlocEvent extends Object {}
+abstract class BlocEvent extends Equatable {
+  @override
+  List<Object> get props => [];
+}
 
-abstract class BlocState extends Object {}
+abstract class BlocState extends Equatable {
+  @override
+  List<Object> get props => [];
+}
 
 abstract class BlocEventStateBase<BlocEvent, BlocState> implements BlocBase {
   BlocEventStateBase({

@@ -74,3 +74,4 @@
 
 ### Testing BloC
 - https://blog.codemagic.io/flutter-unit-testing-bloc-with-codemagic/
+- https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86

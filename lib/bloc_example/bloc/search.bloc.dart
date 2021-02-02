@@ -8,7 +8,7 @@ import 'package:rxdart/rxdart.dart';
 class SearchBloc extends BlocEventStateBase<SearchEvent, SearchState> {
   SearchBloc(this.api)
       : assert(api != null),
-        super(initState: SearchState.noTerm()) {
+        super(initState: SearchNoTerm()) {
     _helpers = _Internals(api);
   }
 
@@ -47,7 +47,7 @@ class _Internals {
     final term = event.searchTerm;
 
     if (term.isEmpty) {
-      yield SearchState.noTerm();
+      yield SearchNoTerm();
     } else {
       // final streamOfResult = Rx.fromCallable(() => api.search(term));
       // streamOfResult.map((result) => result.isEmpty);
