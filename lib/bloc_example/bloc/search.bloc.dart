@@ -30,7 +30,7 @@ class SearchBloc extends BlocEventStateBase<SearchEvent, SearchState> {
           break;
       }
     } catch (exc) {
-      yield SearchState.error();
+      yield SearchError();
     }
   }
 
@@ -51,7 +51,7 @@ class _Internals {
     } else {
       // final streamOfResult = Rx.fromCallable(() => api.search(term));
       // streamOfResult.map((result) => result.isEmpty);
-      yield SearchState.fetching();
+      yield SearchFetching();
     }
   }
 }

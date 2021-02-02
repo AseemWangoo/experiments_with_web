@@ -19,16 +19,22 @@ class SearchState extends BlocState {
   SearchState copyWith() {
     return SearchState();
   }
-
-  factory SearchState.fetching() {
-    return SearchState(state: States.fetching);
-  }
-
-  factory SearchState.error() {
-    return SearchState(state: States.error);
-  }
 }
 
 class SearchNoTerm extends SearchState {
   SearchNoTerm() : super(state: States.noTerm);
 }
+
+class SearchFetching extends SearchState {
+  SearchFetching() : super(state: States.fetching);
+}
+
+class SearchError extends SearchState {
+  SearchError() : super(state: States.error);
+}
+
+// extension Statess on SearchState {
+//   SearchState get noTerm {
+//     return SearchNoTerm();
+//   }
+// }

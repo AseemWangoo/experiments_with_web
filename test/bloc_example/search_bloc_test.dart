@@ -40,6 +40,14 @@ void main() {
 
       await expectLater(searchBloc.state, emits(SearchNoTerm()));
     });
+
+    test('non-empty term and begin loading', () async {
+      searchBloc.emitEvent(
+        SearchEvent(eventType: Events.typing, searchTerm: 'x'),
+      );
+
+      await expectLater(searchBloc.state, emits(SearchFetching()));
+    });
   });
 }
 
