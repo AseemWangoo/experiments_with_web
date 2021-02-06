@@ -1,13 +1,13 @@
-import 'package:experiments_with_web/app_level/components/bloc_builder/bloc_builder.component.dart';
-import 'package:experiments_with_web/app_level/widgets/desktop/custom_input_field.dart';
+import 'package:experiments_with_web/app_level/components/stream/custom_stream_builder.component.dart';
 import 'package:experiments_with_web/app_level/widgets/desktop/custom_scaffold.dart';
-import 'package:experiments_with_web/bloc_example/bloc/events.bloc.dart';
 import 'package:experiments_with_web/bloc_example/bloc/search.bloc.dart';
 import 'package:experiments_with_web/bloc_example/bloc/states.bloc.dart';
 import 'package:experiments_with_web/bloc_example/utilities/strings.dart';
 import 'package:experiments_with_web/locator.dart';
 
 import 'package:flutter/material.dart';
+
+import 'package:provider/provider.dart' show Provider;
 
 class BlocExampleScreen extends StatefulWidget {
   const BlocExampleScreen({Key key}) : super(key: key);
@@ -30,14 +30,30 @@ class _BlocExampleScreenState extends State<BlocExampleScreen> {
     return CustomScaffold(
       titleText: BlocExampleStrings.title,
       enableDarkMode: true,
-      child: BlocBuilderProvider<SearchEvent, SearchState>(
-        bloc: searchBloc,
-        builder: (_, state) {
-          print('STATE is ${state.state}');
-
-          return const Center(child: _Internal());
+      child: CustomStreamBuilder<SearchState>(
+        builder: (context, model) {
+          return _Internal();
         },
+        initialData: SearchNoTerm(),
+        stream: searchBloc.state,
       ),
+      // child: StreamProvider<SearchState>.value(
+      //   initialData: SearchNoTerm(),
+      //   value: searchBloc.state,
+      //   // updateShouldNotify: (_, __) => true,
+      //   child: _Internal(),
+      // ),
+      // child: StreamBuilder<SearchState>(
+      //   stream: searchBloc.state,
+      //   initialData: SearchNoTerm(),
+      //   builder: (_, snapshot) {
+      //     final state = snapshot.data;
+
+      //     print('>>> S $state');
+
+      //     return _Internal();
+      //   },
+      // ),
     );
   }
 }
@@ -48,13 +64,27 @@ class _Internal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = locator<SearchBloc>();
+    final state = Provider.of<SearchState>(context);
+    print('>>>>>STATE ${state.state}');
 
-    return CustomInputField(
-      onChanged: (val) {
-        bloc.emitEvent(
-          SearchEvent(eventType: Events.typing, searchTerm: val),
-        );
-      },
+    if (state.state == States.populated) {
+      final results = (state as SearchPopulated).result;
+
+      print(results.items.first.url);
+    }
+
+    return Center(
+      child: TextField(
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: 'Search Github...',
+        ),
+        style: TextStyle(
+          fontSize: 36.0,
+          decoration: TextDecoration.none,
+        ),
+        onChanged: bloc.onTextChanged.add,
+      ),
     );
   }
 }

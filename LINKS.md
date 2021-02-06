@@ -75,3 +75,8 @@
 ### Testing BloC
 - https://blog.codemagic.io/flutter-unit-testing-bloc-with-codemagic/
 - https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86
+- [RxDart] https://github.com/ReactiveX/rxdart/tree/master/example/flutter/github_search/lib
+- [RxDart Video] https://youtu.be/7O1UO5rEpRc
+
+### Factory in Dart
+- https://stackoverflow.com/questions/58008562/dart-initialise-super-constructor-in-factory-named-constructor
