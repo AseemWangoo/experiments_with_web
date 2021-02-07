@@ -39,11 +39,11 @@ class _BlocExampleScreenState extends State<BlocExampleScreen> {
             final state = model.state;
 
             if (state == States.loading) {
-              return _Loading();
+              return const _Loading();
             } else if (state == States.empty || state == States.noTerm) {
-              return _Empty();
+              return const _Empty();
             } else if (state == States.error) {
-              return _Error();
+              return const _Error();
             } else if (state == States.populated) {
               // If accesed the state here, throws an error
               return const _DisplayWidget();
