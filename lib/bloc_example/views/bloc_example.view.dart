@@ -39,23 +39,11 @@ class _BlocExampleScreenState extends State<BlocExampleScreen> {
             final state = model.state;
 
             if (state == States.loading) {
-              return Center(
-                child: ColumnSpacer(
-                  children: const [LoadingWidget(), _Internal()],
-                ),
-              );
+              return _Loading();
             } else if (state == States.empty || state == States.noTerm) {
-              return Center(
-                child: ColumnSpacer(
-                  children: const [_Internal(), EmptyWidget()],
-                ),
-              );
+              return _Empty();
             } else if (state == States.error) {
-              return Center(
-                child: ColumnSpacer(
-                  children: const [_Internal(), SearchErrorWidget()],
-                ),
-              );
+              return _Error();
             } else if (state == States.populated) {
               // If accesed the state here, throws an error
               return const _DisplayWidget();
@@ -67,23 +55,45 @@ class _BlocExampleScreenState extends State<BlocExampleScreen> {
           stream: searchBloc.state,
         ),
       ),
-      // child: StreamProvider<SearchState>.value(
-      //   initialData: SearchNoTerm(),
-      //   value: searchBloc.state,
-      //   // updateShouldNotify: (_, __) => true,
-      //   child: _Internal(),
-      // ),
-      // child: StreamBuilder<SearchState>(
-      //   stream: searchBloc.state,
-      //   initialData: SearchNoTerm(),
-      //   builder: (_, snapshot) {
-      //     final state = snapshot.data;
+    );
+  }
+}
 
-      //     print('>>> S $state');
+class _Error extends StatelessWidget {
+  const _Error({Key key}) : super(key: key);
 
-      //     return _Internal();
-      //   },
-      // ),
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ColumnSpacer(
+        children: const [_Internal(), SearchErrorWidget()],
+      ),
+    );
+  }
+}
+
+class _Empty extends StatelessWidget {
+  const _Empty({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ColumnSpacer(
+        children: const [_Internal(), EmptyWidget()],
+      ),
+    );
+  }
+}
+
+class _Loading extends StatelessWidget {
+  const _Loading({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ColumnSpacer(
+        children: const [LoadingWidget(), _Internal()],
+      ),
     );
   }
 }
