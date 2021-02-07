@@ -13,15 +13,9 @@ enum States {
 
 @immutable
 class SearchState extends BlocState {
-  SearchState({
-    this.state,
-  });
+  SearchState({this.state});
 
   final States state;
-
-  SearchState copyWith() {
-    return SearchState();
-  }
 }
 
 class SearchNoTerm extends SearchState {
@@ -45,9 +39,3 @@ class SearchPopulated extends SearchState {
 class SearchEmpty extends SearchState {
   SearchEmpty() : super(state: States.empty);
 }
-
-// extension Statess on SearchState {
-//   SearchState get noTerm {
-//     return SearchNoTerm();
-//   }
-// }
