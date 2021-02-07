@@ -11,7 +11,7 @@ class SearchBloc {
     final state = onTextChanged
         // If the text has not changed, do not perform a new search
         .distinct()
-        // Wait for the user to stop typing for 250ms before running a search
+        // Wait for the user to stop typing for 500ms before running a search
         .debounceTime(const Duration(milliseconds: 500))
         // Call the Github api with the given search term.
         // If another search term is entered, switchMap will ensure
