@@ -36,7 +36,7 @@ class DisplayScore {
 
   void update(double t) {
     // ignore: deprecated_member_use
-    final _text = painter.text?.text ?? '';
+    final _text = painter.text ?? '';
     final _gameScore = gameTime.score.toString();
 
     if (_text != _gameScore) {
