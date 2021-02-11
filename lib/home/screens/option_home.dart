@@ -11,8 +11,8 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../locator.dart';
-import 'grid_view.dart';
-import 'top_nav.dart';
+import '../widgets/grid_view.dart';
+import '../widgets/top_nav.dart';
 
 class OptionHome extends StatefulWidget {
   const OptionHome({Key key}) : super(key: key);

@@ -52,6 +52,17 @@
 ### DataStructures in Dart
 - https://github.com/liemvo/Dart_DataStructure_Algorithm
 
+### WASM
+- [flutter_wasm_interop] https://pub.dev/packages/flutter_wasm_interop/
+- [wasm_interop] https://pub.dev/packages/wasm_interop
+- [Fireship] https://www.youtube.com/watch?v=-OTc0Ki7Sv0
+- [Github] https://github.com/rodydavis/flutter_wasm_interop
+- [WASM Examples] https://github.com/mdn/webassembly-examples
+
+- [OnlineWebAssemblyIDE] https://webassembly.studio/
+- [GameOfLife] https://blog.scottlogic.com/2018/04/26/webassembly-by-hand.html
+- [AssemblyScript] https://www.assemblyscript.org/
+
 ## Helpful commands 🥳🥳
 
 - To kill all dart processes
@@ -61,3 +72,11 @@
 
 `flutter analyze` for analysis of project
 
+### Testing BloC
+- https://blog.codemagic.io/flutter-unit-testing-bloc-with-codemagic/
+- https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86
+- [RxDart] https://github.com/ReactiveX/rxdart/tree/master/example/flutter/github_search/lib
+- [RxDart Video] https://youtu.be/7O1UO5rEpRc
+
+### Factory in Dart
+- https://stackoverflow.com/questions/58008562/dart-initialise-super-constructor-in-factory-named-constructor

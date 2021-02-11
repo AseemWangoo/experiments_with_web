@@ -31,3 +31,5 @@ notes.txt
 .flutter-plugins
 lib/generated_plugin_registrant.dart
 .DS_Store
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/Generated.xcconfig

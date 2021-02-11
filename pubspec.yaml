@@ -1,6 +1,6 @@
 name: experiments_with_web
 description: Experiments with Flutter Web
-version: 2.1.2+4
+version: 2.1.9+11
 author: Aseem Wangoo
 homepage: https://web.flatteredwithflutter.com/
 
@@ -50,6 +50,15 @@ dependencies:
   # AUTOSIZE TEXT
   auto_size_text: ^2.1.0
 
+  # WASM
+  wasm_interop: ^1.0.0-dev.1.0
+
+  # RXDART
+  rxdart: ^0.25.0
+
+  # EQUATABLE
+  equatable: ^1.2.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -62,6 +71,12 @@ dev_dependencies:
 
   # HIVE
   hive_generator: ^0.7.1
+
+  # MOCKITO
+  mockito: ^4.1.4
+
+  # TEST
+  test: ^1.15.7
 
 flutter:
   uses-material-design: true
@@ -91,6 +106,7 @@ flutter:
     - assets/audio/sfx/hit1.mp3
     - assets/audio/sfx/hit2.mp3
     - assets/audio/sfx/laugh.mp3
+    - assets/wasm/
 
   fonts:
     - family: arial

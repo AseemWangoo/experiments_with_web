@@ -1,9 +1,13 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
+import 'package:experiments_with_web/bloc_example/views/bloc_example.view.dart';
 import 'package:experiments_with_web/home/home.dart';
 import 'package:experiments_with_web/codepenz/codepen.dart';
 import 'package:experiments_with_web/data_table/data_table.dart';
 import 'package:experiments_with_web/game/game.dart';
 import 'package:experiments_with_web/google/google.dart';
+import 'package:experiments_with_web/home/screens/option_desktop.dart';
+import 'package:experiments_with_web/home/screens/option_fav.dart';
+import 'package:experiments_with_web/home/screens/option_mobile.dart';
 import 'package:experiments_with_web/hooks/hooks.dart';
 import 'package:experiments_with_web/iframe/iframe.dart';
 import 'package:experiments_with_web/location/location.dart';
@@ -14,6 +18,7 @@ import 'package:experiments_with_web/sample/sample.dart';
 import 'package:experiments_with_web/search/search_history.dart';
 import 'package:experiments_with_web/streams/stream_form.dart';
 import 'package:experiments_with_web/using_selector/use_selector.dart';
+import 'package:experiments_with_web/wasm/wasm.dart';
 
 import 'package:flutter/material.dart';
 
@@ -26,6 +31,24 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const Home(),
           name: ApplevelConstants.homeRoute,
+        );
+
+      case ApplevelConstants.favRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const OptionFav(),
+          name: ApplevelConstants.favRoute,
+        );
+
+      case ApplevelConstants.desktopRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const OptionDesktop(),
+          name: ApplevelConstants.desktopRoute,
+        );
+
+      case ApplevelConstants.mobileRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const OptionMobile(),
+          name: ApplevelConstants.mobileRoute,
         );
 
       case ApplevelConstants.googleRoute:
@@ -110,6 +133,18 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const SearchHistory(),
           name: ApplevelConstants.searchHistoryRoute,
+        );
+
+      case ApplevelConstants.wasmRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const WasmScreen(),
+          name: ApplevelConstants.wasmRoute,
+        );
+
+      case ApplevelConstants.githubSearchRoute:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const BlocExampleScreen(),
+          name: ApplevelConstants.githubSearchRoute,
         );
 
       default:
