@@ -1,4 +1,5 @@
 import 'package:experiments_with_web/app_level/models/articles/articles.dart';
+import 'package:experiments_with_web/bloc_example/utilities/strings.dart';
 import 'package:experiments_with_web/codepenz/utilities/constants.dart';
 import 'package:experiments_with_web/data_table/utilities/constants.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
@@ -63,7 +64,7 @@ class ApplevelConstants {
   static const String option13 = 'Navigation History';
   static const String option14 = 'Search History';
   static const String option15 = 'Wasm';
-  static const String option16 = 'Bloc';
+  static const String option16 = 'Git Search BLoC';
 }
 
 class WHOLinks {
@@ -192,7 +193,7 @@ class OptionAndRoutes {
     ApplevelConstants.option16: <String>[
       BrandLinks.medium,
       BrandLinks.website,
-      BrandLinks.youtube
+      BlocExampleStrings.youtube
     ],
   };
 }
