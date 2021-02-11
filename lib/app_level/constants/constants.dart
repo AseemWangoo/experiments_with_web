@@ -45,6 +45,7 @@ class ApplevelConstants {
   static const String visitedPagesRoute = '/pages-seen';
   static const String searchHistoryRoute = '/search-history';
   static const String wasmRoute = '/wasm';
+  static const String githubSearchRoute = '/github-search';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -62,6 +63,7 @@ class ApplevelConstants {
   static const String option13 = 'Navigation History';
   static const String option14 = 'Search History';
   static const String option15 = 'Wasm';
+  static const String option16 = 'Bloc';
 }
 
 class WHOLinks {
@@ -108,6 +110,7 @@ class OptionAndRoutes {
     ApplevelConstants.option13: ApplevelConstants.visitedPagesRoute,
     ApplevelConstants.option14: ApplevelConstants.searchHistoryRoute,
     ApplevelConstants.option15: ApplevelConstants.wasmRoute,
+    ApplevelConstants.option16: ApplevelConstants.githubSearchRoute,
   };
 
   static const Map<String, List<String>> linksRoutes = {
@@ -185,6 +188,11 @@ class OptionAndRoutes {
       WasmStrings.medium,
       WasmStrings.website,
       WasmStrings.youtube
+    ],
+    ApplevelConstants.option16: <String>[
+      BrandLinks.medium,
+      BrandLinks.website,
+      BrandLinks.youtube
     ],
   };
 }

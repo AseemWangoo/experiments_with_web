@@ -53,6 +53,12 @@ dependencies:
   # WASM
   wasm_interop: ^1.0.0-dev.1.0
 
+  # RXDART
+  rxdart: ^0.25.0
+
+  # EQUATABLE
+  equatable: ^1.2.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -65,6 +71,12 @@ dev_dependencies:
 
   # HIVE
   hive_generator: ^0.7.1
+
+  # MOCKITO
+  mockito: ^4.1.4
+
+  # TEST
+  test: ^1.15.7
 
 flutter:
   uses-material-design: true
