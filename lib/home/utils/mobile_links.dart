@@ -180,4 +180,15 @@ class MobileLinks {
       'https://flatteredwithflutter.com/graph-ql-and-flutter/';
   static const String mediumGQL =
       'https://medium.com/codechai/graph-ql-and-flutter-3dab06232524';
+
+  static const String ytTestBloc = 'https://youtu.be/s231bqsbe0A';
+  static const String webTestBloc =
+      'https://flatteredwithflutter.com/testing-bloc-in-flutte/';
+  static const String mediumTestBloc = 'https://aseemwangoo.medium.com/';
+
+  static const String ytFlutter2 = 'https://www.youtube.com/aseemwangoo';
+  static const String webFlutter2 =
+      'https://flatteredwithflutter.com/flutter-2/';
+  static const String mediumFlutter2 =
+      'https://aseemwangoo.medium.com/flutter-engage-flutter-2-2b4e8dde016f';
 }

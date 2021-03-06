@@ -114,7 +114,7 @@ class _SaveForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return ButtonBar(
       children: [
-        RaisedButton.icon(
+        ElevatedButton.icon(
           onPressed: () => Navigator.of(context).pop(),
           label: const Text(StreamFormConstants.back),
           icon: const Icon(Icons.chevron_left),
@@ -125,7 +125,7 @@ class _SaveForm extends StatelessWidget {
           builder: (context, snapshot) {
             final _isEnabled = snapshot.data;
 
-            return RaisedButton.icon(
+            return ElevatedButton.icon(
               onPressed: _isEnabled ? () => debugPrint(data.toString()) : null,
               label: const Text(StreamFormConstants.save),
               icon: const Icon(Icons.save),

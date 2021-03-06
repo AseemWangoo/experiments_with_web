@@ -191,8 +191,8 @@ class OptionAndRoutes {
       WasmStrings.youtube
     ],
     ApplevelConstants.option16: <String>[
-      BrandLinks.medium,
-      BrandLinks.website,
+      BlocExampleStrings.medium,
+      BlocExampleStrings.website,
       BlocExampleStrings.youtube
     ],
   };

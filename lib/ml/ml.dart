@@ -49,7 +49,7 @@ class _MLScreenState extends State<MLScreen> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               const Text('Formula (2x - 1)'),
-              OutlineButton(
+              OutlinedButton(
                 onPressed: () async {
                   final _val =
                       await jsutil.promiseToFuture<num>(linearModel(12));
@@ -59,7 +59,7 @@ class _MLScreenState extends State<MLScreen> {
                 child: const Text('Linear Model x=12'),
               ),
               Text('Predicted Value $_predictedValue'),
-              OutlineButton(
+              OutlinedButton(
                 onPressed: () async {
                   _imgData = await _imgService.imgPicker();
 
@@ -79,7 +79,7 @@ class _MLScreenState extends State<MLScreen> {
                   child: Image.memory(imageData),
                 )
               ],
-              OutlineButton(
+              OutlinedButton(
                 onPressed: () async {
                   final _val = await jsutil
                       .promiseToFuture<List<Object>>(imageClassifier());

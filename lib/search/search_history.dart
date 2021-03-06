@@ -31,7 +31,7 @@ class SearchHistory extends StatelessWidget {
 
           return CustomPaginatedTable(
             actions: [
-              OutlineButton.icon(
+              ElevatedButton.icon(
                 onPressed: () => _searchOps.clearEntireCache,
                 icon: const Icon(Icons.clear_all),
                 label: const Text(SearchHistoryConsts.clearSearch),

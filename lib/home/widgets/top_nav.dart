@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'package:experiments_with_web/home/widgets/announcement.dart';
 import 'package:experiments_with_web/app_level/assets/assets.dart';
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/app_level/extensions/textstyle_extension.dart';
@@ -14,9 +15,11 @@ class TopNavBar extends StatefulWidget {
   const TopNavBar({
     Key key,
     @required this.controller,
+    this.showAnnouncement = true,
   }) : super(key: key);
 
   final ScrollController controller;
+  final bool showAnnouncement;
 
   @override
   _TopNavBarState createState() => _TopNavBarState();
@@ -34,7 +37,7 @@ class _TopNavBarState extends State<TopNavBar> {
 
     return Container(
       color: AppColors.navColor,
-      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 16),
       child: Row(
         children: [
           ImageWidgetPlaceholder(image: WebAssets.logo).clickable(() {
@@ -54,26 +57,26 @@ class _TopNavBarState extends State<TopNavBar> {
                   IconButton(
                     color: Colors.white,
                     icon: FaIcon(FontAwesomeIcons.youtube),
-                    iconSize: 20.0,
+                    iconSize: 18.0,
                     padding: EdgeInsets.zero,
                     onPressed: () => _linkService.openLink(BrandLinks.youtube),
                   ),
                   IconButton(
                     color: Colors.white,
-                    iconSize: 20.0,
+                    iconSize: 18.0,
                     icon: FaIcon(FontAwesomeIcons.medium),
                     padding: EdgeInsets.zero,
                     onPressed: () => _linkService.openLink(BrandLinks.medium),
                   ),
                   IconButton(
-                    iconSize: 20.0,
+                    iconSize: 18.0,
                     color: Colors.white,
                     icon: FaIcon(FontAwesomeIcons.chrome),
                     padding: EdgeInsets.zero,
                     onPressed: () => _linkService.openLink(BrandLinks.website),
                   ),
                   IconButton(
-                    iconSize: 20.0,
+                    iconSize: 18.0,
                     color: Colors.white,
                     icon: FaIcon(FontAwesomeIcons.dev),
                     padding: EdgeInsets.zero,
@@ -88,6 +91,7 @@ class _TopNavBarState extends State<TopNavBar> {
                   ),
                 ],
               ),
+              if (widget.showAnnouncement) ...const [Spacer(), Announcement()],
             ],
           ),
           const Spacer(),
