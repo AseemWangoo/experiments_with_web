@@ -20,13 +20,11 @@ class Announcement extends StatelessWidget {
       padding: const EdgeInsets.all(2),
       alignment: Alignment.center,
       color: HexColor.fromHex('#231F20'),
-      child: Expanded(
-        child: Text(
-          'Flutter 2 Out! Click to find more',
-          style: _whiteStyle.bold,
-        ).clickable(
-          () => _linkService.openLink(MobileLinks.mediumFlutter2),
-        ),
+      child: Text(
+        'Flutter 2 Out! Click to find more',
+        style: _whiteStyle.bold,
+      ).clickable(
+        () => _linkService.openLink(MobileLinks.mediumFlutter2),
       ),
     );
   }
