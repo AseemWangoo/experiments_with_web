@@ -4,8 +4,8 @@ class BlocExampleStrings {
   static const String title = 'Experiments with Bloc';
 
   static const String website =
-      'https://flatteredwithflutter.com/how-to-create-game-in-flutter-web-using-flame/';
+      'https://flatteredwithflutter.com/github-search-and-bloc/';
   static const String youtube = 'https://www.youtube.com/watch?v=7eQgZ6QQwxs';
   static const String medium =
-      'https://medium.com/flutterpub/flutter-web-and-flame-5df7772ce226';
+      'https://levelup.gitconnected.com/github-search-and-bloc-523d51848c68';
 }

@@ -31,7 +31,7 @@ class _VisitedScreensState extends State<VisitedScreens> {
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 20.0),
-          child: OutlineButton.icon(
+          child: OutlinedButton.icon(
             onPressed: () {
               AppGlobals.routeObserver.navStack.clear;
               setState(() {});

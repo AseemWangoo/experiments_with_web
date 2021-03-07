@@ -128,7 +128,7 @@ class _InternalWidget extends StatelessWidget {
   }
 
   void _showSBar(BuildContext c, String textToShow) {
-    Scaffold.of(c).showSnackBar(
+    ScaffoldMessenger.of(c).showSnackBar(
       SnackBar(
         content: Text(textToShow),
         duration: const Duration(milliseconds: 2000),

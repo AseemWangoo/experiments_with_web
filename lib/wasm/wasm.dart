@@ -52,7 +52,7 @@ class _WasmScreenState extends State<WasmScreen> {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              RaisedButton.icon(
+              ElevatedButton.icon(
                 onPressed: () => _addition([1, 3]),
                 icon: Icon(Icons.add),
                 label: Text('Add 1,3'),
@@ -63,7 +63,7 @@ class _WasmScreenState extends State<WasmScreen> {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              RaisedButton.icon(
+              ElevatedButton.icon(
                 onPressed: () => _multiply([2, 3]),
                 icon: Icon(Icons.close),
                 label: Text('Multiply 3,3'),

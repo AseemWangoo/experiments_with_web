@@ -39,21 +39,21 @@ class _SamplePageState extends State<SamplePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('$_counter'),
-            OutlineButton(
+            OutlinedButton(
               child: const Text('Save count in Storage'),
               onPressed: () {
                 SamplePage._storageService.saveKeyValue('count', '1');
               },
             ),
-            OutlineButton(
+            OutlinedButton(
               child: const Text('Clear Storage'),
               onPressed: () => SamplePage._storageService.clear,
             ),
-            OutlineButton(
+            OutlinedButton(
               child: const Text('Remove count from Storage'),
               onPressed: () => SamplePage._storageService.removeKey('count'),
             ),
-            OutlineButton(
+            OutlinedButton(
               child: const Text('Fetch count from Storage'),
               onPressed: () async {
                 final _value =

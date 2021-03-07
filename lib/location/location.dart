@@ -41,11 +41,11 @@ class _LocationScreenState extends State<LocationScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            OutlineButton(
+            OutlinedButton(
               onPressed: () => alert('Hello!! from JS'),
               child: const Text('Alert in Flutter Web'),
             ),
-            OutlineButton(
+            OutlinedButton(
               onPressed: () {
                 getCurrentPosition(allowInterop((pos) {
                   setState(() {
@@ -58,7 +58,7 @@ class _LocationScreenState extends State<LocationScreen> {
             ),
             Text('LAT : $_latitude'),
             Text('LONG : $_longitude'),
-            OutlineButton(
+            OutlinedButton(
               onPressed: () async {
                 final _val = await LocationAPI().fetchData();
                 setState(() => _city = _val);

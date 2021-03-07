@@ -52,7 +52,7 @@ class FormSave extends StatelessWidget {
   Widget build(BuildContext context) {
     //
 
-    return RaisedButton.icon(
+    return ElevatedButton.icon(
       onPressed: () {
         final _model = Suggestion(
           personName: _namefield.text,
@@ -67,7 +67,9 @@ class FormSave extends StatelessWidget {
           _showDialog(context, _model);
         }
       },
-      color: AppColors.brandColor,
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(AppColors.brandColor),
+      ),
       icon: Icon(Icons.save, color: Colors.white),
       label: Text(
         HookScreenConstants.saveBtn,
