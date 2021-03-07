@@ -2,6 +2,7 @@ import 'package:experiments_with_web/app_level/models/articles/articles.dart';
 import 'package:experiments_with_web/bloc_example/utilities/strings.dart';
 import 'package:experiments_with_web/codepenz/utilities/constants.dart';
 import 'package:experiments_with_web/data_table/utilities/constants.dart';
+import 'package:experiments_with_web/flutter2_widgets/utilities/strings.dart';
 import 'package:experiments_with_web/game/utilities/constants.dart';
 import 'package:experiments_with_web/hooks/utilities/constants.dart';
 import 'package:experiments_with_web/iframe/utilities/constants.dart';
@@ -47,6 +48,7 @@ class ApplevelConstants {
   static const String searchHistoryRoute = '/search-history';
   static const String wasmRoute = '/wasm';
   static const String githubSearchRoute = '/github-search';
+  static const String flutter2Route = '/flutter2';
 
   /* MENU OPTIONS */
   static const String option1 = 'Sample';
@@ -65,6 +67,7 @@ class ApplevelConstants {
   static const String option14 = 'Search History';
   static const String option15 = 'Wasm';
   static const String option16 = 'Git Search BLoC';
+  static const String option17 = 'Flutter2 Widgets';
 }
 
 class WHOLinks {
@@ -97,6 +100,7 @@ class OptionAndRoutes {
 
   static const Map<String, String> optionRoutes = {
     // ApplevelConstants.option1: ApplevelConstants.sampleRoute,
+    ApplevelConstants.option17: ApplevelConstants.flutter2Route,
     ApplevelConstants.option12: ApplevelConstants.selectorsRoute,
     ApplevelConstants.option3: ApplevelConstants.iframeRoute,
     ApplevelConstants.option4: ApplevelConstants.parallaxRoute,
@@ -194,6 +198,11 @@ class OptionAndRoutes {
       BlocExampleStrings.medium,
       BlocExampleStrings.website,
       BlocExampleStrings.youtube
+    ],
+    ApplevelConstants.option17: <String>[
+      BrandLinks.medium,
+      Flutter2Strings.website,
+      Flutter2Strings.youtube
     ],
   };
 }

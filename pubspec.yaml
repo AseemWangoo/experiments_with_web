@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
 
   # DEPENDENCY INJECTION
   get_it: ^3.1.0
@@ -58,6 +60,9 @@ dependencies:
 
   # EQUATABLE
   equatable: ^1.2.5
+
+  # URL LAUNCHER
+  url_launcher: ^6.0.2
 
 dev_dependencies:
   flutter_test:
