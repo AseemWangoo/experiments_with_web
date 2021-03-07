@@ -165,7 +165,6 @@ class _CustomInputFieldState extends State<CustomInputField> {
           inputFormatters: widget._inputFormatters,
           keyboardAppearance: Brightness.light,
           keyboardType: widget.keyboardType,
-          maxLengthEnforced: true,
           minLines: widget.minLines,
           maxLines: widget.maxLines,
           onChanged: widget.onChanged,

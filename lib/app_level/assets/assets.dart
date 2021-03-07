@@ -91,4 +91,7 @@ class MobileAssets {
   static const webview = AssetImage('assets/images/ntv_webview.png');
   static const widgetInspector = AssetImage('assets/images/ntv_wi.png');
   static const youTube = AssetImage('assets/images/ntv_yt.png');
+
+  static const testBloc = AssetImage('assets/images/ntv_bloc_test.jpg');
+  static const flutterEngage = AssetImage('assets/images/anc_flutter_2.jpg');
 }

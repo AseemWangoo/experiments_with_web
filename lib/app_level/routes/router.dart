@@ -1,5 +1,6 @@
 import 'package:experiments_with_web/app_level/constants/constants.dart';
 import 'package:experiments_with_web/bloc_example/views/bloc_example.view.dart';
+import 'package:experiments_with_web/flutter2_widgets/views/flutter2.view.dart';
 import 'package:experiments_with_web/home/home.dart';
 import 'package:experiments_with_web/codepenz/codepen.dart';
 import 'package:experiments_with_web/data_table/data_table.dart';
@@ -145,6 +146,12 @@ class Router {
         return _NoAnimationMaterialPageRoute<dynamic>(
           builder: (_) => const BlocExampleScreen(),
           name: ApplevelConstants.githubSearchRoute,
+        );
+
+      case ApplevelConstants.flutter2Route:
+        return _NoAnimationMaterialPageRoute<dynamic>(
+          builder: (_) => const Flutter2View(),
+          name: ApplevelConstants.flutter2Route,
         );
 
       default:

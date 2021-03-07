@@ -45,6 +45,22 @@ class _OptionMobileState extends State<OptionMobile> {
             DesktopCarousel(
               children: [
                 CarouselCard(
+                  asset: MobileAssets.flutterEngage,
+                  medium: MobileLinks.mediumFlutter2,
+                  website: MobileLinks.webFlutter2,
+                  youtubeLink: MobileLinks.ytFlutter2,
+                ),
+                CarouselCard(
+                  asset: MobileAssets.testBloc,
+                  medium: MobileLinks.mediumTestBloc,
+                  website: MobileLinks.webTestBloc,
+                  youtubeLink: MobileLinks.ytTestBloc,
+                ),
+              ],
+            ),
+            DesktopCarousel(
+              children: [
+                CarouselCard(
                   asset: MobileAssets.fday,
                   medium: MobileLinks.mediumFDay,
                   website: MobileLinks.webFDay,
