@@ -184,7 +184,8 @@ class MobileLinks {
   static const String ytTestBloc = 'https://youtu.be/s231bqsbe0A';
   static const String webTestBloc =
       'https://flatteredwithflutter.com/testing-bloc-in-flutte/';
-  static const String mediumTestBloc = 'https://aseemwangoo.medium.com/';
+  static const String mediumTestBloc =
+      'https://levelup.gitconnected.com/testing-bloc-in-flutter-2deb1a1758ff';
 
   static const String ytFlutter2 = 'https://www.youtube.com/aseemwangoo';
   static const String webFlutter2 =
