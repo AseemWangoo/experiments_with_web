@@ -46,6 +46,18 @@ class _OptionDesktopState extends State<OptionDesktop> {
             DesktopCarousel(
               children: [
                 CarouselCard(
+                  asset: DesktopAssets.ffiLinux,
+                  medium: DesktopLinks.mediumFfiLinux,
+                  website: DesktopLinks.webFfiLinux,
+                  youtubeLink: DesktopLinks.ytFfiLinux,
+                ),
+                CarouselCard(
+                  asset: DesktopAssets.cloudRun,
+                  medium: DesktopLinks.mediumCloudRun,
+                  website: DesktopLinks.webCloudRun,
+                  youtubeLink: DesktopLinks.ytCloudRun,
+                ),
+                CarouselCard(
                   asset: DesktopAssets.dsktpMacOSC,
                   medium: DesktopLinks.mediumFFIMacOS,
                   website: DesktopLinks.webFFIMacOS,
@@ -63,6 +75,11 @@ class _OptionDesktopState extends State<OptionDesktop> {
                   website: DesktopLinks.webPlugin,
                   youtubeLink: DesktopLinks.ytPlugin,
                 ),
+              ],
+            ),
+            DesktopCarousel(
+              showNavButtons: false,
+              children: [
                 CarouselCard(
                   asset: DesktopAssets.liquidCardsVignette,
                   medium: DesktopLinks.mediumLCV,
@@ -75,11 +92,6 @@ class _OptionDesktopState extends State<OptionDesktop> {
                   website: DesktopLinks.webDMV,
                   youtubeLink: DesktopLinks.ytDMV,
                 ),
-              ],
-            ),
-            DesktopCarousel(
-              showNavButtons: false,
-              children: [
                 CarouselCard(
                   asset: DesktopAssets.boardingVignette,
                   medium: DesktopLinks.mediumBPV,

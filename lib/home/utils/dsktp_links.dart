@@ -48,4 +48,16 @@ class DesktopLinks {
       'https://flatteredwithflutter.com/flutter-and-desktop/';
   static const String mediumDsktp =
       'https://medium.com/codechai/flutter-and-desktop-4a19886f726b';
+
+  static const String ytCloudRun = 'https://youtu.be/mLHP_DHgBa4';
+  static const String webCloudRun =
+      'https://flatteredwithflutter.com/dart-and-cloud-run/';
+  static const String mediumCloudRun =
+      'https://levelup.gitconnected.com/dart-and-cloud-run-a31a3d129880';
+
+  static const String ytFfiLinux = 'https://youtu.be/Hd-tJT-csdM';
+  static const String webFfiLinux =
+      'https://flatteredwithflutter.com/dart-ffi-and-linux/';
+  static const String mediumFfiLinux =
+      'https://medium.com/flutter-community/dart-ffi-and-linux-d1b9a32b9c6';
 }

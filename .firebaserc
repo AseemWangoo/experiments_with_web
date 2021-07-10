@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "fir-signin-4477d"
+  },
+  "targets": {
+    "fir-signin-4477d": {
+      "hosting": {
+        "flutter": [
+          "fir-signin-4477d"
+        ]
+      }
+    }
+  }
+}
